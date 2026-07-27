@@ -5,6 +5,128 @@ title: "Databricks"
 
 ## Overview
 
+There are two ways to connect Databricks to Dust:
+
+1. **Official Databricks managed MCP servers (recommended)**: connect Dust directly to the MCP endpoints hosted and maintained by Databricks. Use this option first. It relies on the standard remote MCP server setup in Dust and gives agents access to Databricks SQL, Genie spaces, Unity Catalog functions, and vector search.
+2. **Dust-built Databricks tool**: a Databricks tool built by Dust, configured with a dedicated OAuth application. Use it if the managed MCP servers are not available on your Databricks workspace.
+
+---
+
+## Option 1: Official Databricks managed MCP servers (recommended)
+
+Databricks hosts one MCP endpoint per capability. Each endpoint is added to Dust as a separate remote MCP server:
+
+| Capability | Server URL pattern | OAuth scope |
+| --- | --- | --- |
+| Databricks SQL | `https://<workspace-hostname>/api/2.0/mcp/sql` | `sql` |
+| Genie (all spaces) | `https://<workspace-hostname>/api/2.0/mcp/genie` | `genie` |
+| Genie (single space) | `https://<workspace-hostname>/api/2.0/mcp/genie/{genie_space_id}` | `genie` |
+| Unity Catalog functions | `https://<workspace-hostname>/api/2.0/mcp/functions/{catalog}/{schema}` | `unity-catalog` |
+| AI / Vector Search | `https://<workspace-hostname>/api/2.0/mcp/ai-search/{catalog}/{schema}/{index}` | `ai-search` |
+
+See the [Databricks managed MCP servers documentation](https://docs.databricks.com/aws/en/agents/mcp/managed-mcp) for the full list.
+
+<Warning>
+Databricks does not support Dynamic Client Registration for managed MCP servers. The **Automatic** authentication mode in Dust will not work: you must use **Static OAuth** with a custom OAuth app connection created in Databricks, as described below.
+</Warning>
+
+### Step 1: Find your Databricks workspace URL
+
+The workspace hostname is the domain you see in your browser when you are logged into your Databricks workspace, for example `dbc-a1b2c3d4-e5f6.cloud.databricks.com`.
+
+You can also find it from the Account Console:
+
+1. Go to the [Databricks Account Console](https://accounts.cloud.databricks.com/) (on Azure, use the Azure portal).
+2. In the left sidebar, click **Workspaces**.
+3. Click the workspace you want to connect.
+4. On the **Configuration** tab, the workspace URL is displayed at the top of the page, next to the workspace status. It also appears under **Networking > Connectivity > Per-workspace URL**.
+5. Copy the URL without the trailing slash, for example `https://dbc-a1b2c3d4-e5f6.cloud.databricks.com`.
+
+<Info>
+Use the **workspace** URL (where you open notebooks), not the Account Console URL (`accounts.cloud.databricks.com`). If your organization has several workspaces, pick the one containing the data you want to expose to agents.
+</Info>
+
+### Step 2: Create an OAuth app connection in Databricks
+
+You need Databricks **account admin** rights for this step.
+
+1. Go to the [Databricks Account Console](https://accounts.cloud.databricks.com/).
+2. In the left sidebar, click **Settings**.
+3. Open the **App connections** tab. It lists the existing OAuth applications (Tableau, dbt, and so on).
+4. Click the **Add connection** button in the top right corner of the list.
+5. Fill in the **Add connection** form:
+
+   - **Application Name**: `Dust`
+   - **Redirect URLs**: add the Dust Static OAuth callbacks (one per line):
+
+     ```
+     https://dust.tt/oauth/mcp_static/finalize
+     https://app.dust.tt/oauth/mcp_static/finalize
+     https://eu.dust.tt/oauth/mcp_static/finalize
+     ```
+
+   - **Access scopes**: check **All APIs**, or the fine-grained scope matching the endpoint you want to connect (for example **SQL** for the `/api/2.0/mcp/sql` server)
+   - **Client secret**: check **Generate a client secret**
+   - **Single-use Refresh Tokens**: leave unchecked
+   - **Access token TTL (in minutes)**: `60` (default)
+   - **Refresh token TTL (in minutes)**: `10080` (default)
+
+6. Click **Add**, then copy the **Client ID** and **Client Secret** from the confirmation dialog immediately.
+
+<Warning>
+The client secret cannot be retrieved after creation. Store it securely right away.
+</Warning>
+
+### Step 3: Add the MCP server in Dust
+
+1. In Dust, go to **Spaces > Administration > Tools**.
+2. Click **Add Tools**, then **Add MCP Server**.
+3. Select the **Static OAuth** authentication method and fill in the fields:
+
+| Field | Value |
+| --- | --- |
+| Server URL | `https://<workspace-hostname>/api/2.0/mcp/sql` (or another endpoint from the table above) |
+| OAuth Authorization Endpoint | `https://<workspace-hostname>/oidc/v1/authorize` |
+| OAuth Token Endpoint | `https://<workspace-hostname>/oidc/v1/token` |
+| Client ID | The Client ID from your Databricks app connection |
+| Client Secret | The Client Secret from your Databricks app connection |
+| Scope | `all-apis offline_access` (or the fine-grained scope, for example `sql offline_access`) |
+| Resource | The full server URL, for example `https://<workspace-hostname>/api/2.0/mcp/sql` |
+
+4. Click **Connect** and complete the Databricks login flow.
+
+<Info>
+- The **Resource** field is required: Databricks rejects requests with an empty `resource` parameter. Set it to the exact server URL, without a trailing slash or fragment.
+- Keep `offline_access` in the scope so Dust can refresh tokens automatically. Without it, users must re-authenticate every time the access token expires (60 minutes by default).
+- The scopes requested in Dust must be included in the scopes declared on the Databricks app connection.
+</Info>
+
+5. To connect several capabilities (for example SQL and Genie), repeat the operation with one MCP server per endpoint. The same Databricks app connection can be reused if its scopes cover all endpoints.
+
+### Step 4: Add the tool to your agents
+
+In the Agent Builder, click **Add Tool** and select your Databricks MCP server. Save or publish the agent.
+
+### Troubleshooting
+
+| Error | Fix |
+| --- | --- |
+| `invalid_target` / "Illegal resource parameter: Must be an absolute URI without a fragment" | The **Resource** field is empty. Set it to the full MCP server URL. |
+| "This page can't be found" during login, with a URL pointing to `/oidc/v1/token` | The authorization and token endpoints are swapped. The Authorization Endpoint must be `/oidc/v1/authorize` and the Token Endpoint `/oidc/v1/token`. |
+| `401 Unauthorized` when calling the server | Managed MCP servers require the OAuth flow. Personal access tokens sent as Bearer tokens are not supported. |
+| `invalid_scope` | The scopes requested in Dust are not included in the Databricks app connection scopes. Align both sides. |
+| OAuth flow fails in **Automatic** mode | Databricks does not support Dynamic Client Registration. Use **Static OAuth**. |
+
+<Info>
+Updates to OAuth app connections can take up to 30 minutes to process in Databricks.
+</Info>
+
+---
+
+## Option 2: Dust-built Databricks tool
+
+Use this option if the managed MCP servers are not available on your Databricks workspace.
+
 ## Admin: Setup in Databricks
 
 ### Create a Custom OAuth Application in Databricks
