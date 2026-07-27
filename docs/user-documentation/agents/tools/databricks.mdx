@@ -34,22 +34,27 @@ Databricks does not support Dynamic Client Registration for managed MCP servers.
 
 The workspace hostname is the domain you see in your browser when you are logged into your Databricks workspace, for example `dbc-a1b2c3d4-e5f6.cloud.databricks.com`.
 
-You can also find it in the [Databricks Account Console](https://accounts.cloud.databricks.com/) under **Workspaces**: open your workspace and copy the **Per-workspace URL**.
+You can also find it from the Account Console:
 
-![Databricks workspace configuration page showing the per-workspace URL](/images/tools/databricks/workspace-url.png)
+1. Go to the [Databricks Account Console](https://accounts.cloud.databricks.com/) (on Azure, use the Azure portal).
+2. In the left sidebar, click **Workspaces**.
+3. Click the workspace you want to connect.
+4. On the **Configuration** tab, the workspace URL is displayed at the top of the page, next to the workspace status. It also appears under **Networking > Connectivity > Per-workspace URL**.
+5. Copy the URL without the trailing slash, for example `https://dbc-a1b2c3d4-e5f6.cloud.databricks.com`.
 
 <Info>
-Use the **workspace** URL (where you open notebooks), not the Account Console URL. If your organization has several workspaces, pick the one containing the data you want to expose to agents.
+Use the **workspace** URL (where you open notebooks), not the Account Console URL (`accounts.cloud.databricks.com`). If your organization has several workspaces, pick the one containing the data you want to expose to agents.
 </Info>
 
 ### Step 2: Create an OAuth app connection in Databricks
 
-1. Go to the [Databricks Account Console](https://accounts.cloud.databricks.com/) and open **Settings > App connections**.
-2. Click **Add connection**.
+You need Databricks **account admin** rights for this step.
 
-![Databricks Account Console App connections tab with the Add connection button](/images/tools/databricks/app-connections.png)
-
-3. Fill in the form:
+1. Go to the [Databricks Account Console](https://accounts.cloud.databricks.com/).
+2. In the left sidebar, click **Settings**.
+3. Open the **App connections** tab. It lists the existing OAuth applications (Tableau, dbt, and so on).
+4. Click the **Add connection** button in the top right corner of the list.
+5. Fill in the **Add connection** form:
 
    - **Application Name**: `Dust`
    - **Redirect URLs**: add the Dust Static OAuth callbacks (one per line):
@@ -60,14 +65,13 @@ Use the **workspace** URL (where you open notebooks), not the Account Console UR
      https://eu.dust.tt/oauth/mcp_static/finalize
      ```
 
-   - **Access scopes**: select **All APIs**, or the fine-grained scope matching the endpoint you want to connect (for example **SQL** for the `/api/2.0/mcp/sql` server)
+   - **Access scopes**: check **All APIs**, or the fine-grained scope matching the endpoint you want to connect (for example **SQL** for the `/api/2.0/mcp/sql` server)
    - **Client secret**: check **Generate a client secret**
-   - **Access token TTL**: 60 minutes (default)
-   - **Refresh token TTL**: 10080 minutes (default)
+   - **Single-use Refresh Tokens**: leave unchecked
+   - **Access token TTL (in minutes)**: `60` (default)
+   - **Refresh token TTL (in minutes)**: `10080` (default)
 
-![Databricks Add connection form configured for Dust](/images/tools/databricks/add-connection.png)
-
-4. Click **Add**, then copy the **Client ID** and **Client Secret** immediately.
+6. Click **Add**, then copy the **Client ID** and **Client Secret** from the confirmation dialog immediately.
 
 <Warning>
 The client secret cannot be retrieved after creation. Store it securely right away.
