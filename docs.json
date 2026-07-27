@@ -1440,8 +1440,12 @@
       "destination": "/docs/user-documentation/agents/tools/zendesk"
     },
     {
+      "source": "/reference",
+      "destination": "/api-reference/"
+    },
+    {
       "source": "/reference/:slug*",
-      "destination": "/api-reference/dust-api-documentation"
+      "destination": "/api-reference/"
     },
     {
       "source": "/reference/cli",
