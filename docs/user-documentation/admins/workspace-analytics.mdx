@@ -3,7 +3,7 @@ title: "Workspace analytics"
 ---
 
 
-Track adoption, credit consumption, and usage patterns across your workspace from **Admin > Analytics**. Only workspace admins can access this page.
+Track adoption, credit consumption, and usage patterns across your workspace from **Admin > Analytics**. **Super Admins** and **Managers** can access this page.
 
 <HTMLBlock>{`
 <div class="wistia_responsive_padding" style="padding:62.08% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"></div></div>
@@ -37,7 +37,7 @@ Use the time range selector at the top right of the page to scope every chart an
 
 ## Accessing analytics via the API
 
-You can pull usage data programmatically through the [Export workspace analytics](/docs/developer-platform/dust-api-documentation/export-workspace-analytics) endpoint. Any Dust API key with the **builder** role (or above) can call it; no special access request needed.
+You can pull usage data programmatically through the [Export workspace analytics](/docs/developer-platform/dust-api-documentation/export-workspace-analytics) endpoint. A Dust API key with **workspace administration** scope is required to call this endpoint.
 
 Pass the `table` you want along with a `startDate` and `endDate` (both `YYYY-MM-DD`):
 
