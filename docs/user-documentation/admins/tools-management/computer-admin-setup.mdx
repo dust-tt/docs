@@ -3,22 +3,22 @@ title: "Computer admin setup"
 ---
 
 
-This page explains how workspace admins can configure Computer. For an overview of what Computer does for users and builders, see [Computer](/docs/user-documentation/agents/tools/computer).
+This page explains how Super Admins (or a group granted the Computer administration capability under Workspace & Governance) can configure Computer. For an overview of what Computer does for users and builders, see [Computer](/docs/user-documentation/agents/tools/computer).
 
-The Computer admin page controls workspace-level network access and environment variables for Computer. Only workspace admins can manage these settings.
+The Computer admin page controls workspace-level network access and environment variables for Computer. Only Super Admins, or a group granted the Computer administration capability under Workspace & Governance, can manage these settings.
 
 If Computer administration is not enabled for your workspace, the page will show a message explaining that Computer administration is not enabled.
 
 ## What admins can configure
 
-Admins can configure two areas:
+Super Admins, or group members granted the Computer administration capability, can configure two areas:
 
-* **Network access**, which controls which websites and APIs Computer can contact.
+* **Network access**, which controls which websites and APIs Computer can contact — including the workspace allowlist of trusted domains and whether users can request additional domains during a conversation.
 * **Environment variables**, which provide configuration values or HTTPS secrets to Computer.
 
 ## Configure network access
 
-Computer does not have open internet access by default. The Network section lets admins decide which domains are trusted for the workspace.
+Computer does not have open internet access by default. The Network section lets Super Admins (or group members with the Computer administration capability) decide which domains are trusted for the workspace.
 
 To add a domain:
 
@@ -53,14 +53,14 @@ Use exact domains such as `api.openai.com` or wildcard subdomains such as `*.mis
 
 ## Allow or disable user-approved domains
 
-The **Agent-requested domains** toggle controls whether agents can ask users to approve additional domains during a conversation.
+The **Agent-requested domains** toggle controls whether agents can ask users to approve additional domains during a conversation. This toggle is managed by Super Admins, or a group granted the Computer administration capability under Workspace & Governance.
 
-When this setting is disabled, agents cannot request new domains. They must rely on the workspace allowed domains configured by admins.
+When this setting is disabled, agents cannot request new domains. They must rely on the workspace allowed domains configured by the Super Admin or administration group.
 
 When this setting is enabled, an agent using Computer can ask the user to approve an additional domain during the conversation. Each request is approval-gated. If the user approves, that domain becomes available only for the current Computer. It does not change the workspace allowlist.
 
 <Warning>
-When Agent-requested domains is enabled, a non-admin user can grant temporary network access to a domain that admins did not preapprove. Enable it when you want users to unblock one-off API or website access during a conversation. Keep it disabled when every allowed domain should be reviewed by an admin first.
+When Agent-requested domains is enabled, a non-admin user can grant temporary network access to a domain that admins did not preapprove. Enable it when you want users to unblock one-off API or website access during a conversation. Keep it disabled when every allowed domain should be reviewed by a Super Admin first.
 </Warning>
 
 To change this setting:
@@ -76,6 +76,8 @@ To change this setting:
 Configuration variables are for non-sensitive values that Computer can read directly, such as public endpoints, regions, identifiers, feature flags, or model names.
 
 Do not use configuration variables for credentials. They are mounted as plain environment variables on every new Computer and can be read by the agent and by code running in Computer. Anything you put in a configuration variable should be safe to log.
+
+Only Super Admins, or a group granted the Computer administration capability under Workspace & Governance, can add, update, or delete environment variables and HTTPS secrets.
 
 To add a configuration variable:
 
@@ -101,6 +103,8 @@ Example use cases:
 HTTPS secrets are for credentials such as API keys and tokens. They are safer than configuration variables because Computer does not see the raw secret value.
 
 Inside Computer, an HTTPS secret appears as a placeholder. When Computer makes an approved HTTPS request to a domain configured for that secret, Dust substitutes the real secret on the way out.
+
+Only Super Admins, or a group granted the Computer administration capability under Workspace & Governance, can add, replace, or delete HTTPS secrets.
 
 To add an HTTPS secret:
 
@@ -173,4 +177,4 @@ Make sure the secret has at least one allowed domain. HTTPS secrets require allo
 
 ### The admin page is unavailable
 
-Make sure Computer administration is enabled for the workspace and that you are a workspace admin.
+Make sure Computer administration is enabled for the workspace and that you are a Super Admin or a member of a group granted the Computer administration capability under Workspace & Governance.
