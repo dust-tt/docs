@@ -3,7 +3,7 @@ title: "Subscriptions & Payments"
 ---
 
 
-You can manage your subscription by going to **Admin > Billing**.
+You can manage your subscription by going to **Workspace & Governance > Billing**. Access requires the **Super Admin** role or the **`Manage billing and security`** capability.
 
 ## Plans
 
@@ -60,7 +60,7 @@ Let's assume you have 2 Pro seats at the start of your pay period (September 3rd
 
 ## Managing your subscription
 
-You can manage your subscription from **Admin > Billing**. From there, you can upgrade your plan, update your payment details, and access invoices.
+You can manage your subscription from **Workspace & Governance > Billing**. From there, you can upgrade your plan, update your payment details, and access invoices. Access requires the **Super Admin** role or the **`Manage billing and security`** capability.
 
 ## What happens when you cancel your subscription?
 
@@ -83,9 +83,13 @@ Your workspace will revert to the free version of the Business plan and be subje
 
 ### Which user will remain after the downgrade?
 
-The user who was given an `admin` role the earliest. This will typically be the person who initially subscribed, unless they were removed or their role was changed later.
+The member with the **Super Admin** role who was assigned that role the earliest. This will typically be the person who initially set up the workspace, unless their role was changed later.
 
-If you'd like a different user to remain, remove all other admins (by revoking them or downgrading their role) before your subscription ends.
+<Info>
+**Legacy role aliases**: during the migration period, the API continues to accept the legacy `admin` role value as an alias for `super_admin`. If you set a member's role via the API using `admin`, they will be treated as a Super Admin.
+</Info>
+
+If you'd like a different user to remain, ensure the intended user holds the Super Admin role before your subscription ends.
 
 ### What will happen to our connections (Notion, Slack, Google Drive, etc.)?
 
@@ -111,7 +115,7 @@ Your custom agents will be deactivated upon downgrading. If you resubscribe, the
 
 ### What if we want to reactivate our subscription?
 
-Go to **Admin > Subscription** and resubscribe. Upon reactivating, all previously limited or inaccessible features and data will be restored, including access to multiple users, connections, data sources, and custom agents.
+Go to **Workspace & Governance > Billing** and resubscribe. Upon reactivating, all previously limited or inaccessible features and data will be restored, including access to multiple users, connections, data sources, and custom agents.
 
 ### What if we want to delete everything?
 
