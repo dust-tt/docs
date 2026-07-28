@@ -33,9 +33,9 @@ These credits belong to the individual user. They are not shared across users an
 
 The workspace credit pool is a shared credit reserve that Pro and Max seat members can draw from once their individual credits are exhausted. On the Enterprise Pooled plan, members have no individual credit allocation and draw directly from this shared pool as their only credit source.
 
-The pool is managed by workspace admins:
+The workspace credit pool is managed by **Super Admins** and members with the **`Manage billing and security`** capability:
 
-* **Business plan**: admins can purchase top-up credit packages as needed.
+* **Business plan**: they can purchase top-up credit packages as needed.
 * **Enterprise plans**: the pool is funded by the committed credits defined in your contract.
 
 Free seat users do not have access to the workspace pool.
@@ -68,13 +68,13 @@ PAYG is not available on the Business plan. Business customers must purchase wor
 | --------- | ------------------ | ------------------------ | ------------------------------ |
 | Workspace | None               | Draws directly from pool | After workspace pool exhausted |
 
-By default, all members with workspace pool access can draw from it without individual limit. Admins can configure a **personal spend limit** for each member to cap how much of the shared pool they can consume.
+By default, all members with workspace pool access can draw from it without individual limit. **Super Admins** and members with the **`Manage billing and security`** capability can configure a **personal spend limit** for each member to cap how much of the shared pool they can consume.
 
 The personal spend limit applies **on top of** a member's individual seat credits: it restricts access to the workspace pool, not the seat credits themselves.
 
 * If no personal spend limit is set, the member has unlimited pool access.
 * When a member reaches their cap, they are blocked from further pool usage and receive an in-app notification.
-* Admins can set a workspace-wide default limit. When the default is updated, only members currently on the previous default are affected.
+* Super Admins and members with the `Manage billing and security` capability can set a workspace-wide default limit. When the default is updated, only members currently on the previous default are affected.
 
 Members can view their personal spend limit in the Usage page (**Admin > Usage**).
 
@@ -88,15 +88,15 @@ There is no free credit baseline for programmatic usage.
 
 **Monthly programmatic cap:**
 
-Admins can configure a monthly cap on programmatic credit consumption from **Admin > Usage**. An email notification is sent when 80% of the cap is reached.
+**Super Admins** and members with the **`Manage billing and security`** capability can configure a monthly cap on programmatic credit consumption from **Admin > Usage**. An email notification is sent when 80% of the cap is reached.
 
 ## Tracking usage
 
-Workspace admins can view and manage everything credit-related from **Admin > Usage**.
+**Super Admins** and members with the **`Manage billing and security`** capability can manage credit settings—including the workspace pool, spending limits, and programmatic caps—from **Admin > Usage**. **Managers** can also access this page to view usage data, edit member seat types, and review upgrade requests.
 
 ## Workspace credit pool
 
-At the top of the page, the current workspace credit pool balance is displayed (credits consumed vs. total available). Admins on Business plans can purchase top-up packages directly from this page using the **Top up** button.
+At the top of the page, the current workspace credit pool balance is displayed (credits consumed vs. total available). Super Admins and members with the `Manage billing and security` capability on Business plans can purchase top-up packages directly from this page using the **Top up** button.
 
 ## Settings
 
@@ -108,8 +108,8 @@ At the top of the page, the current workspace credit pool balance is displayed (
 ### Spending policies
 
 * **Default workspace credit pool limit**: sets the default amount of workspace pool credits each member can consume. This is added on top of each seat's built-in allowance and can be overridden per member in the Members table. Set to 0 to remove pool access for all members by default.
-* **Upgrade request**: when enabled, members who reach their credit limit can request an upgrade instead of being immediately blocked. Workspace admins can review and act on those requests from the Requests tab in the Members section.
-* **Auto-upgrade seats**: when enabled, members who reach their credit limit are automatically moved to the next seat tier (Free  Pro, Pro  Max) instead of being blocked. This may increase subscription costs.
+* **Upgrade request**: when enabled, members who reach their credit limit can request an upgrade instead of being immediately blocked. Super Admins and Managers can review and act on those requests from the Requests tab in the Members section.
+* **Auto-upgrade seats**: when enabled, members who reach their credit limit are automatically moved to the next seat tier (Free → Pro, Pro → Max) instead of being blocked. This may increase subscription costs.
 
 ### Programmatic usage
 
@@ -127,11 +127,13 @@ At the top of the page, the current workspace credit pool balance is displayed (
 <script src="https://fast.wistia.net/player.js" async></script>
 `}</HTMLBlock>
 
-The Members section lists all workspace members with their usage details. Admins can:
+The Members section lists all workspace members with their usage details. **Super Admins** and **Managers** can:
 
 * See each member's **seat type** (Free, Pro, Max, or Platform), **credits consumed**, and **credits remaining** for the current period.
 * Search members by name and filter by seat type.
-* Use the **···** menu on each member row to adjust their personal spend limit or seat type individually.
+* Use the **···** menu on each member row to change their seat type individually.
 * Review pending upgrade requests in the **Requests** tab.
+
+In addition, **Super Admins** and members with the **`Manage billing and security`** capability can adjust a member's personal spend limit from the same **···** menu.
 
 For a broader view of how your team uses Dust (agent activity, conversation trends, and adoption over time), see [Workspace analytics](/docs/user-documentation/admins/workspace-analytics).
