@@ -13,15 +13,23 @@ A key capability is the ability to **distinguish between actions taken by human 
 
 ## Accessing Audit Logs
 
-Audit Logs are available to **workspace admins** only. Navigate to:
+Audit Logs are available to **Super Admins** and to users who have been granted the **`Access audit logs`** governance capability. Navigate to:
 
-**Admin > IT & Security > Audit Logs**
+**Admin > Workspace & Governance > IT & Security > Audit Logs**
 
 The UI provides full-text search, time-range filtering, and CSV export.
 
 <Note>
   Accessing the Audit Logs viewer itself generates an `audit_log.viewed` event.
 </Note>
+
+<Note>
+  The Audit Logs toggle (enabling or disabling audit log collection for the workspace) is configured under **Admin > Workspace & Governance > Governance** and requires the **Super Admin** role.
+</Note>
+
+## What is logged
+
+Audit Logs record all significant workspace actions, including **governance changes**: role assignments, governance capability mode changes, group creation and membership changes, and delegated administrative actions performed by Managers. See the [Events Reference](/docs/user-documentation/admins/audit-logs/audit-logs-events-reference) for the full list.
 
 ## Log Entry Structure
 
@@ -83,3 +91,4 @@ For the canonical and up-to-date list, refer to the [WorkOS IP allowlist documen
 - [Single Sign-On (SSO)](/docs/user-documentation/admins/users-and-permissions-management/single-sign-on-sso/single-sign-on-sso)
 - [Users and Groups Provisioning](/docs/user-documentation/admins/users-and-permissions-management/users-and-groups-provisioning)
 - [Access Controls and Permissions](/docs/user-documentation/admins/users-and-permissions-management/access-controls-and-permissions)
+- [Admin governance](/docs/user-documentation/admins/users-and-permissions-management/admin-governance)
