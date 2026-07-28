@@ -14,6 +14,10 @@ Let's discover how they work!
 
 Click **Create** from the home page. You can start from scratch or pick a template. In both cases, Sidekick opens to help you draft high‑quality instructions and a working configuration.
 
+<Info>
+Creating an agent requires the **`Create agents`** governance capability, which is set to **Everyone** by default. Your workspace admin may restrict this to specific groups. See [Admin governance](/docs/user-documentation/admins/users-and-permissions-management/admin-governance) for details.
+</Info>
+
 ## Step 2: Give it instructions
 
 Instructions tell your agent how to behave. [How to write effective Instructions](/docs/user-documentation/agents/llm-best-practices/how-to-write-effective-instructions)
@@ -55,15 +59,19 @@ Add a brief **description** explaining the agent's purpose and capabilities. Thi
 
 Click **" Suggest"** to see relevant tags based on your agent's description
 
-Note : Only administrators can create new tags [here is how](/docs/user-documentation/admins/agents-management). Other team members can select from existing tags
+Note : Only Super Admins and Managers can create new tags [here is how](/docs/user-documentation/admins/agents-management). Other team members can select from existing tags
 
 ## Step 6: Set access and share your agent
 
-You can decide to **publish** or not your agent. A published agent will be visible and usable by all members the workspace, as long as they have access to the data sources used by the agent.
+Agents have three publication states:
 
-A non-published agent will be visible only to you and the other editors.
+- **Unpublished**: The agent is available according to your workspace's unpublished-resource policy. It is not listed in the general agent directory but is not necessarily confidential.
+- **Published**: The agent is visible and usable by the audience defined by the agent and workspace access rules.
+- **Discoverable**: The agent is surfaced for broader discovery according to the workspace publication policy.
 
-You can define who will be able to edit the agent by adding users the **"Editors" section**.
+Changing an agent's publication state requires the **`Publish agents`** governance capability. Editing the agent's content requires being an editor — having publish rights does not grant editing rights.
+
+You can define who will be able to edit the agent by adding users to the **"Editors" section**.
 
 ## Step 7: Use your agent
 
