@@ -1,0 +1,131 @@
+---
+title: "Admin governance"
+---
+
+Admin governance separates three layers:
+
+1. **Roles**, which describe a person's responsibility in the workspace.
+2. **Governance capabilities**, which describe what groups of users are allowed to do.
+3. **Resource access**, which describes which spaces, agents, skills, data sources and tools a person can access.
+
+A person's effective permissions are the additive combination of the three.
+
+## Roles
+
+### Super Admin
+
+Super Admin is the full workspace administrator, typically held by IT or Security. A Super Admin can:
+
+- Manage workspace administrators and all member roles.
+- Configure IT & Security settings, including SSO and provisioning.
+- Manage billing, subscriptions, seats and credits.
+- Access and export audit logs.
+- Configure governance capabilities, feature toggles, API keys, model providers and developer tools.
+- Manage data connections, spaces and groups.
+
+Super Admins always pass governance checks, regardless of how a capability is configured.
+
+### Manager
+
+Manager is a scoped operational administrator, typically a department lead or an internal champion. A Manager can:
+
+- Open the Admin area.
+- Invite and revoke members, and change non-admin roles.
+- Assign the `manager` and `member` roles.
+- Create manual groups and manage their membership.
+- View workspace analytics.
+- Edit member seat types, and view, approve or reject seat upgrade requests.
+
+A Manager cannot promote or demote administrators, manage per-member spending limits, or access IT & Security, Billing, Workspace Settings, API keys, model providers, developer tools, or the governance toggles for billing, security, Frames and audit logs.
+
+<Info>
+Manager is not the replacement for Builder. Builder capabilities are now controlled through governance capabilities and group membership.
+</Info>
+
+### Member
+
+Members use the workspace according to their seat type, their space membership and the governance capabilities granted to them. Members have no administrative access by default.
+
+Role and seat type are separate concepts: seat type controls what a person can consume, while role and capabilities control what a person can administer.
+
+## Groups and governance capabilities
+
+Capabilities are granted to **groups**, not to individuals. There are two kinds of groups:
+
+- **Provisioned groups**, synchronized from your identity provider through SCIM.
+- **Manual groups**, created and maintained in Dust.
+
+Permissions are additive. A person receives the union of the capabilities granted by their role and by every group they belong to. A group exception grants additional access; it never removes access granted through another role or group. To grant a capability to a single person, create a manual group with that person in it.
+
+Each capability is configured in one of three modes:
+
+| Mode | Who receives the capability |
+| --- | --- |
+| Everyone | All workspace members |
+| Groups | Only the selected groups |
+| Admin only | Only Super Admins |
+
+### Available capabilities
+
+| Capability | What it controls | Default |
+| --- | --- | --- |
+| Create agents | Who can create new agents | Everyone |
+| Publish agents | Who can change an agent's publication state | Everyone |
+| Create skills | Who can create new skills | Everyone |
+| Publish skills | Who can change a skill's publication state | Admin only |
+| View unpublished agents and skills | Who can discover and use resources that are not broadly published | Admin only |
+| Access audit logs | Who can view and export workspace audit events | Admin only |
+| Manage billing and security | Who can manage billing, subscriptions and security settings | Admin only |
+| Manage Frame sharing and publication | Who can invite users to Frames or publish them externally, when the Frames feature is enabled | Admin only |
+
+Publishing agents and publishing skills are separate capabilities. A person may be allowed to publish skills without being allowed to publish agents, or the reverse.
+
+## Workspace & Governance
+
+Workspace administration is grouped under **Workspace & Governance**. The rule is simple:
+
+- Use **Governance** to control *who* can perform an action.
+- Use **Workspace Settings** to control *whether* a feature is enabled.
+
+Billing requires Super Admin, or the `Manage billing and security` capability. The audit logs toggle and the Frames feature toggle are configured on the Governance page and are Super Admin only.
+
+## Agents and skills publication
+
+Agents and skills share the same publication model:
+
+| State | Meaning |
+| --- | --- |
+| Unpublished | Available according to the workspace's policy for unpublished resources. Unpublished does not necessarily mean confidential. |
+| Published | Available to the audience defined by the resource and by workspace access rules. |
+| Discoverable | Surfaced for broader discovery according to the workspace's publication policy. |
+
+Changing a publication state requires the relevant publish capability. Editing the content of an agent or a skill requires editor access. Being allowed to publish does not grant editing access, and being an editor does not grant publishing rights.
+
+## Migration from Builder
+
+Builder is no longer used as a workspace role or as the long-term permission model.
+
+- In every workspace that had active builders, a group named **Builders** is created and granted `Create agents` and `Create skills` for the whole workspace, and existing builders are added to it.
+- Assigning the legacy `builder` role now adds the person to that group.
+- API keys are unaffected in practice: the `builder` role value is removed from keys, and the Builders group is attached to them instead, so existing integrations keep working. Legacy role values remain accepted by the API for the migration period.
+- Administrators can move these capabilities from the Builders group to any other manual or provisioned group at any time.
+
+## FAQ
+
+**Does Manager replace Builder?**
+No. Manager is an operational administrator role. Agent and skill creation rights come from governance capabilities and group membership.
+
+**Can Managers manage billing or security?**
+Not by default. Billing and security require Super Admin, or the `Manage billing and security` capability.
+
+**Can I give one person a capability without creating a group?**
+No. Create a manual group containing that person, and grant the capability to the group.
+
+**Are publishing agents and publishing skills the same permission?**
+No. They are separate capabilities and can be granted independently.
+
+**Can a Manager see restricted spaces?**
+No. Space access is governed by space membership and groups.
+
+**What happens if a person is in several groups?**
+Capabilities are additive. The person receives the union of everything their role and their groups grant.
