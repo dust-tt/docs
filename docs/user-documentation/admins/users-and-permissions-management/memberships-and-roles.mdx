@@ -2,22 +2,22 @@
 title: "Memberships & Roles"
 ---
 
-You can manage members (invite, revoke, change role, see member list) by going to **Admin > Workspace & Governance > People**.
+You can manage members (invite, revoke, change role, see member list) by going to **Admin > People**.
 
 Dust uses a three-role model that expresses a person's **responsibility** in the workspace. Roles are one layer of a broader governance model—see [Admin governance](/docs/user-documentation/admins/users-and-permissions-management/admin-governance) for the full picture, including governance capabilities and group-based access.
 
 ## Workspace Roles
 
-### Super Admin
+### Admin
 
-Super Admins hold full workspace administration authority (typically an IT or Security persona). They can:
+Admins (workspace admins) hold full workspace administration authority (typically an IT or Security persona). They can:
 
 - Manage workspace administrators and security settings (SSO, audit logs)
 - Configure billing, governance settings, and data connectors
 - Manage spaces, groups, and workspace feature toggles
 - Manage API keys, model providers, developer tools, and analytics
 
-Super Admins always pass every governance capability check regardless of how capabilities are configured.
+Admins always pass every governance capability check regardless of how capabilities are configured.
 
 ### Manager
 
@@ -29,7 +29,7 @@ Managers are operational administrators (champions, department leads) with scope
 - View analytics and edit member seat types
 - View, approve, and reject seat requests
 
-Managers **cannot**: manage Super Admin accounts; access IT & Security settings (SSO, audit logs toggle, Frames toggle); manage API keys, model providers, developer tools, or billing; or control per-member spending limits.
+Managers **cannot**: promote or demote admins; access IT & Security settings (SSO, audit logs toggle, Frames toggle); manage API keys, model providers, developer tools, or billing; or control per-member spending limits.
 
 ### Member
 
@@ -37,7 +37,7 @@ Members use workspace resources according to their seat type, space membership, 
 
 ## Seat Type vs. Role
 
-A member's **role** (Super Admin, Manager, Member) determines administrative responsibilities. Their **seat type** controls which workspace features they can consume (e.g. full usage vs. light usage). These are independent: a Manager can have any seat type, and a Member's seat type may grant different resource quotas without affecting their governance access.
+A member's **role** (Admin, Manager, Member) determines administrative responsibilities. Their **seat type** controls which workspace features they can consume (e.g. full usage vs. light usage). These are independent: a Manager can have any seat type, and a Member's seat type may grant different resource quotas without affecting their governance access.
 
 ## Governance Capabilities and Groups
 
@@ -46,7 +46,7 @@ Roles alone do not determine everything a user can do. **Governance capabilities
 Each governance capability can be set to one of three modes:
 - **Everyone** — all workspace members have this capability
 - **Groups** — only members of the designated groups have this capability
-- **Admin only** — only Super Admins have this capability
+- **Admin only** — only workspace admins have this capability
 
 See [Admin governance](/docs/user-documentation/admins/users-and-permissions-management/admin-governance) for the full list of capabilities and their default modes.
 
