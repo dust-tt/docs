@@ -341,7 +341,8 @@
               "docs/user-documentation/admins/connections-management/zendesk",
               "docs/user-documentation/admins/connections-management/snowflake",
               "docs/user-documentation/admins/connections-management/bigquery",
-              "docs/user-documentation/admins/connections-management/gong"
+              "docs/user-documentation/admins/connections-management/gong",
+              "docs/user-documentation/admins/connections-management/slack"
             ]
           },
           {
@@ -1479,6 +1480,18 @@
     {
       "source": "/reference/rate-limits",
       "destination": "/docs/developer-platform/core-concepts/rate-limits"
+    },
+    {
+      "source": "/docs/pods-overview",
+      "destination": "/docs/user-documentation/pods/overview"
+    },
+    {
+      "source": "/docs/programmatic-usage",
+      "destination": "/docs/user-documentation/admins/usage-seats-and-credits/credit-management#programmatic-usage"
+    },
+    {
+      "source": "/docs/slack-connection",
+      "destination": "/docs/user-documentation/admins/connections-management/slack"
     }
   ],
   "thumbnails": {

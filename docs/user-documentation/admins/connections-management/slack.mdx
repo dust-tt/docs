@@ -1,0 +1,90 @@
+---
+title: "Slack"
+---
+
+<Info>
+**Feature availability**
+
+The self-created Slack app connection is currently in gradual rollout. If you do not see the Slack connection option in your workspace, contact [support@dust.tt](mailto:support@dust.tt) to request access. Private channel indexing requires separate enablement; mention it in the same request.
+</Info>
+
+<Warning>
+**Slack API changes (May 2025)**
+
+Slack updated its API and Terms of Service in May 2025. Bulk data indexing via a shared Dust app is no longer permitted. All workspaces must use a **self-created Slack app** to maintain the Slack connection. Connections set up before December 2024 must be migrated. See [Slack Troubleshooting](/docs/user-documentation/admins/admin-troubleshooting/slack-troubleshooting) for migration steps.
+</Warning>
+
+Dust synchronizes with Slack to bring your workspace conversations into Dust, enabling agents to search and retrieve messages from selected channels.
+
+<Info>
+**Two separate Slack integrations**
+
+The **Slack connection** (this page) syncs channel messages as a data source for your agents. The **Dust in Slack** integration lets your team call Dust agents directly inside Slack. See [Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows) for the interactive bot setup.
+</Info>
+
+## Prerequisites
+
+- A **Slack Owner or Admin** account (required to create and install Slack apps)
+- A **Dust workspace admin** account
+
+## Step 1: Create your Slack app
+
+Dust provides a Slack app manifest that you use to create a dedicated app in your Slack workspace.
+
+1. In Dust, go to **Spaces** -> **Connections** and select **Slack**
+2. Copy the app manifest provided
+3. Go to [api.slack.com/apps](https://api.slack.com/apps) and click **Create New App** -> **From a manifest**
+4. Select your Slack workspace
+5. Paste the manifest and follow the prompts to create the app
+6. Install the app to your workspace
+
+<Warning>
+**Do not modify the manifest**
+
+Use the manifest exactly as provided by Dust. Changing OAuth scopes, redirect URLs, or credentials will break the connection.
+</Warning>
+
+## Step 2: Connect to Dust
+
+1. Back in Dust, enter your app's **Client ID**, **Client Secret**, and **Signing Secret** (found in your app's **Basic Information** page on api.slack.com)
+2. Authorize the connection. Dust will install the `@Dust Data Sync` bot in your workspace.
+
+## Step 3: Select channels to sync
+
+1. In Dust, go to **Spaces** -> **Connections** -> **Slack** -> **Add / Remove data**
+2. Select the channels you want Dust to sync
+3. Save. Dust will start syncing immediately.
+
+<Info>
+**Private channels**
+
+Private channels are not visible to the bot by default. To sync a private channel, first invite the bot: open the channel in Slack and type `/invite @Dust Data Sync`. The channel will then appear in the Dust connection manager.
+
+Private channel indexing requires a separate feature flag. Contact [support@dust.tt](mailto:support@dust.tt) to request access.
+</Info>
+
+## What Dust syncs
+
+- Messages and threads from selected channels
+- Channel metadata (name, topic)
+
+**Not synced:**
+- Messages from bots (including `@Dust` itself)
+- Messages from private channels unless the bot has been explicitly invited
+- Direct messages
+
+## Data freshness
+
+New messages are synced within a few minutes of being posted. Historical messages are available from the moment the bot joined the channel. Slack does not provide history from before a bot's first invite.
+
+## Managing the connection
+
+To add or remove channels, go to **Spaces** -> **Connections** -> **Slack** -> **Add / Remove data**.
+
+To update your app credentials (e.g. after rotating secrets), go to **Spaces** -> **Connections** -> **Slack** -> **Manage** -> **Edit**.
+
+## Related
+
+- [Slack Troubleshooting](/docs/user-documentation/admins/admin-troubleshooting/slack-troubleshooting)
+- [Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows)
+- [Slack Tools](/docs/user-documentation/agents/tools/slack-tools)
