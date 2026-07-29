@@ -12,9 +12,9 @@ A person's effective permissions are the additive combination of the three. Noth
 
 ## Roles
 
-### Super Admin
+### Admin
 
-Super Admin is the full workspace administrator, typically held by IT or Security. A Super Admin can:
+Admin is the full workspace administrator, typically held by IT or Security. A Admin can:
 
 - Manage workspace administrators and all member roles.
 - Configure IT & Security settings, including SSO and provisioning.
@@ -23,7 +23,7 @@ Super Admin is the full workspace administrator, typically held by IT or Securit
 - Configure governance capabilities, feature toggles, API keys, model providers and developer tools.
 - Manage data connections, spaces and groups.
 
-Super Admins always pass governance checks, regardless of how a capability is configured. Keep at least two Super Admins in every workspace so that access is never lost.
+Admins always pass governance checks, regardless of how a capability is configured. Keep at least two Admins in every workspace so that access is never lost.
 
 ### Manager
 
@@ -63,7 +63,7 @@ Each capability is configured in one of three modes:
 | --- | --- |
 | Everyone | All workspace members |
 | Groups | Only the selected groups |
-| Admin only | Only Super Admins |
+| Admin only | Only Admins |
 
 ### Available capabilities
 
@@ -84,9 +84,9 @@ Three further administration areas can be delegated to groups in the same way: m
 
 ## Who can do what
 
-The table below is the practical summary. "Capability" means the action is available to whoever holds the named capability, in addition to Super Admins.
+The table below is the practical summary. "Capability" means the action is available to whoever holds the named capability, in addition to Admins.
 
-| Action | Super Admin | Manager | Member |
+| Action | Admin | Manager | Member |
 | --- | --- | --- | --- |
 | Invite and revoke members | Yes | Yes | No |
 | Change roles | All roles | `manager` and `member` only | No |
@@ -117,7 +117,7 @@ Workspace administration is grouped under **Workspace & Governance**. The rule i
 - Use **Governance** to control *who* can perform an action.
 - Use **Workspace Settings** to control *whether* a feature is enabled.
 
-Billing requires Super Admin, or the `Manage billing and security` capability. The audit logs toggle and the Frames feature toggle are configured on the Governance page and are Super Admin only. Disabling the Frames feature prevents all Frames usage, regardless of any capability granted to a group.
+Billing requires Admin, or the `Manage billing and security` capability. The audit logs toggle and the Frames feature toggle are configured on the Governance page and are Admin only. Disabling the Frames feature prevents all Frames usage, regardless of any capability granted to a group.
 
 ### Granting a capability to a group
 
@@ -154,8 +154,8 @@ Some behaviours previously attached to the Builder role have moved or been retir
 
 | Former Builder behaviour | Now |
 | --- | --- |
-| Enable or disable global agents | Super Admin only |
-| Read, delete or rename files in any space | Super Admin only |
+| Enable or disable global agents | Admin only |
+| Read, delete or rename files in any space | Admin only |
 | Link Slack channels and set the default Slack responder | Granted with `Publish agents` |
 | See the Insights tab | Granted with `Publish agents` |
 | Moderate or edit feedback on any agent | Requires editor access on the agent |
@@ -169,7 +169,7 @@ Existing integrations keep working during the migration period:
 
 | Legacy value | Behaviour now |
 | --- | --- |
-| `admin` | Maps to Super Admin |
+| `admin` | Maps to Admin |
 | `builder` | Removed from API keys. The Builders group is attached to affected keys instead, so creation rights are preserved |
 | `user` | Maps to Member |
 
@@ -181,7 +181,7 @@ Update integrations to the current role values before the end of the migration p
 No. Manager is an operational administrator role. Agent and skill creation rights come from governance capabilities and group membership.
 
 **Can Managers manage billing or security?**
-Not by default. Billing and security require Super Admin, or the `Manage billing and security` capability.
+Not by default. Billing and security require Admin, or the `Manage billing and security` capability.
 
 **Can I give one person a capability without creating a group?**
 No. Create a manual group containing that person, and grant the capability to the group.
@@ -195,8 +195,8 @@ No. Space access is governed by space membership and groups.
 **What happens if a person is in several groups?**
 Capabilities are additive. The person receives the union of everything their role and their groups grant.
 
-**Does a capability set to Admin only still apply to Super Admins?**
-Yes. Super Admins pass every governance check, whatever the mode.
+**Does a capability set to Admin only still apply to Admins?**
+Yes. Admins pass every governance check, whatever the mode.
 
 **Who can see that a permission changed?**
 Role changes, capability changes, capability mode changes and group membership changes are recorded in the audit log.
