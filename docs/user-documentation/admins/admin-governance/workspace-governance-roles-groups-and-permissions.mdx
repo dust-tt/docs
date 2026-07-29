@@ -28,7 +28,7 @@ Managers are delegated workspace administrators. They can:
 - Invite and remove members
 - Change the roles of non-admin members
 - Assign the Manager and Member roles
-- View workspace analytics
+- View workspace analytics and usage page
 
 Managers do not receive billing or security access by default. Admins can grant these permissions to groups when needed.
 
@@ -68,13 +68,11 @@ The following permissions are available in the workspace governance settings.
 | Create agents | Yes | When granted | When granted |
 | Publish agents | Yes | When granted | When granted |
 | Create skills | Yes | When granted | When granted |
-| Publish skills | Yes | When granted | When granted |
-| Access unpublished agents | Yes | When granted | When granted |
 | View and export audit logs | Yes | When granted | When granted |
 | Manage billing and subscriptions | Yes by default | When granted | When granted |
 | Manage security and provisioning | Yes by default | When granted | When granted |
-| Invite users to Frames | Yes | When granted, if Frames is enabled | When granted, if Frames is enabled |
-| Publish Frames | Yes | When granted, if Frames is enabled | When granted, if Frames is enabled |
+| Invite users to Frames | Yes when the feature is enabled | When granted | When granted, if Frames is enabled |
+| Publish Frames | Yes when the feature is enabled | When granted | When granted, if Frames is enabled |
 | View workspace analytics | Yes | Yes | No |
 
 Publishing agents and publishing skills are separate permissions. You can grant them independently. Publishing skills is restricted to Admins by default. Admins can configure the permission for groups when broader access is needed.
@@ -82,10 +80,6 @@ Publishing agents and publishing skills are separate permissions. You can grant 
 ## Workspace governance settings
 
 Workspace settings and permission controls are managed under **Settings & Governance**.
-
-The Frames feature toggle controls whether Frames is available in the workspace. When Frames is disabled, no one can use Frames, regardless of their group permissions.
-
-The permissions to invite users to Frames and publish Frames are separate controls. They appear only when Frames is enabled.
 
 Billing and security are permissions, not separate roles. Admins receive access by default. Admins can delegate either permission to selected groups without changing those members' workspace roles.
 
