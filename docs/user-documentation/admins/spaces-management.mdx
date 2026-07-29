@@ -8,10 +8,6 @@ You can make data available to your Dust workspace via **spaces** that let you o
 **Once Connections are set up, don't forget to create spaces and add data to your spaces.**
 </Info>
 
-<Info>
-Space-scoped delegated administration is not available in this release. Only Super Admins, or a group granted the space administration capability under Workspace & Governance, can create spaces and manage space membership.
-</Info>
-
  
 
 Spaces are containers for storing information relevant to specific groups or projects. They come in two types:
@@ -26,7 +22,7 @@ Open spaces are accessible to all members of your workspace. They're ideal for s
 <Info>
 **Key Features**
 
-* Managed by: Super Admins, or a group granted the space administration capability under Workspace & Governance
+* Managed by: workspace admins
 * Accessible to: available to all workspace members
 * Ideal for: organizing team/project data
 </Info>
@@ -37,12 +33,12 @@ Every workspace includes a default space called "Company Data". This special spa
 
 ## Restricted spaces
 
-Super Admins, or a group granted the space administration capability under Workspace & Governance, manage which team members have access to a space. Agents that access data from a specific space are only available to members of that space. If you have [Users and groups provisioning](/docs/user-documentation/admins/users-and-permissions-management/users-and-groups-provisioning) set up, members can be based on groups coming from your IdP.
+Workspace admins manage which team members have access to a space. Agents that access data from a specific space are only available to members of that space. If you have [Users and groups provisioning](/docs/user-documentation/admins/users-and-permissions-management/users-and-groups-provisioning) set up, members can be based on groups coming from your IdP.
 
 <Info>
 **Key features:**
 
-* Managed by: Super Admins, or a group granted the space administration capability under Workspace & Governance
+* Managed by: workspace admins
 * Accessible to: only to selected members
 * Ideal for: securing sensitive data and controlling who can access it
 </Info>
@@ -53,7 +49,7 @@ If you have [Users and groups provisioning](/docs/user-documentation/admins/user
 
 ## Create a space
 
-Only Super Admins, or a group granted the space administration capability under Workspace & Governance, can create and manage spaces:
+Only workspace admins can create and manage spaces:
 
 1. Go to "**Spaces**" tab
 2. Click "_**New**_"
@@ -66,7 +62,7 @@ Only Super Admins, or a group granted the space administration capability under 
 
 ### From a connection
 
-_Note:_ Only Super Admins, or a group granted the connector management capability under Workspace & Governance, can add data from **Connections** to a space.
+_Note:_ Only workspace admins can add data from **Connections** to a space.
 
 To add data from a _**connection**_,
 
@@ -79,7 +75,7 @@ To add data from a _**connection**_,
 
 **For folders, websites, and apps:**
 
-* in Open spaces: only Super Admins, or a group granted the corresponding administration capability under Workspace & Governance, can add data
+* in Open spaces: only workspace admins can add data
 * in Restricted spaces: all members can add data
 
 ## Using spaces in agents tools
