@@ -21,15 +21,14 @@ This page lists all events currently emitted by Dust.
 | `agent.updated` | An agent's configuration was updated |
 | `agent.archived` | An agent was archived |
 | `agent.restored` | An archived agent was restored |
-| `agent.scope_changed` | An agent's visibility scope was changed (e.g. private  workspace) |
-| `agent.publication_state_changed` | An agent's publication state was changed (e.g. Unpublished → Published → Discoverable) |
+| `agent.scope_changed` | An agent's visibility scope was changed (e.g. private → workspace) |
 | `agent.executed` | An agent was invoked in a conversation |
 
 ## Skills
 
 | Event | Description |
 |---|---|
-| `skill.publication_state_changed` | A skill's publication state was changed (e.g. Unpublished → Published) |
+| `skill.self_improvement_updated` | A skill's self-improvement setting was updated |
 
 ## Tools
 
@@ -47,13 +46,15 @@ This page lists all events currently emitted by Dust.
 | `trigger.disabled` | A trigger was disabled |
 | `trigger.fired` | A trigger fired and initiated an agent run |
 | `trigger.email_received` | An inbound email was received by a trigger |
+
 ## Wake-ups
+
 | Event | Description |
 |---|---|
-|  `wake_up.cancelled` | A wake-up was cancelled  |
-|  `wake_up.created` |  A wake-up was created  |
-|  `wake_up.expired` | A wake-up expired  |
-|  `wake_up.fired` |  A wake-up fired  |
+| `wake_up.cancelled` | A wake-up was cancelled |
+| `wake_up.created` | A wake-up was created |
+| `wake_up.expired` | A wake-up expired |
+| `wake_up.fired` | A wake-up fired |
 
 ## Spaces
 
@@ -83,8 +84,9 @@ This page lists all events currently emitted by Dust.
 | `member.bulk_revoked` | Multiple members were revoked in bulk |
 | `membership.created` | A workspace membership was created |
 | `membership.revoked` | A workspace membership was revoked |
-| `membership.role_updated` | A member's role was changed (e.g. Member → Manager, Manager → Super Admin) |
-| `membership.origin_updated` | The origin of a membership was updated (e.g. manual  SCIM) |
+| `membership.role_updated` | A member's role was changed (e.g. Member → Manager, Manager → Admin) |
+| `membership.bulk_role_updated` | Multiple members' roles were changed in bulk |
+| `membership.origin_updated` | The origin of a membership was updated (e.g. manual → SCIM) |
 
 ## Invitations
 
@@ -107,20 +109,8 @@ This page lists all events currently emitted by Dust.
 
 | Event | Description |
 |---|---|
-| `group.created` | A manual group was created |
-| `group.deleted` | A manual group was deleted |
-| `group.updated` | A manual group's name or description was updated |
-| `group.member_added` | A user was added to a group |
-| `group.member_removed` | A user was removed from a group |
-| `group.exception_granted` | A group exception was granted, giving a user additional access beyond their role |
-
-## Governance
-
-| Event | Description |
-|---|---|
-| `governance.capability_updated` | A governance capability's configuration was changed (e.g. `Publish agents` reassigned to a different group) |
-| `governance.capability_mode_changed` | A governance capability's mode was changed (Everyone / Groups / Admin only) |
-| `governance.delegated_action` | A Manager performed a delegated administrative action (e.g. inviting a member, changing a role) |
+| `group.advanced_model_access_updated` | A group's advanced model access setting was updated |
+| `group.spend_limit_updated` | A group's spend limit was updated |
 
 ## API Keys
 
@@ -194,3 +184,5 @@ This page lists all events currently emitted by Dust.
 | Event | Description |
 |---|---|
 | `workspace.deleted` | The workspace was deleted |
+| `workspace.audit_logs_updated` | The workspace's audit log collection setting was changed |
+| `workspace.governance_permission_updated` | A governance capability's configuration was changed. Metadata: `grant_type` (the capability identifier), `resource_type`, `scope` (the new mode: `everyone`, `groups`, or `admin_only`), `group_ids` (affected group IDs when scope is `groups`) |
