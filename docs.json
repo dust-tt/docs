@@ -1492,6 +1492,758 @@
     {
       "source": "/docs/slack-connection",
       "destination": "/docs/user-documentation/admins/connections-management/slack"
+    },
+    {
+      "source": "/docs/authentication",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/choosing-the-right-ai-model-for-your-dust-assistant",
+      "destination": "/docs/user-documentation/agents/llm-best-practices/how-to-write-effective-instructions"
+    },
+    {
+      "source": "/docs/cli",
+      "destination": "/docs/developer-platform/dust-cli/dust-cli"
+    },
+    {
+      "source": "/docs/create-a-new-conversation-with-a-content-fragment",
+      "destination": "/api-reference/conversations/create-a-content-fragment"
+    },
+    {
+      "source": "/docs/data-sources",
+      "destination": "/docs/user-documentation/data-sources/connections"
+    },
+    {
+      "source": "/docs/developer-platform-overview",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/dust-apps-core-concepts",
+      "destination": "/docs/developer-platform/legacy-dust-apps/dust-apps-core-concepts"
+    },
+    {
+      "source": "/docs/getting-started",
+      "destination": "/docs/user-documentation/getting-started/dust-rollout-guide"
+    },
+    {
+      "source": "/docs/gitlab",
+      "destination": "/docs/user-documentation/admins/connections-management"
+    },
+    {
+      "source": "/docs/introduction-to-dust-apps",
+      "destination": "/docs/developer-platform/legacy-dust-apps/what-is-a-dust-app"
+    },
+    {
+      "source": "/docs/javascript-sdk",
+      "destination": "/docs/developer-platform/overview/javascript-sdk"
+    },
+    {
+      "source": "/docs/managing-assistants",
+      "destination": "/docs/user-documentation/agents/create-your-first-agent"
+    },
+    {
+      "source": "/docs/mcp",
+      "destination": "/docs/user-documentation/admins/tools-management/adding-an-mcp-server"
+    },
+    {
+      "source": "/docs/mcp-1",
+      "destination": "/docs/user-documentation/admins/tools-management/adding-an-mcp-server"
+    },
+    {
+      "source": "/docs/microsoft-entra-sso",
+      "destination": "/docs/user-documentation/admins/admin-governance/single-sign-on-sso/single-sign-on-sso"
+    },
+    {
+      "source": "/docs/openapi",
+      "destination": "/docs/developer-platform/dust-api-documentation/openapi-and-postman"
+    },
+    {
+      "source": "/docs/overview-and-general-concepts",
+      "destination": "/docs/user-documentation/getting-started/dust-rollout-guide"
+    },
+    {
+      "source": "/docs/quickstart",
+      "destination": "/docs/user-documentation/getting-started/dust-rollout-guide"
+    },
+    {
+      "source": "/docs/rate-limits",
+      "destination": "/docs/developer-platform/core-concepts/rate-limits"
+    },
+    {
+      "source": "/docs/sharing-settings",
+      "destination": "/docs/user-documentation/admins/spaces-management"
+    },
+    {
+      "source": "/docs/pods-getting-started",
+      "destination": "/docs/user-documentation/pods/getting-started"
+    },
+    {
+      "source": "/docs/pods-admin",
+      "destination": "/docs/user-documentation/pods/overview"
+    },
+    {
+      "source": "/docs/pods-conversations",
+      "destination": "/docs/user-documentation/pods/overview"
+    },
+    {
+      "source": "/docs/pods-example-competitive",
+      "destination": "/docs/user-documentation/pods/overview"
+    },
+    {
+      "source": "/docs/pods-example-content",
+      "destination": "/docs/user-documentation/pods/overview"
+    },
+    {
+      "source": "/docs/pods-example-initiative",
+      "destination": "/docs/user-documentation/pods/overview"
+    },
+    {
+      "source": "/docs/pods-example-sales",
+      "destination": "/docs/user-documentation/pods/overview"
+    },
+    {
+      "source": "/docs/pods-example-second-brain",
+      "destination": "/docs/user-documentation/pods/overview"
+    },
+    {
+      "source": "/docs/pods-example-shared-assets",
+      "destination": "/docs/user-documentation/pods/overview"
+    },
+    {
+      "source": "/docs/pods-example-support",
+      "destination": "/docs/user-documentation/pods/overview"
+    },
+    {
+      "source": "/docs/pods-files",
+      "destination": "/docs/user-documentation/pods/overview"
+    },
+    {
+      "source": "/docs/pods-frames",
+      "destination": "/docs/user-documentation/pods/overview"
+    },
+    {
+      "source": "/docs/pods-members",
+      "destination": "/docs/user-documentation/pods/overview"
+    },
+    {
+      "source": "/docs/pods-tasks",
+      "destination": "/docs/user-documentation/pods/overview"
+    },
+    {
+      "source": "/docs/how-does-dust-handle-user-data",
+      "destination": "/docs/user-documentation/getting-started/faq/general-questions/how-does-dust-handle-user-data"
+    },
+    {
+      "source": "/docs/what-ai-models-are-available-in-dust",
+      "destination": "/docs/user-documentation/getting-started/faq/general-questions/what-ai-models-are-available-in-dust"
+    },
+    {
+      "source": "/docs/what-are-the-pricing-plans-for-dust",
+      "destination": "/docs/user-documentation/getting-started/faq/general-questions/what-are-the-pricing-plans-for-dust"
+    },
+    {
+      "source": "/docs/what-data-sources-can-be-connected-to-dust",
+      "destination": "/docs/user-documentation/getting-started/faq/general-questions/what-data-sources-can-be-connected-to-dust"
+    },
+    {
+      "source": "/docs/what-tools-are-available-in-dust",
+      "destination": "/docs/user-documentation/getting-started/faq/general-questions/what-tools-are-available-in-dust"
+    },
+    {
+      "source": "/docs/troubleshooting-limitations",
+      "destination": "/docs/user-documentation/getting-started/faq/index#troubleshooting-and-limitations"
+    },
+    {
+      "source": "/docs/blog-article-writer",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/coding-assistant",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/codingbuddy",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/contract-review",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/customer-service-facilitator",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/customer-success-trainer",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/data-analysis-old",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/data-visualization-1",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/example-create-a-workspace-activity-assistant",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/internal-project-status",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/people-review",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/prompt-coach",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/respond-to-all-messages-in-a-slack-channel",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/seo-quality-analyzer",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/test-skill",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/user-guides",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/weekly-incident-reports",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/weekly-roundup",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/write-cold-emails",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/google-sheet-deprecated-dust-labs-script",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/dust-labs-repository",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/dust-user-guides",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/interactive-content",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/beta-slack-tool-using-bot-credentials",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/\ufe0f-tldr",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/my-requests",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/core-blocks",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/integration-blocks",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/database-models",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/events",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/creating-a-dust-app-that-calls-an-external-service-1",
+      "destination": "/docs/user-documentation/getting-started/use-cases-and-guides"
+    },
+    {
+      "source": "/docs/delete_api-w-wid-assistant-conversations-cid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/delete_api-w-wid-assistant-conversations-cid-messages-mid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/delete_api-w-wid-assistant-conversations-cid-messages-mid-feedbacks",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/delete_api-w-wid-assistant-conversations-cid-wakeups-wuid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/delete_api-w-wid-files-fileid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/delete_api-w-wid-spaces-spaceid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/delete_api-w-wid-spaces-spaceid-data-source-views-dsvid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-w-wid-assistant-agent-configurations",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-w-wid-assistant-conversations",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-w-wid-assistant-conversations-cid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-w-wid-assistant-conversations-cid-events",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-w-wid-assistant-conversations-cid-feedbacks",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-w-wid-assistant-conversations-cid-messages",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-w-wid-assistant-conversations-cid-messages-mid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-w-wid-assistant-conversations-cid-messages-mid-actions-aid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-w-wid-assistant-conversations-cid-messages-mid-events",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-w-wid-assistant-conversations-cid-participants",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-w-wid-assistant-conversations-cid-wakeups",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-w-wid-assistant-go-template",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-w-wid-assistant-mentions-suggestions",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-w-wid-extension-config",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-w-wid-feature-flags",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-w-wid-files-fileid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-w-wid-sandbox-functions-functionid-invocations-invocationid-events",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-w-wid-spaces",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-w-wid-spaces-spaceid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-w-wid-spaces-spaceid-data-source-views",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-w-wid-spaces-spaceid-data-source-views-dsvid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-w-wid-spaces-spaceid-project-notification-preferences",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/patch_api-w-wid-assistant-conversations-cid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/patch_api-w-wid-spaces-spaceid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/patch_api-w-wid-spaces-spaceid-data-source-views-dsvid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/patch_api-w-wid-spaces-spaceid-project-notification-preferences",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-w-wid-assistant-agent-configurations",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-w-wid-assistant-conversations",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-w-wid-assistant-conversations-cid-cancel",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-w-wid-assistant-conversations-cid-compactions",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-w-wid-assistant-conversations-cid-content-fragment",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-w-wid-assistant-conversations-cid-messages",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-w-wid-assistant-conversations-cid-messages-mid-edit",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-w-wid-assistant-conversations-cid-messages-mid-feedbacks",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-w-wid-assistant-conversations-cid-messages-mid-retry",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-w-wid-assistant-conversations-cid-participants",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-w-wid-files",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-w-wid-files-fileid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-w-wid-spaces",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-w-wid-spaces-spaceid-data-source-views",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/delete_api-v1-w-wid-assistant-agent-configurations-sid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/delete_api-v1-w-wid-assistant-conversations-cid-messages-mid-feedbacks",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/delete_api-v1-w-wid-spaces-spaceid-data-source-views-dsvid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/delete_api-v1-w-wid-spaces-spaceid-data-sources-dsid-documents-documentid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/delete_api-v1-w-wid-spaces-spaceid-data-sources-dsid-tables-tid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/delete_api-v1-w-wid-spaces-spaceid-data-sources-dsid-tables-tid-rows-rid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-user",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-analytics-export",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-assistant-agent-configurations",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-assistant-agent-configurations-search",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-assistant-agent-configurations-sid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-assistant-agent-configurations-sid-export-yaml",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-assistant-conversations-cid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-assistant-conversations-cid-events",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-assistant-conversations-cid-feedbacks",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-assistant-conversations-cid-files-rel",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-assistant-conversations-cid-mentions-suggestions",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-assistant-conversations-cid-messages-mid-events",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-assistant-mentions-suggestions",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-mcp-requests",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-search",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-skills",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-spaces",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-spaces-spaceid-apps",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-spaces-spaceid-apps-aid-runs-runid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-spaces-spaceid-data-source-views",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-spaces-spaceid-data-source-views-dsvid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-spaces-spaceid-data-source-views-dsvid-search",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-spaces-spaceid-data-sources",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-spaces-spaceid-data-sources-dsid-check-upsert-queue",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-spaces-spaceid-data-sources-dsid-documents",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-spaces-spaceid-data-sources-dsid-documents-documentid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-spaces-spaceid-data-sources-dsid-search",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-spaces-spaceid-data-sources-dsid-tables",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-spaces-spaceid-data-sources-dsid-tables-tid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-spaces-spaceid-data-sources-dsid-tables-tid-rows",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-spaces-spaceid-data-sources-dsid-tables-tid-rows-rid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-spaces-spaceid-mcp-server-views",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-v1-w-wid-workspace-usage",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/get_api-workos-login",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/patch_api-user",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/patch_api-v1-w-wid-assistant-agent-configurations-sid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/patch_api-v1-w-wid-assistant-conversations-cid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/patch_api-v1-w-wid-spaces-spaceid-data-source-views-dsvid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-assistant-agent-configurations-import",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-assistant-conversations",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-assistant-conversations-cid-cancel",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-assistant-conversations-cid-content-fragments",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-assistant-conversations-cid-messages",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-assistant-conversations-cid-messages-mid-answer-question",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-assistant-conversations-cid-messages-mid-edit",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-assistant-conversations-cid-messages-mid-feedbacks",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-assistant-conversations-cid-messages-mid-validate-action",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-assistant-mentions-parse",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-files",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-mcp-deregister",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-mcp-heartbeat",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-mcp-register",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-mcp-results",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-search",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-search-tools-upload",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-skills",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-spaces-spaceid-apps-aid-runs",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-spaces-spaceid-data-sources-dsid-documents-documentid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-spaces-spaceid-data-sources-dsid-documents-documentid-parents",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-spaces-spaceid-data-sources-dsid-tables",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-spaces-spaceid-data-sources-dsid-tables-tid-rows",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-v1-w-wid-triggers-hooks-webhooksourceid",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-workos-authenticate",
+      "destination": "/docs/developer-platform/overview/developer-platform"
+    },
+    {
+      "source": "/docs/post_api-workos-revoke-session",
+      "destination": "/docs/developer-platform/overview/developer-platform"
     }
   ],
   "thumbnails": {
