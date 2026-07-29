@@ -1481,20 +1481,16 @@
       "destination": "/docs/developer-platform/core-concepts/rate-limits"
     },
     {
-      "source": "/docs/discord-bot",
-      "destination": "/docs/user-documentation/admins/connections-management"
-    },
-    {
       "source": "/docs/pods-overview",
-      "destination": "/docs/user-documentation/admins/spaces-management"
+      "destination": "/docs/user-documentation/pods/overview"
     },
     {
       "source": "/docs/programmatic-usage",
-      "destination": "/reference/developer-platform-overview"
+      "destination": "/docs/user-documentation/admins/usage-seats-and-credits/credit-management#programmatic-usage"
     },
     {
       "source": "/docs/slack-connection",
-      "destination": "/docs/user-documentation/admins/connections-management"
+      "destination": "/docs/user-documentation/agents/tools/slack-tools"
     }
   ],
   "thumbnails": {
