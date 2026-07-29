@@ -1539,7 +1539,7 @@
     },
     {
       "source": "/docs/managing-assistants",
-      "destination": "/docs/user-documentation/agents/agent-builder-sidekick"
+      "destination": "/docs/user-documentation/agents/create-your-first-agent"
     },
     {
       "source": "/docs/mcp",
@@ -1651,7 +1651,7 @@
     },
     {
       "source": "/docs/troubleshooting-limitations",
-      "destination": "/docs/user-documentation/getting-started/faq/troubleshooting-and-limitations/is-dust-down"
+      "destination": "/docs/user-documentation/getting-started/faq/index#troubleshooting-and-limitations"
     },
     {
       "source": "/docs/blog-article-writer",
