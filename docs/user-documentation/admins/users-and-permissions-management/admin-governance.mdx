@@ -12,18 +12,18 @@ A person's effective permissions are the additive combination of the three. Noth
 
 ## Roles
 
-### Super Admin
+### Admin
 
-Super Admin is the full workspace administrator, typically held by IT or Security. A Super Admin can:
+Admin (workspace admin) is the full workspace administrator, typically held by IT or Security. A workspace admin can:
 
-- Manage workspace administrators and all member roles.
+- Manage all member roles, including other admins.
 - Configure IT & Security settings, including SSO and provisioning.
 - Manage billing, subscriptions, seats, credits and per-member spending limits.
 - Access and export audit logs.
 - Configure governance capabilities, feature toggles, API keys, model providers and developer tools.
 - Manage data connections, spaces and groups.
 
-Super Admins always pass governance checks, regardless of how a capability is configured. Keep at least two Super Admins in every workspace so that access is never lost.
+Workspace admins always pass governance checks, regardless of how a capability is configured. Keep at least two workspace admins in every workspace so that access is never lost.
 
 ### Manager
 
@@ -36,10 +36,10 @@ Manager is a scoped operational administrator, typically a department lead or an
 - View workspace analytics.
 - Edit member seat types, and view, approve or reject seat upgrade requests.
 
-A Manager cannot promote or demote administrators, manage per-member spending limits, or access IT & Security, Billing, Workspace Settings, API keys, model providers, developer tools, or the governance toggles for billing, security, Frames and audit logs.
+A Manager cannot promote or demote admins, manage per-member spending limits, or access IT & Security, Billing, Workspace Settings, API keys, model providers, developer tools, or the governance toggles for billing, security, Frames and audit logs.
 
 <Info>
-Manager is not the replacement for Builder. Builder capabilities are now controlled through governance capabilities and group membership.
+Manager is not the replacement for Builder. Agent and skill creation rights come from governance capabilities and group membership.
 </Info>
 
 ### Member
@@ -63,20 +63,22 @@ Each capability is configured in one of three modes:
 | --- | --- |
 | Everyone | All workspace members |
 | Groups | Only the selected groups |
-| Admin only | Only Super Admins |
+| Admin only | Only workspace admins |
 
 ### Available capabilities
 
 | Capability | What it controls | Default |
 | --- | --- | --- |
-| Create agents | Who can create new agents | Everyone |
-| Publish agents | Who can change an agent's publication state | Everyone |
-| Create skills | Who can create new skills | Everyone |
-| Publish skills | Who can change a skill's publication state | Admin only |
-| View unpublished agents and skills | Who can discover and use resources that are not broadly published | Admin only |
+| Create agents | Who can create new agents | Groups (Builders at migration) |
+| Publish agents | Who can publish an agent | Groups (Builders at migration) |
+| Create skills | Who can create new skills | Groups (Builders at migration) |
+| Publish skills | Who can publish a skill | Admin only |
+| Access all unpublished agents | Who can discover and use agents that are not yet available to workspace users (agents only; there is no equivalent for skills) | Admin only |
 | Access audit logs | Who can view and export workspace audit events | Admin only |
-| Manage billing and security | Who can manage billing, subscriptions and security settings | Admin only |
-| Manage Frame sharing and publication | Who can invite users to Frames or publish them externally, when the Frames feature is enabled | Admin only |
+| Billing access | Who can manage billing and subscriptions | Admin only |
+| Security access | Who can manage security settings | Admin only |
+| Frames — invite | Who can invite users to Frames, when the Frames feature is enabled | Admin only |
+| Frames — publish | Who can publish Frames externally, when the Frames feature is enabled | Admin only |
 
 Publishing agents and publishing skills are separate capabilities. A person may be allowed to publish skills without being allowed to publish agents, or the reverse.
 
@@ -84,78 +86,88 @@ Three further administration areas can be delegated to groups in the same way: m
 
 ## Who can do what
 
-The table below is the practical summary. "Capability" means the action is available to whoever holds the named capability, in addition to Super Admins.
+The table below is the practical summary. "Capability" means the action is available to whoever holds the named capability, in addition to workspace admins.
 
-| Action | Super Admin | Manager | Member |
+| Action | Admin | Manager | Member |
 | --- | --- | --- | --- |
 | Invite and revoke members | Yes | Yes | No |
 | Change roles | All roles | `manager` and `member` only | No |
 | Create manual groups, manage membership | Yes | Yes | No |
 | Configure SSO and provisioning | Yes | No | No |
 | View workspace analytics | Yes | Yes | No |
-| Manage billing and subscriptions | Yes | No | Capability |
+| Manage billing and subscriptions | Yes | No | Capability (Billing access) |
+| Configure security settings | Yes | No | Capability (Security access) |
 | Manage seat types, approve seat requests | Yes | Yes | No |
 | Manage per-member spending limits | Yes | No | No |
-| View and export audit logs | Yes | No | Capability |
+| View and export audit logs | Yes | No | Capability (Access audit logs) |
 | Configure governance capabilities and feature toggles | Yes | No | No |
 | Create and manage spaces | Yes | No | No |
 | Authorize and manage data connections | Yes | No | Capability |
 | Add, configure and share tools and MCP servers | Yes | No | Capability |
 | Configure Computer network allowlists, environment variables and secrets | Yes | No | Capability |
-| Create agents and skills | Yes | Capability | Capability |
+| Create agents | Yes | Capability | Capability |
+| Create skills | Yes | Capability | Capability |
 | Publish agents | Yes | Capability | Capability |
 | Publish skills | Yes | Capability | Capability |
-| View unpublished agents and skills | Yes | Capability | Capability |
+| Access all unpublished agents | Yes | Capability | Capability |
 | Enable Frames for the workspace | Yes | No | No |
-| Share and publish Frames | Yes | Capability | Capability |
+| Invite users to Frames | Yes | Capability | Capability |
+| Publish Frames externally | Yes | Capability | Capability |
 | Manage API keys and model providers | Yes | No | No |
 
-## Workspace & Governance
+## Settings & Governance
 
-Workspace administration is grouped under **Workspace & Governance**. The rule is simple:
+Workspace administration is grouped under **Settings & Governance**. The rule is simple:
 
-- Use **Governance** to control *who* can perform an action.
-- Use **Workspace Settings** to control *whether* a feature is enabled.
+- Use **Settings & Governance** to control *who* can perform an action (governance capabilities) and *whether* a feature is enabled (feature toggles).
 
-Billing requires Super Admin, or the `Manage billing and security` capability. The audit logs toggle and the Frames feature toggle are configured on the Governance page and are Super Admin only. Disabling the Frames feature prevents all Frames usage, regardless of any capability granted to a group.
+Billing access requires the Admin role, or the `Billing access` capability. Security access requires the Admin role, or the `Security access` capability. The audit logs toggle and the Frames feature toggle are configured on the Settings & Governance page and are Admin only. Disabling the Frames feature prevents all Frames usage, regardless of any capability granted to a group.
 
 ### Granting a capability to a group
 
-1. Go to **Admin > Workspace & Governance > Governance**.
+1. Go to **Admin > Settings & Governance**.
 2. Find the capability you want to change.
 3. Set its mode to **Groups**, then select the groups that should receive it.
 4. Save. The change applies immediately and is recorded in the audit log.
 
-To grant a capability to one person, first create a manual group under **Admin > Groups**, add the person to it, then select that group on the capability.
+To grant a capability to one person, first create a manual group under **Admin > People**, add the person to it, then select that group on the capability.
 
-## Agents and skills publication
+## Agents and skills availability
 
-Agents and skills share the same publication model:
+### Availability
 
-| State | Meaning |
+Each agent and skill has an **Availability** field that controls who can access it:
+
+| Availability value | Who can access |
 | --- | --- |
-| Unpublished | Available according to the workspace's policy for unpublished resources. Unpublished does not necessarily mean confidential. |
-| Published | Available to the audience defined by the resource and by workspace access rules. |
-| Discoverable | Surfaced for broader discovery according to the workspace's publication policy. |
+| `editors` | Only users with editor access to the resource |
+| `workspace users` | All workspace members |
 
-Changing a publication state requires the relevant publish capability. Editing the content of an agent or a skill requires editor access. Being allowed to publish does not grant editing access, and being an editor does not grant publishing rights.
+Changing the Availability value requires the relevant publish capability (`Publish agents` or `Publish skills`). Editing the content of an agent or skill requires editor access. Being allowed to publish does not grant editing access, and being an editor does not grant publishing rights.
 
-For skills, publication state is distinct from the skill status exposed by the API (`active`, `archived`, `suggested`), which describes the lifecycle of the skill rather than who can see it.
+### Agent Discoverability
+
+Agents also have a separate **Agent Discoverability** toggle (ON / OFF). When enabled, the agent is surfaced for broader discovery across the workspace. This toggle is independent of the Availability field and also requires the `Publish agents` capability to change.
+
+<Note>
+The values `unpublished`, `published`, and `discoverable` exist in the internal data model but are not user-facing states. The user-facing controls are the **Availability** field and the **Agent Discoverability** toggle described above.
+</Note>
 
 ## Migration from Builder
 
 Builder is no longer used as a workspace role or as the long-term permission model.
 
-- In every workspace that had active builders, a group named **Builders** is created and granted `Create agents` and `Create skills` for the whole workspace, and existing builders are added to it.
-- Assigning the legacy `builder` role now adds the person to that group.
+- In every workspace that had active builders, a group named **Builders** (internally `formerBuilders`) is created and granted `Create agents` and `Create skills` for the whole workspace. Existing builders are added to it.
+- The `Publish agents` and `Publish skills` capabilities are **not** included in the Builders migration grant. Publish rights must be granted separately if needed.
+- The legacy `builder` role value is removed from API keys. The Builders group is attached to affected keys instead, so creation rights are preserved.
 - Administrators can move these capabilities from the Builders group to any other manual or provisioned group at any time, and can delete the group once its members are covered elsewhere.
 
 Some behaviours previously attached to the Builder role have moved or been retired:
 
 | Former Builder behaviour | Now |
 | --- | --- |
-| Enable or disable global agents | Super Admin only |
-| Read, delete or rename files in any space | Super Admin only |
+| Enable or disable global agents | Admin only |
+| Read, delete or rename files in any space | Admin only |
 | Link Slack channels and set the default Slack responder | Granted with `Publish agents` |
 | See the Insights tab | Granted with `Publish agents` |
 | Moderate or edit feedback on any agent | Requires editor access on the agent |
@@ -169,7 +181,7 @@ Existing integrations keep working during the migration period:
 
 | Legacy value | Behaviour now |
 | --- | --- |
-| `admin` | Maps to Super Admin |
+| `admin` | Maps to Admin |
 | `builder` | Removed from API keys. The Builders group is attached to affected keys instead, so creation rights are preserved |
 | `user` | Maps to Member |
 
@@ -181,7 +193,7 @@ Update integrations to the current role values before the end of the migration p
 No. Manager is an operational administrator role. Agent and skill creation rights come from governance capabilities and group membership.
 
 **Can Managers manage billing or security?**
-Not by default. Billing and security require Super Admin, or the `Manage billing and security` capability.
+Not by default. Billing requires the Admin role or the `Billing access` capability. Security settings require the Admin role or the `Security access` capability.
 
 **Can I give one person a capability without creating a group?**
 No. Create a manual group containing that person, and grant the capability to the group.
@@ -195,8 +207,8 @@ No. Space access is governed by space membership and groups.
 **What happens if a person is in several groups?**
 Capabilities are additive. The person receives the union of everything their role and their groups grant.
 
-**Does a capability set to Admin only still apply to Super Admins?**
-Yes. Super Admins pass every governance check, whatever the mode.
+**Does a capability set to Admin only still apply to workspace admins?**
+Yes. Workspace admins pass every governance check, whatever the mode.
 
 **Who can see that a permission changed?**
-Role changes, capability changes, capability mode changes and group membership changes are recorded in the audit log.
+Role changes are recorded as `membership.role_updated`. Governance capability configuration changes are recorded as `workspace.governance_permission_updated`. Note that manual (non-SCIM) group membership changes are not currently audited.
