@@ -5,7 +5,7 @@ title: "SAML SSO"
 
 Dust supports SAML Single Sign-On (SSO) to manage your team's access to Dust through your existing Identity Provider (IdP), so authentication is managed in one place.
 
-SAML SSO configuration is an IT & Security setting and requires the **Super Admin** role.
+SAML SSO configuration is an IT & Security setting and requires the **Admin** role (or a group granted **Security access**).
 
 ## Supported Identity Providers
 
@@ -15,13 +15,13 @@ Google Workspace _ OneLogin
 
 To enable SSO for Dust using SAML, follow these steps to create a custom app integration in your Identity Provider (IdP).
 
-## 1. Identify a Super Admin:
+## 1. Identify a workspace admin:
 
-Choose a Super Admin with full access to both your IdP admin dashboard and the Dust Admin panel. This is necessary as enabling SAML SSO requires creating a custom integration in your IdP.
+Choose a workspace admin with full access to both your IdP admin dashboard and the Dust Admin panel. This is necessary as enabling SAML SSO requires creating a custom integration in your IdP.
 
 ## 2. Get Your Dust SAML Configuration Values
 
-1. In Dust, navigate to **Admin > Workspace & Governance > IT & Security > Single Sign-On > Activate Single Sign-On**
+1. In Dust, navigate to **Admin > IT & Security > Single Sign-On > Activate Single Sign-On**
 2. You'll find all the necessary SAML configuration values that you'll need to set up your IdP:
    - **ACS (Assertion Consumer Service) URL**
    - **Entity ID / Audience URI**
@@ -104,7 +104,7 @@ When [setting up a SAML app in Google Workspace ](https://support.google.com/a/a
 
 ## 4. Enabling SAML Single Sign-On (SSO) in Dust
 
-1. Return to the Dust SSO configuration page (**Admin > Workspace & Governance > IT & Security > Single Sign-On > Activate Single Sign-On**)
+1. Return to the Dust SSO configuration page (**Admin > IT & Security > Single Sign-On > Activate Single Sign-On**)
 2. Enter the following details from your IdP setup:
    - **IdP Single Sign-On URL**
    - **X.509 Certificate**
