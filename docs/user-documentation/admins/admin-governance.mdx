@@ -39,7 +39,7 @@ Manager is a scoped operational administrator, typically a department lead or an
 A Manager cannot promote or demote administrators, manage per-member spending limits, or access IT & Security, Billing, Workspace Settings, API keys, model providers, developer tools, or the governance toggles for billing, security, Frames and audit logs.
 
 <Info>
-Manager is not the replacement for Builder. Builder capabilities are now controlled through governance capabilities and group membership.
+  Manager is not the replacement for Builder. Builder capabilities are now controlled through governance capabilities and group membership.
 </Info>
 
 ### Member
@@ -114,19 +114,19 @@ The table below is the practical summary. "Capability" means the action is avail
 
 Workspace administration is grouped under **Workspace & Governance**. The rule is simple:
 
-- Use **Governance** to control *who* can perform an action.
-- Use **Workspace Settings** to control *whether* a feature is enabled.
+- Use **Governance** to control _who_ can perform an action.
+- Use **Workspace Settings** to control _whether_ a feature is enabled.
 
 Billing requires Super Admin, or the `Manage billing and security` capability. The audit logs toggle and the Frames feature toggle are configured on the Governance page and are Super Admin only. Disabling the Frames feature prevents all Frames usage, regardless of any capability granted to a group.
 
 ### Granting a capability to a group
 
-1. Go to **Admin > Workspace & Governance > Governance**.
+1. Go to **Admin \> Workspace & Governance \> Governance**.
 2. Find the capability you want to change.
 3. Set its mode to **Groups**, then select the groups that should receive it.
 4. Save. The change applies immediately and is recorded in the audit log.
 
-To grant a capability to one person, first create a manual group under **Admin > Groups**, add the person to it, then select that group on the capability.
+To grant a capability to one person, first create a manual group under **Admin \> Groups**, add the person to it, then select that group on the capability.
 
 ## Agents and skills publication
 
@@ -177,26 +177,18 @@ Update integrations to the current role values before the end of the migration p
 
 ## FAQ
 
-**Does Manager replace Builder?**
-No. Manager is an operational administrator role. Agent and skill creation rights come from governance capabilities and group membership.
+**Does Manager replace Builder?** No. Manager is an operational administrator role. Agent and skill creation rights come from governance capabilities and group membership.
 
-**Can Managers manage billing or security?**
-Not by default. Billing and security require Super Admin, or the `Manage billing and security` capability.
+**Can Managers manage billing or security?** Not by default. Billing and security require Super Admin, or the `Manage billing and security` capability.
 
-**Can I give one person a capability without creating a group?**
-No. Create a manual group containing that person, and grant the capability to the group.
+**Can I give one person a capability without creating a group?** No. Create a manual group containing that person, and grant the capability to the group.
 
-**Are publishing agents and publishing skills the same permission?**
-No. They are separate capabilities and can be granted independently.
+**Are publishing agents and publishing skills the same permission?** No. They are separate capabilities and can be granted independently.
 
-**Can a Manager see restricted spaces?**
-No. Space access is governed by space membership and groups.
+**Can a Manager see restricted spaces?** No. Space access is governed by space membership and groups.
 
-**What happens if a person is in several groups?**
-Capabilities are additive. The person receives the union of everything their role and their groups grant.
+**What happens if a person is in several groups?** Capabilities are additive. The person receives the union of everything their role and their groups grant.
 
-**Does a capability set to Admin only still apply to Super Admins?**
-Yes. Super Admins pass every governance check, whatever the mode.
+**Does a capability set to Admin only still apply to Super Admins?** Yes. Super Admins pass every governance check, whatever the mode.
 
-**Who can see that a permission changed?**
-Role changes, capability changes, capability mode changes and group membership changes are recorded in the audit log.
+**Who can see that a permission changed?** Role changes, capability changes, capability mode changes and group membership changes are recorded in the audit log.

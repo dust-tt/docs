@@ -314,7 +314,7 @@
             "group": "Users & Permissions management",
             "pages": [
               "docs/user-documentation/admins/users-and-permissions-management/access-controls-and-permissions",
-              "docs/user-documentation/admins/users-and-permissions-management/admin-governance",
+              "docs/user-documentation/admins/admin-governance",
               "docs/user-documentation/admins/users-and-permissions-management/memberships-and-roles",
               {
                 "group": "Single Sign-On (SSO)",
