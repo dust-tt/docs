@@ -5,7 +5,7 @@ title: "Skill Examples"
 
 This page contains a few examples of skills that you can re-create and tweak to fit your use cases.
 
-## Skills: rights and publication states
+## Skills: rights and availability
 
 Creating, editing, publishing and using a skill are separate operations governed by distinct rights:
 
@@ -14,16 +14,19 @@ Creating, editing, publishing and using a skill are separate operations governed
 | **Create a skill** | `Create skills` capability (default: Everyone) |
 | **Edit a skill** | Must be an editor of the skill |
 | **Publish a skill** | `Publish skills` capability (default: Admin only) |
-| **Use a skill** | Access to the skill according to its publication state |
+| **Use a skill** | Access to the skill according to its availability setting |
 
-Skills have three publication states:
+A skill's sharing is controlled by its **Availability** setting:
 
-- **Unpublished**: Available according to the workspace's unpublished-resource policy; not listed in the general skill directory.
-- **Published**: Visible and usable by the audience defined by the skill and workspace access rules.
-- **Discoverable**: Surfaced for broader discovery (e.g. via the Discover Skills capability) according to the workspace publication policy.
+- **Editors**: the skill is available only to its editors.
+- **Workspace users**: the skill is available to all workspace members (or a subset defined by group access rules).
 
 <Info>
-**API note:** The Dust API exposes skill statuses `active`, `archived`, and `suggested`. These are internal lifecycle statuses and are distinct from the publication state described above.
+**Skills availability** is currently behind a feature flag. Configuration options may vary depending on your workspace plan and rollout phase.
+</Info>
+
+<Info>
+**Internal data model:** The Dust data model uses the values `unpublished`, `published`, and `discoverable` internally; these do not correspond to user-facing states. Separately, the Dust API exposes skill lifecycle statuses `active`, `archived`, and `suggested`, which describe a skill's lifecycle and are distinct from its availability setting.
 </Info>
 
 Having publish rights does not grant editing rights, and vice versa. See [Admin governance](/docs/user-documentation/admins/users-and-permissions-management/admin-governance) for how to configure capabilities and groups.
