@@ -341,7 +341,8 @@
               "docs/user-documentation/admins/connections-management/zendesk",
               "docs/user-documentation/admins/connections-management/snowflake",
               "docs/user-documentation/admins/connections-management/bigquery",
-              "docs/user-documentation/admins/connections-management/gong"
+              "docs/user-documentation/admins/connections-management/gong",
+              "docs/user-documentation/admins/connections-management/slack"
             ]
           },
           {
@@ -1490,7 +1491,7 @@
     },
     {
       "source": "/docs/slack-connection",
-      "destination": "/docs/user-documentation/agents/tools/slack-tools"
+      "destination": "/docs/user-documentation/admins/connections-management/slack"
     }
   ],
   "thumbnails": {
