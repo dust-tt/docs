@@ -314,7 +314,6 @@
             "group": "Users & Permissions management",
             "pages": [
               "docs/user-documentation/admins/users-and-permissions-management/access-controls-and-permissions",
-              "docs/user-documentation/admins/users-and-permissions-management/admin-governance",
               "docs/user-documentation/admins/users-and-permissions-management/memberships-and-roles",
               {
                 "group": "Single Sign-On (SSO)",
@@ -675,10 +674,6 @@
     {
       "source": "/docs/access-controls-and-permissions",
       "destination": "/docs/user-documentation/admins/users-and-permissions-management/access-controls-and-permissions"
-    },
-    {
-      "source": "/docs/admin-governance",
-      "destination": "/docs/user-documentation/admins/users-and-permissions-management/admin-governance"
     },
     {
       "source": "/docs/admin-guide-set-up-your-dust-workspace",

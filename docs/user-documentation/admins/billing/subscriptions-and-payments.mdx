@@ -3,7 +3,7 @@ title: "Subscriptions & Payments"
 ---
 
 
-You can manage your subscription by going to **Billing**. Access requires the **admin** role or the **`Billing access`** capability.
+You can manage your subscription by going to **Admin > Billing**.
 
 ## Plans
 
@@ -21,7 +21,7 @@ Each seat type (Free, Pro, Max) comes with a monthly credit allocation. Learn mo
 You can subscribe in two ways:
 
 - **At sign-up**: when creating your workspace, select a Pro or Max seat to go directly to checkout.
-- **From the free option**: start with a free workspace and upgrade any member's seat to Pro or Max from **Workspace > Usage**. This triggers the checkout flow.
+- **From the free option**: start with a free workspace and upgrade any member's seat to Pro or Max from **Admin > Usage**. This triggers the checkout flow.
 
 At checkout, you are billed for one full billing period (monthly or annual) for the paid seat.
 
@@ -60,7 +60,7 @@ Let's assume you have 2 Pro seats at the start of your pay period (September 3rd
 
 ## Managing your subscription
 
-You can manage your subscription from **Billing**. From there, you can upgrade your plan, update your payment details, and access invoices. Access requires the **admin** role or the **`Billing access`** capability.
+You can manage your subscription from **Admin > Billing**. From there, you can upgrade your plan, update your payment details, and access invoices.
 
 ## What happens when you cancel your subscription?
 
@@ -83,13 +83,9 @@ Your workspace will revert to the free version of the Business plan and be subje
 
 ### Which user will remain after the downgrade?
 
-The member with the **`admin`** role who was assigned that role the earliest. This will typically be the person who initially set up the workspace, unless their role was changed later.
+The user who was given an `admin` role the earliest. This will typically be the person who initially subscribed, unless they were removed or their role was changed later.
 
-<Info>
-**Legacy role aliases**: during the migration period, the API continues to accept the legacy `admin` role value, which maps to the Admin role. The legacy `user` value maps to Member. The `builder` role has been removed; affected API keys receive the **Builders** group (granted Create agents and Create skills capabilities) instead.
-</Info>
-
-If you'd like a different user to remain, ensure the intended user holds the `admin` role before your subscription ends.
+If you'd like a different user to remain, remove all other admins (by revoking them or downgrading their role) before your subscription ends.
 
 ### What will happen to our connections (Notion, Slack, Google Drive, etc.)?
 
@@ -115,7 +111,7 @@ Your custom agents will be deactivated upon downgrading. If you resubscribe, the
 
 ### What if we want to reactivate our subscription?
 
-Go to **Billing** and resubscribe. Upon reactivating, all previously limited or inaccessible features and data will be restored, including access to multiple users, connections, data sources, and custom agents.
+Go to **Admin > Subscription** and resubscribe. Upon reactivating, all previously limited or inaccessible features and data will be restored, including access to multiple users, connections, data sources, and custom agents.
 
 ### What if we want to delete everything?
 
