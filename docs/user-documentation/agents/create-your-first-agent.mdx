@@ -59,17 +59,18 @@ Add a brief **description** explaining the agent's purpose and capabilities. Thi
 
 Click **" Suggest"** to see relevant tags based on your agent's description
 
-Note : Only Super Admins and Managers can create new tags [here is how](/docs/user-documentation/admins/agents-management). Other team members can select from existing tags
+Note : Only Admins and Managers can create new tags [here is how](/docs/user-documentation/admins/agents-management). Other team members can select from existing tags
 
 ## Step 6: Set access and share your agent
 
-Agents have three publication states:
+An agent's sharing is controlled by two settings:
 
-- **Unpublished**: The agent is available according to your workspace's unpublished-resource policy. It is not listed in the general agent directory but is not necessarily confidential.
-- **Published**: The agent is visible and usable by the audience defined by the agent and workspace access rules.
-- **Discoverable**: The agent is surfaced for broader discovery according to the workspace publication policy.
+- **Availability**: determines who can access and use the agent.
+  - **Editors**: the agent is available only to its editors.
+  - **Workspace users**: the agent is available to all workspace members (or a subset defined by group access rules).
+- **Agent Discoverability toggle** (ON/OFF): when turned on, the agent is surfaced in the workspace's agent directory so members can discover it.
 
-Changing an agent's publication state requires the **`Publish agents`** governance capability. Editing the agent's content requires being an editor — having publish rights does not grant editing rights.
+Changing an agent's availability or discoverability requires the **`Publish agents`** governance capability. Editing the agent's content requires being an editor — having publish rights does not grant editing rights.
 
 You can define who will be able to edit the agent by adding users to the **"Editors" section**.
 
