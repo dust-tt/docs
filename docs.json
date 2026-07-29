@@ -311,18 +311,19 @@
         "pages": [
           "docs/user-documentation/admins/quickstart",
           {
-            "group": "Users & Permissions management",
+            "group": "Admin Governance",
             "pages": [
-              "docs/user-documentation/admins/users-and-permissions-management/access-controls-and-permissions",
-              "docs/user-documentation/admins/users-and-permissions-management/memberships-and-roles",
+              "docs/user-documentation/admins/admin-governance/workspace-governance-roles-groups-and-permissions",
+              "docs/user-documentation/admins/admin-governance/access-controls-and-permissions",
+              "docs/user-documentation/admins/admin-governance/memberships-and-roles",
               {
                 "group": "Single Sign-On (SSO)",
                 "pages": [
-                  "docs/user-documentation/admins/users-and-permissions-management/single-sign-on-sso/single-sign-on-sso",
-                  "docs/user-documentation/admins/users-and-permissions-management/single-sign-on-sso/saml-sso"
+                  "docs/user-documentation/admins/admin-governance/single-sign-on-sso/single-sign-on-sso",
+                  "docs/user-documentation/admins/admin-governance/single-sign-on-sso/saml-sso"
                 ]
               },
-              "docs/user-documentation/admins/users-and-permissions-management/users-and-groups-provisioning"
+              "docs/user-documentation/admins/admin-governance/users-and-groups-provisioning"
             ]
           },
           "docs/user-documentation/admins/spaces-management",
@@ -673,7 +674,7 @@
     },
     {
       "source": "/docs/access-controls-and-permissions",
-      "destination": "/docs/user-documentation/admins/users-and-permissions-management/access-controls-and-permissions"
+      "destination": "/docs/user-documentation/admins/admin-governance/access-controls-and-permissions"
     },
     {
       "source": "/docs/admin-guide-set-up-your-dust-workspace",
@@ -1221,7 +1222,7 @@
     },
     {
       "source": "/docs/saml-sso",
-      "destination": "/docs/user-documentation/admins/users-and-permissions-management/single-sign-on-sso/saml-sso"
+      "destination": "/docs/user-documentation/admins/admin-governance/single-sign-on-sso/saml-sso"
     },
     {
       "source": "/docs/scheduling-your-agent-beta",
@@ -1245,11 +1246,11 @@
     },
     {
       "source": "/docs/setting-up-your-workspace",
-      "destination": "/docs/user-documentation/admins/users-and-permissions-management/memberships-and-roles"
+      "destination": "/docs/user-documentation/admins/admin-governance/memberships-and-roles"
     },
     {
       "source": "/docs/single-sign-on-sso",
-      "destination": "/docs/user-documentation/admins/users-and-permissions-management/single-sign-on-sso/single-sign-on-sso"
+      "destination": "/docs/user-documentation/admins/admin-governance/single-sign-on-sso/single-sign-on-sso"
     },
     {
       "source": "/docs/skills",
@@ -1357,7 +1358,7 @@
     },
     {
       "source": "/docs/users-and-groups-provisioning",
-      "destination": "/docs/user-documentation/admins/users-and-permissions-management/users-and-groups-provisioning"
+      "destination": "/docs/user-documentation/admins/admin-governance/users-and-groups-provisioning"
     },
     {
       "source": "/docs/val-town",
