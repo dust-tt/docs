@@ -2,7 +2,7 @@
 title: "Memberships & Roles"
 ---
 
-You can manage members (invite, revoke, change role, see member list) by going to **Admin > People**.
+You can manage members (invite, revoke, change role, see member list) by going to **Admin \> People**.
 
 Dust uses a three-role model that expresses a person's **responsibility** in the workspace. Roles are one layer of a broader governance model—see [Admin governance](/docs/user-documentation/admins/users-and-permissions-management/admin-governance) for the full picture, including governance capabilities and group-based access.
 
@@ -44,6 +44,7 @@ A member's **role** (Admin, Manager, Member) determines administrative responsib
 Roles alone do not determine everything a user can do. **Governance capabilities** (such as `Create agents`, `Publish agents`, `Create skills`, `Publish skills`, `Access audit logs`) are granted through **groups**. Permissions are **additive**: a person gains the union of what their role and all their group memberships grant.
 
 Each governance capability can be set to one of three modes:
+
 - **Everyone** — all workspace members have this capability
 - **Groups** — only members of the designated groups have this capability
 - **Admin only** — only workspace admins have this capability
@@ -53,11 +54,11 @@ See [Admin governance](/docs/user-documentation/admins/users-and-permissions-man
 ## Builder: Migration Note
 
 <Note>
-**Builder is a legacy role** and is no longer a current role in the governance model.
+  **Builder is a legacy role** and is no longer a current role in the governance model.
 
-Workspaces that had active Builders have been migrated to a **Builders** group granted the `Create agents` and `Create skills` capabilities for the whole workspace. Former Builders are members of this group. Admins can reassign these capabilities to other manual or SCIM-provisioned groups as needed.
+  Workspaces that had active Builders have been migrated to a **Builders** group granted the `Create agents` and `Create skills` capabilities for the whole workspace. Former Builders are members of this group. Admins can reassign these capabilities to other manual or SCIM-provisioned groups as needed.
 
-During the migration period, the legacy `builder` role value remains accepted in the API for compatibility; it maps to Builders group membership rather than a distinct role.
+  During the migration period, the legacy `builder` role value remains accepted in the API for compatibility; it maps to Builders group membership rather than a distinct role.
 </Note>
 
 ## Handle memberships & roles through provisioning

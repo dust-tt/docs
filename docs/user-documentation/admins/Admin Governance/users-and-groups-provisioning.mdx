@@ -2,26 +2,17 @@
 title: "Users and groups provisioning"
 ---
 
-
 Dust supports automated user and group management through SCIM 2.0 (System for Cross-domain Identity Management). With this enterprise feature, users are created, updated, and deactivated in Dust automatically from your IdP.
 
 SCIM provisioning can be enabled for enterprise users. You'll need **Super Admin** access to both Dust and your IdP.
 
-1. In Dust, navigate to **Admin > Workspace & Governance > IT & Security > User provisioning > Setup Directory sync**
-
-
+1. In Dust, navigate to **Admin \> Workspace & Governance \> IT & Security \> User provisioning \> Setup Directory sync**
 2. Select your identity provider (IdP) from the list
-
-
 3. Follow the steps
-
-
 4. **Important note for Enterprise customers:** to enable department-segmented analytics, customers must provision relevant groups to Dust.
 
-
 <Info>
-Check your IdP documentation along the way
-The setup experience may vary depending on the selected IdP. We recommend checking the documentation of your IdP (specifically the sections about SSO, SAML and SCIM) as each might have specificities. (_For example, [Okta (OIDC)](https://help.okta.com/en-us/content/topics/apps/apps_app_integration_wizard_scim.htm) might require you to create 2 applications - one for SSO, one for SCIM_)
+  Check your IdP documentation along the way The setup experience may vary depending on the selected IdP. We recommend checking the documentation of your IdP (specifically the sections about SSO, SAML and SCIM) as each might have specificities. (_For example, [Okta (OIDC)](https://help.okta.com/en-us/content/topics/apps/apps_app_integration_wizard_scim.htm) might require you to create 2 applications - one for SSO, one for SCIM_)
 </Info>
 
 ## Mapping provisioned groups to roles and governance capabilities
@@ -33,7 +24,7 @@ SCIM-provisioned groups can be used to assign workspace roles and governance cap
 You can automatically assign the **Super Admin** or **Manager** role to your users by adding them to special groups (named exactly) **"dust-admins"** and **"dust-managers"** respectively in your IdP. Create these groups in your IdP, assign the appropriate members, and synchronize them.
 
 | IdP group name | Dust role assigned |
-|---|---|
+| --- | --- |
 | `dust-admins` | Super Admin |
 | `dust-managers` | Manager |
 
@@ -41,12 +32,12 @@ You can automatically assign the **Super Admin** or **Manager** role to your use
 
 Beyond roles, you can grant governance capabilities to any provisioned group. For example, a group can be granted the `Create agents` or `Create skills` capability so that only its members can perform those actions workspace-wide.
 
-To assign capabilities to a SCIM-provisioned group, a Super Admin configures the capability mode to **Groups** and adds the provisioned group to the allowlist under **Admin > Workspace & Governance > Governance**.
+To assign capabilities to a SCIM-provisioned group, a Super Admin configures the capability mode to **Groups** and adds the provisioned group to the allowlist under **Admin \> Workspace & Governance \> Governance**.
 
 ### Migration note: the Builders group
 
 <Note>
-**Builder is a legacy role.** Workspaces that had active Builders have been migrated to a **Builders** group automatically granted the `Create agents` and `Create skills` capabilities for the whole workspace. Former Builders are members of this group.
+  **Builder is a legacy role.** Workspaces that had active Builders have been migrated to a **Builders** group automatically granted the `Create agents` and `Create skills` capabilities for the whole workspace. Former Builders are members of this group.
 
-The legacy `dust-builders` IdP group name, if already configured, will add provisioned users to the Builders group. Super Admins can reassign these capabilities to other manual or SCIM-provisioned groups as needed.
+  The legacy `dust-builders` IdP group name, if already configured, will add provisioned users to the Builders group. Super Admins can reassign these capabilities to other manual or SCIM-provisioned groups as needed.
 </Note>
