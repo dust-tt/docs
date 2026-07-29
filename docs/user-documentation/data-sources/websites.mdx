@@ -10,12 +10,12 @@ Dust is able to crawl the content of a public website to make its content access
 <script src="https://fast.wistia.net/assets/external/E-v1.js" async></script>
 `}</HTMLBlock>
 
-With an admin or builder role, you can set up new website connections on **Spaces** > **Connections**.
+With the **connector management** capability (held by Super Admins by default, or delegated to a group under Workspace & Governance), you can set up new website connections on **Spaces** > **Connections**.
 
-To fetch the pages of a website, Dust uses the links present inside the page provided in the URL field. It does not guess any pages but instead it “navigates” from reading the content inside the page provided and the pages linked (that are on the same domain).
+To fetch the pages of a website, Dust uses the links present inside the page provided in the URL field. It does not guess any pages but instead it "navigates" from reading the content inside the page provided and the pages linked (that are on the same domain).
 
 
-And let’s say we have a website formed as is:
+And let's say we have a website formed as is:
 
 `http://myfakewebsite.com`
 
@@ -30,17 +30,17 @@ And let’s say we have a website formed as is:
 
 **Crawling strategy: All links vs children pages**
 
-If you’d like the whole website crawled, set the URL `http://myfakewebsite.com`  with “Follow all links within the domain”.
+If you'd like the whole website crawled, set the URL `http://myfakewebsite.com`  with "Follow all links within the domain".
 
-If you’d like only the articles crawled, better set the URL [`http://myfakewebsite.com/articles`](http://myfakewebsite.com/articles)  with setting “Only child pages of the provided URL” to ensure the crawler fetches only the pages that contain `http://myfakewebsite.com/articles` in their URL.
+If you'd like only the articles crawled, better set the URL [`http://myfakewebsite.com/articles`](http://myfakewebsite.com/articles)  with setting "Only child pages of the provided URL" to ensure the crawler fetches only the pages that contain `http://myfakewebsite.com/articles` in their URL.
 
 **Indexing a single page**
 
-If you want only the Engineering page indexed and no other page, you can set the url [`http://myfakewebsite.com/jobs/engineering`](http://myfakewebsite.com/jobs/engineering) combined with the setting “Page Limit” to 1.
+If you want only the Engineering page indexed and no other page, you can set the url [`http://myfakewebsite.com/jobs/engineering`](http://myfakewebsite.com/jobs/engineering) combined with the setting "Page Limit" to 1.
 
-**Advanced setting: “Depth of Search”**
+**Advanced setting: "Depth of Search"**
 
-This setting that allows you to say “How many links do I allow the crawler to follow to find a given page?”.
+This setting that allows you to say "How many links do I allow the crawler to follow to find a given page?".
 
 **PDF**
 

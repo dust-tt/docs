@@ -32,7 +32,17 @@ With the admin console, managing team members is simple. You can also use domain
 
 ## User management and role-based access control
 
-- [Setting up Single Sign On:](/docs/user-documentation/admins/users-and-permissions-management/single-sign-on-sso/saml-sso) Setting up identity and provisioning for your Dust workspace
+Dust uses a three-role model — **Super Admin**, **Manager**, and **Member** — combined with governance capabilities granted through groups. This replaces the previous Admin / Builder / Member model.
+
+- **Super Admin** (IT/Security): full workspace administration — connections, spaces, SSO, billing, audit logs, governance settings, API keys, model providers, developer tools, and analytics.
+- **Manager** (champion/department lead): scoped operational administrator — member management, manual groups, role assignment (non-admin), analytics, and seat-type editing.
+- **Member**: uses workspace resources according to seat type, space membership, and governance capabilities granted through groups.
+
+Governance capabilities (such as `Create agents`, `Publish agents`, `Create skills`) are configured per workspace and can be restricted to specific groups or to Super Admins only.
+
+For the complete governance model, see [Admin governance](/docs/user-documentation/admins/users-and-permissions-management/admin-governance).
+
+- [Setting up Single Sign On:](/docs/user-documentation/admins/users-and-permissions-management/single-sign-on-sso/saml-sso) Setting up identity and provisioning for your Dust workspace *(requires Super Admin)*
 - [SCIM integration:](/docs/user-documentation/admins/users-and-permissions-management/users-and-groups-provisioning) Automate the provisioning and de-provisioning of user accounts in Dust.
 - [How to add, change or remove members in your workspace](/docs/user-documentation/admins/users-and-permissions-management/memberships-and-roles): A step-by-step guide to managing workspace members and their roles.
 

@@ -5,17 +5,45 @@ title: "Skill Examples"
 
 This page contains a few examples of skills that you can re-create and tweak to fit your use cases.
 
+## Skills: rights and availability
+
+Creating, editing, publishing and using a skill are separate operations governed by distinct rights:
+
+| Action | Requirement |
+| :--- | :--- |
+| **Create a skill** | `Create skills` capability (default: Everyone) |
+| **Edit a skill** | Must be an editor of the skill |
+| **Publish a skill** | `Publish skills` capability (default: Admin only) |
+| **Use a skill** | Access to the skill according to its availability setting |
+
+A skill's sharing is controlled by its **Availability** setting:
+
+- **Editors**: the skill is available only to its editors.
+- **Workspace users**: the skill is available to all workspace members (or a subset defined by group access rules).
+
+<Info>
+**Skills availability** is currently behind a feature flag. Configuration options may vary depending on your workspace plan and rollout phase.
+</Info>
+
+<Info>
+**Internal data model:** The Dust data model uses the values `unpublished`, `published`, and `discoverable` internally; these do not correspond to user-facing states. Separately, the Dust API exposes skill lifecycle statuses `active`, `archived`, and `suggested`, which describe a skill's lifecycle and are distinct from its availability setting.
+</Info>
+
+Having publish rights does not grant editing rights, and vice versa. See [Admin governance](/docs/user-documentation/admins/users-and-permissions-management/admin-governance) for how to configure capabilities and groups.
+
+---
+
 ## Example 1: Add CRM Deal Entry
 
 In a Sales team, maintaining good hygiene of a CRM can be a challenge, and using multiple Agents to fill in CRM deal entries can lead to variable levels of quality.
 
-In this example, we are creating a “CRM Deal entry” Skill, which we will give to all agents involved in writing data in our CRM. One central place to maintain the skill, no more inconsistencies!
+In this example, we are creating a "CRM Deal entry" Skill, which we will give to all agents involved in writing data in our CRM. One central place to maintain the skill, no more inconsistencies!
 The skill instructions can be basic at first, and be updated later, all agents will benefit from it.
 
 ### Step 1: Describe the CRM Skill
 
 
-Giving a clear description to the Skill will allow your agents to quickly decide if it should be used in a given situation. For this skill, let’s use the following description :
+Giving a clear description to the Skill will allow your agents to quickly decide if it should be used in a given situation. For this skill, let's use the following description :
 
 ```
 This skill contains the best way to add a deal in our CRM, including best practices from the company.
@@ -24,7 +52,7 @@ This skill contains the best way to add a deal in our CRM, including best practi
 ### Step 2: Add guidelines
 
 
-For this skill’s instructions, lets’s focus on describing our company’s specificities like non standard field names (SPQR in this example) or our qualification of deal sizes, which are different from other companies :
+For this skill's instructions, lets's focus on describing our company's specificities like non standard field names (SPQR in this example) or our qualification of deal sizes, which are different from other companies :
 
 ***
 
@@ -37,20 +65,20 @@ The following fields are required in order to create a deal entry in the CRM
 
 1- Deal Amount (amount_usd)
 - Numeric only, no symbols
-- Example: 15000
+- Example: 15000
 
 2- Deal Size (size_bucket)
 - small: < $2,000
 - big: ≥ $2,000
 
-Example: $2,500  big
+Example: $2,500  big
 
 3- SPQR Stage (spqr_stage)
 "SPQR" = Sales Pipeline Qualification Rating (legacy name)
-Values: suspect | prospect | qualified | ready_to_close
+Values: suspect | prospect | qualified | ready_to_close
 
 4-Close Date (close_date)
-- Format: YYYY-MM-DD
+- Format: YYYY-MM-DD
 
 **Example Deal**
 Deal Name : Acme Corp - Enterprise
@@ -66,7 +94,7 @@ Close Date : 2026-03-15
 ### Step 3: Add tools
 
 
-This skill is all about interactions with our CRM, so let’s add the CRM as a tool. It could be HubSpot or Salesforce, for example.
+This skill is all about interactions with our CRM, so let's add the CRM as a tool. It could be HubSpot or Salesforce, for example.
 
 The skill is now ready, it can be included in any agent that interacts with the Sales pipeline!
 

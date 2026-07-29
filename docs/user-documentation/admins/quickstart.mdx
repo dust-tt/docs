@@ -3,14 +3,14 @@ title: "Quickstart"
 ---
 
 
-Welcome to Dust! If you are here, it's because you are an Admin of your workspace. As an Admin, you have full admin rights. See more about [Memberships & Roles](/docs/user-documentation/getting-started/dust-rollout-guide/admin-guide-set-up-your-dust-workspace).
+Welcome to Dust! If you are here, it's because you hold an administrative role in your workspace. See [Memberships & Roles](/docs/user-documentation/admins/users-and-permissions-management/memberships-and-roles) to understand what **Super Admins** and **Managers** can do, and [Admin governance](/docs/user-documentation/admins/users-and-permissions-management/admin-governance) for the full governance model.
 
 You can set-up multiple parameters for your workspace by going to the Admin Panel.
 
 
 In order to make the most out of Dust, here are the steps we recommend.
 
-You can use Dust without data sources, but Dust is most useful when connected to your knowledge bases. As an admin, you have the ability to manage data sources and make them available for all members of your workspace.
+You can use Dust without data sources, but Dust is most useful when connected to your knowledge bases. **Managing data sources and connections requires the Super Admin role.** Super Admins can make data available for all members of the workspace.
 
 There are various types of Data Sources:
 
@@ -25,7 +25,7 @@ There are various types of Data Sources:
 * When adding a connection, you can select exactly which channels or folders you want Dust to have access to.
 </Danger>
 
-**How to add my first connection**
+**How to add my first connection** *(requires Super Admin role)*
 
 Go to **Spaces** > **Connections**, select the desired Connection, click **Connect > Authenticate your account**, and select the data you wish to synchronize with Dust.
 
@@ -41,10 +41,13 @@ Now that you have built the first steps of your connections, you can start putti
 * Go to **Chat >  Manage Agents > Default>@dust** and click on **Manage**. From there, you will be able to choose which data sources @dust has access to.
 * Select the data sources you want to give **@dust** access to.
 
+<Note>
+Creating agents is available to all workspace members by default (governed by the `Create agents` capability). Publishing agents workspace-wide requires the `Publish agents` capability. Both capabilities can be restricted to specific groups by a Super Admin under **Admin > Workspace & Governance**.
+</Note>
 
 One great use of Dust is to call the agents directly in Slack. The agent can use the ongoing conversation as context, and anybody in the Slack channel will be able to see the answer.
 
-1. [Install and authorize the Dust app in Slack](https://docs.dust.tt/docs/slack).
+1. [Install and authorize the Dust app in Slack](https://docs.dust.tt/docs/slack). *(Workspace-level Slack configuration requires the Super Admin role.)*
 2. Add the Dust app to your Slack channels.
 3. You're all set! All workspace members can interact with @dust directly in Slack.
 
@@ -53,5 +56,7 @@ One great use of Dust is to call the agents directly in Slack. The agent can use
 
 * To export your @dust conversation history in Slack, remember that it's like exporting direct messages. You can only do this if you're an Owner or admin of a Slack Business+ or Enterprise Grid account.
 </Danger>
+
+**Workspace & Governance** *(Super Admin only)*: Configure SSO, governance capability modes, feature toggles (Frames, Audit Logs), billing, and security settings under **Admin > Workspace & Governance**.
 
 That's it! You're all set to make the most out of Dust!

@@ -5,35 +5,48 @@ title: "Access Controls and Permissions"
 
 ## **Core concepts definitions**
 
-* **Workspace:** A Dust workspace is the main collaborative environment where teams can interact with AI agents, organize their data through spaces (open or restricted), manage connections to external tools, and control access levels through different user roles (Members, Builders, and Admins) .
-* **[Connections](/docs/user-documentation/data-sources/connections):** Connections are fully managed integrations that automatically sync data from external platforms (like Slack, Notion, Google Drive) to Dust, with granular admin control over what specific content is accessible to the workspace
-* **[Spaces:](https://docs.dust.tt/docs/data)** Spaces are containers in Dust that let admins organize and control access to data, coming in two types: open spaces accessible to all workspace members and restricted spaces limited to designated users.
-* **Users:** A user is a workspace member who can access and interact with Dust agents, with their specific capabilities determined by their assigned role (member or builder), which controls their level of access to creating agents and accessing data.
-* **Admin:** An admin is a workspace user with the highest level of access who can manage all workspace settings, including controlling data connections, inviting and managing members' roles, and handling subscriptions while retaining all builder and member capabilities.
+* **Workspace:** A Dust workspace is the main collaborative environment where teams can interact with AI agents, organize their data through spaces (open or restricted), manage connections to external tools, and control access through roles, governance capabilities, and groups.
+* **[Connections](/docs/user-documentation/data-sources/connections):** Fully managed integrations that automatically sync data from external platforms (like Slack, Notion, Google Drive) to Dust, with granular control over what content is accessible. Connections are configured by Super Admins.
+* **[Spaces](/docs/user-documentation/data-sources/overview):** Containers in Dust for organizing and controlling access to data. Open spaces are accessible to all workspace members; restricted spaces are limited to designated members. Spaces are managed by Super Admins.
+* **Users:** Workspace members whose capabilities are determined by their assigned role (Super Admin, Manager, or Member), their seat type, their group memberships, and the governance capabilities those groups carry.
+* **Super Admin:** A workspace user with full administrative authority who can manage all workspace settings including security (SSO, audit logs), billing, data connectors, spaces, groups, governance configuration, API keys, model providers, developer tools, and analytics. Super Admins always pass every governance capability check.
+* **Manager:** An operational administrator with scoped access to the Admin area. Managers can manage members and manual groups, assign non-admin roles, view analytics, and edit seat types. They cannot access IT & Security settings, billing, API keys, model providers, or developer tools.
+* **Groups:** Named sets of users that carry governance capabilities. Two types exist: manual groups (created in-product by a Super Admin or Manager) and SCIM-provisioned groups (synced from an IdP). Permissions are **additive**—a person gains the union of their role and all group-granted capabilities. A group exception grants additional access and never removes access granted elsewhere.
+* **Governance capabilities:** Named permissions that control what groups of users are allowed to do. Each capability is set to **Everyone**, **Groups** (allowlist of groups), or **Admin only** mode. See [Admin governance](/docs/user-documentation/admins/users-and-permissions-management/admin-governance) for the full list.
 
 
 ## Access control policy
 
-* users can create agents based on the data of the spaces they have access to.
-* users can interact with agents created with the data of the spaces users are a member of.
+* Users can create agents based on the data of the spaces they have access to, provided they hold the `Create agents` capability.
+* Users can interact with agents created with the data of spaces they are a member of.
+* Publishing an agent requires the `Publish agents` capability; publishing a skill requires the `Publish skills` capability. These are separate capabilities.
+* Editing an agent's or skill's content requires editor access to that resource; holding a publish capability does not grant editing rights.
 
 ## Workspace and space administration
 
-1. **Configure connections**
-   1. Authorize Connections to the company platforms and tools (Google Drive, Confluence, GitHub…)
-   2. Select data sets scope at “folder” or document level
+**Who can perform each action:**
+
+1. **Configure connections** — Super Admin only
+   1. Authorize connections to company platforms and tools (Google Drive, Confluence, GitHub…)
+   2. Select data scope at "folder" or document level
    3. Monitor data synchronization status
-2. **Access policy definition**
+2. **Access policy definition** — Super Admin only
    1. Create dedicated spaces (open or restricted)
    2. Segregate company data between open and restricted spaces
    3. Define space membership
-3. **Access policy management**
-   1. Add or remove spaces data based on user requests
+3. **Access policy management** — Super Admin only
+   1. Add or remove space data based on user requests
    2. Manage space lifecycle (create, update, delete)
    3. Control members and access permissions
 4. **Govern agents fleet**
-   1. Deploy company wide agents
-   2. Distribute agents across groups
-   3. Monitor usage
+   1. Create agents — requires `Create agents` capability (default: Everyone)
+   2. Publish agents workspace-wide — requires `Publish agents` capability (default: Everyone)
+   3. Deploy and distribute agents across groups — Super Admin or users with publish capability
+   4. Monitor usage — Super Admin or Manager
+5. **Governance settings** — Super Admin only (via **Admin > Workspace & Governance**)
+   1. Configure governance capability modes (Everyone / Groups / Admin only)
+   2. Manage groups and group memberships
+   3. Toggle workspace features (Frames, Audit Logs)
+   4. Manage billing and security settings
 
- [Read our full guide](https://docs.google.com/presentation/d/1ncbsTA3P8tUG3NIeqRirHW-YI0pdj-hyw0yHRKet4PU/edit?usp=sharing)
+For the full governance model including all capabilities and their defaults, see [Admin governance](/docs/user-documentation/admins/users-and-permissions-management/admin-governance).

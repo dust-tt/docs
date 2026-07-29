@@ -22,7 +22,14 @@ This page lists all events currently emitted by Dust.
 | `agent.archived` | An agent was archived |
 | `agent.restored` | An archived agent was restored |
 | `agent.scope_changed` | An agent's visibility scope was changed (e.g. private  workspace) |
+| `agent.publication_state_changed` | An agent's publication state was changed (e.g. Unpublished → Published → Discoverable) |
 | `agent.executed` | An agent was invoked in a conversation |
+
+## Skills
+
+| Event | Description |
+|---|---|
+| `skill.publication_state_changed` | A skill's publication state was changed (e.g. Unpublished → Published) |
 
 ## Tools
 
@@ -76,7 +83,7 @@ This page lists all events currently emitted by Dust.
 | `member.bulk_revoked` | Multiple members were revoked in bulk |
 | `membership.created` | A workspace membership was created |
 | `membership.revoked` | A workspace membership was revoked |
-| `membership.role_updated` | A member's role was changed |
+| `membership.role_updated` | A member's role was changed (e.g. Member → Manager, Manager → Super Admin) |
 | `membership.origin_updated` | The origin of a membership was updated (e.g. manual  SCIM) |
 
 ## Invitations
@@ -95,6 +102,25 @@ This page lists all events currently emitted by Dust.
 | `user.logout` | A user logged out |
 | `user.identity_merged` | Two user identities were merged |
 | `user.relocated` | A user was relocated to a different workspace |
+
+## Groups
+
+| Event | Description |
+|---|---|
+| `group.created` | A manual group was created |
+| `group.deleted` | A manual group was deleted |
+| `group.updated` | A manual group's name or description was updated |
+| `group.member_added` | A user was added to a group |
+| `group.member_removed` | A user was removed from a group |
+| `group.exception_granted` | A group exception was granted, giving a user additional access beyond their role |
+
+## Governance
+
+| Event | Description |
+|---|---|
+| `governance.capability_updated` | A governance capability's configuration was changed (e.g. `Publish agents` reassigned to a different group) |
+| `governance.capability_mode_changed` | A governance capability's mode was changed (Everyone / Groups / Admin only) |
+| `governance.delegated_action` | A Manager performed a delegated administrative action (e.g. inviting a member, changing a role) |
 
 ## API Keys
 

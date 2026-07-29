@@ -3,9 +3,9 @@ title: "Seat management"
 ---
 
 
-Seats control each workspace member's AI usage capacity. Every member has two independent attributes: a **role** (what they can configure and access; see [Memberships & Roles](/docs/user-documentation/getting-started/dust-rollout-guide/admin-guide-set-up-your-dust-workspace)) and a **seat type** (their credit allocation).
+Seats control each workspace member's AI usage capacity. Every member has two independent attributes: a **role** (what they can configure and access; see [Admin governance](/docs/user-documentation/admins/users-and-permissions-management/admin-governance)) and a **seat type** (their credit allocation).
 
-Roles and seat types are independent: an Admin can hold a Free seat, and a Viewer can hold a Pro seat.
+Roles and seat types are independent: an Admin can hold a Free seat, and a Member can hold a Pro seat.
 
 ## Seat types
 
@@ -31,7 +31,7 @@ On the Enterprise Pooled plan, there is a single seat type, the **Workspace seat
 
 ## Assigning and managing seats
 
-Admins can assign and change seats from **Admin > Members**.
+Workspace admins and **Managers** can assign and change seats from **Workspace > People**.
 
 ### Inviting a new member
 
@@ -44,19 +44,19 @@ When inviting someone to your workspace, you specify both their **role** and **s
 
 ### Changing an existing member's seat
 
-Admins can change a member's seat type at any time from **Admin > Usage**, in the Members list, using the **Change seat type** action. Timing depends on the direction of the change:
+Workspace admins and **Managers** can change a member's seat type at any time from **Workspace > Usage**, in the Members list, using the **Change seat type** action. Timing depends on the direction of the change:
 
 | Transition        | Timing                                                                                                    |
 | ----------------- | --------------------------------------------------------------------------------------------------------- |
-| Free  Pro or Max | Immediate. Full credit allocation granted right away.                                                     |
-| Pro  Max         | Immediate.                                                                                                |
-| Max  Pro         | Deferred to the next billing period. The member retains Max access through the end of the current period. |
+| Free → Pro or Max | Immediate. Full credit allocation granted right away.                                                     |
+| Pro → Max         | Immediate.                                                                                                |
+| Max → Pro         | Deferred to the next billing period. The member retains Max access through the end of the current period. |
 
 ### Member-initiated upgrade requests
 
-When members reach their credit limit, they are blocked from sending messages. Admins can allow members to request a seat upgrade instead of being silently blocked.
+When members reach their credit limit, they are blocked from sending messages. Workspace admins and **Managers** can allow members to request a seat upgrade instead of being silently blocked.
 
-To enable this, go to **Admin > Usage > Settings** and turn on the **Upgrade request** toggle. Once enabled, blocked members see a prompt to request an upgrade. Admins can then review and act on pending requests from the **Requests** tab in the Members section.
+To enable this, go to **Workspace > Usage > Settings** and turn on the **Upgrade request** toggle. Once enabled, blocked members see a prompt to request an upgrade. Workspace admins and **Managers** can then review and act on pending requests from the **Requests** tab in the Members section.
 
 The video below shows how to review and process an upgrade request as an admin:
 
