@@ -2244,10 +2244,6 @@
     {
       "source": "/docs/post_api-workos-revoke-session",
       "destination": "/docs/developer-platform/overview/developer-platform"
-    },
-    {
-      "source": "/docs/admin-cost-tracking",
-      "destination": "/docs/user-documentation/admins/usage-seats-and-credits/credit-management"
     }
   ],
   "thumbnails": {
