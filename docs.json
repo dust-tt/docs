@@ -139,6 +139,7 @@
         "pages": [
           "docs/user-documentation/agents/skills/skills-overview",
           "docs/user-documentation/agents/skills/skill-examples",
+          "docs/user-documentation/agents/skill-availability",
           "docs/user-documentation/agents/discover-knowledge",
           "docs/user-documentation/agents/discover-skills",
           "docs/user-documentation/agents/discover-tools",
