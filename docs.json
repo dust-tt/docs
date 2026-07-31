@@ -137,6 +137,7 @@
       {
         "group": "Skills",
         "pages": [
+          "docs/user-documentation/agents/skills/skills-overview",
           "docs/user-documentation/agents/skills/skill-examples",
           "docs/user-documentation/agents/discover-knowledge",
           "docs/user-documentation/agents/discover-skills",
@@ -1254,7 +1255,7 @@
     },
     {
       "source": "/docs/skills",
-      "destination": "/docs/user-documentation/agents/skills/skill-examples"
+      "destination": "/docs/user-documentation/agents/skills/skills-overview"
     },
     {
       "source": "/docs/slab-mcp",
