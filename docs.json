@@ -285,7 +285,6 @@
         "group": "Pods",
         "pages": [
           "docs/user-documentation/pods/overview",
-          "docs/user-documentation/pods/getting-started",
           "docs/user-documentation/pods/members-and-roles",
           "docs/user-documentation/pods/tasks",
           "docs/user-documentation/pods/conversations",
@@ -2248,6 +2247,14 @@
     {
       "source": "/docs/admin-cost-tracking",
       "destination": "/docs/user-documentation/admins/usage-seats-and-credits/credit-management"
+    },
+    {
+      "source": "/docs/api-pricing",
+      "destination": "/docs/user-documentation/admins/billing/subscriptions-and-payments"
+    },
+    {
+      "source": "/docs/user-documentation/pods/getting-started",
+      "destination": "/docs/user-documentation/getting-started/dust-rollout-guide"
     }
   ],
   "thumbnails": {
