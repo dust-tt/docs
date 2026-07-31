@@ -17,14 +17,13 @@ By default, Admins can:
 - Manage billing and subscriptions
 - Manage security settings, user access, identity verification, and provisioning
 - Configure governance permissions
-- Enable or disable Frames for the workspace
+- Enable or disable the policy for sharing Frames externally
 - Enable or disable audit logs
 
 ### Manager
 
 Managers are delegated workspace administrators. They can:
 
-- Open the Admin area
 - Invite and remove members
 - Change the roles of non-admin members
 - Assign the Manager and Member roles
@@ -32,7 +31,7 @@ Managers are delegated workspace administrators. They can:
 
 Managers do not receive billing or security access by default. Admins can grant these permissions to groups when needed.
 
-Managers cannot enable or disable Frames or audit logs. When Frames is enabled, Managers can configure which groups may invite users to Frames and publish Frames.
+Managers cannot manage the policy for sharing Frames externally or audit logs. When the external Frame sharing policy is enabled, Managers can configure which groups may invite users to Frames and make them public.
 
 ### Member
 
@@ -71,11 +70,9 @@ The following permissions are available in the workspace governance settings.
 | View and export audit logs | Yes | When granted | When granted |
 | Manage billing and subscriptions | Yes by default | When granted | When granted |
 | Manage security and provisioning | Yes by default | When granted | When granted |
-| Invite users to Frames | Yes when the feature is enabled | When granted | When granted, if Frames is enabled |
-| Publish Frames | Yes when the feature is enabled | When granted | When granted, if Frames is enabled |
+| Invite external users to Frames | Yes when the policy allows | When granted if the policy allows | When granted if the policy allows |
+| Publish Frames | Yes when the policy allows | When granted if the policy allows | When granted if the policy allows |
 | View workspace analytics | Yes | Yes | No |
-
-Publishing agents and publishing skills are separate permissions. You can grant them independently. Publishing skills is restricted to Admins by default. Admins can configure the permission for groups when broader access is needed.
 
 ## Workspace governance settings
 
