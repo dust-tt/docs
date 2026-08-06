@@ -31,7 +31,7 @@ Use the time range selector at the top right of the page to scope every chart an
 
 ## Accessing analytics via the API
 
-You can pull usage data programmatically through the [Export workspace analytics](/docs/developer-platform/dust-api-documentation/export-workspace-analytics) endpoint. Any Dust API key with the **builder** role (or above) can call it; no special access request needed.
+You can pull usage data programmatically through the [Export workspace analytics](/docs/developer-platform/dust-api-documentation/export-workspace-analytics) endpoint. You must use a **workspace admin API key** to call it.
 
 Pass the `table` you want along with a `startDate` and `endDate` (both `YYYY-MM-DD`):
 
