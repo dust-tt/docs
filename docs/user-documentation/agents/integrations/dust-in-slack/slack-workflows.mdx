@@ -31,6 +31,8 @@ For example:
 
    The **whitelisting is at the Slack workflow level,** so you can change the name of the agent called inside anytime once validated.
 
+   However, whitelisting matches the exact Slack workflow name. If you rename the workflow in Slack, the Dust agent will stop responding until the new name is whitelisted. Email `support@dust.tt` with the updated name before renaming.
+
    Bear in mind that **Slack workflow can be restricted**, Dust can only interact with Slack workflows it has permission to access. Either select "Everyone internal in..." or add Dust to the specific channels where the workflow will run. Note: Dust cannot access workflows set to "Managers only."
 </Info>
 3. **Invoke @dust and the Dust Agent of your choice in the Slack workflow message.** Specify which Dust agent to use in a workflow by including the agent's name following this message format: `@dust +agentName`. This will ensure that the correct Dust agent responds to the workflow-triggered messages.
