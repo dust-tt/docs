@@ -169,7 +169,7 @@ Slack workflows must be enabled for your workspace by Dust. Contact [support@dus
 
 **Why this happens:** Slack tools use your personal OAuth credentials. When an agent posts a message or performs an action, Slack sees it as coming from you. This is intentional: it means agents can only do what you're allowed to do ([Slack Tools](/docs/user-documentation/agents/tools/slack-tools)).
 
-**If you need bot identity:** Contact [support@dust.tt](mailto:support@dust.tt) to request access to the **Slack Bot** tool, which posts as a bot instead of you. Note: the bot version only works in public channels where the bot has been invited.
+**If you need bot identity:** A workspace admin can enable the **Slack Bot** tool under **Administration** > **Tools**, then attach it to the relevant Space under **Spaces** > **Tools**, and add it to agents in the Agent Builder. The bot posts as a bot identity instead of you, and only works in channels where the bot has been invited.
 
 ### Tool not appearing in agent builder
 
