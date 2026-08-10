@@ -114,6 +114,7 @@
         "group": "Agents",
         "pages": [
           "docs/user-documentation/agents/create-your-first-agent",
+          "docs/user-documentation/agents/model-selection",
           {
             "group": "LLM Best practices",
             "pages": [
@@ -377,6 +378,7 @@
               "docs/user-documentation/admins/usage-seats-and-credits/credits",
               "docs/user-documentation/admins/usage-seats-and-credits/credit-management",
               "docs/user-documentation/admins/usage-seats-and-credits/optimize-credit-consumption",
+              "docs/user-documentation/admins/usage-seats-and-credits/model-access-tiers",
               "docs/user-documentation/admins/usage-seats-and-credits/train-team-credit-optimization"
             ]
           },

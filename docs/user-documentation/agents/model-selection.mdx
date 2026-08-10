@@ -1,0 +1,121 @@
+---
+title: "Auto models and the model picker"
+description: "Switch models on the fly in any conversation, and let auto models pick the best model for each request."
+---
+
+Every agent runs on a model. In Dust you control that model in two places:
+
+- **The model picker in the conversation input bar**, to switch models for the conversation you are in, without editing the agent.
+- **The agent builder**, to set the model an agent uses by default for everyone.
+
+Both places offer the same choices: three **auto models** (Fast, Standard, Complex), or a specific model from a specific provider.
+
+## Auto models
+
+Instead of pinning an agent to one model, an auto model routes each request to the model with the best performance-to-cost tradeoff at that moment. Dust curates and maintains the pool of models behind each auto model.
+
+| Auto model | What it is | Use it for |
+| --- | --- | --- |
+| **Fast** | Quick, low cost. A curated pool of small, inexpensive models. | Classification, tagging, formatting, routing, extraction, first-pass triage. |
+| **Standard** | Best for most. The default for new agents and for the `@dust` agent. | Everyday work: drafting, summarizing, answering questions over your knowledge. |
+| **Complex** | Slower, most capable. A curated pool of frontier models. | Hard reasoning, long analysis, code, high-stakes synthesis. |
+
+Auto models give you three things a pinned model cannot:
+
+- **Resilience.** If a provider has an outage, your agents switch to the best-performing available model instead of failing.
+- **No migrations.** As the model landscape shifts, your agents benefit from new frontier models as soon as they prove themselves. You do not re-evaluate, migrate, or rebuild anything.
+- **Cost control.** Each request goes to a model sized for the tier you picked, not to the most expensive model available.
+
+<Note>
+  Dust decides which models sit behind Fast, Standard, and Complex, and that selection changes over time as new models are released. If you need a guarantee that an agent always runs on one exact model, pin that model in the agent builder instead.
+</Note>
+
+## Use the model picker in a conversation
+
+1. Open any conversation, including one with the default `@dust` agent.
+2. Click the model button in the input bar, next to the send button.
+3. Pick **Fast**, **Standard**, or **Complex**, or expand the list of providers and pick a specific model.
+4. Send your message.
+
+What the picker does and does not do:
+
+- It applies to the message you send next, in this conversation only.
+- It **never** modifies the agent. Other members, other conversations, and scheduled runs are unaffected.
+- If you do not touch the picker, the agent runs on its own configured model.
+
+## Set the model of an agent
+
+1. Open the agent in the agent builder.
+2. In the **Instructions** section, click **Advanced**.
+3. Open **Model selection**.
+4. Pick an auto model or a specific model, then save.
+
+Choosing a specific model here pins the agent to that model. Choosing an auto model lets Dust route each request for you.
+
+## Reasoning effort
+
+When you select a specific model, you can also set how much reasoning effort it spends before answering:
+
+| Effort | Behavior |
+| --- | --- |
+| **Light** | Light reasoning effort, faster responses. |
+| **Medium** | Medium reasoning effort, balancing speed and quality. |
+| **High** | High reasoning effort, longer wait times but higher quality. |
+
+Only the levels a model actually supports are selectable. Reasoning effort also affects how much a request costs, and which [model access tier](/docs/user-documentation/admins/usage-seats-and-credits/model-access-tiers) a model falls into: the same model at Light and at High can sit in two different tiers.
+
+Auto models manage reasoning effort for you, so the slider does not apply to Fast, Standard, or Complex.
+
+## What changed for existing agents
+
+When auto models shipped:
+
+- Agents where the builder had selected a specific model **kept that model**. Nothing changed.
+- Agents where the builder had not selected a specific model followed the global `@dust` agent's model. These agents, and the default `@dust` agent, moved to **Standard**.
+
+You can pin any of those agents back to a specific model at any time in the agent builder.
+
+## Availability
+
+- The model picker is available to all members in the conversation input bar and in the agent builder.
+- **Complex** and other premium model and reasoning-effort combinations are available through the picker on usage-based (credit) plans. On legacy plans they appear locked, with a tooltip pointing to your administrator.
+- Admins can lower what each member can select. See [Model access tiers](/docs/user-documentation/admins/usage-seats-and-credits/model-access-tiers).
+
+## FAQ
+
+### Does switching models in the input bar change the agent for everyone?
+
+No. A pick in the input bar applies to your next message in that conversation only. The agent's own configuration is untouched, and no other member sees a change. To change an agent for everyone, edit it in the agent builder.
+
+### How does Dust choose the model behind Fast, Standard, and Complex?
+
+Dust maintains the pool of models behind each auto model and selects from it when your message is sent, based on capability, cost, and availability. The pool evolves as new models are released and as providers change their pricing or reliability. If a provider is down, the request goes to the best available alternative in the same pool.
+
+### Will auto models increase my credit consumption?
+
+We do not expect them to. Auto models are sized for the tier you pick rather than defaulting to the most expensive model available, and we expect costs to decrease over time as we roll out further routing optimizations. See [Optimize credit consumption](/docs/user-documentation/admins/usage-seats-and-credits/optimize-credit-consumption).
+
+### Can I still pin an agent to one exact model?
+
+Yes. In the agent builder, open **Advanced**, then **Model selection**, and choose a specific model. That agent then always runs on that model, for every member and every run.
+
+### My agent was on a specific model. Did it move to Standard?
+
+No. Only agents that had no explicit model, and therefore followed the global `@dust` agent, moved to Standard. Agents pinned to a model kept it.
+
+### Why is a model greyed out in my picker?
+
+Two reasons:
+
+- Your workspace is on a legacy (non usage-based) plan, and the model or reasoning effort is a premium combination. Premium combinations are available through the picker on usage-based plans.
+- Your administrator has capped your [model access tier](/docs/user-documentation/admins/usage-seats-and-credits/model-access-tiers) below that model.
+
+Hovering the locked row tells you which case applies. In both cases, contact your workspace admin.
+
+### What does "Model tier not enabled" mean when I run an agent?
+
+The agent is configured to run on a model, or a reasoning effort, above the tier your administrator allows for you. Ask your admin to raise your tier, to allow published agents to run above member tiers, or use another agent. See [Model access tiers](/docs/user-documentation/admins/usage-seats-and-credits/model-access-tiers).
+
+### Does the model picker apply to Slack, triggers, or the API?
+
+No. A pick in the input bar is scoped to that conversation in the Dust web app. Agents running from Slack, from a trigger, or through the API use their own configured model.

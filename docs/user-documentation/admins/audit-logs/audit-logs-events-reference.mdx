@@ -163,8 +163,17 @@ This page lists all events currently emitted by Dust.
 | `audit_log.viewed` | The Audit Logs viewer was accessed by an admin |
 | `audit_log.export_configured` | An audit log export or log stream was configured |
 
+## Model Access Tiers
+
+| Event | Description |
+|---|---|
+| `workspace.advanced_model_access_updated` | The workspace model tier ceiling was changed |
+| `group.advanced_model_access_updated` | A group's model tier override was changed |
+| `user.advanced_model_access_updated` | A member's model tier override was changed |
+
 ## Workspace
 
 | Event | Description |
 |---|---|
 | `workspace.deleted` | The workspace was deleted |
+

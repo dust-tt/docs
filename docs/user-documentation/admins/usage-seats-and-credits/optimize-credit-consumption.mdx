@@ -66,13 +66,17 @@ The strongest model is not always the best default.
 
 Stronger models are useful for complex reasoning, coding, careful synthesis, and high-stakes work. Simpler tasks such as classification, tagging, formatting, routing, extraction, deduplication, or first-pass triage may work well with lighter models when available.
 
+The simplest way to get this right without auditing every agent is to use [auto models](/docs/user-documentation/agents/model-selection): **Fast**, **Standard**, and **Complex** route each request to a model sized for the task instead of defaulting to the most expensive model available.
+
 ### What to do
 
 - Review your top agents and check whether their model matches the task.
+- Use **Standard** as the default, and **Fast** for high-volume mechanical work.
 - Use stronger models where quality clearly improves the outcome.
 - Use lighter models for structured or repetitive tasks when the output remains reliable.
 - Test model changes on real examples before changing an important workflow.
 - Create simpler versions of popular agents when users often need quick answers.
+- Cap what members can select with [model access tiers](/docs/user-documentation/admins/usage-seats-and-credits/model-access-tiers), so premium models stay reserved for the teams that need them.
 
 ### Example
 
@@ -241,3 +245,4 @@ Good AI adoption creates usage.
 Good credit optimization makes that usage explainable, governed, and worth scaling.
 
 The goal is not less AI. The goal is better-designed workflows.
+
