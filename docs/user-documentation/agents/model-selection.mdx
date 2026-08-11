@@ -12,13 +12,15 @@ Both places offer the same choices: three **auto models** (Fast, Standard, Compl
 
 ## Auto models
 
-Instead of pinning an agent to one model, an auto model routes each request to the model with the best performance-to-cost tradeoff at that moment. Dust curates and maintains the pool of models behind each auto model.
+Instead of pinning an agent to one model, an auto model routes each request to the model with the best performance-to-cost tradeoff at that moment. Each auto model is an ordered pool of models curated by Dust: the router walks the pool and uses the first model available to your workspace.
 
-| Auto model | What it is | Use it for |
-| --- | --- | --- |
-| **Fast** | Quick, low cost. A curated pool of small, inexpensive models. | Classification, tagging, formatting, routing, extraction, first-pass triage. |
-| **Standard** | Best for most. The default for new agents and for the `@dust` agent. | Everyday work: drafting, summarizing, answering questions over your knowledge. |
-| **Complex** | Slower, most capable. A curated pool of frontier models. | Hard reasoning, long analysis, code, high-stakes synthesis. |
+| Auto model | What it is | First model in the pool today | Use it for |
+| --- | --- | --- | --- |
+| **Fast** | Quick, low cost. A curated pool of small, inexpensive models. | GPT 5.6 Luna, at Light reasoning effort | Classification, tagging, formatting, routing, extraction, first-pass triage. |
+| **Standard** | Best for most. The default for new agents and for the `@dust` agent. | GPT 5.6 Luna, at High reasoning effort | Everyday work: drafting, summarizing, answering questions over your knowledge. |
+| **Complex** | Slower, most capable. A curated pool of frontier models. | Claude Opus 5, at High reasoning effort | Hard reasoning, long analysis, code, high-stakes synthesis. |
+
+The models in the third column are examples, not guarantees. They are the head of each pool at the time of writing, and they change as new models ship. If the first model is unavailable to your workspace, for example because of your region or your plan, the router falls through to the next model in the same pool. Every pool ends on a cost-effective model, so a request always resolves.
 
 Auto models give you three things a pinned model cannot:
 
@@ -119,3 +121,4 @@ The agent is configured to run on a model, or a reasoning effort, above the tier
 ### Does the model picker apply to Slack, triggers, or the API?
 
 No. A pick in the input bar is scoped to that conversation in the Dust web app. Agents running from Slack, from a trigger, or through the API use their own configured model.
+
