@@ -134,9 +134,11 @@ The agent is configured to run on a model, or a reasoning effort, above the tier
 }
 ```
 
-- `providerId` and `modelId` are required. `reasoningEffort` is optional, and is honored only if the resolved model supports it.
+- `providerId` and `modelId` are required. `reasoningEffort` is optional.
 - Omit `modelSelection` and each agent runs its configured model.
 - The override applies to that message only, exactly like a pick in the input bar. It does not modify the agent.
-- The same access rules apply as in the app: a model outside what your workspace and your [model access tier](/docs/user-documentation/admins/usage-seats-and-credits/model-access-tiers) allow is rejected, and an unknown provider, model, or reasoning effort returns a `400`.
+- The same access rules apply as in the app. A model that your workspace or your [model access tier](/docs/user-documentation/admins/usage-seats-and-credits/model-access-tiers) does not allow is rejected with a `400` (`model_disabled`) rather than silently falling back to the agent's model. A malformed object also returns a `400`.
+- If the model picker is not enabled for your workspace, the request returns a `403`.
+
 
 
