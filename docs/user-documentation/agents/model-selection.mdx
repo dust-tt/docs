@@ -14,17 +14,17 @@ Both places offer the same choices: three **auto models** (Fast, Standard, Compl
 
 Instead of pinning an agent to one model, you can point it at an auto model.
 
-Each auto model is an **ordered list of models maintained by Dust**. When a message is sent, Dust goes down that list and uses the first model that is available to your workspace. It does not read your request and decide which model suits it: the choice is the list, and the list is the same for every message. What differs between Fast, Standard, and Complex is which models are on the list, and in which order.
+Each auto model is an **ordered list of models maintained by Dust**. When a message is sent, Dust goes down that list and uses the first model that is available to your workspace. What differs between Fast, Standard, and Complex is which models are on the list, and in which order.
 
 Picking an auto model is therefore a way of saying "run this on a good model at roughly this level of capability and cost, and keep that up to date for me", rather than "figure out per message what this task needs".
 
-| Auto model | What it is | First model on the list today | Use it for |
+| Auto model | What it is | Example model on the list | Use it for |
 | --- | --- | --- | --- |
 | **Fast** | Quick, low cost. A list of small, inexpensive models. | GPT 5.6 Luna, at Light reasoning effort | Classification, tagging, formatting, routing, extraction, first-pass triage. |
 | **Standard** | Best for most. The default for new agents and for the `@dust` agent. | GPT 5.6 Luna, at High reasoning effort | Everyday work: drafting, summarizing, answering questions over your knowledge. |
 | **Complex** | Slower, most capable. A list of frontier models. | Claude Opus 5, at High reasoning effort | Hard reasoning, long analysis, code, high-stakes synthesis. |
 
-The models in the third column are examples, not guarantees. They are the top of each list at the time of writing, and they change as new models ship. If the first model is not available to your workspace, for example because of your region or your plan, Dust moves down to the next model on the same list. Every list ends on a cost-effective model, so a message always resolves to something.
+The models in the third column are examples, not guarantees. They are the top of each list at the time of writing, and they change as new models ship. If the first model is not available to your workspace, for example because of your region or your plan, Dust moves down to the next model on the same list.
 
 Auto models give you three things a pinned model cannot:
 
@@ -73,7 +73,7 @@ Reasoning effort is part of each entry on an auto model's list, so the slider do
 When auto models shipped:
 
 - Agents where the builder had selected a specific model **kept that model**. Nothing changed.
-- Agents where the builder had not selected a specific model followed the global `@dust` agent's model. These agents, and the default `@dust` agent, moved to **Standard**.
+- Agents where the model was the default one moved to **Standard**.
 
 You can pin any of those agents back to a specific model at any time in the agent builder.
 
@@ -93,17 +93,13 @@ No. A pick in the input bar applies to your next message in that conversation on
 
 Each auto model is an ordered list of models, and Dust uses the first entry on that list that is available to your workspace. The same list is used for every message, so the choice does not depend on what you asked. Dust maintains the order, and revises it as new models are released and as providers change their pricing or reliability. If the first model is unavailable, the next one on the list is used.
 
-### Will auto models increase my credit consumption?
-
-We do not expect them to. Each list is built for a specific price and capability level, so an auto model does not default to the most expensive model available, and we expect costs to decrease over time as we refine the lists and how they resolve. See [Optimize credit consumption](/docs/user-documentation/admins/usage-seats-and-credits/optimize-credit-consumption).
-
-### Can I still pin an agent to one exact model?
+### Can I pin an agent to one exact model?
 
 Yes. In the agent builder, open **Advanced**, then **Model selection**, and choose a specific model. That agent then always runs on that model, for every member and every run.
 
 ### My agent was on a specific model. Did it move to Standard?
 
-No. Only agents that had no explicit model, and therefore followed the global `@dust` agent, moved to Standard. Agents pinned to a model kept it.
+All agents that were on the previous default model (Sonnet 4.6 at medium reasoning effort), moved to Standard. Agents pinned to a different model kept it. You can change the model powering your agent at any time in the agent builder page.
 
 ### Why is a model greyed out in my picker?
 
