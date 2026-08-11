@@ -235,7 +235,7 @@
     "/api/v1/w/{wId}/analytics/export": {
       "get": {
         "summary": "Export workspace analytics",
-        "description": "Export analytics data for the workspace identified by {wId} in CSV or JSON format. Requires an admin-scoped API key. Builder-scoped and read-only API keys are rejected.",
+        "description": "Export analytics data for the workspace identified by {wId} in CSV or JSON format.",
         "tags": [
           "Workspace"
         ],
@@ -3397,6 +3397,72 @@
         }
       }
     },
+    "/api/v1/w/{wId}/skills/{skillId}": {
+      "delete": {
+        "summary": "Archive a skill",
+        "description": "Soft-archives a custom skill in the workspace.",
+        "tags": [
+          "Skills"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "wId",
+            "required": true,
+            "description": "Unique string identifier for the workspace",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "skillId",
+            "required": true,
+            "description": "Unique string identifier for the custom skill",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Skill archived successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. Invalid or missing authentication token."
+          },
+          "403": {
+            "description": "Forbidden. The caller is not allowed to archive skills."
+          },
+          "404": {
+            "description": "Skill not found."
+          },
+          "500": {
+            "description": "Internal Server Error."
+          }
+        }
+      }
+    },
     "/api/v1/w/{wId}/skills": {
       "get": {
         "summary": "List skills",
@@ -3431,6 +3497,34 @@
                 "archived",
                 "suggested"
               ]
+            }
+          },
+          {
+            "in": "query",
+            "name": "availability",
+            "required": false,
+            "description": "Filter skills by availability. Repeatable to match several values. Unpublished (editors) skills are only returned when bypassEditorVisibility is set.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "editors",
+                  "workspace_users",
+                  "users_and_agents"
+                ]
+              }
+            },
+            "style": "form",
+            "explode": true
+          },
+          {
+            "in": "query",
+            "name": "bypassEditorVisibility",
+            "required": false,
+            "description": "When true, also return unpublished (editors) skills. Requires an admin API key.",
+            "schema": {
+              "type": "boolean"
             }
           }
         ],
@@ -3527,6 +3621,15 @@
                       "format": "email"
                     },
                     "description": "Optional editor email addresses to add to imported or updated skills. Editors must be active workspace builders. Existing skills keep their current editors."
+                  },
+                  "availability": {
+                    "type": "string",
+                    "enum": [
+                      "editors",
+                      "workspace_users",
+                      "users_and_agents"
+                    ],
+                    "description": "Optional availability to apply to imported or updated skills. editors is unpublished, workspace_users is published, and users_and_agents is discoverable. New skills default to editors and existing skills keep their current availability when omitted."
                   }
                 }
               }
@@ -5946,6 +6049,15 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "in": "query",
+            "name": "kinds",
+            "required": false,
+            "description": "Comma-separated list of space kinds to filter on (e.g. `regular,global`).",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -6033,134 +6145,6 @@
           },
           "404": {
             "description": "Workspace or webhook source not found"
-          }
-        }
-      }
-    },
-    "/api/v1/w/{wId}/workspace-usage": {
-      "get": {
-        "summary": "Get workspace usage data",
-        "deprecated": true,
-        "description": "Deprecated: this endpoint will be removed after 2026-07-22.\nUse GET /api/v1/w/{wId}/analytics/export instead.\n\nGet usage data for the workspace identified by {wId} in CSV or JSON format.\n",
-        "tags": [
-          "Workspace"
-        ],
-        "security": [
-          {
-            "BearerAuth": []
-          }
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "wId",
-            "required": true,
-            "description": "Unique string identifier for the workspace",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "start",
-            "required": true,
-            "description": "The start date in YYYY-MM or YYYY-MM-DD format",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "end",
-            "required": false,
-            "description": "The end date in YYYY-MM or YYYY-MM-DD format (required when mode is 'range')",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "query",
-            "name": "mode",
-            "required": true,
-            "description": "The mode of date range selection",
-            "schema": {
-              "type": "string",
-              "enum": [
-                "month",
-                "range"
-              ]
-            }
-          },
-          {
-            "in": "query",
-            "name": "format",
-            "required": false,
-            "description": "The output format of the data (defaults to 'csv')",
-            "schema": {
-              "type": "string",
-              "enum": [
-                "csv",
-                "json"
-              ]
-            }
-          },
-          {
-            "in": "query",
-            "name": "table",
-            "required": true,
-            "description": "The name of the usage table to retrieve:\n- \"users\": The list of users categorized by their activity level.\n- \"assistant_messages\": The list of messages sent by users including the mentioned agents.\n- \"builders\": The list of builders categorized by their activity level.\n- \"assistants\": The list of workspace agents and their corresponding usage.\n- \"feedback\": The list of feedback given by users on the agent messages.\n- \"all\": A concatenation of all the above tables.\n",
-            "schema": {
-              "type": "string",
-              "enum": [
-                "users",
-                "assistant_messages",
-                "builders",
-                "assistants",
-                "feedback",
-                "all"
-              ]
-            }
-          },
-          {
-            "in": "query",
-            "name": "includeInactive",
-            "required": false,
-            "description": "Include users and assistants with zero messages in the export (defaults to false)",
-            "schema": {
-              "type": "boolean"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "The usage data in CSV or JSON format, or a ZIP of multiple CSVs if table is equal to \"all\"",
-            "content": {
-              "text/csv": {
-                "schema": {
-                  "type": "string"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              },
-              "application/zip": {
-                "schema": {
-                  "type": "string",
-                  "format": "binary"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid request query"
-          },
-          "403": {
-            "description": "The workspace does not have access to the usage data API"
-          },
-          "404": {
-            "description": "The workspace was not found"
           }
         }
       }
@@ -6529,6 +6513,75 @@
           },
           "409": {
             "description": "Conflict — compaction or agent message is already running"
+          }
+        }
+      }
+    },
+    "/api/w/{wId}/assistant/conversations/{cId}/consumption": {
+      "get": {
+        "summary": "Get a conversation credit attribution",
+        "description": "Returns the latest stable credits billed for completed messages belonging directly to a conversation, plus an additive attribution reconciled exclusively through model input rows. In-progress messages are included after they reach a terminal state.",
+        "tags": [
+          "Private Conversations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "wId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "cId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Conversation credit attribution",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "billedCredits",
+                    "details"
+                  ],
+                  "properties": {
+                    "billedCredits": {
+                      "type": "number",
+                      "description": "Latest stable credits billed across completed messages belonging directly to the conversation."
+                    },
+                    "details": {
+                      "type": "object",
+                      "allOf": [
+                        {
+                          "$ref": "#/components/schemas/PrivateConversationConsumptionDetails"
+                        }
+                      ],
+                      "nullable": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The workspace does not have access to consumption details"
+          },
+          "404": {
+            "description": "Conversation not found"
           }
         }
       }
@@ -7027,6 +7080,135 @@
           },
           "404": {
             "description": "Conversation, message, or action not found"
+          }
+        }
+      }
+    },
+    "/api/w/{wId}/assistant/conversations/{cId}/messages/{mId}/consumption": {
+      "get": {
+        "summary": "Get an agent message credit attribution",
+        "description": "Returns exact billed credits and an additive attribution reconciled exclusively through model input rows.",
+        "tags": [
+          "Private Messages"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "wId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "cId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "mId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Credit attribution for the agent message",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "billedCredits",
+                    "details"
+                  ],
+                  "properties": {
+                    "billedCredits": {
+                      "type": "number",
+                      "nullable": true,
+                      "description": "Authoritative credits billed for this agent message."
+                    },
+                    "details": {
+                      "type": "object",
+                      "nullable": true,
+                      "description": "Additive attribution reconciled to the bill through model input rows, using the newest complete stored attribution version. Null when no stored version is complete.",
+                      "required": [
+                        "attributionVersion",
+                        "agentWorkCredits",
+                        "tools"
+                      ],
+                      "properties": {
+                        "attributionVersion": {
+                          "type": "integer",
+                          "description": "Attribution version used for this breakdown."
+                        },
+                        "agentWorkCredits": {
+                          "type": "number",
+                          "description": "Agent work after assigning billing reconciliation exclusively to model input rows."
+                        },
+                        "tools": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "required": [
+                              "label",
+                              "internalMCPServerName",
+                              "toolName",
+                              "callCount",
+                              "attributedCredits",
+                              "directCredits",
+                              "pending"
+                            ],
+                            "properties": {
+                              "label": {
+                                "type": "string"
+                              },
+                              "internalMCPServerName": {
+                                "type": "string",
+                                "nullable": true
+                              },
+                              "toolName": {
+                                "type": "string"
+                              },
+                              "callCount": {
+                                "type": "integer"
+                              },
+                              "attributedCredits": {
+                                "type": "number",
+                                "description": "Share of billed credits after input-only reconciliation."
+                              },
+                              "directCredits": {
+                                "type": "number"
+                              },
+                              "pending": {
+                                "type": "boolean"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The workspace does not have access to consumption details"
+          },
+          "404": {
+            "description": "Conversation or agent message not found"
           }
         }
       }
@@ -7683,6 +7865,12 @@
                         "items": {
                           "type": "string"
                         }
+                      },
+                      "selectedSpaceIds": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
                       }
                     }
                   },
@@ -7869,6 +8057,182 @@
         "responses": {
           "201": {
             "description": "Successfully added participant"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/api/w/{wId}/assistant/conversations/{cId}/selectable_spaces": {
+      "get": {
+        "summary": "List selectable Spaces",
+        "description": "Lists regular Spaces the user can select for a conversation, with current selection state.",
+        "tags": [
+          "Private Conversations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "wId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "cId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Selectable Spaces for the conversation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "spaces": {
+                      "type": "array",
+                      "items": {
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/PrivateSpace"
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "selected": {
+                                "type": "boolean"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/api/w/{wId}/assistant/conversations/{cId}/selected_spaces": {
+      "post": {
+        "summary": "Select Spaces for a conversation",
+        "description": "Appends regular Spaces to a conversation's explicit selected scope.",
+        "tags": [
+          "Private Conversations"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "wId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "cId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "mode",
+                  "spaceIds"
+                ],
+                "properties": {
+                  "mode": {
+                    "type": "string",
+                    "enum": [
+                      "add"
+                    ]
+                  },
+                  "spaceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Selected Spaces and effective ACL summary.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "selectedSpaces": {
+                      "type": "array",
+                      "items": {
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/PrivateSpace"
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "selected": {
+                                "type": "boolean"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "effectiveAcl": {
+                      "type": "object",
+                      "properties": {
+                        "spaceIds": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "viewerMustHaveAll": {
+                          "type": "boolean"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           },
           "401": {
             "description": "Unauthorized"
@@ -8135,6 +8499,12 @@
                             "items": {
                               "type": "string"
                             }
+                          },
+                          "selectedSpaceIds": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
                           }
                         }
                       }
@@ -8149,6 +8519,12 @@
                   "metadata": {
                     "type": "object",
                     "nullable": true
+                  },
+                  "selectedSpaceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
                   },
                   "skipToolsValidation": {
                     "type": "boolean"
@@ -8416,7 +8792,7 @@
     "/api/w/{wId}/files/{fileId}": {
       "get": {
         "summary": "Get or download a file",
-        "description": "View or download a file. Use query parameters `version` (original, processed, public) and `action` (view, download).",
+        "description": "View or download a file. Skill attachments require read access to their associated skill. Use query parameters `version` (original, processed, public) and `action` (view, download).",
         "tags": [
           "Private Files"
         ],
@@ -8568,7 +8944,7 @@
       },
       "delete": {
         "summary": "Delete a file",
-        "description": "Delete a file from the workspace.",
+        "description": "Delete a file from the workspace. Files referenced by a skill or its version history cannot be deleted.",
         "tags": [
           "Private Files"
         ],
@@ -8600,6 +8976,9 @@
         "responses": {
           "204": {
             "description": "File deleted"
+          },
+          "400": {
+            "description": "File is referenced by a skill or its version history"
           },
           "403": {
             "description": "Permission denied"
@@ -9268,6 +9647,35 @@
                               "type": "string",
                               "nullable": true,
                               "description": "Scoped path to the frame file pinned as the Pod banner."
+                            },
+                            "frameTabs": {
+                              "type": "array",
+                              "description": "Frames promoted as custom Pod tabs.",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "path": {
+                                    "type": "string"
+                                  },
+                                  "title": {
+                                    "type": "string"
+                                  },
+                                  "icon": {
+                                    "type": "string"
+                                  }
+                                }
+                              }
+                            },
+                            "tabsOrder": {
+                              "type": "array",
+                              "description": "Interleaved system tab ids and frame paths before Settings.",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "isAdminControlled": {
+                              "type": "boolean",
+                              "description": "Whether workspace admins control membership and connected data for this Pod."
                             }
                           }
                         }
@@ -9637,9 +10045,21 @@
             "in": "query",
             "name": "kind",
             "required": false,
-            "description": "Filter by space kind (e.g. system)",
+            "description": "Filter by one or more space kinds. Repeat the parameter to include several kinds.",
+            "style": "form",
+            "explode": true,
             "schema": {
-              "type": "string"
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "global",
+                  "system",
+                  "conversations",
+                  "regular",
+                  "project"
+                ]
+              }
             }
           }
         ],
@@ -10091,6 +10511,144 @@
           }
         }
       },
+      "PrivateConversationConsumptionToolDetails": {
+        "type": "object",
+        "required": [
+          "label",
+          "internalMCPServerName",
+          "toolName",
+          "callCount",
+          "attributedCredits",
+          "directCredits",
+          "pending"
+        ],
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "internalMCPServerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "toolName": {
+            "type": "string"
+          },
+          "callCount": {
+            "type": "integer"
+          },
+          "attributedCredits": {
+            "type": "number",
+            "description": "Share of billed credits after reconciling exclusively through model input rows."
+          },
+          "directCredits": {
+            "type": "number"
+          },
+          "pending": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PrivateConversationConsumptionModelDetails": {
+        "type": "object",
+        "required": [
+          "providerId",
+          "modelId",
+          "displayName",
+          "attributedCredits"
+        ],
+        "properties": {
+          "providerId": {
+            "type": "string"
+          },
+          "modelId": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "attributedCredits": {
+            "type": "number",
+            "description": "Model attribution after reconciling exclusively through its input rows."
+          }
+        }
+      },
+      "PrivateConversationConsumptionAgentDetails": {
+        "type": "object",
+        "required": [
+          "agentId",
+          "name",
+          "pictureUrl",
+          "billedCredits",
+          "agentWorkCredits",
+          "tools",
+          "models"
+        ],
+        "properties": {
+          "agentId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "pictureUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "billedCredits": {
+            "type": "number"
+          },
+          "agentWorkCredits": {
+            "type": "number",
+            "description": "Agent work after assigning billing reconciliation exclusively to model input rows."
+          },
+          "tools": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PrivateConversationConsumptionToolDetails"
+            }
+          },
+          "models": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PrivateConversationConsumptionModelDetails"
+            }
+          }
+        }
+      },
+      "PrivateConversationConsumptionDetails": {
+        "type": "object",
+        "description": "Additive attribution reconciled to the authoritative bill exclusively through model input rows. Each message uses its newest complete stored attribution version. Null when any billed message has no complete stored attribution.",
+        "required": [
+          "agentWorkCredits",
+          "tools",
+          "models",
+          "agents"
+        ],
+        "properties": {
+          "agentWorkCredits": {
+            "type": "number",
+            "description": "Agent work after assigning billing reconciliation exclusively to model input rows."
+          },
+          "tools": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PrivateConversationConsumptionToolDetails"
+            }
+          },
+          "models": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PrivateConversationConsumptionModelDetails"
+            }
+          },
+          "agents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PrivateConversationConsumptionAgentDetails"
+            }
+          }
+        }
+      },
       "PrivateConversation": {
         "type": "object",
         "description": "Conversation without content, used in list responses.",
@@ -10304,10 +10862,6 @@
                   "test"
                 ]
               },
-              "branchId": {
-                "type": "string",
-                "nullable": true
-              },
               "content": {
                 "type": "array",
                 "description": "Array of message arrays (versions/retries)",
@@ -10374,6 +10928,11 @@
           },
           "rank": {
             "type": "integer"
+          },
+          "branchId": {
+            "type": "string",
+            "nullable": true,
+            "description": "Legacy, always null. Branches were removed."
           },
           "user": {
             "type": "object",
@@ -10468,6 +11027,11 @@
           "rank": {
             "type": "integer"
           },
+          "branchId": {
+            "type": "string",
+            "nullable": true,
+            "description": "Legacy, always null. Branches were removed."
+          },
           "parentMessageId": {
             "type": "string"
           },
@@ -10560,7 +11124,7 @@
           "subAgentCostCredits": {
             "type": "number",
             "nullable": true,
-            "description": "Aggregated credit cost of all sub-agents (run_agent / agent_handover) spawned recursively by this message. Computed only on single-message fetches; null otherwise."
+            "description": "Aggregated credit cost of all sub-agents (run_agent / agent_handover) spawned recursively by this message. Computed only on single-message fetches. Null otherwise."
           },
           "resolvedModel": {
             "type": "object",
@@ -10631,6 +11195,11 @@
           },
           "rank": {
             "type": "integer"
+          },
+          "branchId": {
+            "type": "string",
+            "nullable": true,
+            "description": "Legacy, always null. Branches were removed."
           },
           "parentMessageId": {
             "type": "string"
@@ -10743,7 +11312,7 @@
           "subAgentCostCredits": {
             "type": "number",
             "nullable": true,
-            "description": "Aggregated credit cost of all sub-agents (run_agent / agent_handover) spawned recursively by this message. Computed only on single-message fetches; null otherwise."
+            "description": "Aggregated credit cost of all sub-agents (run_agent / agent_handover) spawned recursively by this message. Computed only on single-message fetches. Null otherwise."
           },
           "resolvedModel": {
             "type": "object",
@@ -10935,9 +11504,10 @@
             "nullable": true,
             "description": "Path of this file inside the sandbox conversation mount."
           },
-          "skipDataSourceIndexing": {
-            "type": "boolean",
-            "description": "Whether data source indexing was skipped for this file."
+          "processedPath": {
+            "type": "string",
+            "nullable": true,
+            "description": "Path of the plain-text sibling of this file inside the sandbox conversation mount (e.g. an audio transcript), when it has one."
           },
           "skipFileProcessing": {
             "type": "boolean",
@@ -11011,7 +11581,8 @@
           },
           "branchId": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "description": "Legacy, always null. Branches were removed."
           },
           "sourceConversationId": {
             "type": "string",
@@ -11448,6 +12019,43 @@
                 "type": "string",
                 "nullable": true,
                 "description": "Scoped path to the frame file pinned as the Pod banner (e.g. project/banner.html)."
+              },
+              "frameTabs": {
+                "type": "array",
+                "description": "Frames promoted as custom Pod tabs (shared for all members).",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "path",
+                    "title",
+                    "icon"
+                  ],
+                  "properties": {
+                    "path": {
+                      "type": "string",
+                      "description": "Canonical scoped path to the frame file in the Pod filesystem."
+                    },
+                    "title": {
+                      "type": "string",
+                      "description": "Display title for the tab."
+                    },
+                    "icon": {
+                      "type": "string",
+                      "description": "Action icon name (e.g. ActionDashboardIcon)."
+                    }
+                  }
+                }
+              },
+              "tabsOrder": {
+                "type": "array",
+                "description": "Interleaved system tab ids and frame paths before Settings.",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "isAdminControlled": {
+                "type": "boolean",
+                "description": "Whether workspace admins control membership and connected data for this Pod."
               }
             }
           }
@@ -11934,6 +12542,12 @@
               "zendesk",
               "onboarding_conversation"
             ]
+          },
+          "selectedSpaceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -11990,6 +12604,9 @@
           },
           {
             "$ref": "#/components/schemas/PrivateCompactionMessageDoneEvent"
+          },
+          {
+            "$ref": "#/components/schemas/PrivateConversationForkPreparedEvent"
           },
           {
             "$ref": "#/components/schemas/PrivateConversationTitleEvent"
@@ -12145,6 +12762,24 @@
           }
         }
       },
+      "PrivateConversationForkPreparedEvent": {
+        "type": "object",
+        "required": [
+          "type",
+          "created"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "conversation_fork_prepared"
+            ]
+          },
+          "created": {
+            "type": "integer"
+          }
+        }
+      },
       "PrivateConversationTitleEvent": {
         "type": "object",
         "required": [
@@ -12288,7 +12923,7 @@
             "type": "string"
           },
           "result": {
-            "description": "Result returned by the sandbox function."
+            "description": "Parsed result validated against the sandbox function output schema."
           }
         }
       },
@@ -12299,7 +12934,7 @@
           "created",
           "invocationId",
           "functionId",
-          "message"
+          "error"
         ],
         "properties": {
           "type": {
@@ -12317,9 +12952,25 @@
           "functionId": {
             "type": "string"
           },
-          "message": {
-            "type": "string",
-            "description": "Why the invocation failed before producing a result."
+          "error": {
+            "type": "object",
+            "required": [
+              "code",
+              "message"
+            ],
+            "properties": {
+              "code": {
+                "type": "string",
+                "description": "Whatever classified the failure, forwarded as-is (a runner code such as `threw` or `http_error`, or the `type` of the API error that failed the call). Open by design, branch on the codes you handle and treat the rest as generic failures."
+              },
+              "message": {
+                "type": "string"
+              },
+              "status": {
+                "type": "integer"
+              }
+            },
+            "description": "A structured error describing why the invocation failed."
           }
         }
       },
@@ -13283,6 +13934,12 @@
             "description": "URL of the user's profile picture",
             "example": "https://example.com/profiles/johndoe123.jpg"
           },
+          "selectedSpaceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "agenticMessageData": {
             "type": "object",
             "properties": {
@@ -13660,6 +14317,40 @@
           },
           "context": {
             "$ref": "#/components/schemas/Context"
+          },
+          "modelSelection": {
+            "$ref": "#/components/schemas/ModelSelection"
+          }
+        }
+      },
+      "ModelSelection": {
+        "type": "object",
+        "description": "Optional per-message model and reasoning-effort override applied to the\nmentioned agent(s). When omitted, each agent runs its configured model.\nIf the requested model is not available to the workspace, the agent's\nconfigured model is used instead. An unknown provider, model, or\nreasoning effort results in a 400.\n",
+        "required": [
+          "providerId",
+          "modelId"
+        ],
+        "properties": {
+          "providerId": {
+            "type": "string",
+            "description": "The model provider id (e.g. \"anthropic\", \"openai\", \"google_ai_studio\").",
+            "example": "anthropic"
+          },
+          "modelId": {
+            "type": "string",
+            "description": "The model id to run (e.g. \"claude-sonnet-4-20250514\").",
+            "example": "claude-sonnet-4-20250514"
+          },
+          "reasoningEffort": {
+            "type": "string",
+            "enum": [
+              "none",
+              "light",
+              "medium",
+              "high"
+            ],
+            "description": "Optional reasoning effort. Honored only if the resolved model supports it.",
+            "example": "medium"
           }
         }
       },
@@ -13700,9 +14391,11 @@
             "description": "Path of this file inside the sandbox conversation mount.",
             "example": "conversation/report.csv"
           },
-          "skipDataSourceIndexing": {
-            "type": "boolean",
-            "description": "Whether data source indexing was skipped for this file."
+          "processedPath": {
+            "type": "string",
+            "nullable": true,
+            "description": "Path of the plain-text sibling of this file inside the sandbox conversation mount (e.g. an audio transcript), when it has one.",
+            "example": "conversation/voice.processed.txt"
           },
           "skipFileProcessing": {
             "type": "boolean",
@@ -14098,7 +14791,17 @@
           },
           "isDefault": {
             "type": "boolean",
-            "description": "Whether this skill is enabled by default"
+            "deprecated": true,
+            "description": "Whether this skill is enabled by default. Deprecated, use availability instead."
+          },
+          "availability": {
+            "type": "string",
+            "enum": [
+              "editors",
+              "workspace_users",
+              "users_and_agents"
+            ],
+            "description": "Who the skill is available to (users_and_agents makes it discoverable by agents)"
           },
           "instructions": {
             "type": "string",
@@ -14294,6 +14997,9 @@
       },
       "MCPServerView": {
         "type": "object",
+        "required": [
+          "isRestrictedToSkills"
+        ],
         "properties": {
           "id": {
             "type": "integer",
@@ -14456,6 +15162,11 @@
             ],
             "description": "OAuth use case for the MCP server view",
             "example": "platform_actions"
+          },
+          "isRestrictedToSkills": {
+            "type": "boolean",
+            "description": "Whether the MCP server view can only be used through skills",
+            "example": false
           },
           "editedByUser": {
             "type": "object",
