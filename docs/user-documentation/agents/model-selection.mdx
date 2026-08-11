@@ -1,6 +1,6 @@
 ---
 title: "Auto models and the model picker"
-description: "Switch models on the fly in any conversation, and let auto models pick the best model for each request."
+description: "Switch models on the fly in any conversation, and let auto models keep your agents on a current model."
 ---
 
 Every agent runs on a model. In Dust you control that model in two places:
@@ -31,10 +31,6 @@ Auto models give you three things a pinned model cannot:
 - **Resilience.** If a provider has an outage, your agents fall through to the next model on the list instead of failing.
 - **No migrations.** When Dust adds a newer model to a list, your agents pick it up. You do not re-evaluate, migrate, or rebuild anything.
 - **A cost ceiling you choose.** Fast, Standard, and Complex are three different price and capability levels. You choose the level once, per agent or per conversation, rather than tracking individual models.
-
-<Note>
-  Dust decides which models sit behind Fast, Standard, and Complex, and that selection changes over time as new models are released. If you need a guarantee that an agent always runs on one exact model, pin that model in the agent builder instead.
-</Note>
 
 ## Use the model picker in a conversation
 
@@ -84,7 +80,7 @@ You can pin any of those agents back to a specific model at any time in the agen
 ## Availability
 
 - The model picker is available to all members in the conversation input bar and in the agent builder. The API exposes the same per-message override through `modelSelection`.
-- **Complex** and other premium model and reasoning-effort combinations are available through the picker on usage-based (credit) plans. On legacy plans they appear locked, with a tooltip pointing to your administrator.
+- **Complex** and other premium model and reasoning-effort combinations require a usage-based (credit) plan.
 - Admins can lower what each member can select. See [Model access tiers](/docs/user-documentation/admins/usage-seats-and-credits/model-access-tiers).
 
 ## FAQ

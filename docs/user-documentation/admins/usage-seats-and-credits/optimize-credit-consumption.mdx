@@ -66,12 +66,11 @@ The strongest model is not always the best default.
 
 Stronger models are useful for complex reasoning, coding, careful synthesis, and high-stakes work. Simpler tasks such as classification, tagging, formatting, routing, extraction, deduplication, or first-pass triage may work well with lighter models when available.
 
-The simplest way to get this right without tracking individual models is to use [auto models](/docs/user-documentation/agents/model-selection). **Fast**, **Standard**, and **Complex** are three ordered lists of models maintained by Dust at three price and capability levels. You choose the level per agent, and Dust keeps the list behind it current, instead of every agent defaulting to the most expensive model available.
+The simplest way to get this right without tracking individual models is to use [auto models](/docs/user-documentation/agents/model-selection#auto-models). **Fast**, **Standard**, and **Complex** are three ordered lists of models maintained by Dust at three price and capability levels. You choose the level per agent, and Dust keeps the list behind it current, instead of every agent defaulting to the most expensive model available.
 
 ### What to do
 
 - Review your top agents and check whether their model matches the task.
-- Use **Standard** as the default, and **Fast** for high-volume mechanical work.
 - Use stronger models where quality clearly improves the outcome.
 - Use lighter models for structured or repetitive tasks when the output remains reliable.
 - Test model changes on real examples before changing an important workflow.

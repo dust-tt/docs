@@ -8,26 +8,13 @@ title: "What settings / model should I use?"
 
 ## Which model should I choose?
 
-Start with an auto model. Each one is an ordered list of models maintained by Dust, at a given price and capability level, and Dust uses the first model on the list that is available to your workspace. You pick the level, Dust keeps the list current. See [Auto models and the model picker](/docs/user-documentation/agents/model-selection) for the full detail.
+Start with an auto model, and use **Standard** unless you have a reason not to. [Auto models](/docs/user-documentation/agents/model-selection#auto-models) has the table of which one to use for what.
 
-| Choice | Use it for |
-| --- | --- |
-| **Standard** | The right default for almost every agent: drafting, summarizing, answering questions over your knowledge. |
-| **Fast** | High-volume, mechanical work: classification, tagging, formatting, routing, extraction, first-pass triage. |
-| **Complex** | Hard reasoning, long analysis, code, high-stakes synthesis. |
-| A specific model | When you need a guarantee that the agent always runs on one exact model, for example to reproduce a known output. |
-
-Auto models also protect you from provider outages and mean you do not have to migrate agents every time a new frontier model ships.
+Pick a specific model only when you need a guarantee that the agent always runs on one exact model, for example to reproduce a known output.
 
 ## What reasoning effort should I set?
 
-Reasoning effort only applies when you pick a specific model. Only the levels that model supports are selectable.
-
-- **Light**: light reasoning effort, faster responses.
-- **Medium**: medium reasoning effort, balancing speed and quality.
-- **High**: high reasoning effort, longer wait times but higher quality.
-
-Higher effort costs more and can move a model into a higher [model access tier](/docs/user-documentation/admins/usage-seats-and-credits/model-access-tiers).
+Reasoning effort only applies when you pick a specific model, and only the levels that model supports are selectable. See [Reasoning effort](/docs/user-documentation/agents/model-selection#reasoning-effort) for the levels and their tradeoffs.
 
 ## Can I change the model without editing the agent?
 
