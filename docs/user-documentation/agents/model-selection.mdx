@@ -83,7 +83,7 @@ You can pin any of those agents back to a specific model at any time in the agen
 
 ## Availability
 
-- The model picker is available to all members in the conversation input bar and in the agent builder.
+- The model picker is available to all members in the conversation input bar and in the agent builder. The API exposes the same per-message override through `modelSelection`.
 - **Complex** and other premium model and reasoning-effort combinations are available through the picker on usage-based (credit) plans. On legacy plans they appear locked, with a tooltip pointing to your administrator.
 - Admins can lower what each member can select. See [Model access tiers](/docs/user-documentation/admins/usage-seats-and-credits/model-access-tiers).
 
@@ -124,6 +124,23 @@ The agent is configured to run on a model, or a reasoning effort, above the tier
 
 ### Does the model picker apply to Slack, triggers, or the API?
 
-No. A pick in the input bar is scoped to that conversation in the Dust web app. Agents running from Slack, from a trigger, or through the API use their own configured model.
+**Slack and triggers: no.** A pick in the input bar is scoped to that conversation in the Dust web app. An agent that runs from Slack or from a trigger uses its own configured model.
+
+**The API: yes.** [Create a new conversation](/api-reference/conversations/create-a-new-conversation) and [Create a message](/api-reference/conversations/create-a-message) accept an optional `modelSelection` object that overrides the model for the agents mentioned in that message:
+
+```json
+{
+  "modelSelection": {
+    "providerId": "anthropic",
+    "modelId": "claude-sonnet-4-20250514",
+    "reasoningEffort": "medium"
+  }
+}
+```
+
+- `providerId` and `modelId` are required. `reasoningEffort` is optional, and is honored only if the resolved model supports it.
+- Omit `modelSelection` and each agent runs its configured model.
+- The override applies to that message only, exactly like a pick in the input bar. It does not modify the agent.
+- The same access rules apply as in the app: a model outside what your workspace and your [model access tier](/docs/user-documentation/admins/usage-seats-and-credits/model-access-tiers) allow is rejected, and an unknown provider, model, or reasoning effort returns a `400`.
 
 
