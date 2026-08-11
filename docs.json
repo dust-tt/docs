@@ -416,7 +416,7 @@
           },
           {
             "group": "Dust API Documentation",
-            "openapi": "docs/developer-platform/dust-api-documentation/openapi.json",
+            "openapi": "https://raw.githubusercontent.com/dust-tt/dust/refs/heads/main/front-api/public/swagger.json",
             "pages": [
               "docs/developer-platform/dust-api-documentation/openapi-and-postman"
             ]
