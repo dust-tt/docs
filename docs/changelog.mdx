@@ -7,17 +7,25 @@ description: "New updates and improvements to Dust"
 <Update label="August 10th, 2026" tags={["Added"]}>
 ## Choose the model from the composer
 
-You can now choose which model runs your agent directly from the message composer. Pick a specific model or use Dust-managed Fast, Standard, or Complex modes to balance response quality, speed, and cost for each task. You can also switch models manually when a provider is unavailable.
+You can now choose which model runs your agent directly from the message composer. Click the model icon to choose a specific model or one of Dust's three auto models: **Basic**, **Standard**, and **Premium**.
 
-The model picker is available in every workspace. Legacy pricing workspaces cannot select Premium models.
+Each auto model is an ordered list of model and reasoning-effort combinations maintained by Dust. We periodically benchmark the candidates and update the lists when the preferred model changes. Dust does not route each request to a different model based on the task. When you send a message, Dust uses the first candidate on the selected list that is available to your workspace. If a candidate is unavailable, Dust continues to the next one.
 
-Dust also migrated agents on the previous default model to Standard.
+The model picker works with any agent, including the default `@dust` agent. A selection in the composer applies to your next message in that conversation only. To make a persistent choice, set the model in Agent Builder.
+
+The global model agents were retired. They no longer appear in your agent list, but the models that powered them remain available through **More models** in the picker when your plan and administrator settings allow them. These agents were wrappers around a model with access to internet search, rather than full agents with their own instructions, tools, or company knowledge.
+
+Custom agents pinned to a specific model keep that model. Custom agents that previously followed the default model now run on **Standard**.
+
+The model picker is available in every workspace where the feature is enabled. Legacy pricing workspaces cannot select Premium models.
 
 </Update>
 <Update label="August 10th, 2026" tags={["Added"]}>
-## Restrict users to approved models
+## Restrict access to model tiers
 
-Admins can now restrict users to Cost-Effective, Balanced, or Premium models to control workspace spending. Models outside the permitted range disappear from the model picker, and agents configured with an unpermitted model show an error instead of running.
+Admins can now cap members at **Basic**, **Standard**, or **Premium** to control which model and reasoning-effort combinations they can select. The setting applies to every model option in the selected tier, not only to the auto-model rows. Models and reasoning efforts above a member's ceiling are locked in the picker, and agents configured with an unpermitted option show an error instead of running.
+
+Open the information panel beside the model-tier setting to see the current model and reasoning-effort options in each tier. The list changes as Dust updates its model catalog, pricing, and availability.
 
 Available in every new credit-based workspace.
 
