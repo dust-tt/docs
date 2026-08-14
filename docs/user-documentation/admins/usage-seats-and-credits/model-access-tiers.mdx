@@ -3,30 +3,96 @@ title: "Model access tiers"
 description: "Restrict which models and reasoning efforts your members can select, for the whole workspace, a group, or one member."
 ---
 
-Members can pick the model an agent runs on, from the conversation input bar and from the agent builder. See [Auto models and the model picker](/docs/user-documentation/agents/model-selection).
+Members can pick the model an agent runs on from the conversation input bar and Agent Builder. See [Auto models and the model picker](/docs/user-documentation/agents/model-selection).
 
-As an admin, you can cap how far up that list each member can go. This is useful when you want everyday work on inexpensive models and want frontier models reserved for a small group.
+As an administrator, you can cap how far up the model list each member can go. This lets you keep everyday work within a defined cost range while reserving higher-cost options for members who need them.
 
 ## The three tiers
 
-Every model, at every reasoning effort it supports, belongs to one tier:
+Every model and supported reasoning effort belongs to one tier. The same model can appear in more than one tier because its tier can change with the reasoning effort.
 
 | Tier | What it contains |
 | --- | --- |
-| **Cost efficient** | Models that trade some performance for a lower price, while remaining usable for everyday Dust work. |
-| **Balanced** | Standard, everyday workhorse models with good quality for most tasks. |
-| **Premium** | Higher-cost combinations for demanding work that needs stronger capabilities. |
+| **Basic** | Lower-cost model and reasoning-effort combinations for well-defined and repetitive work. |
+| **Standard** | Everyday model and reasoning-effort combinations for most work. |
+| **Premium** | Higher-cost combinations for demanding work that benefits from stronger capabilities. |
 
-Tiers are cumulative. Granting **Up to Balanced** also grants Cost efficient. Granting **Up to Premium** grants everything, which is the default for every workspace.
+Tiers are cumulative. **Up to Standard** grants access to Basic and Standard. **Up to Premium** grants access to all three tiers, which is the default for every workspace.
 
 <Note>
-  A tier applies to a model **and** a reasoning effort, not to a model alone. The same model can sit in two tiers: for example a mid-size model at Light effort can be Cost efficient, at Medium effort Balanced, and at High effort Premium. A frontier model is Premium at every effort.
+  The selector applies to every option in the selected category, not only to the three auto-model rows. It controls individual models, their supported reasoning efforts, and the corresponding Basic, Standard, or Premium auto model. A model can remain selectable at one reasoning effort while another effort on the same model is disabled.
 </Note>
+
+## Current options in each tier
+
+The lists below match the model options shown by the model-tier information panel as of August 14, 2026. They include the model and reasoning-effort combinations currently assigned to each tier. Dust can change these assignments as providers release models, update pricing, or change availability.
+
+### Basic
+
+| Model | Reasoning efforts in this tier |
+| --- | --- |
+| Claude 4.5 Haiku | Light, Medium, High |
+| Claude Sonnet 4.6 | Light |
+| Claude Sonnet 5 | Light |
+| DeepSeek V4 Flash (Fireworks) | None, Light, Medium, High |
+| Gemini 3.1 Flash Lite | None, Light, Medium |
+| Gemini 3.5 Flash Lite | None, Light, Medium |
+| Gemini 3.6 Flash | Light |
+| Mistral Codestral | None |
+| Mistral Small | None |
+| GPT-5.4 Mini | None, Light, Medium, High |
+| GPT-5.4 Nano | None, Light, Medium, High |
+| GPT 5.6 Luna | None, Light |
+
+### Standard
+
+| Model | Reasoning efforts in this tier |
+| --- | --- |
+| Claude Sonnet 4.6 | Medium |
+| Claude Sonnet 5 | Medium |
+| DeepSeek V4 Pro (Fireworks) | None |
+| GLM-5.2 (Fireworks) | High |
+| Inkling (Fireworks) | Light, Medium, High |
+| Kimi K2.6 (Fireworks) | None, Light, Medium, High |
+| Kimi K3 (Fireworks) | Light |
+| Gemini 3.1 Flash Lite | High |
+| Gemini 3.1 Pro (Preview) | Light |
+| Gemini 3.5 Flash Lite | High |
+| Gemini 3.5 Flash | Light, Medium |
+| Gemini 3.6 Flash | Medium |
+| Gemini 3.7 Flash | Light, Medium |
+| Mistral Large | None |
+| Mistral Medium 3.5 | None |
+| GPT 5.6 Luna | Medium, High |
+| GPT 5.6 Sol | None |
+| GPT 5.6 Terra | None, Light, Medium, High |
+| Grok 4.5 | Light, Medium, High |
+| Grok 4.6 | Light, Medium |
+
+### Premium
+
+| Model | Reasoning efforts in this tier |
+| --- | --- |
+| Claude Fable 5 | Light, Medium, High |
+| Claude Opus 4.8 | Light, Medium, High |
+| Claude Opus 5 | Light, Medium, High |
+| Claude Sonnet 4.6 | High |
+| Claude Sonnet 5 | High |
+| Kimi K3 (Fireworks) | Medium, High |
+| Gemini 3.1 Pro (Preview) | Medium, High |
+| Gemini 3.5 Flash | High |
+| Gemini 3.6 Flash | High |
+| Gemini 3.7 Flash | High |
+| Mistral Medium 3.5 | High |
+| GPT 5.6 Sol | Light, Medium, High |
+| Grok 4.6 | High |
+
+The three auto models are separate curated choices in the picker. **Basic** corresponds to the lower-cost auto model, **Standard** to the default auto model, and **Premium** to the higher-capability auto model. They are also gated by the member's maximum tier.
 
 ## Set the workspace ceiling
 
 1. Go to **Admin** > **Usage**.
-2. In the **Models tier** section, set **Workspace access** to the highest tier your members may select.
+2. In the **Models tier** section, set **Workspace access** to the highest tier available to members of the workspace.
 3. The change applies to every member who has no group or personal override.
 
 The default is **Up to Premium**, so nothing is restricted until you lower it.
@@ -35,7 +101,7 @@ The default is **Up to Premium**, so nothing is restricted until you lower it.
 
 On the same **Usage** page, the groups table lets you set a tier per group. A group set to **Inherited from workspace** follows the workspace ceiling.
 
-Group overrides are how you give a specific team access to Premium models while the rest of the workspace stays on Balanced.
+Group overrides let you give a specific team access to Premium options while the rest of the workspace stays on Standard.
 
 ## Override for a member
 
@@ -46,25 +112,26 @@ The members table on the **Usage** page lets you set a tier for one member. Leav
 Dust resolves one ceiling per member, in this order:
 
 1. **Member override**, if set. It wins over everything else.
-2. **Group overrides**, if the member belongs to at least one group with an override. When a member is in several such groups, the **highest** of those tiers applies.
+2. **Group overrides**, if the member belongs to at least one group with an override. When a member is in several such groups, the highest of those tiers applies.
 3. **Workspace access**, otherwise.
 
 ## Let members run published agents above their tier
 
-Restricting a member also restricts the agents they can run: if an agent is configured on a model above the member's ceiling, the run is blocked with **Model tier not enabled**.
+Restricting a member also restricts the agents they can run. If an agent is configured on a model and reasoning effort above the member's ceiling, the run is blocked with **Model tier not enabled**.
 
-That is often too strict, because a well-built shared agent may deliberately use a strong model. In the **Models tier** section, enable **Published agents** to let every member run published agents whatever the agent's model tier, while still capping what they can select themselves.
+That can be too strict for a well-built shared agent that deliberately uses a stronger model. In the **Models tier** section, enable **Published agents** to let every member run published agents regardless of the agent's model tier, while still capping what they can select themselves.
 
 With **Published agents** enabled:
 
-- Published (shared) agents run normally for everyone.
+- Published agents run normally for everyone.
 - Unpublished and personal agents remain restricted to the member's ceiling.
 - Creating or editing an agent on a model above the member's ceiling remains blocked.
 
 ## What members see
 
-- In the model picker, models and reasoning efforts above their ceiling are visible but locked, with a tooltip telling them to contact their administrator.
-- When they try to run an agent above their ceiling, they get a **Model tier not enabled** message naming the agent.
+- In the model picker, individual models and reasoning efforts above their ceiling are visible but locked, with a tooltip telling them to contact their administrator.
+- Auto-model rows above their ceiling are also locked. They do not silently downgrade to another auto model.
+- When members try to run an agent above their ceiling, they get a **Model tier not enabled** message naming the agent.
 
 ## Audit trail
 
@@ -72,7 +139,7 @@ Changes to model tier settings are recorded in your [audit logs](/docs/user-docu
 
 ## Availability
 
-Model access tiers are available on usage-based (credit) plans. On legacy plans, premium model and reasoning-effort combinations are not selectable through the model picker at all, and there is no tier setting to configure.
+Model access tiers are available on usage-based credit plans. On legacy plans, premium model and reasoning-effort combinations are not selectable through the model picker, and there is no tier setting to configure.
 
 ## FAQ
 
@@ -80,26 +147,26 @@ Model access tiers are available on usage-based (credit) plans. On legacy plans,
 
 No. Every workspace starts at **Up to Premium**, which restricts nothing. Configure tiers only if you want to limit what members can select.
 
-### Which models are Premium, and which are Cost efficient?
+### Why does the same model appear in more than one tier?
 
-It depends on the model and the reasoning effort. You can get the full list by clicking on the (i) icon near model tier selection, in the Usage page. As a rule of thumb: small and mini models are Cost efficient, mid-size models are Cost efficient or Balanced at low effort and Premium at their highest effort, and frontier models are Premium at every effort. The tiers evolve as providers release new models and change prices.
+A tier applies to a model and a reasoning effort together. For example, Claude Sonnet 4.6 is Basic at Light effort, Standard at Medium effort, and Premium at High effort.
 
-### Does restricting tiers break agents that were already built on premium models?
+### Does the selector disable only the auto-model choices?
+
+No. The tier ceiling applies to every model and reasoning-effort combination in that category, as well as to the corresponding auto model. If you cap a member at Standard, Premium model combinations and the Premium auto model are unavailable to that member.
+
+### Does restricting tiers break agents that were already built on Premium models?
 
 The agents keep their configuration. What changes is who can run them: a member below the required tier is blocked unless the agent is published and you have enabled **Published agents**.
 
 ### What happens when a member belongs to two groups with different tiers?
 
-The highest of the two applies. Group overrides grant access, they do not subtract it. To cap one specific person below their groups, set a member override.
+The highest of the two applies. Group overrides grant access; they do not subtract it. To cap one specific person below their groups, set a member override.
 
 ### Can I restrict a single person rather than a group?
 
-Yes. Set a tier directly on that member in the members table on the **Usage** page. A member override takes precedence over their groups and over the workspace ceiling.
+Yes. Set a tier directly on that member in the members table on the **Usage** page. A member override takes precedence over their groups and the workspace ceiling.
 
 ### Does this reduce credit consumption?
 
-It caps the most expensive combinations your members can reach on their own, which removes one source of unplanned spend. It is one lever among several. See [Optimize credit consumption](/docs/user-documentation/admins/usage-seats-and-credits/optimize-credit-consumption).
-
-### Does restricting tiers also restrict the auto models?
-
-No. Complex and Balanced tiers will follow the constraint and pick models accessible to the users.
+It caps the most expensive model and reasoning-effort combinations members can select on their own, which removes one source of unplanned spend. It is one lever among several. See [Optimize credit consumption](/docs/user-documentation/admins/usage-seats-and-credits/optimize-credit-consumption).
