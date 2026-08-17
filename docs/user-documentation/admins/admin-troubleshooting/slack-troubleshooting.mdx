@@ -135,11 +135,11 @@ You cannot set a default agent for private channels. In private channels, always
 
 ### Auto‑reply without @mention
 
-**Why this might not work:** Auto‑reply requires configuration and may have availability restrictions depending on your plan.
+**Why this might not work:** Auto‑reply must be enabled per agent and per channel by a workspace admin.
 
 **Options:**
 
-1. **Agent settings:** Configure a default agent for specific public channels in the agent's settings page ([Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows)).
+1. **Agent settings:** In the agent's **Slack Channel Settings**, select the channel(s) and turn on **Respond to all messages in channel**. Optionally check **Top-level posts only** to skip replies within threads. Available in every workspace; see [Slack Auto-Reply without @mention](/docs/user-documentation/agents/integrations/dust-in-slack/slack-auto-reply).
 2. **Slack Workflows:** Use [Slack Workflows](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows) to trigger agents based on events like emoji reactions or schedules.
 
 <Warning>
