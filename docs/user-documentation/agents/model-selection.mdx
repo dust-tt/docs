@@ -6,7 +6,7 @@ description: "Choose a model for a conversation or agent, or let Dust maintain a
 Every agent runs on a model. In Dust, you can choose that model in two places:
 
 - The **model picker in the conversation input bar** changes the model for your next message in that conversation, without editing the agent.
-- **Advanced > Model selection** in the agent builder sets the model an agent uses by default.
+- **"Standard" \> pick your model** in the agent builder sets the model an agent uses by default.
 
 Both places offer three **auto models**, **Basic**, **Standard**, and **Premium**, as well as specific models from individual providers.
 
@@ -72,18 +72,13 @@ No. The models that powered the global model agents are still available through 
 
 For most queries, we recommend **Standard**. Dust maintains and periodically reviews the candidate lists, but the selected auto model does not change based on the content of an individual request.
 
-## What happens to existing agents?
+## Why we made this change
 
-- Custom agents where the builder selected a specific model keep that model. Nothing changes.
-- Custom agents where the builder did not select a specific model previously followed the global `@dust` agent's model. They now run on **Standard**.
+The retired global model agents were wrappers around a model with access to internet search, not agents with their own instructions, tools, or company knowledge. Agents and models are different things: agents combine a model with instructions, tools, and company knowledge, while the model provides the underlying intelligence. Moving model choice into the picker means any agent can use any available model, and Dust can maintain the curated auto-model lists without asking you to migrate each agent.
 
 ## My workspace has the `@dust` agent disabled
 
 The model picker works with any agent, not only `@dust`. Use it with a custom agent, or create a simple agent in Agent Builder and choose its model there. Administrators can also re-enable `@dust` from workspace settings.
-
-## Why we made this change
-
-The retired global model agents were wrappers around a model with access to internet search, not agents with their own instructions, tools, or company knowledge. Agents and models are different things: agents combine a model with instructions, tools, and company knowledge, while the model provides the underlying intelligence. Moving model choice into the picker means any agent can use any available model, and Dust can maintain the curated auto-model lists without asking you to migrate each agent.
 
 ## Use the model picker in a conversation
 
@@ -94,12 +89,16 @@ The retired global model agents were wrappers around a model with access to inte
 
 The picker applies to your next message in that conversation only. It does not modify the agent, affect other members, or change scheduled runs. If you do not use the picker, the agent runs on its configured model.
 
+## What happens to existing agents?
+
+- Custom agents where the builder selected a specific model keep that model. Nothing changes.
+- Custom agents where the builder did not select a specific model previously followed the global `@dust` agent's model, but were pinned to it. They now run on **Standard**.
+
 ## Set the model of an agent
 
 1. Open the agent in Agent Builder.
-2. In the **Instructions** section, click **Advanced**.
-3. Open **Model selection**.
-4. Pick an auto model or a specific model, then save.
+2. In the **Instructions** section, click the button named after the current model (defaults to "Standard").
+3. Pick an auto model or a specific model, then save.
 
 Choosing a specific model pins the agent to that model. Choosing an auto model means the agent follows the corresponding maintained list as Dust updates it.
 
@@ -137,7 +136,7 @@ Dust maintains one ordered candidate list for each auto model. The lists reflect
 
 ### Can I pin an agent to one exact model?
 
-Yes. In Agent Builder, open **Advanced**, then **Model selection**, and choose a specific model. That agent then uses that model for every member and run, subject to plan and administrator access rules.
+Yes. In Agent Builder, on the Instructions \> "Standard" or the specific model name. That agent then uses that model for every member and run, subject to plan and administrator access rules.
 
 ### What happened to the global model agents?
 
