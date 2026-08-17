@@ -265,7 +265,8 @@
               {
                 "group": "Dust in Slack",
                 "pages": [
-                  "docs/user-documentation/agents/integrations/dust-in-slack/slack-auto-join",
+                  "docs/user-documentation/agents/integrations/dust-in-slack/slack-auto-reply",
+         "docs/user-documentation/agents/integrations/dust-in-slack/slack-auto-join",
                   "docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows"
                 ]
               },
