@@ -22,22 +22,22 @@ Credit consumption is usually driven by four factors:
 
 A good workflow uses the right model, the right context, the right tools, and the right volume for the task.
 
-## Review usage in Workspace Analytics
+## Review usage in Analytics
 
-Workspace admins can review adoption and usage patterns from **Admin > Analytics**. The dashboard includes workspace activity over time, message sources, tool usage, skill usage, top users, and top agents. Admins can scope the dashboard to the last 7, 14, 30, or 90 days. See [Workspace analytics](/docs/user-documentation/admins/workspace-analytics) for details.
+Workspace admins can review credit consumption from **Admin > Analytics**. Select the current cycle, the last 7 days, the last 30 days, or the last 90 days. Then compare consumption with the workspace cap, inspect changes over time, and attribute credits to agents, members, groups, models, tools, skills, sources, or API keys. See [Analytics](/analytics) for details.
 
 Start with these questions:
 
-| What to review         | What to look for                                                                                                                    |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **Top agents**         | Which agents are used the most?                                                                                                     |
-| **Top users**          | Is usage broad across the workspace or concentrated in a few users?                                                                 |
-| **Message sources**    | Are messages coming from the web app, Slack, Teams, email, triggers, scheduled runs, API, Zapier, n8n, Make, or other integrations? |
-| **Tool usage**         | Which tools are used most often, and by how many users?                                                                             |
-| **Skill usage**        | Which skills are used most often, and by how many users?                                                                            |
-| **Activity over time** | Did usage increase gradually, or did it spike suddenly?                                                                             |
+| What to review | What to look for |
+| --- | --- |
+| **Cycle pace** | Is consumption on target relative to the percentage of the cycle elapsed? |
+| **Agents and members** | Is consumption broad across the workspace or concentrated among a few contributors? |
+| **Models, tools, and skills** | Which workflow components account for the most credits or the highest average consumption? |
+| **Sources and API keys** | Is programmatic consumption growing or coming from an unexpected origin? |
+| **Daily and cumulative trends** | Did consumption increase gradually, or did it spike suddenly? |
+| **Vs Prev** | Which contributors changed most compared with the preceding period? |
 
-Workspace Analytics exports metadata only, not message content.
+Analytics exports metadata only, not message content.
 
 ## Review programmatic usage separately
 
@@ -130,7 +130,7 @@ The goal is not to remove tools for the sake of removing tools. A useful tool ca
 
 ## Use skills for reusable methods
 
-Workspace Analytics includes skill usage, which can help admins understand which skills are used across the workspace.
+Analytics attributes consumption to skills, which helps admins understand which skills account for credit usage across the workspace.
 
 A skill is useful when an agent needs a reusable method, checklist, rubric, or process. A good skill can make a workflow more consistent because the agent knows how to approach the task.
 

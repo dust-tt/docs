@@ -365,7 +365,7 @@
               "docs/user-documentation/admins/tools-management/computer-admin-setup"
             ]
           },
-          "docs/user-documentation/admins/workspace-analytics",
+          "analytics",
           {
             "group": "Audit Logs",
             "pages": [
@@ -1432,7 +1432,11 @@
     },
     {
       "source": "/docs/workspace-analytics",
-      "destination": "/docs/user-documentation/admins/workspace-analytics"
+      "destination": "/analytics"
+    },
+    {
+      "source": "/docs/user-documentation/admins/workspace-analytics",
+      "destination": "/analytics"
     },
     {
       "source": "/docs/zendesk",
