@@ -242,6 +242,7 @@
           {
             "group": "Triggers",
             "pages": [
+              "docs/user-documentation/agents/triggers/credits-usage",
               "docs/user-documentation/agents/triggers/schedules",
               {
                 "group": "Webhooks",

@@ -167,7 +167,7 @@ Use Go Deep when the question requires broad investigation or synthesis across m
 
 Automations can create a lot of value, but they can also scale faster than expected.
 
-[Trigger rate limits](/docs/user-documentation/agents/triggers/webhooks/rate-limiting) are designed to prevent individual automations from consuming disproportionate capacity. Triggers can run in fair use mode or programmatic usage mode. Fair use mode has limits such as 42 runs per trigger per 24 hours. Fair-use triggers may also be subject to workspace-level guardrails to preserve capacity for direct user interactions; the specific limits depend on your plan and contract. Programmatic usage mode is billed separately and is intended for high-volume use cases.
+Two settings keep them in check. [Rate limits](/docs/user-documentation/agents/triggers/webhooks/rate-limiting) cap how often a webhook trigger runs, 42 times per 24 hours by default, and its editor can adjust that. The [credit pool](/docs/user-documentation/agents/triggers/credits-usage) decides who pays: the trigger's editor, or the workspace. Put high-volume automations on the workspace pool, where you see their cost under Programmatic Usage > Automations and cap it with the monthly programmatic limit.
 
 ### Before scaling an automation
 

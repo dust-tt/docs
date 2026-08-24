@@ -3,75 +3,24 @@ title: "Rate Limiting"
 ---
 
 
-To ensure fair resource allocation across your workspace, Dust enforces rate limits on trigger executions. These limits prevent individual automations from consuming disproportionate capacity while allowing legitimate automation use cases.
+Rate limits cap how often a webhook trigger can run, so a busy webhook source does not consume your whole workspace allowance. They control frequency only. For whose credits pay for the runs, see [Credits usage](/docs/user-documentation/agents/triggers/credits-usage).
 
-This page describes trigger execution limits. These are separate from plan-level usage allowances, credit balances, and fair-use limits that may apply to your workspace under your subscription.
+## Per-trigger limit
 
-Triggers can operate in two modes:
+Each webhook trigger runs at most **42 times per 24 hours** by default. The window slides: it does not reset at midnight.
 
-- **Fair use mode**: Counts toward the regular usage allowance available to your workspace under your plan.
-- **Programmatic usage mode**: Billed separately through programmatic usage credits, for high-volume use cases.
+Editors change the limit in the **Rate limits** field of the trigger sheet. Raise it for a trigger that legitimately fires often, such as a PR review bot on a busy repository. Lower it while you test a new webhook source.
 
-## Fair Use Mode
+Scheduled triggers have no such limit, since their schedule already sets their frequency.
 
-- **42 runs per trigger per 24 hours** on fair use
-- Applies to each individual trigger
-- Uses a sliding 24-hour window, not a daily reset
-- Fair-use triggers may also be subject to workspace-level guardrails to preserve capacity for direct user interactions
-- The workspace-level calculation depends on your plan and contract
+## Workspace limit
 
-For legacy Enterprise plans, fair-use limits are transitioning from message-based allowances to credit-based limits. If your workspace is affected, Dust will communicate the applicable limit and effective date directly.
+On legacy plans, which use message quotas instead of credits, all webhook triggers together can use at most half of your workspace's message allowance for the period. The other half stays available for conversations. Raising one trigger's limit does not lift this ceiling.
 
-## Programmatic Usage Mode
+Credit-priced plans have no message quota. A trigger there is limited by the credit balance it charges to, described in [Credits usage](/docs/user-documentation/agents/triggers/credits-usage).
 
-For high-volume or truly programmatic use cases (e.g., PR reviews on every commit, IT ticketing automation), admins can request to move specific triggers to programmatic usage mode:
+## Reaching a limit
 
-- Billed separately through programmatic usage credits
-- Does not count toward trigger fair-use capacity
-- Frees up capacity for other fair-use triggers
-- Can support much higher volumes (e.g., 1,000 runs per day)
-- Applies only to webhook-based triggers. Scheduled triggers remain on fair use by nature
+Dust refuses the incoming request and marks the trigger as rate-limited, which you see as a chip in the trigger details. Requests that arrive while the limit is reached are dropped rather than queued, so nothing is replayed once the window frees up. The trigger runs again on the next request it accepts.
 
-To request this, see [Requesting Higher Limits](#requesting-higher-limits) below.
-
-For details on how programmatic usage draws from your workspace credit pool and what happens when credits are depleted, see [Credit Management](/docs/user-documentation/admins/usage-seats-and-credits/credit-management).
-
-When a trigger hits its rate limit:
-
-- Incoming webhook requests are paused until capacity is available
-- You'll see a chip indicating the trigger is rate-limited in the trigger details
-
-## Deciding Between Fair Use and Programmatic Usage
-
-**Fair use is ideal for**:
-
-- Daily or hourly briefings (e.g., morning digest of tasks)
-- Email response drafting (a few times per day)
-- Low-frequency notifications (status updates, document changes)
-- Exploratory and testing use cases
-
-**Programmatic usage is appropriate for**:
-
-- PR reviews triggered on every commit
-- IT ticketing systems with high message volume
-- Customer support automation handling dozens or hundreds of tickets daily
-- Any trigger running 42+ times per day consistently
-
-## Requesting Higher Limits
-
-If your legitimate use case requires higher limits, workspace admins can contact support at [support@dust.tt](mailto:support@dust.tt) to:
-
-1. **Increase fair-use limits**: Bump a specific trigger's limit within fair use (e.g., from 42 to 100 runs per day)
-2. **Move to programmatic usage**: Switch a high-volume trigger to programmatic mode, which:
-   - Removes it from the fair-use combined limit
-   - Allows much higher volumes
-   - Draws from the workspace credit pool
-
-When contacting support, please include:
-
-- Description of your use case
-- Expected daily volume
-
-## Need Help?
-
-If you're experiencing rate limiting issues or need to discuss your automation requirements, reach out to our team at [support@dust.tt](mailto:support@dust.tt). We're here to help you design automation strategies that work within your workspace capacity and determine whether fair use or programmatic usage is the right fit for your use case.
+If a trigger hits its limit often, raise it in the trigger sheet, or send fewer requests to Dust in the first place with a [payload filter](/docs/user-documentation/agents/triggers/webhooks/filter-webhooks-payload).
