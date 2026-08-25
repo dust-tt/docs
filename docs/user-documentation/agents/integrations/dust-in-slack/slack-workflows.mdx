@@ -15,13 +15,12 @@ For example:
 ## Setting up a Slack Workflow with a Dust agent
 
 1. **Create a Slack workflow.** This includes defining the workflow trigger, for example a scheduled time (e.g., daily at 10a.m.) or an action (e.g., adding a  emoji to a message). You can find more details about how to create a Slack workflow [here](https://slack.com/help/articles/17542172840595-Build-a-workflow--Create-a-workflow-in-Slack).
-2. **Whitelist your Slack workflow with the Dust team.** Dust must whitelist your Slack workflow before a Dust agent can reply to messages posted by the workflow Slackbot. Until this is done, the agent will not answer.
+2. **Whitelist your Slack workflow with the Dust team.** Dust must whitelist your Slack workflow before a Dust agent can reply to messages posted by the workflow Slackbot. 
 
    <Warning>
    **Contact Dust support to get your workflow whitelisted**
 
-   Email `support@dust.tt` with the template below. We cannot whitelist a workflow without these three pieces of information, so sending them all at once avoids any back-and-forth.
-
+   Email `support@dust.tt` with the template below. Those informations are crucial for us to proceed with the whitelisting ; 
    ```text Whitelisting request
    Dust workspace URL: https://dust.tt/w/<your-workspace-id>
    Slack workflow name: <exact name of the Slack workflow>
@@ -38,12 +37,10 @@ For example:
    <Info>
    **Good to know**
 
-   The **whitelisting is at the Slack workflow level,** so you can change the name of the agent called inside anytime once validated.
+   The **whitelisting is at the Slack workflow level,** so you can change the name of the agent called inside anytime once validated, or even how the workflow work. 
 
    However, the whitelisting is tied to the **exact workflow name**: if you rename the Slack workflow, the whitelisting no longer applies and you have to email `support@dust.tt` again with the new name.
 
    If you later give the agent access to an additional Restricted Space or private Pod, contact us again so we can add it to the whitelist.
-
-   Bear in mind that **Slack workflow can be restricted**, Dust can only interact with Slack workflows it has permission to access. Either select "Everyone internal in..." or add Dust to the specific channels where the workflow will run. Note: Dust cannot access workflows set to "Managers only."
    </Info>
 3. **Invoke @dust and the Dust Agent of your choice in the Slack workflow message.** Specify which Dust agent to use in a workflow by including the agent's name following this message format: `@dust +agentName`. This will ensure that the correct Dust agent responds to the workflow-triggered messages.
