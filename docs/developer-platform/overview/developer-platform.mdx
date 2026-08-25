@@ -1,49 +1,51 @@
 ---
 title: "Developer platform"
+description: "Core Dust concepts to know before building on the Dust API, SDK, and CLI."
 ---
 
+Dust is a platform powered by the top frontier models on the market, from providers including OpenAI, Anthropic, Google, and Mistral, alongside open-source models. It's designed to help teams work better with AI: agents help anyone in the company answer questions in your company's context, draft documents, analyze data, and act in connected systems.
 
-Dust is a platform powered by GPT4, Claude, and Mistral. It's designed to help teams work better with AI. These AI assistants are there to help anyone in the company understand topics in your company's context, increase productivity and improve work processes. They can help with company questions, draft documents, or simplify complex tasks like creating SQL queries for a non-technical person or understanding a sales memo for an engineer.
+Our mission: we think people don't get up to go to work to use the enterprise search portal or to have a better knowledge solution but to get stuff done. We build Dust to make work work better. You can [read more here](https://blog.dust.tt/2023-05-11-work-doesnt-work).
 
-Our mission: We think people don’t get up to go to work to use the enterprise search portal or to have a better knowledge solution but to get stuff done. We build Dust to make work work better. You can [read more here](https://blog.dust.tt/2023-05-11-work-doesnt-work).
+The developer platform lets you build on Dust programmatically through the [Dust API](/docs/developer-platform/dust-api-documentation/openapi-and-postman), the [JavaScript SDK](/docs/developer-platform/overview/javascript-sdk), and the [Dust CLI](/docs/developer-platform/dust-cli/dust-cli).
 
-### Assistants
+### Agents
 
-Dust assistants use advanced models like GPT-4, Mistral, and Claude. There are two types:
+An agent combines a model with instructions, tools, and company knowledge. Every workspace includes the default `@dust` agent, and members can build [custom agents](/docs/user-documentation/agents/create-your-first-agent) for specific tasks, like answering support questions or generating SQL from company data. Several agents can work together in the same conversation.
 
-* Frontier model assistants use the latest large models to handle a wide range of tasks like text, summarization, translation, etc.
-* Custom assistants packaging specific needs by Dust and yourself. They focus on particular tasks like interacting with Notion/Slack, SQL query creation, customer support help, etc.
+### Models
 
-Some examples:
+Every agent runs on a model. The [model picker](/docs/user-documentation/agents/model-selection) offers specific models from each provider plus three auto models (Basic, Standard, Premium) that Dust benchmarks and keeps up to date. Admins can restrict which models members can use with [model access tiers](/docs/user-documentation/admins/usage-seats-and-credits/model-access-tiers).
 
-* **@dust**: Handles organizational questions
-* **@help**: Provides Dust support
-* **@gpt4/@claude**: Offer direct access to large language models
+### Conversations
 
-Multiple assistants can be used concurrently to tackle varied tasks.
+You interact with agents through conversations, where you ask questions or make requests. Share a conversation to let colleagues join and work with you and the agents. Create a new conversation for each new topic to keep agents focused.
 
-### Conversation
+### Workspaces
 
-You interact with Dust assistants through "conversations" where you ask questions/make requests, and the assistants respond using available data. Sharing conversation links allows all workspace members to collaborate on the same conversation.
+A workspace is where members talk to agents and customize Dust for their team's needs. Admins invite members, assign roles (Admin, Manager, Member), and organize data access through open or restricted [spaces](/docs/user-documentation/admins/spaces-management).
 
-Create a new conversation for a new topic to keep the assistants focused.
+### Data sources
 
-### Workspace
+Data sources make company knowledge available to agents:
 
-In Dust, a Workspace is where members talk with assistants and customize it for their team's needs. Admins manage data access, invite members, and set roles for better teamwork.
+- **Connections**: managed integrations (Google Drive, Notion, Slack, Confluence, and more), synced automatically.
+- **Tools**: access and act on third-party systems (Slack, Salesforce, Gmail, HubSpot, and more) via MCP servers.
+- **Public websites**: content ingested with the Dust web crawler.
+- **Folders**: static documents and tables, uploaded manually or by API.
+- **Custom connections**: connections you build yourself with the Dust API or ready-made scripts.
 
-### Connections & Data Sources
-
-In Dust, "Connections" are integrated platforms like Notion or Slack where assistants pull data from, available only on paid plans. Admins decide which data assistants can access.
-
-Data Sources are custom data sources created by builders to provide assistants with specific information unavailable inside Connections.
+Learn more in the [data sources overview](/docs/user-documentation/data-sources/overview).
 
 ### Synchronizing
 
-Synchronizing data with Dust means Dust will extract it from the platform you connected and that the data will be available for data retrieval by the assistants.
+[Connections](/docs/user-documentation/data-sources/connections) sync automatically, and updates usually appear in Dust within a few minutes. Admins have granular control over what is synced, down to specific Slack channels, Google Drive folders, or Notion pages.
 
 ### Retrieve
 
-In Dust, assistants use "Retrieve" to get data from approved sources like Notion or Slack to answer user questions with relevant, specific information.
+Agents retrieve information from data sources using [Knowledge](/docs/user-documentation/agents/knowledge/index) tools:
 
-:blue_heart:
+- **Search**: semantic search across selected data sources (RAG).
+- **Include data**: include documents exhaustively, most recent first, up to the context window limit.
+- **Query tables**: turn a question into a SQL query against structured data.
+- **Extract data**: pull structured information following a schema you define.
