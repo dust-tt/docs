@@ -45,7 +45,7 @@ Imagine you are creating an agent whose goal is to expose HR documentation to yo
 
 ## Advanced search mode
 
-Advanced search mode can be enabled in the agent builder under **Search > Advanced settings**. When enabled, agents gain filesystem-level access to your data sources **in addition to** semantic search.
+When you add knowledge to an agent using the **Content search** method (labeled `Search` in older versions of the agent builder), the agent automatically gains filesystem-level access to your data sources **in addition to** semantic search. There is no setting to enable: advanced search is included by default.
 
 **How it works:** Agents can list folders, browse directory structures, and read specific files by their exact path, treating data sources like a file system. This complements semantic search by allowing agents to navigate your data organization directly.
 
@@ -55,9 +55,13 @@ Advanced search mode can be enabled in the agent builder under **Search > Advanc
 - Works alongside semantic search for more flexible data access
 - Generally requires more tool calls, hence more induced latency, to locate and retrieve information
 
-Enable Advanced search mode when your data sources have meaningful folder structures that agents can use, or when agents benefit from accessing complete documents.
+This is most useful when your data sources have meaningful folder structures that agents can use, or when agents benefit from accessing complete documents.
 
-## When should I use the `Search` option?
+<Note>
+Agents whose Content search knowledge was configured before advanced search became the default (February 2026) may not have filesystem access enabled. To enable it, remove the Content search knowledge from the agent and add it back with the same sources.
+</Note>
+
+## When should I use the Content search option?
 
 This method is particularly useful in scenarios where the data might be coming from data sources that you have synced with Dust: Google drive, Confluence, Notion, Slack, etc.
 
