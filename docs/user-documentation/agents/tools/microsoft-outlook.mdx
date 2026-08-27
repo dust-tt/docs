@@ -6,8 +6,8 @@ title: "Microsoft Outlook"
 
 Outlook tools let your agents work with your Microsoft 365 mailbox and calendar.
 Agents can read messages and their full body, browse the folder hierarchy,
-download attachments, create and delete drafts, send mail, **move messages into
-folders**, manage contacts, and create or update calendar events.
+download attachments, create and delete drafts, send mail, move messages into
+folders, manage contacts, and create or update calendar events.
 
 This document covers the available tools, setup, authentication, and the scopes
 Dust requests.
@@ -26,8 +26,11 @@ administrator' or 'application administrator') who is also a Dust admin. This
 ensures full access to the necessary permissions.
 
 1. Under **Spaces → Tools**, select `Add Tools`, then select `Outlook`.
-2. Review the permissions. Required permissions are pre-selected and cannot be
-   removed; optional ones (shared mailboxes, contacts) can be unchecked.
+2. Review the permissions. Each tool action can be set to one of four stake
+   levels: high (always ask for confirmation), medium (let users save a
+   confirmation for a specific input), low (users can disable confirmations
+   entirely), or never ask (runs automatically) from the "Available tools"
+   settings.
 3. On the first connection, tick **Consent on behalf of your organization**.
 
 Once the tool is set up, **each user must connect their own Microsoft account**
@@ -36,11 +39,8 @@ automatically.
 
 ## Usage
 
-After admin setup, Outlook tools are added to an agent by selecting them in the
-agent builder. They require no configuration. Each tool can be set to one of
-four stake levels: high (always ask for confirmation), medium (let users save
-a confirmation for a specific input), low (users can disable confirmations
-entirely), or never ask (runs automatically).
+After admin setup, the Outlook tool can be added to an agent by selecting it
+from the agent builder. They require no additional configuration.
 
 ## Available Tools
 
@@ -62,11 +62,6 @@ entirely), or never ask (runs automatically).
 | Get Contacts | | Get contacts. Supports search queries. |
 | Create Contact | ✓ | Create a new contact. |
 | Update Contact | ✓ | Update an existing contact. |
-
-Most mail tools accept an optional shared mailbox address, provided the shared
-mail permissions were granted at setup. This does not apply to the contact
-tools (Get Contacts, Create Contact, Update Contact), which always operate on
-the signed-in user's own contacts.
 
 ### Outlook Calendar
 
@@ -119,46 +114,21 @@ Dust than they can do in Outlook directly.
 | `Calendars.ReadWrite.Shared` | Access shared and delegated calendars (optional) |
 | `MailboxSettings.Read` | Read timezone and working hours (optional) |
 
-## Troubleshooting
+### Permissions needed
 
-### "This tool requires personal authentication"
+If your users struggle with approval requirements, you can go in the Azure
+Admin portal and grant permissions at admin level.
 
-The tool is installed with personal credentials and the user has not connected
-their Microsoft account yet, or their connection was invalidated. The user
-should open the tool and click **Connect**, then complete the Microsoft consent
-screen. A workspace-level connection does not cover personal tool calls.
+For that go to the Azure Admin Portal, then **Enterprise applications** (you
+can follow this [link](https://portal.azure.com/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AppAppsPreview)
+instead), then **Dust - Tools**, then **Permissions** and click the **Grant
+admin consent** blue button.
 
-### An agent says it cannot perform an action it should support
+**Still not working?**
 
-Check that the specific tool is enabled on the agent. Tools are selected
-individually in the agent builder, so an agent with only Get Messages cannot
-move a message, and may explain the failure incorrectly. Compare the agent's
-tool list against the tables above.
+Try this other process:
 
-### A tool worked before and now fails, or a permission seems missing
-
-Dust occasionally adds scopes when shipping new tools. Connections created
-before that change keep their original grant and need to be refreshed: the user
-reconnects the tool, and an Entra admin may need to consent again for the added
-permissions.
-
-### Users are blocked on approval prompts
-
-Grant permissions at admin level. Go to the Azure admin portal, then
-[Enterprise applications](https://portal.azure.com/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AppAppsPreview),
-then **Dust - Tools**, then **Permissions**, and click **Grant admin consent**.
-
-**Still not working?** Try this alternative path:
-
-1. Go to [Access requests](https://portal.azure.com/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AccessRequests).
-2. Click **All (preview)**.
-3. Click the **Dust - Tools** app.
-4. Click **Review permissions and consent** in the right panel.
-
-## Limitations
-
-- **Email categories and tags.** Agents cannot set or read Outlook categories.
-- **Deleting or archiving messages.** Messages can be moved to any folder,
-  including a folder named Archive, but there is no dedicated delete tool.
-- **Rules and mailbox settings management.** Agents cannot create or edit inbox
-  rules, or change mailbox settings.
+1. Go to this [link](https://portal.azure.com/#view/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/~/AccessRequests)
+2. Click on "All (preview)"
+3. Click on the "Dust - Tools" app
+4. Click "Review permissions and consent" (or equivalent in your language) in the right panel
