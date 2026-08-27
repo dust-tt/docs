@@ -295,6 +295,7 @@
           "docs/user-documentation/pods/conversations",
           "docs/user-documentation/pods/files",
           "docs/user-documentation/pods/frames",
+          "docs/user-documentation/pods/agent-tools",
           "docs/user-documentation/pods/admin-controls",
           {
             "group": "Examples",
