@@ -15,7 +15,7 @@ The **Conversations tab** lists all conversations created inside the Pod. Every 
 
 **As an agent:**
 
-Agents can create and post to conversations in a Pod directly, for example to share a progress update, post a weekly summary, or surface findings from a background task. These conversations appear in the same list and are visible to all members. This is made possible by the **Pods skill**, which is available to all agents by default. See the [Overview](/docs/user-documentation/pods/overview) for more details.
+Agents can create and post to conversations in a Pod directly, for example to share a progress update, post a weekly summary, or surface findings from a background task. These conversations appear in the same list and are visible to all members. This is made possible by the **Pods skill**, which is available to all agents by default. See [Agent tools](/docs/user-documentation/pods/agent-tools) for the full list of tools the skill provides.
 
 <Info>
 **Every conversation in a Pod is automatically indexed. Agents can search and reference past conversations as context, without you doing anything.**
@@ -37,7 +37,7 @@ It is possible to have an external event (a ticket, a webhook, a scheduled trigg
 This is done by setting up a **triggered agent** and instructing it to create or post to a specific Pod:
 
 1. Create a triggered agent (e.g. from a Jira webhook, a Slack trigger, or the wake-up tool)
-2. In the agent's instructions, specify which Pod to post into. The agent can look it up by name using the Pods skill's list tool
+2. In the agent's instructions, specify which Pod to post into. The agent can look it up by name using the Pods skill's `list_pods` tool
 3. When triggered, the agent creates a conversation in the target Pod with the relevant context
 
 Common patterns:
