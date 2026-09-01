@@ -22,10 +22,6 @@ OAuth authenticates the connection; it does not authorize anything by itself. Wh
 2. Go to **All → System OAuth → Application Registry**.
 3. Click **New**, then select **Create an OAuth API endpoint for external clients**.
 
-<Warning>
-Do **not** select "Create an OAuth Provider". That record type is for ServiceNow acting as an OAuth client toward another server, and causes an `unauthorized_client` error when Dust tries to connect.
-</Warning>
-
 4. Configure the application:
 
 | Field | Value |
@@ -45,7 +41,7 @@ The redirect URL must match exactly: same hostname (`dust.tt` vs `eu.dust.tt`), 
 5. Save the record and let ServiceNow **generate** the Client ID and Client Secret (do not type your own client ID).
 6. Copy the **Client ID** and **Client Secret**. The secret may not be visible again after you leave the record.
 
-No OAuth scope needs to be configured: Dust sends the authorization request without a `scope` parameter.
+No OAuth scope needs to be configured: Dust sends the authorization request without a `scope` parameter. However, if you run into API access issues after connecting, adding the `useraccount` scope to the OAuth application's **Auth Scopes** can resolve them.
 
 ***
 
@@ -164,7 +160,7 @@ Keep credentials out of the skill: it should describe usage rules only. Access c
 | **`unauthorized_client`** | The Application Registry record is an "OAuth Provider" instead of an "OAuth API endpoint for external clients". Recreate it with the correct type and let ServiceNow generate the credentials. |
 | **`Access to unscoped API is not allowed`** | The OAuth application is securely scoped. Set it to `Global` / `Accessible from: All application scopes`, revoke old tokens in **System OAuth → Manage Tokens**, then reconnect. |
 | **`401 Unauthorized` after OAuth succeeds** | Check the integration user, its roles, and the token configuration. |
-| **`403 Forbidden`** | A REST API Access Policy, auth scope, table ACL, or field ACL rejected the call. Check each authorization layer separately (`rest_service`-type role, `itil`, table/field ACLs, access policies). |
+| **`403 Forbidden`** | A REST API Access Policy, auth scope, table ACL, or field ACL rejected the call. Check each authorization layer separately (`rest_service`-type role, `itil`, table/field ACLs, access policies). Adding the `useraccount` scope to the OAuth application's **Auth Scopes** can also resolve API access errors. |
 | **Read works but create/update fails** | `POST`/`PATCH` is not authorized, mandatory fields are missing, or field-level write ACLs block the write. Authorize the method in the access policy and inspect the ServiceNow error detail returned by the tool. |
 | **Some fields missing from responses** | Field-level read ACLs. This is expected behavior; adjust ACLs only for the fields actually needed. |
 | **`429 Too Many Requests`** | Instance rate-limit rules. Retry later; all traffic shares the integration user's quota. |
