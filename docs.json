@@ -320,7 +320,6 @@
             "pages": [
               "docs/user-documentation/admins/admin-governance/workspace-governance-roles-groups-and-permissions",
               "docs/user-documentation/admins/admin-governance/access-controls-and-permissions",
-              "docs/user-documentation/admins/admin-governance/memberships-and-roles",
               {
                 "group": "Single Sign-On (SSO)",
                 "pages": [
@@ -1253,7 +1252,7 @@
     },
     {
       "source": "/docs/setting-up-your-workspace",
-      "destination": "/docs/user-documentation/admins/admin-governance/memberships-and-roles"
+      "destination": "/docs/user-documentation/admins/admin-governance/workspace-governance-roles-groups-and-permissions"
     },
     {
       "source": "/docs/single-sign-on-sso",
