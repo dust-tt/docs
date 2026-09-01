@@ -41,7 +41,7 @@ The redirect URL must match exactly: same hostname (`dust.tt` vs `eu.dust.tt`), 
 5. Save the record and let ServiceNow **generate** the Client ID and Client Secret (do not type your own client ID).
 6. Copy the **Client ID** and **Client Secret**. The secret may not be visible again after you leave the record.
 
-No OAuth scope needs to be configured: Dust sends the authorization request without a `scope` parameter. However, if you run into API access issues after connecting, adding the `useraccount` scope to the OAuth application's **Auth Scopes** can resolve them.
+Dust does not request an OAuth scope by default: the authorization request is sent without a `scope` parameter, and no scope needs to be pre-configured to get connected. If you run into API access issues after connecting, adding the `useraccount` scope to the OAuth application's **Auth Scopes** can resolve them.
 
 ***
 
