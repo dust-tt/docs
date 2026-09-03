@@ -3,6 +3,14 @@ title: "Changelog"
 description: "New updates and improvements to Dust"
 ---
 
+<Update label="September 1st, 2026" tags={["Improved"]}>
+  ## API keys can now be scoped to restricted Spaces and Pods
+
+  New API keys can now be scoped to the restricted Spaces and Pods they need to access, rather than by selecting groups directly. Open Spaces and Pods are excluded because workspace-wide access already covers them.
+
+  The API keys table now shows the Spaces accessible to each key. Group IDs are no longer exposed for API key scoping, and the `/keys/groups` endpoint has been removed.
+</Update>
+
 <Update label="August 26th, 2026" tags={["Added"]}>
   ## Credit pool usage for triggers
 
