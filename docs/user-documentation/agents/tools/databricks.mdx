@@ -60,9 +60,9 @@ You need Databricks **account admin** rights for this step.
    - **Redirect URLs**: add the Dust Static OAuth callbacks (one per line):
 
      ```
-     https://dust.tt/oauth/mcp_static/finalize
      https://app.dust.tt/oauth/mcp_static/finalize
-     https://eu.dust.tt/oauth/mcp_static/finalize
+     https://app.dust.tt/oauth/mcp_static/finalize
+     https://app.dust.tt/oauth/mcp_static/finalize
      ```
 
    - **Access scopes**: check **All APIs**, or the fine-grained scope matching the endpoint you want to connect (for example **SQL** for the `/api/2.0/mcp/sql` server)
@@ -143,8 +143,8 @@ Use this option if the managed MCP servers are not available on your Databricks 
    - **Connection Name**: "Dust Integration"
    - **Redirect URLs**: Add both callback URLs:
      ```
-     https://dust.tt/oauth/databricks/finalize
-     https://eu.dust.tt/oauth/databricks/finalize
+     https://app.dust.tt/oauth/databricks/finalize
+     https://app.dust.tt/oauth/databricks/finalize
      ```
 
 4. **Configure Access Scopes**
