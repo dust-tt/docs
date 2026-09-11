@@ -17,7 +17,9 @@ You can also find it from the Account Console:
 5. Copy the URL without the trailing slash, for example `https://dbc-a1b2c3d4-e5f6.cloud.databricks.com`.
 
 <Info>
-Use the **workspace** URL (where you open notebooks), not the Account Console URL (`accounts.cloud.databricks.com`). If your organization has several workspaces, pick the one containing the data you want to expose to agents.
+  Use the **workspace** URL (where you open notebooks), not the Account Console
+  URL (`accounts.cloud.databricks.com`). If your organization has several
+  workspaces, pick the one containing the data you want to expose to agents.
 </Info>
 
 ### **2. Create an App Connection**
@@ -28,14 +30,14 @@ Use the **workspace** URL (where you open notebooks), not the Account Console UR
 4. Give the connection a descriptive name, such as `Dust MCP`.
 5. Add the Dust OAuth redirect URL: `https://dust.tt/oauth/mcp_static/finalize`
 
-1. Keep **Generate a client secret** enabled. Dust uses the client ID and client secret when connecting to Databricks.
-2. Add the scopes required by the tools you want to use:
+6. Keep **Generate a client secret** enabled. Dust uses the client ID and client secret when connecting to Databricks.
+7. Add the scopes required by the tools you want to use:
    - **Databricks SQL**: `sql` and `offline_access`
    - **Databricks Genie**: `genie` and `offline_access`
    - If you use both tools, add both `sql` and `genie`, together with `offline_access`.
-3. Create the connection and copy its **client ID** and **client secret**. You will enter them in Dust.
+8. Create the connection and copy its **client ID** and **client secret**. You will enter them in Dust.
 
-Databricks documents OAuth app connections under **Settings > App Connections**. OAuth applications with a client secret are confidential clients, which is the configuration required by the Dust presets. 
+Databricks documents OAuth app connections under **Settings > App Connections**. OAuth applications with a client secret are confidential clients, which is the configuration required by the Dust presets.
 
 ### **3. Verify Databricks permissions**
 
@@ -44,7 +46,7 @@ Make sure the users authenticating through Dust can access the relevant Databric
 - For **Databricks Genie**, the relevant Genie resources and underlying data.
 - For **Databricks SQL**, the required Unity Catalog catalogs, schemas, tables, and SQL warehouses.
 
-Unity Catalog permissions are enforced on every request. 
+Unity Catalog permissions are enforced on every request.
 
 ## **Setup in Dust**
 
@@ -59,6 +61,6 @@ Dust derives the OAuth authorization endpoint, token endpoint, and MCP server UR
 - SQL: `https://<workspace-hostname>/api/2.0/mcp/sql`
 - Genie: `https://<workspace-hostname>/api/2.0/mcp/genie`
 
-The OAuth endpoints are derived automatically, so they do not need to be entered manually. 
+The OAuth endpoints are derived automatically, so they do not need to be entered manually.
 
-If your Databricks workspace uses IP access lists, also make sure that Dust’s outbound IP addresses are allowed to connect to the workspace. 
+If your Databricks workspace uses IP access lists, also make sure that Dust’s outbound IP addresses are allowed to connect to the workspace.
