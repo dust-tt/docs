@@ -2,7 +2,6 @@
 title: "Slack Troubleshooting"
 ---
 
-
 ## How Dust's Slack Integration Works
 
 Dust's Slack integration has two layers: **Slack Apps** and **Features**.
@@ -62,13 +61,13 @@ Inviting the bot makes the channel visible in Dust's connection manager. But mes
 1. In Slack, type `/invite @Dust Data Sync` and press **Enter**
 2. In Dust, go to **Spaces  Connections  Slack  Add / Remove data** (see [Slack Connection](/docs/user-documentation/data-sources/connections))
 3. Verify the channel appears and is selected
-4. If already selected but not syncing, unselect it, save, then re‑select it
+4. If already selected but not syncing, unselect it, save, then re-select it
 
 **To check if the bot is in a channel:** Click the channel name in Slack, go to **Integrations**, and look for `Dust Data Sync` in the list.
 
 ### Historical messages missing
 
-**Why this happens:** Slack's API only provides messages from after the bot joined the channel. This is a Slack platform limitation, not a Dust limitation. Slack doesn't expose historical messages to newly‑invited bots.
+**Why this happens:** Slack's API only provides messages from after the bot joined the channel. This is a Slack platform limitation, not a Dust limitation. Slack doesn't expose historical messages to newly invited bots.
 
 ### "Failed to retrieve permissions" error
 
@@ -133,9 +132,9 @@ Inviting the bot makes the channel visible in Dust's connection manager. But mes
 You cannot set a default agent for private channels. In private channels, always use the `+agent-name` or `~agent-name` syntax to call specific agents.
 </Warning>
 
-### Auto‑reply without @mention
+### Auto-reply without @mention
 
-**Why this might not work:** Auto‑reply must be enabled per agent and per channel by a workspace admin.
+**Why this might not work:** Auto-reply must be enabled per agent and per channel by a workspace admin.
 
 **Options:**
 
@@ -143,9 +142,11 @@ You cannot set a default agent for private channels. In private channels, always
 2. **Slack Workflows:** Use [Slack Workflows](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows) to trigger agents based on events like emoji reactions or schedules.
 
 <Warning>
-**Workflows require whitelisting**
+**Workflows require workspace access**
 
-Slack workflows must be enabled for your workspace by Dust. Contact [support@dust.tt](mailto:support@dust.tt) with your workspace URL and workflow name to request access (see [Slack Workflows](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows)). When you contact support, include the exact name(s) of any Restricted Space used by the agent (in addition to Company Data). This is indicated by the yellow Restricted Space heads‑up in the Agent Builder.
+On credit-priced plans, a workspace admin can enable a workflow from **Admin** > **Automations** > **Slack workflows**. The admin must enter the exact sender name shown in Slack and select the Spaces the workflow can reach. The Dust Slack bot must also be connected to the workspace.
+
+The self-serve tab is not shown on legacy plans. Those workspaces continue using the existing support or Poke workflow for access management.
 </Warning>
 
 ## Slack Tools Issues
@@ -156,12 +157,12 @@ Slack workflows must be enabled for your workspace by Dust. Contact [support@dus
 
 | Tool                         | What It Requires        | How It Works                                       |
 | ---------------------------- | ----------------------- | -------------------------------------------------- |
-| **Semantic Search Messages** | Slack AI add‑on enabled | Uses natural language understanding for better results |
+| **Semantic Search Messages** | Slack AI add-on enabled | Uses natural language understanding for better results |
 | **Search Messages**          | Nothing                 | Keyword matching only, less accurate               |
 
 **What you can do:**
 
-* Check if your Slack workspace has the AI add‑on enabled
+* Check if your Slack workspace has the AI add-on enabled
 * When using keyword search, be specific and exact
 * Try multiple searches with different keyword combinations
 
@@ -196,7 +197,7 @@ Slack workflows must be enabled for your workspace by Dust. Contact [support@dus
 
 **How to check your Slack role:**
 
-1. Click your workspace name in Slack (top‑left corner)
+1. Click your workspace name in Slack (top-left corner)
 2. Go to **Settings & administration  Manage members**
 3. Search for your name; your role appears next to it
 
@@ -236,18 +237,18 @@ Slack workflows must be enabled for your workspace by Dust. Contact [support@dus
 
 **Why this happens:** The action requires a Slack role you don't have.
 
-| Action                  | Required Slack Role          |
-| ----------------------- | ---------------------------- |
-| Install apps            | Owner or Admin               |
-| Manage existing apps    | Owner, Admin, or App Manager |
-| Invite bots to channels | Any member of that channel   |
+| Action                         | Required Slack Role          |
+| ----------------------------- | ---------------------------- |
+| Install apps                   | Owner or Admin               |
+| Manage existing apps           | Owner, Admin, or App Manager |
+| Invite bots to channels        | Any member of that channel   |
 
 ## Known Limitations
 
 | Limitation                                 | Why It Exists                                                                                                                                                                                                                        |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **One interactive bot per Dust workspace** | You can sync multiple Slack workspaces as data sources, but only one can have the `@Dust` bot active. This prevents confusion about which bot responds.                                                                              |
-| **Bot messages not synced**                | Messages from `@Dust` and other bots are intentionally excluded from sync. This prevents AI‑generated content from being treated as source material, which could propagate mistakes. ([Connections](/docs/user-documentation/data-sources/connections)) |
+| **Bot messages not synced**                | Messages from `@Dust` and other bots are intentionally excluded from sync. This prevents AI-generated content from being treated as source material, which could propagate mistakes. ([Connections](/docs/user-documentation/data-sources/connections)) |
 | **No default agent in private channels**   | Slack's Terms of Service restrict certain bot behaviors in private channels. Use `@Dust +agent-name` syntax instead.                                                                                                                 |
 | **Thread links sometimes approximate**     | When messages aren't threaded, Dust links to the approximate location in the channel rather than the exact message. Use threads for precise linking. ([Connections](/docs/user-documentation/data-sources/connections))                       |
 
