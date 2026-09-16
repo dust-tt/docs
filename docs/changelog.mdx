@@ -12,6 +12,21 @@ Available to everyone now.
 
 </Update>
 
+<Update label="September 15th, 2026" tags={["Improved"]}>
+## Scheduled runs on OpenAI models now use about half the credits
+
+Since September 15, 2026, schedules, triggers, and wake-ups run on a lower-priority tier when they use an OpenAI model. Output quality is unchanged, credit consumption drops by half, and latency slows by less than 10%. On plans with weekly per-user fair-use limits, these runs count for about half as much against that limit. If a run hasn't returned a first event within 30 seconds, we fall back to standard priority.
+
+No action is required. The change applies automatically to these asynchronous runs, and nothing changes when you run an agent interactively.
+
+If the OpenAI provider is enabled in your workspace, Basic and Standard currently default to an OpenAI model, so those runs benefit from this change automatically.
+
+For details on scheduled runs, see the [wake-ups documentation](https://docs.dust.tt/docs/user-documentation/agents/tools/wake-ups).
+
+</Update>
+
+
+
 <Update label="September 14th, 2026" tags={["Added"]}>
 ## Databricks official MCPs: SQL and Genie
 
