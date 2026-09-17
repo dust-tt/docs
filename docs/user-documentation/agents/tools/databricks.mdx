@@ -28,7 +28,21 @@ You can also find it from the Account Console:
 2. Go to **Settings > App Connections**.
 3. Click **Add connection**.
 4. Give the connection a descriptive name, such as `Dust MCP`.
-5. Add the Dust OAuth redirect URL: `https://dust.tt/oauth/mcp_static/finalize`
+5. Add the two Dust OAuth redirect URLs for your workspace region:
+
+   **US workspaces:**
+
+   ```
+   https://dust.tt/oauth/mcp_static/finalize
+   https://app.dust.tt/oauth/mcp_static/finalize
+   ```
+
+   **EU workspaces:**
+
+   ```
+   https://eu.dust.tt/oauth/mcp_static/finalize
+   https://app.dust.tt/oauth/mcp_static/finalize
+   ```
 
 6. Keep **Generate a client secret** enabled. Dust uses the client ID and client secret when connecting to Databricks.
 7. Add the scopes required by the tools you want to use:
