@@ -268,7 +268,7 @@
                 "group": "Dust in Slack",
                 "pages": [
                   "docs/user-documentation/agents/integrations/dust-in-slack/slack-auto-reply",
-                "docs/user-documentation/agents/integrations/dust-in-slack/slack-auto-join",
+         "docs/user-documentation/agents/integrations/dust-in-slack/slack-auto-join",
                   "docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows"
                 ]
               },
@@ -1272,8 +1272,8 @@
       "destination": "/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows"
     },
     {
-      "source": "/docs/slack-auto-join-channel-to-synchronize",
-      "destination": "/docs/user-documentation/agents/integrations/dust-in-slack/slack-auto-join"
+         "docs/user-documentation/agents/integrations/dust-in-slack/slack-auto-join",
+         "docs/user-documentation/agents/integrations/dust-in-slack/slack-auto-join",
     },
     {
       "source": "/docs/slack-mcp",
