@@ -56,12 +56,20 @@ Which translates to the following setup process.
 
 1. In Github : create an OAuth app from the [developer settings](https://github.com/settings/developers) page
    1.  write down the client ID and client Secret
-   2. Add all three Dust redirect URLs to the OAuth app:
+   2. Add the global callback and the regional callback for your workspace:
+
+      **US workspaces:**
 
       ```
       https://dust.tt/oauth/mcp_static/finalize
       https://app.dust.tt/oauth/mcp_static/finalize
+      ```
+
+      **EU workspaces:**
+
+      ```
       https://eu.dust.tt/oauth/mcp_static/finalize
+      https://app.dust.tt/oauth/mcp_static/finalize
       ```
 2. In Dust : Navigate to Spaces > Tools > Add tools > Add MCP server and use the following settings
    1. Static Oauth URL : [https://api.githubcopilot.com/mcp](https://api.githubcopilot.com/mcp)
@@ -89,7 +97,7 @@ Connectivity to the custom MCP server can be tested using the official [MCP insp
 
 If you operate a third-party MCP server and want to support Dust users connecting to it, whitelist the following Dust callback URLs in your OAuth authorization server. This enables the OAuth authentication flow when customers add your server in Dust, and is recommended over Bearer token authentication for a better user experience. It may also be required to get your server listed on the Dust integrations page or in the Dust app.
 
-Register all three callback URLs. `https://dust.tt` is the US endpoint, `https://eu.dust.tt` is the EU endpoint, and `https://app.dust.tt` is the global endpoint that will replace the two regional endpoints.
+Register the global callback and the regional callback for each workspace. Use the US and Global URLs for US workspaces, and the EU and Global URLs for EU workspaces.
 
 **OAuth (with Dynamic Client Registration):**
 
