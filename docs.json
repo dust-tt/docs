@@ -256,6 +256,7 @@
           {
             "group": "Frames",
             "pages": [
+              "docs/user-documentation/agents/frames/overview",
               "docs/user-documentation/agents/frames/white-labeled-frames"
             ]
           },
@@ -267,7 +268,7 @@
                 "group": "Dust in Slack",
                 "pages": [
                   "docs/user-documentation/agents/integrations/dust-in-slack/slack-auto-reply",
-         "docs/user-documentation/agents/integrations/dust-in-slack/slack-auto-join",
+                  "docs/user-documentation/agents/integrations/dust-in-slack/slack-auto-join",
                   "docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows"
                 ]
               },
@@ -940,7 +941,7 @@
     },
     {
       "source": "/docs/frames",
-      "destination": "/docs/user-documentation/pods/frames"
+      "destination": "/docs/user-documentation/agents/frames/overview"
     },
     {
       "source": "/docs/freshservice",
