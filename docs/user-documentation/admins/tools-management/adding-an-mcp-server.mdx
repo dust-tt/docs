@@ -89,11 +89,13 @@ Connectivity to the custom MCP server can be tested using the official [MCP insp
 
 If you operate a third-party MCP server and want to support Dust users connecting to it, whitelist the following Dust callback URLs in your OAuth authorization server. This enables the OAuth authentication flow when customers add your server in Dust, and is recommended over Bearer token authentication for a better user experience. It may also be required to get your server listed on the Dust integrations page or in the Dust app.
 
+Register all three callback URLs. `https://dust.tt` is the US endpoint, `https://eu.dust.tt` is the EU endpoint, and `https://app.dust.tt` is the global endpoint that will replace the two regional endpoints.
+
 **OAuth (with Dynamic Client Registration):**
 
 | URL                                      | Region |
 | ---------------------------------------- | ------ |
-| `https://dust.tt/oauth/mcp/finalize`     | Global |
+| `https://dust.tt/oauth/mcp/finalize`     | US     |
 | `https://app.dust.tt/oauth/mcp/finalize` | Global |
 | `https://eu.dust.tt/oauth/mcp/finalize`  | EU     |
 
@@ -101,6 +103,6 @@ If you operate a third-party MCP server and want to support Dust users connectin
 
 | URL                                             | Region |
 | ----------------------------------------------- | ------ |
-| `https://dust.tt/oauth/mcp_static/finalize`     | Global |
+| `https://dust.tt/oauth/mcp_static/finalize`     | US     |
 | `https://app.dust.tt/oauth/mcp_static/finalize` | Global |
 | `https://eu.dust.tt/oauth/mcp_static/finalize`  | EU     |
