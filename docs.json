@@ -256,6 +256,7 @@
           {
             "group": "Frames",
             "pages": [
+              "docs/user-documentation/agents/frames/overview",
               "docs/user-documentation/agents/frames/white-labeled-frames"
             ]
           },
@@ -940,7 +941,7 @@
     },
     {
       "source": "/docs/frames",
-      "destination": "/docs/user-documentation/pods/frames"
+      "destination": "/docs/user-documentation/agents/frames/overview"
     },
     {
       "source": "/docs/freshservice",
