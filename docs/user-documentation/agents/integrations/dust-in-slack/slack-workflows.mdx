@@ -24,6 +24,17 @@ Allowing a workflow also grants it a set of Spaces. It always reaches agents sha
 Anyone who can run the workflow in Slack can summon agents through it, guests included. Grant a workflow only the Spaces it needs.
 </Warning>
 
+## Trigger an agent from a Slack app or workflow
+
+Dust ignores messages authored by Slack apps and bots by default to prevent automated loops. If you need a specific Slack app or workflow to summon an agent, contact [support@dust.tt](mailto:support@dust.tt) to request that it be allowed. This applies to Slack apps generally, not only Slack Workflows.
+
+Before the app or workflow can summon the agent:
+
+* Invite `@Dust` to the Slack channel where the app or workflow posts.
+* Publish the target agent. A draft or personal agent cannot be summoned this way.
+
+If the automation does not need to run through Slack, use the Dust API or a webhook instead.
+
 ## Allow a workflow on credit-priced plans
 
 Admins allow workflows for their teams on their own, without relying on Dust for the setup.
