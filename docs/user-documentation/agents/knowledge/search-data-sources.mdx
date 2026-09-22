@@ -49,12 +49,12 @@ Imagine you are creating an agent whose goal is to expose HR documentation to yo
 
 ## Filesystem-style navigation
 
-Agents can also gain filesystem-level access to your data sources, in addition to semantic search: listing folders, browsing directory structures, and reading specific files by their exact path. This complements semantic search by allowing agents to navigate your data organization directly (see [Find in data sources](/docs/user-documentation/agents/knowledge) on the Knowledge page).
+Agents can also browse your data sources like a file system, on top of semantic search. They can list folders, browse through directory structures, and open specific files by their exact path. This gives them another way to navigate your data directly (see [Find in data sources](/docs/user-documentation/agents/knowledge) on the Knowledge page).
 
-This is no longer a manual "Search > Advanced settings" toggle. For **SharePoint via Content search, folder and path navigation is enabled by default for new knowledge configurations.**
+This used to be a manual toggle under Search > Advanced settings, but that toggle is gone now. For **SharePoint through Content search, folder and path navigation is turned on by default for new knowledge configurations.**
 
 <Warning>
-  Configurations created **before** this change do not gain folder navigation retroactively. To pick it up, remove and re-add the SharePoint Content search knowledge with the same sources — but note this drops the configuration's existing must-have / must-not-have label filters (see warning above).
+  Configurations created **before** this change won't get folder navigation automatically. To pick it up, remove and re-add the SharePoint Content search knowledge with the same sources. Just keep in mind this drops the configuration's existing must-have / must-not-have label filters, so check the warning above first.
 </Warning>
 
 ## When should I use the `Search` option?
