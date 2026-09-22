@@ -6,9 +6,9 @@ description: "New updates and improvements to Dust"
 <Update label="September 22nd, 2026" tags={["Improved"]}>
 ## Automatic fallback during model provider outages
 
-Auto models (**Basic**, **Standard**, and **Premium**) now skip models affected by detected provider outages and use the next available candidate. The model picker shows the temporary replacement. No setup is required. If you selected a specific model, Dust warns you but keeps your choice.
+Auto models (**Basic**, **Standard**, and **Premium**) now skip models affected by detected provider outages and use the next available candidate. The model picker displays the temporary replacement. No additional setup is required.
 
-If a provider error causes a message to fail on a specific model, you can retry with the corresponding auto-model level. Dust does not switch models mid-run. Review completed actions before retrying. Read about [provider outage handling](/docs/user-documentation/agents/model-selection#provider-outages-and-automatic-fallback).
+Dust warns you but do not act on an outage for a model that you specifically selected. If a provider error causes a message to fail on a specific model, you can retry with the corresponding auto-model level. Please review completed actions before retrying to avoid duplicates. Read about [provider outage handling](/docs/user-documentation/agents/model-selection#provider-outages-and-automatic-fallback).
 
 </Update>
 
