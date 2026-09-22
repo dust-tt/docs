@@ -10,9 +10,9 @@ title: "What settings / model should I use?"
 
 Start with an auto model, and use **Standard** unless you have a reason not to. The [auto models](/docs/user-documentation/agents/model-selection#auto-models) page explains which one to use for different kinds of work.
 
-Pick a specific model only when you need a guarantee that the agent always runs on one exact model, for example to reproduce a known output.
+Pick a specific model when you need the agent to use that model rather than follow an auto-model list. Pinning a model does not guarantee identical responses.
 
-Auto models also skip degraded models for new messages during detected provider outages. A pinned model stays selected even if it is unstable, so choose an auto model if you want Dust to handle fallback. See [Provider outages and automatic fallback](/docs/user-documentation/agents/model-selection#provider-outages-and-automatic-fallback).
+Auto models also handle fallback for new messages during detected provider outages. Pinned models do not switch automatically, even when unstable. See [Provider outages and automatic fallback](/docs/user-documentation/agents/model-selection#provider-outages-and-automatic-fallback).
 
 ## What reasoning effort should I set?
 
