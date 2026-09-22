@@ -22,7 +22,7 @@ This document provides general information about our HubSpot tools (available to
 | Create Deal                 | Creates a new deal in Hubspot, with optional associations.                                                                                                                                                   |
 | Create Lead                 | Creates a new lead in Hubspot (as a Deal), with optional associations. Ensure properties correctly define it as a lead.                                                                                      |
 | Create Task                 | Creates a new task in Hubspot, with optional associations.                                                                                                                                                   |
-| Create Ticket               | Creates a new ticket in Hubspot, with optional associations.                                                                                                                                                 |
+| Create Ticket               | Creates a new ticket in Hubspot, with optional associations.                                                                                                                                                |
 | Create Note                 | Creates a new note in Hubspot, with optional associations.                                                                                                                                                   |
 | Create Communication        | Creates a new communication (WhatsApp, LinkedIn, SMS) in Hubspot as an engagement. Requires hs_communication_channel_type in properties.                                                                     |
 | Create Meeting              | Creates a new meeting in Hubspot as an engagement. Ensure hs_engagement_type='MEETING' and meeting details are in properties.                                                                                |
@@ -32,7 +32,14 @@ This document provides general information about our HubSpot tools (available to
 | Get Meeting                 | Retrieves a Hubspot meeting (engagement) by its ID.                                                                                                                                                          |
 | Get File Public Url         | Retrieves a publicly available URL for a file in HubSpot.                                                                                                                                                    |
 | Get Associated Meetings     | Retrieves meetings associated with a specific object (contact, company, or deal).                                                                                                                            |
-| Search Crm Objects          | Searches CRM objects of a specific type based on filters, query, and properties.                                                                                                                             |
+| Search Crm Objects          | Searches CRM objects, including contacts, companies, deals, leads, tickets, and activity records such as tasks, notes, meetings, calls, and emails.                                                          |
+| Export Crm Objects Csv      | Exports any object type, including tickets, to a CSV file for table queries, up to 2,000 rows per export.                                                                                                   |
+
+## Tickets
+
+Tickets are a supported object. Your agent can search tickets and their fields (status, pipeline, priority, ticket content) with Search Crm Objects, create tickets with Create Ticket, and export a list of tickets to CSV with Export Crm Objects Csv.
+
+There isn't a dedicated tool to pull a ticket's full history in one go. Listing associations currently only works for contacts, companies, and deals, so a ticket's related emails, notes, and calls aren't reachable that way today. If your agent needs a ticket's related activity, have it search those activity records directly and match them to the ticket.
 
 ## Workspace Setup and Authentication
 
