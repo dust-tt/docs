@@ -4,3 +4,13 @@ title: "Is Dust down?"
 
 
 Check and subscribe to [https://dust.statuspage.io/](https://dust.statuspage.io/) for real-time status updates.
+
+## What if an AI model provider is having an outage?
+
+A provider outage can affect one model while other models in Dust remain available. Dust monitors provider errors and shows an information indicator in the model picker when your selected model is degraded or your auto model is temporarily using a fallback.
+
+If you use **Basic**, **Standard**, or **Premium**, Dust automatically skips degraded models for new messages. If you selected a specific model, Dust warns you but keeps your choice: switch to an auto model or another available model to continue.
+
+If a message on a specific model fails with a provider-related error, use the offered retry with the corresponding auto-model level. Dust does not switch models mid-run, so review any actions already completed before retrying.
+
+See [Provider outages and automatic fallback](/docs/user-documentation/agents/model-selection#provider-outages-and-automatic-fallback) for details. No administrator setup is required.

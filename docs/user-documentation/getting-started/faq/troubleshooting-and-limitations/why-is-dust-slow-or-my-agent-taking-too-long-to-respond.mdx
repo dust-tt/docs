@@ -11,6 +11,12 @@ If you're experiencing slow response times, here's how to diagnose:
 - Try a different browser (Chrome/Arc recommended)
 - Clear browser cache and cookies
 
+## Model provider issues
+
+Check the model picker in the composer for an instability warning. If Dust has detected a provider outage, auto models (**Basic**, **Standard**, and **Premium**) skip degraded models for new messages. A specific model is not switched automatically; choose an auto model or another available model instead.
+
+For a failed message, follow the retry option shown in the error message. Review any completed actions before retrying: Dust does not switch models mid-run to rescue an in-progress message. See [Provider outages and automatic fallback](/docs/user-documentation/agents/model-selection#provider-outages-and-automatic-fallback).
+
 ## Agent configuration issues
 
 **Too many data sources:**

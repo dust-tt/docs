@@ -59,6 +59,32 @@ Premium is for demanding work that benefits from stronger reasoning or more capa
 
 The lists and their order can change as Dust benchmarks models, providers change their pricing or reliability, and new models become available. If a candidate is unavailable because of your region, plan, provider access, or administrator settings, Dust continues to the next available candidate on that list.
 
+## Provider outages and automatic fallback
+
+Dust monitors model-provider errors in live traffic to detect ongoing reliability problems. A model marked as **degraded** is experiencing elevated provider errors, but may still answer some requests. No administrator configuration is needed for outage handling.
+
+### If you use an auto model
+
+When a model is marked as degraded, **Basic**, **Standard**, and **Premium** skip it when selecting a model for a new message and use the next available candidate. If this changes the model your auto choice would normally use, the model picker in the composer shows an information indicator explaining which model is being used temporarily.
+
+Dust checks for recovery before returning the affected model to normal selection. Auto models reduce the need to switch models manually during a detected outage, but do not guarantee that every request will succeed or prevent failures before an outage is detected.
+
+### If you choose a specific model
+
+A specific model selected in the composer or pinned in Agent Builder is **not automatically replaced**, even when it is degraded. The model picker warns you that it is unstable. You can keep using it, choose another model, or select an auto model to let Dust handle fallback.
+
+To enable automatic fallback for an agent's future runs, select **Basic**, **Standard**, or **Premium** in Agent Builder and save. Dust does not offer a separate backup-model setting for pinned agents.
+
+### If a message fails
+
+When a message on a specific model fails with a provider-related error, Dust offers a retry using the corresponding auto-model level. The error message names the level, such as **Retry with Standard model tier**. The level is based on the failed model and its reasoning effort. This retry does not change the agent's configured model or your selection in the composer.
+
+<Warning>
+  Dust does not switch models mid-run to rescue an in-progress message. Automatically replaying a run could repeat actions such as sending an email or updating a record. If a message fails, review any actions already completed before choosing to retry.
+</Warning>
+
+For service-wide incidents and updates, check the [Dust status page](https://dust.statuspage.io/).
+
 ## What changed
 
 1. **A model picker in the composer.** Click the model icon to choose a model for any conversation, with any agent, including the default `@dust` agent.
