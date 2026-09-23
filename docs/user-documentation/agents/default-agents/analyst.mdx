@@ -1,0 +1,32 @@
+---
+title: "@analyst Agent"
+---
+
+## What is `@analyst` and how to use it?
+
+`@analyst` is a default agent that answers questions about how your Dust workspace is being used, by querying your workspace's usage data directly. Mention it with `@analyst` in the composer to ask things like "which agents are used the most this month?" or "how many credits did we use last week?".
+
+`@analyst` is available to workspace **admins and managers by default**; regular members don't see it unless an admin changes workspace settings. It can be deactivated by an admin like any other default agent, and it always reports figures pulled from your workspace's actual data rather than estimating.
+
+## What `@analyst` can answer
+
+`@analyst` uses the workspace analytics tools to answer questions on:
+
+- **Usage and consumption**: credits, messages, and active users, with breakdowns by agent, member, or time period.
+- **Model-level usage**: which models are consumed most, and how many credits or messages are attributed to a specific model.
+
+When a chart communicates the answer better than text (trends, distributions, comparisons), `@analyst` can render it as an interactive Frame instead of a plain-text summary.
+
+For the underlying dashboard and CSV export version of this data, see [Workspace analytics](/docs/user-documentation/admins/workspace-analytics).
+
+## When to use `@analyst`
+
+Use `@analyst` when you want a quick, conversational answer to a usage question instead of building a filtered view in the Analytics dashboard, for example while reviewing adoption in a team meeting or checking credit consumption before a renewal conversation.
+
+## Access and permissions
+
+If a member without admin or manager access mentions `@analyst`, it lets them know that workspace analytics is restricted to admins and managers.
+
+***
+
+**Updated** September 2026
