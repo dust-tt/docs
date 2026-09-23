@@ -31,3 +31,11 @@
 
 {/* Define what should and shouldn't be documented */}
 {/* Example: Don't document internal admin features */}
+
+## Changelog entries
+
+- Every `<Update>` block in `docs/changelog.mdx` must set the `rss` prop with both a `title` and a `description`:
+  `rss={{ title: "Feature name", description: "One-sentence summary that does not repeat the title." }}`
+- `rss.title` becomes the RSS item title (pushed to the community Slack). Without it, the feed falls back to the date label.
+- `rss.description` becomes the RSS item `<description>`. Without it, RSS readers fall back to the entry body, whose first `##` heading repeats the title, so the title shows up doubled in Slack posts.
+- Keep the `##` heading inside the entry body: it is the visible title on the changelog page and its anchor link.
