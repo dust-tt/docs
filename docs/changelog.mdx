@@ -3,9 +3,16 @@ title: "Changelog"
 description: "New updates and improvements to Dust"
 ---
 
+<Update label="September 23rd, 2026" tags={["Added"]} rss={{ title: "GPT-6 Luna, GPT-6 Sol, and Claude Opus 5.5 support" }}>
+## GPT-6 Luna support
 
+GPT-6 Luna is now available as a model for new and existing agents in all workspaces, including the EU. It uses the same context window as GPT-5.6 Luna with lower token costs. Existing agents keep their current model, and no premium plan or model-specific feature flag is required.
+  
+## GPT-6 Sol support
 
+You can now use GPT-6 Sol in your Dust agents, with availability in both the global and EU regions. Select GPT-6 Sol from the model picker when configuring an agent. It is available to workspaces on new credit pricing plans or with advanced-model access. No model-specific feature flag is required.
 
+## Claude Opus 5.5 support
 
 <Update label="September 21st, 2026" tags={["Added"]}>
 ## Siit remote MCP
@@ -17,12 +24,34 @@ Available in all workspaces. Once an admin adds Siit, anyone can use it in their
 </Update>
 
 <Update label="September 21st, 2026" tags={["Added"]}>
+Claude Opus 5.5 is now available in Dust for coding and enterprise workflows. You can select it when building or configuring agents in workspaces on new credit pricing or with advanced-model access. The model is available globally and in the EU, with no model-specific feature flag required.
+
+</Update>
+
+
+
+<Update label="September 22nd, 2026" tags={["Added"]} rss={{ title: "Choose Grok 4.7 for your agents" }}>
+## Choose Grok 4.7 for your agents
+
+Grok 4.7 is now available in the agent builder and input bar. Select it when you want to use the latest Grok model, with improved capabilities compared with Grok 4.6.
+
+Grok 4.7 is available to everyone except workspaces configured for EU data residency only.
+
+This new model comes with zero data retention standard terms. It is available to everyone automatically, except workspaces configured for EU data residency only.
+
+</Update>
+
+
+
+
+
+<Update label="September 21st, 2026" tags={["Added"]} rss={{ title: "Replace selected text with any Dust agent from Raycast" }}>
 ## Replace selected text with any Dust agent from Raycast
 
 You can now bind any Dust agent to a Raycast Quicklink and keyboard shortcut, then replace selected text with the agent's response from any Mac app without opening a Raycast window. Use it for grammar correction, translation, tone editing, rewriting, or support responses. Available to all Dust users using the Raycast extension.
 
 </Update>
-<Update label="September 21st, 2026" tags={["Added"]}>
+<Update label="September 21st, 2026" tags={["Added"]} rss={{ title: "Circuit breaker for high-credit agent messages" }}>
 ## Circuit breaker for high-credit agent messages
 
 Dust now pauses an agent message after it consumes 600 LLM credits and asks whether you want to continue or stop. Nothing is lost when the circuit breaker appears, so you can review the task before allowing it to run further.
@@ -31,7 +60,7 @@ This safeguard is available for agent messages started from the Dust UI or brows
 
 </Update>
 
-<Update label="September 17th, 2026" tags={["Added"]}>
+<Update label="September 17th, 2026" tags={["Added"]} rss={{ title: "Grok 4.6 is now available in Dust" }}>
 ## Grok 4.6 is now available in Dust
 
 Grok 4.6 is now available in Dust with zero data retention. You can select it directly from the input bar or agent builder. It is available to all users except workspaces with EU data residency only enabled, because Grok 4.6 processes data in the US.
@@ -39,7 +68,7 @@ Grok 4.6 is now available in Dust with zero data retention. You can select it di
 </Update>
 
 
-<Update label="September 17th, 2026" tags={["Added"]}>
+<Update label="September 17th, 2026" tags={["Added"]} rss={{ title: "Share frames with company domains" }}>
 ## Share frames with company domains
 
 You can now invite a company domain, such as example.com, to a frame. Anyone who verifies an email address on that domain can access the frame, while public email providers and disposable domains are excluded from domain invitations. Viewer analytics list each person separately with their last viewed time.
@@ -48,7 +77,7 @@ To share with a domain, add it in the frame's sharing settings. This is availabl
 
 </Update>
 
-<Update label="September 16th, 2026" tags={["Added"]}>
+<Update label="September 16th, 2026" tags={["Added"]} rss={{ title: "Skill favorites" }}>
 ## Skill favorites
 
 You can now star skills for quicker access, and agents with Discover Skills can use your favorite selection when choosing skills. This lets you keep a skill for personal use without making it available to the entire workspace or to every agent, while still previewing what broader availability would provide.
@@ -57,7 +86,7 @@ Available to everyone now.
 
 </Update>
 
-<Update label="September 15th, 2026" tags={["Improved"]}>
+<Update label="September 15th, 2026" tags={["Improved"]} rss={{ title: "Scheduled runs on OpenAI models now use about half the credits" }}>
 ## Scheduled runs on OpenAI models now use about half the credits
 
 Since September 15, 2026, schedules, triggers, and wake-ups run on a lower-priority tier when they use an OpenAI model. Output quality is unchanged, credit consumption drops by half, and latency slows by less than 10%. On plans with weekly per-user fair-use limits, these runs count for about half as much against that limit. If a run hasn't returned a first event within 30 seconds, we fall back to standard priority.
@@ -72,7 +101,7 @@ For details on scheduled runs, see the [wake-ups documentation](https://docs.dus
 
 
 
-<Update label="September 14th, 2026" tags={["Added"]}>
+<Update label="September 14th, 2026" tags={["Added"]} rss={{ title: "Databricks official MCPs: SQL and Genie" }}>
 ## Databricks official MCPs: SQL and Genie
 
 Databricks official managed MCPs for SQL and Genie are now available in Dust as preset tools. Your agents can query Databricks and use its Genie semantic layer without configuring a custom MCP, while Databricks manages the connection for your instance.
@@ -87,13 +116,13 @@ Open the tool picker to add Databricks SQL or Databricks Genie to an agent. Avai
 
 
 
-<Update label="September 11th, 2026" tags={["Improved"]}>
+<Update label="September 11th, 2026" tags={["Improved"]} rss={{ title: "Redesigned Usage page: understand and manage credits" }}>
 ## Redesigned Usage page: understand and manage credits
 
 Admins and managers now get a clearer view of workspace consumption, billing-cycle history, member usage, and applicable spend limits from Admin → Usage. The page adapts to each workspace plan, showing relevant credit, premium-message, and fair-use information, and highlights users who are off pace so you can upgrade seats or adjust spend limits. Use Analytics for detailed consumption trends and usage drivers.
 
 </Update>
-<Update label="September 11th, 2026" tags={["Added"]}>
+<Update label="September 11th, 2026" tags={["Added"]} rss={{ title: "DeepSeek V4.1 Flash is now available" }}>
 ## DeepSeek V4.1 Flash is now available
 
 DeepSeek V4.1 Flash is now available in Dust through Fireworks. It replaces DeepSeek V4 Flash 0731 and DeepSeek V4 Pro 0813 in agents, giving you a newer model that is better suited to current workloads and costs less than the previous Pro version.
@@ -101,13 +130,13 @@ DeepSeek V4.1 Flash is now available in Dust through Fireworks. It replaces Deep
 The replacement applies automatically to agents using those older model versions. Available to all workspaces.
 
 </Update>
-<Update label="September 11th, 2026" tags={["Added"]}>
+<Update label="September 11th, 2026" tags={["Added"]} rss={{ title: "Files as Pod tabs" }}>
 ## Files as Pod tabs
 
 Pod editors can now add almost any file as a Pod tab, extending the customization options previously available for pinned Frames. The selected file appears as a tab for everyone in the Pod, so members can open shared documents, spreadsheets, and other supported files directly from the Pod navigation. Available to all customers and managed by Pod editors.
 
 </Update>
-<Update label="September 10th, 2026" tags={["Added"]}>
+<Update label="September 10th, 2026" tags={["Added"]} rss={{ title: "Assign Admin and Manager roles from any workspace group" }}>
 ## Assign Admin and Manager roles from any workspace group
 
 Admins can now assign the Admin or Manager role to any workspace group from Settings & Governance → Roles, without relying on groups named `dust-admins` or `dust-managers`. This supports manually managed groups as well as groups provisioned from your identity provider.
@@ -117,7 +146,7 @@ Existing `dust-admins` and `dust-managers` groups are migrated automatically, so
 </Update>
 
 
-<Update label="September 8th, 2026" tags={["Added"]}>
+<Update label="September 8th, 2026" tags={["Added"]} rss={{ title: "Flexible space and pod permissions" }}>
 ## Flexible space and pod permissions
 
 You can now manage access to spaces and pods with individual members and groups at the same time. Spaces no longer require choosing between member-based or group-based access, and pods can be managed with groups as well as individual users.
@@ -125,26 +154,26 @@ You can now manage access to spaces and pods with individual members and groups 
 Use the member and group management controls in your space or pod settings to configure access as your teams grow.
 
 </Update>
-<Update label="September 5th, 2026" tags={["Added"]}>
+<Update label="September 5th, 2026" tags={["Added"]} rss={{ title: "GPT6 Astra" }}>
 ## GPT6 Astra
 
 GPT6 Astra is now available in Dust. You can select it when choosing a model for your agents and conversations.
 
 </Update>
 
-<Update label="August 26th, 2026" tags={["Added"]}>
+<Update label="August 26th, 2026" tags={["Added"]} rss={{ title: "Credit pool usage for triggers" }}>
   ## Credit pool usage for triggers
 
   Triggers can now run on the workspace pool of credits on credit-priced plans and on the programmatic usage pool on seat-based plans. Admins can control who can use these pools, while trigger editors can choose the pool in the trigger edition sheet and track usage from the Automations page. This gives you more granular control over credit allocation.
 </Update>
 
-<Update label="August 14th, 2026" tags={["Added"]}>
+<Update label="August 14th, 2026" tags={["Added"]} rss={{ title: "Slack auto-replies without an @mention" }}>
   ## Slack auto-replies without an @mention
 
   You can now configure a Dust agent to reply in a Slack channel without requiring the @Dust app mention. Set the agent to respond to every message or only the first message in a new thread, depending on how much automation you want in that channel. Available to every workspace.
 </Update>
 
-<Update label="August 10th, 2026" tags={["Added"]}>
+<Update label="August 10th, 2026" tags={["Added"]} rss={{ title: "Choose the model from the composer" }}>
   ## Choose the model from the composer
 
   [Watch the model demo](https://github.com/user-attachments/assets/50fae19e-f5e5-42ec-803b-6d5af30a9071)
@@ -162,7 +191,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   The model picker is available in every workspace where the feature is enabled. Legacy pricing workspaces cannot select Premium models.
 </Update>
 
-<Update label="August 10th, 2026" tags={["Added"]}>
+<Update label="August 10th, 2026" tags={["Added"]} rss={{ title: "Restrict access to model tiers" }}>
   ## Restrict access to model tiers
 
   Admins can now cap members at **Basic**, **Standard**, or **Premium** to control which model and reasoning-effort combinations they can select. The setting applies to every model option in the selected tier, not only to the auto-model rows. Models and reasoning efforts above a member's ceiling are locked in the picker, and agents configured with an unpermitted option show an error instead of running.
@@ -172,25 +201,25 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Available in every new credit-based workspace.
 </Update>
 
-<Update label="August 4th, 2026" tags={["Added"]}>
+<Update label="August 4th, 2026" tags={["Added"]} rss={{ title: "Modjo MCP is now available" }}>
   ## Modjo MCP is now available
 
   The official Modjo MCP is now available in all Dust workspaces. Your agents can connect to Modjo to retrieve call transcripts, deal details, and other company information, then use that context in agent answers and workflows. Modjo combines call transcripts with CRM capabilities, so you can bring both conversation and revenue context into Dust. Available to all Dust users.
 </Update>
 
-<Update label="July 31st, 2026" tags={["Added"]}>
+<Update label="July 31st, 2026" tags={["Added"]} rss={{ title: "Workspaces can now choose a skill’s availability" }}>
   ## Workspaces can now choose a skill’s availability
 
   You can now set a skill’s availability at the workspace level. Choose Editors only to limit discovery to editors while keeping the skill usable through agents and other skills, All members to make it available through the input bar and agent builder to everyone, or Members and agents to include agents with Discover Skills enabled. Admins and managers can control who changes this setting.
 </Update>
 
-<Update label="July 30th, 2026" tags={["Added"]}>
+<Update label="July 30th, 2026" tags={["Added"]} rss={{ title: "Restrict a tool to skills" }}>
   ## Restrict a tool to skills
 
   Workspace admins can now restrict a tool so agents and conversations can use it only through a skill, rather than adding it directly. This adds a governance layer for tools that need workspace-specific query guidance or safety rules, helping prevent inefficient repeated calls and unsafe use. The setting is available to every workspace admin.
 </Update>
 
-<Update label="July 29th, 2026" tags={["Added"]}>
+<Update label="July 29th, 2026" tags={["Added"]} rss={{ title: "Admin governance controls" }}>
   ## Admin governance controls
 
   Dust now lets admins manage user groups and assign granular permissions across the workspace. You can create groups manually or provision them, control which groups can create or publish agents, manage public frame sharing, and use the new manager role as the builder role is deprecated.
@@ -198,7 +227,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Available to everyone now.
 </Update>
 
-<Update label="July 27th, 2026" tags={["Added"]}>
+<Update label="July 27th, 2026" tags={["Added"]} rss={{ title: "Kimi K3 via Fireworks AI" }}>
   ## Kimi K3 via Fireworks AI
 
   You can now use Kimi K3 through Fireworks AI, bringing a strong open-weights model to Dust. It delivers quality close to Claude Fable and GPT 5.6 Sol, with a similar cost per task to GPT Sol.
@@ -206,7 +235,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Available to everyone with access to US-based models.
 </Update>
 
-<Update label="July 22nd, 2026" tags={["Added"]}>
+<Update label="July 22nd, 2026" tags={["Added"]} rss={{ title: "Connect your personal Zendesk account" }}>
   ## Connect your personal Zendesk account
 
   You can now connect your own Zendesk account to the Zendesk tool, alongside the workspace connection. Actions run under your identity, so updates and replies are attributed to you instead of a shared workspace account.
@@ -214,7 +243,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   The subdomain comes from the workspace connection, so you only authenticate once. Open the Zendesk tool settings to connect your personal account. Available in all workspaces with Zendesk configured.
 </Update>
 
-<Update label="July 10th, 2026" tags={["Added"]}>
+<Update label="July 10th, 2026" tags={["Added"]} rss={{ title: "Slack MCP Improvements: Reactions, Status Updates, and Optional \"Sent by Agent\" Footer" }}>
   ## Slack MCP Improvements: Reactions, Status Updates, and Optional "Sent by Agent" Footer
 
   🎯 What is it?
@@ -246,7 +275,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Reactions and status updates are available now to everyone using the Slack integration, no setup needed. To allow users to remove the "sent by agent" footer, an admin needs to enable the corresponding toggle in your workspace settings first.
 </Update>
 
-<Update label="July 10th, 2026" tags={["Added"]}>
+<Update label="July 10th, 2026" tags={["Added"]} rss={{ title: "GPT-5.6 Sol, Terra & Luna Are Now Available on Dust" }}>
   ## GPT-5.6 Sol, Terra & Luna Are Now Available on Dust
 
   🎯 What is it?
@@ -274,7 +303,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   The three models are available to all users right now. Open the agent builder, go to the model picker, and select **Sol**, **Terra**, or **Luna** to start using them.
 </Update>
 
-<Update label="July 8th, 2026" tags={["Added"]}>
+<Update label="July 8th, 2026" tags={["Added"]} rss={{ title: "🔔 Sound Notification When an Agent Needs Your Approval" }}>
   ## 🔔 Sound Notification When an Agent Needs Your Approval
 
   🎯 What is it?
@@ -305,7 +334,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Sound notifications are off by default. To turn them on, go to **Personal Settings → Notifications** and enable the sound alert (you can also configure which sound plays).
 </Update>
 
-<Update label="July 8th, 2026" tags={["Added"]}>
+<Update label="July 8th, 2026" tags={["Added"]} rss={{ title: "Set Default Skills in Pods" }}>
   ## Set Default Skills in Pods
 
   🎯 What is it?
@@ -336,7 +365,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This is available to all users. If you're a Pod editor, head to your Pod settings, select the skills you'd like to set as defaults, and they'll automatically appear in every new conversation started in that Pod.
 </Update>
 
-<Update label="July 6th, 2026" tags={["Added"]}>
+<Update label="July 6th, 2026" tags={["Added"]} rss={{ title: "Select a Custom Default Agent in Pods" }}>
   ## Select a Custom Default Agent in Pods
 
   🎯 What is it?
@@ -369,7 +398,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This is available to all users. If you're an editor of a Pod, open your **Pod settings** and select the agent you'd like to set as the default for new conversations. Existing conversations are unaffected.
 </Update>
 
-<Update label="July 3rd, 2026" tags={["Added"]}>
+<Update label="July 3rd, 2026" tags={["Added"]} rss={{ title: "Triggers Now Run Inside Pods" }}>
   ## Triggers Now Run Inside Pods
 
   🎯 What is it?
@@ -400,7 +429,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This is available to all users. Open your trigger configuration and select the Pod where you'd like the triggered conversations to run.
 </Update>
 
-<Update label="June 30th, 2026" tags={["Added"]}>
+<Update label="June 30th, 2026" tags={["Added"]} rss={{ title: "Claude Sonnet 5 is Now Available on Dust" }}>
   ## Claude Sonnet 5 is Now Available on Dust
 
   🎯 What is it?
@@ -433,7 +462,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   ⚠ Please note: Sonnet 5 is not yet available for workspaces with EU data residency. We'll keep you informed as soon as that changes.
 </Update>
 
-<Update label="June 30th, 2026" tags={["Added"]}>
+<Update label="June 30th, 2026" tags={["Added"]} rss={{ title: "Youtrust Remote MCP Server Now Available in Dust" }}>
   ## Youtrust Remote MCP Server Now Available in Dust
 
   🎯 **What is it?**
@@ -468,7 +497,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   _Note: this integration is available to anyone using Youtrust. If you'd like help setting up a specific use case, your Customer Success contact is happy to assist._
 </Update>
 
-<Update label="June 30th, 2026" tags={["Added"]}>
+<Update label="June 30th, 2026" tags={["Added"]} rss={{ title: "Agents Can Now Ask You Clarifying Questions: Available Everywhere" }}>
   ## Agents Can Now Ask You Clarifying Questions: Available Everywhere
 
   🎯 **What is it?**
@@ -499,7 +528,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   There's nothing to set up. This is now active by default for all agents across your workspace, including any custom agents you've already built.
 </Update>
 
-<Update label="June 30th, 2026" tags={["Added"]}>
+<Update label="June 30th, 2026" tags={["Added"]} rss={{ title: "The Computer: Let Your Agents Work Safely with Files, Code, and More" }}>
   ## The Computer: Let Your Agents Work Safely with Files, Code, and More
 
   🎯 What is it?
@@ -532,7 +561,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   The Computer is available to everyone, with one exception: Enterprise workspaces that were not part of the beta. If that's your case, you can opt in at any time, and every workspace will automatically receive the feature within the next 2 weeks. You can learn more in the [documentation](/docs/user-documentation/agents/tools/computer).
 </Update>
 
-<Update label="June 24th, 2026" tags={["Added"]}>
+<Update label="June 24th, 2026" tags={["Added"]} rss={{ title: "Pods Now Apply Your AGENTS.md to Every Conversation" }}>
   ## Pods Now Apply Your AGENTS.md to Every Conversation
 
   🎯 What is it?
@@ -563,7 +592,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This is available to all Pod users for Pod conversations, no feature flag required. Pod editors can open their Pod settings and edit the `AGENTS.md` file to get started.
 </Update>
 
-<Update label="June 17th, 2026" tags={["Added"]}>
+<Update label="June 17th, 2026" tags={["Added"]} rss={{ title: "Adomik Integration: Ad Revenue Analytics & Knowledge, Directly in Dust" }}>
   ## Adomik Integration: Ad Revenue Analytics & Knowledge, Directly in Dust
 
   🎯 What is it?
@@ -595,7 +624,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   An admin first connects Adomik from **Spaces → Tools**. Once connected, your builders can add the Adomik tools to any relevant agent.
 </Update>
 
-<Update label="June 17th, 2026" tags={["Added"]}>
+<Update label="June 17th, 2026" tags={["Added"]} rss={{ title: "Lemlist MCP Server Now Available" }}>
   ## Lemlist MCP Server Now Available
 
   🎯 **What is it?**
@@ -627,7 +656,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   The Lemlist MCP Server is available in all Dust workspaces. You can add it as a tool when building or editing an agent, then connect your Lemlist account to start using it. If you're a Lemlist user, it's ready for you to set up today.
 </Update>
 
-<Update label="June 17th, 2026" tags={["Added"]}>
+<Update label="June 17th, 2026" tags={["Added"]} rss={{ title: "GLM 5.2 Now Available in Dust" }}>
   ## GLM 5.2 Now Available in Dust
 
   🎯 What is it?
@@ -658,7 +687,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   GLM 5.2 is now available in the model selection menu when creating or editing an agent. Choose it as your model to start testing it on your workflows.
 </Update>
 
-<Update label="June 16th, 2026" tags={["Added"]}>
+<Update label="June 16th, 2026" tags={["Added"]} rss={{ title: "Email Threads Now Stay in a Single Conversation" }}>
   ## Email Threads Now Stay in a Single Conversation
 
   📌 Context
@@ -680,7 +709,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   No action required on your part. The improvement is live and applies to everyone automatically. Just reply within the same email thread as usual, and the conversation will continue where it left off.
 </Update>
 
-<Update label="June 16th, 2026" tags={["Added"]}>
+<Update label="June 16th, 2026" tags={["Added"]} rss={{ title: "Clari Copilot Integration Now Available for All Workspaces" }}>
   ## Clari Copilot Integration Now Available for All Workspaces
 
   🎯 What is it?
@@ -713,7 +742,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   The integration is now generally available to all workspaces. To set it up, add the Clari Copilot MCP server in your workspace tools and configure it with your Clari `X-Api-Key` and `X-Api-Password`. Once connected, you can add the Clari Copilot tools to any agent. Reach out to us if you'd like a hand getting it configured.
 </Update>
 
-<Update label="June 15th, 2026" tags={["Added"]}>
+<Update label="June 15th, 2026" tags={["Added"]} rss={{ title: "Dust is now a remote MCP server" }}>
   ## Dust is now a remote MCP server
 
   🎯 **What is it?**
@@ -746,7 +775,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   A note for workspace admins: you stay in control of access. You can disable MCP server access for the entire workspace, and you can restrict which redirect URIs are allowed during client authentication.
 </Update>
 
-<Update label="June 8th, 2026" tags={["Added"]}>
+<Update label="June 8th, 2026" tags={["Added"]} rss={{ title: "Gamma MCP now available in Dust" }}>
   ## Gamma MCP now available in Dust
 
   🎯 What is it?
@@ -775,7 +804,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Go to **Spaces → Tools** and add Gamma as a Remote MCP Server. Once connected, add the Gamma tools to any of your agents.
 </Update>
 
-<Update label="June 8th, 2026" tags={["Added"]}>
+<Update label="June 8th, 2026" tags={["Added"]} rss={{ title: "Skills in Skills: Compose Skills and Tools Directly Within Your Instructions" }}>
   ## Skills in Skills: Compose Skills and Tools Directly Within Your Instructions
 
   ## 🎯 What is it?
@@ -810,7 +839,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   _No action is required on your part, your existing skills continue to work as before. This is simply a new way to compose and reuse them going forward._
 </Update>
 
-<Update label="June 8th, 2026" tags={["Added"]}>
+<Update label="June 8th, 2026" tags={["Added"]} rss={{ title: "@dust can now build skills" }}>
   ## @dust can now build skills
 
   Builders can now ask the @dust agent to create or edit skills directly from a conversation, no need to open the Skill Builder. Describe the workflow you want to capture, and @dust handles the rest.
@@ -818,7 +847,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   <br />
 </Update>
 
-<Update label="June 5th, 2026" tags={["Added"]}>
+<Update label="June 5th, 2026" tags={["Added"]} rss={{ title: "Dust Support: Get Instant, Grounded Support Answers from @dust" }}>
   ## Dust Support: Get Instant, Grounded Support Answers from @dust
 
   🎯 **What is it?**
@@ -849,7 +878,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   The skill is discoverable and available to every user. Mention @dust and ask your support question. The agent will detect that you need support and respond with a grounded answer.
 </Update>
 
-<Update label="June 4th, 2026" tags={["Added"]}>
+<Update label="June 4th, 2026" tags={["Added"]} rss={{ title: "Speech-to-Text for Audio & Video Files" }}>
   ## Speech-to-Text for Audio & Video Files
 
   🎯 What is it?
@@ -881,7 +910,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   The feature is available to everyone now, no activation needed. Provide a supported URL or upload an audio/video file in your conversation, and ask your agent to transcribe it.
 </Update>
 
-<Update label="May 29th, 2026" tags={["Added"]}>
+<Update label="May 29th, 2026" tags={["Added"]} rss={{ title: "Pods: A Shared Workspace for Your Team and Your Agents" }}>
   ## Pods: A Shared Workspace for Your Team and Your Agents
 
   🎯 **What is it?**
@@ -919,7 +948,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Pods are available to **everyone**: no feature flag, no opt-in required. Look for the **Pods** section in your Dust sidebar. Documentation is at [/docs/user-documentation/pods/overview](/docs/user-documentation/pods/overview).
 </Update>
 
-<Update label="May 28th, 2026" tags={["Added"]}>
+<Update label="May 28th, 2026" tags={["Added"]} rss={{ title: "Claude Opus 4.8 Now Available in the Agent Builder" }}>
   ## Claude Opus 4.8 Now Available in the Agent Builder
 
   🎯 **What is it?**
@@ -950,7 +979,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This feature is available to **Enterprise customers**. Go to the **Agent Builder**, create or edit a custom agent, and choose **Claude Opus 4.8** in the model selection step.
 </Update>
 
-<Update label="May 28th, 2026" tags={["Added"]}>
+<Update label="May 28th, 2026" tags={["Added"]} rss={{ title: "Apify MCP Is Now Available in Dust" }}>
   ## [Apify MCP Is Now Available in Dust](https://apify.com/store/categories/mcp-servers)
 
   🎯 **What is it?**
@@ -982,7 +1011,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Available now for teams already using Apify. Connect it in **Spaces → Tools**, using OAuth to authenticate. Once added, it can be assigned to any agent in your workspace.
 </Update>
 
-<Update label="May 28th, 2026" tags={["Added"]}>
+<Update label="May 28th, 2026" tags={["Added"]} rss={{ title: "Six New Integrations Now Available in Dust" }}>
   ## Six New Integrations Now Available in Dust
 
   🎯 **What is it?**
@@ -1015,7 +1044,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Go to **Spaces → Tools** in your Dust workspace and look for any of these integrations in the MCP catalog. Available to all workspaces today.
 </Update>
 
-<Update label="May 27th, 2026" tags={["Added"]}>
+<Update label="May 27th, 2026" tags={["Added"]} rss={{ title: "Costory MCP Now Available in Dust" }}>
   ## Costory MCP Now Available in Dust
 
   🎯 **What is it?**
@@ -1046,7 +1075,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Go to **Spaces → Tools**, click **Add Tools**, search for Costory, and authenticate via OAuth. Once connected, add Costory tools to any of your agents.
 </Update>
 
-<Update label="May 27th, 2026" tags={["Added"]}>
+<Update label="May 27th, 2026" tags={["Added"]} rss={{ title: "Praiz is Now Available as a Remote MCP Tool in Dust" }}>
   ## Praiz is Now Available as a Remote MCP Tool in Dust
 
   🎯 **What is it?**
@@ -1080,7 +1109,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   > **Note:** You'll need an active Praiz account to authenticate.
 </Update>
 
-<Update label="May 27th, 2026" tags={["Added"]}>
+<Update label="May 27th, 2026" tags={["Added"]} rss={{ title: "Monday.com MCP: Now Available for All Workspaces" }}>
   ## Monday.com MCP: Now Available for All Workspaces
 
   🎯 **What is it?**
@@ -1115,7 +1144,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   2. **Everyone**: Add the Monday.com tool to any of your agents and start using it
 </Update>
 
-<Update label="May 27th, 2026" tags={["Added"]}>
+<Update label="May 27th, 2026" tags={["Added"]} rss={{ title: "Confluence MCP is Now Generally Available" }}>
   ## Confluence MCP is Now Generally Available
 
   🎯 **What is it?**
@@ -1150,7 +1179,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   2. **Agent setup**: Add the Confluence tool to your agents from the agent builder
 </Update>
 
-<Update label="May 27th, 2026" tags={["Added"]}>
+<Update label="May 27th, 2026" tags={["Added"]} rss={{ title: "Luma MCP Server: Now Generally Available" }}>
   ## Luma MCP Server: Now Generally Available
 
   🎯 **What is it?**
@@ -1183,7 +1212,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   > Only workspace admins can set up the integration. Once configured, all members can use it through their agents.
 </Update>
 
-<Update label="May 27th, 2026" tags={["Added"]}>
+<Update label="May 27th, 2026" tags={["Added"]} rss={{ title: "Snowflake MCP Server: Now Generally Available" }}>
   ## Snowflake MCP Server: Now Generally Available
 
   🎯 **What is it?**
@@ -1214,7 +1243,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Admins can set up the Snowflake MCP Server in **Spaces → Tools**. Once configured, it becomes available for any agent in your workspace.
 </Update>
 
-<Update label="May 26th, 2026" tags={["Added"]}>
+<Update label="May 26th, 2026" tags={["Added"]} rss={{ title: "Contentsquare Remote MCP Now Available in Dust" }}>
   ## Contentsquare Remote MCP Now Available in Dust
 
   🎯 **What is it?**
@@ -1246,7 +1275,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   4. Add the tool to any agent
 </Update>
 
-<Update label="May 23rd, 2026" tags={["Added"]}>
+<Update label="May 23rd, 2026" tags={["Added"]} rss={{ title: "Collapsing Input Bar on Mobile for Better Reading" }}>
   ## Collapsing Input Bar on Mobile for Better Reading
 
   🎯 **What is it?**
@@ -1275,7 +1304,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   No action needed. This update is live for **all mobile web users**: just open Dust on your mobile browser and start scrolling.
 </Update>
 
-<Update label="May 22nd, 2026" tags={["Added"]}>
+<Update label="May 22nd, 2026" tags={["Added"]} rss={{ title: "Agents Can Now Export Frames as PDF or PNG" }}>
   ## Agents Can Now Export Frames as PDF or PNG
 
   🎯 **What is it?**
@@ -1306,7 +1335,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This is available to everyone, right now. Ask an agent to build a Frame and request an export. The agent will handle the rest.
 </Update>
 
-<Update label="May 22nd, 2026" tags={["Added"]}>
+<Update label="May 22nd, 2026" tags={["Added"]} rss={{ title: "Inline Text Editing in Frames: Tweak Your Content Without Reprompting" }}>
   ## Inline Text Editing in Frames: Tweak Your Content Without Reprompting
 
   🎯 **What is it?**
@@ -1336,7 +1365,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This is available to everyone, now. Open any Frame in a conversation and double-click on a text element to start editing.
 </Update>
 
-<Update label="May 20th, 2026" tags={["Added"]}>
+<Update label="May 20th, 2026" tags={["Added"]} rss={{ title: "Gemini 3.5 Flash Now Available on Dust" }}>
   ## Gemini 3.5 Flash Now Available on Dust
 
   🎯 **What is it?**
@@ -1367,7 +1396,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Gemini 3.5 Flash is available to **all users** today. To use it, open any agent's settings, navigate to the model selection section, and choose **Gemini 3.5 Flash** from the list.
 </Update>
 
-<Update label="May 19th, 2026" tags={["Added"]}>
+<Update label="May 19th, 2026" tags={["Added"]} rss={{ title: "LLM Model Refresh: Grok 4.3 Upgrade and Anthropic Model Migrations" }}>
   ## LLM Model Refresh: Grok 4.3 Upgrade and Anthropic Model Migrations
 
   📌 **Context**
@@ -1402,7 +1431,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Needs to be done by **July 31, 2025**.
 </Update>
 
-<Update label="May 11th, 2026" tags={["Added"]}>
+<Update label="May 11th, 2026" tags={["Added"]} rss={{ title: "Branching Conversations" }}>
   ## Branching Conversations
 
   🎯 **What is it?**
@@ -1436,7 +1465,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Look for the conversation menu in the top right corner of your screen, or next to the conversation title in your left sidebar. The branching option is available to everyone. Try it on your next multi-part project!
 </Update>
 
-<Update label="May 11th, 2026" tags={["Added"]}>
+<Update label="May 11th, 2026" tags={["Added"]} rss={{ title: "Asana MCP update" }}>
   ## Asana MCP update
 
   📌 Context
@@ -1460,7 +1489,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This only affects workspaces that currently have Asana connected via MCP. If you haven’t set up the Asana integration yet, you can follow the new V2 instructions when you do.
 </Update>
 
-<Update label="May 7th, 2026" tags={["Added"]}>
+<Update label="May 7th, 2026" tags={["Added"]} rss={{ title: "🔒 Audit Logs for Enterprise Workspaces" }}>
   ## 🔒 Audit Logs for Enterprise Workspaces
 
   🎯 **What is it?**
@@ -1497,7 +1526,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This feature is available exclusively for Enterprise plan workspaces. Workspace administrators can access audit logs by navigating to the admin panel. For detailed setup instructions, including SIEM streaming configuration, visit our documentation at [/docs/user-documentation/admins/audit-logs/audit-logs](/docs/user-documentation/admins/audit-logs/audit-logs)
 </Update>
 
-<Update label="May 7th, 2026" tags={["Added"]}>
+<Update label="May 7th, 2026" tags={["Added"]} rss={{ title: "Agents can now see images returned by MCP tools" }}>
   ## Agents can now see images returned by MCP tools
 
   🎯 **What is it?**
@@ -1523,7 +1552,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   **Visual tool output review:** Any MCP tool that produces images can now have its output directly analyzed by the agent in context.
 </Update>
 
-<Update label="May 6th, 2026" tags={["Added"]}>
+<Update label="May 6th, 2026" tags={["Added"]} rss={{ title: "Context Compaction: Keep Your Agents Sharp in Long Conversations" }}>
   ## Context Compaction: Keep Your Agents Sharp in Long Conversations
 
   🎯 **What is it?**
@@ -1555,7 +1584,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Context Compaction is now available to all users. Watch for the context usage indicator in your input bar. When it appears, you'll be guided through the process automatically. Learn more in our [documentation](/docs/user-documentation/agents/context-compaction).
 </Update>
 
-<Update label="May 4th, 2026" tags={["Added"]}>
+<Update label="May 4th, 2026" tags={["Added"]} rss={{ title: "GMail Labels Management and Email Archiving" }}>
   ## GMail Labels Management and Email Archiving
 
   🎯 **What is it?**
@@ -1598,7 +1627,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Once re-authenticated, your agents will automatically have access to the new label management and archiving tools.
 </Update>
 
-<Update label="April 29th, 2026" tags={["Added"]}>
+<Update label="April 29th, 2026" tags={["Added"]} rss={{ title: "Wake-ups: Agents can now schedule themselves to continue work later" }}>
   ## Wake-ups: Agents can now schedule themselves to continue work later
 
   🎯 **What is it?**
@@ -1632,7 +1661,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Wake-ups are now available to all users. Ask your agent to "check back in \[time\]" or "run this every \[schedule\]" and it will use the wake-up tool automatically. For more details on how to configure wake-up schedules, check out the documentation: [/docs/user-documentation/agents/tools/wake-ups](/docs/user-documentation/agents/tools/wake-ups)
 </Update>
 
-<Update label="April 28th, 2026" tags={["Added"]}>
+<Update label="April 28th, 2026" tags={["Added"]} rss={{ title: "Gong Tools Integration via MCP" }}>
   ## Gong Tools Integration via MCP
 
   🎯 **What is it?**
@@ -1670,7 +1699,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   **Note**: This is a live, tool-based integration. If you're looking to synchronize transcripts into Dust for semantic search across all your data, use the Gong connector instead.
 </Update>
 
-<Update label="April 28th, 2026" tags={["Added"]}>
+<Update label="April 28th, 2026" tags={["Added"]} rss={{ title: "Slash Commands Now Available in the Input Bar" }}>
   ## Slash Commands Now Available in the Input Bar
 
   🎯 **What is it?**
@@ -1701,7 +1730,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   The feature is available to everyone right now. Just type `/` in any conversation input bar to try it out.
 </Update>
 
-<Update label="April 24th, 2026" tags={["Added"]}>
+<Update label="April 24th, 2026" tags={["Added"]} rss={{ title: "GPT 5.5 now available on Dust" }}>
   ## GPT 5.5 now available on Dust
 
   🎯 **What is it?**
@@ -1729,7 +1758,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - **For quick tasks**: Use the global agent which now runs on GPT 5.5 by default
 </Update>
 
-<Update label="April 22nd, 2026" tags={["Added"]}>
+<Update label="April 22nd, 2026" tags={["Added"]} rss={{ title: "GPT Image 2: Enhanced Image Generation Now Default on Dust" }}>
   ## GPT Image 2: Enhanced Image Generation Now Default on Dust
 
   🎯 **What is it?**
@@ -1763,7 +1792,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   No action needed: GPT Image 2 is already the default image generation model on Dust. Continue using image generation in your agents as you normally would to automatically benefit from these improvements.
 </Update>
 
-<Update label="April 20th, 2026" tags={["Added"]}>
+<Update label="April 20th, 2026" tags={["Added"]} rss={{ title: "Agents can now ask you questions to clarify their next steps" }}>
   ## Agents can now ask you questions to clarify their next steps
 
   🎯 **What is it?**
@@ -1800,7 +1829,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This feature is available by default for all agents on Dust and Deep Dive, and works in Slack conversations as well. No configuration needed: your agents will automatically ask questions when they need clarification.
 </Update>
 
-<Update label="April 17th, 2026" tags={["Added"]}>
+<Update label="April 17th, 2026" tags={["Added"]} rss={{ title: "🔒 Private-by-default conversation URLs" }}>
   ## 🔒 Private-by-default conversation URLs
 
   🎯 **What is it?**
@@ -1835,7 +1864,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Workspace admins can enable this feature by navigating to **Admin → Workspace Settings** and toggling the private-by-default conversation URLs setting. Once enabled, all new conversations will be private by default, while participants can override this on a per-conversation basis from the conversation menu.
 </Update>
 
-<Update label="April 17th, 2026" tags={["Added"]}>
+<Update label="April 17th, 2026" tags={["Added"]} rss={{ title: "Import skills from GitHub or .zip file" }}>
   ## Import skills from GitHub or .zip file
 
   🎯 **What is it?**
@@ -1870,7 +1899,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This feature is available to everyone. When creating or updating a skill, look for the new import options that allow you to specify a GitHub repository URL or upload a .zip file.
 </Update>
 
-<Update label="April 16th, 2026" tags={["Added"]}>
+<Update label="April 16th, 2026" tags={["Added"]} rss={{ title: "Steering: Conversations That Keep Up With You" }}>
   ## Steering: Conversations That Keep Up With You
 
   🎯 **What is it?**
@@ -1907,7 +1936,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   <br />
 </Update>
 
-<Update label="April 14th, 2026" tags={["Added"]}>
+<Update label="April 14th, 2026" tags={["Added"]} rss={{ title: "🦊 Dust Browser Extension Now Available on Firefox" }}>
   ## 🦊 Dust Browser Extension Now Available on Firefox
 
   🎯 **What is it?**
@@ -1941,7 +1970,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Visit the Firefox Add-ons store: [https://addons.mozilla.org/en-US/firefox/addon/dust/](https://addons.mozilla.org/en-US/firefox/addon/dust/) and click "Add to Firefox". The extension will be ready to use immediately after installation.
 </Update>
 
-<Update label="April 14th, 2026" tags={["Added"]}>
+<Update label="April 14th, 2026" tags={["Added"]} rss={{ title: "Microsoft Teams Meeting Transcripts Now Available in Dust" }}>
   ## Microsoft Teams Meeting Transcripts Now Available in Dust
 
   🎯 **What is it?**
@@ -1978,7 +2007,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   **Action required**: A workspace admin must reconnect the Microsoft Teams tool in your Dust workspace to approve the new permissions (`OnlineMeetings.Read` and `OnlineMeetingTranscript.Read.All`). Once reconnected, the new meeting transcript tools will be available to all agents in workspaces using Microsoft Teams.
 </Update>
 
-<Update label="April 13th, 2026" tags={["Added"]}>
+<Update label="April 13th, 2026" tags={["Added"]} rss={{ title: "📧 Share Frames with specific people via email invite" }}>
   ## 📧 Share Frames with specific people via email invite
 
   🎯 **What is it?**
@@ -2015,7 +2044,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This feature is now available to everyone. When viewing any Frame, look for the sharing options and select "Invite by email" to start sharing with specific people.
 </Update>
 
-<Update label="April 9th, 2026" tags={["Added"]}>
+<Update label="April 9th, 2026" tags={["Added"]} rss={{ title: "Amplitude MCP Integration: Query Your Product Data with Natural Language" }}>
   ## Amplitude MCP Integration: Query Your Product Data with Natural Language
 
   🎯 **What is it?**
@@ -2056,7 +2085,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Once connected, your agents will be able to interact with Amplitude's capabilities through conversation. You'll need your Amplitude credentials to complete the setup.
 </Update>
 
-<Update label="April 9th, 2026" tags={["Added"]}>
+<Update label="April 9th, 2026" tags={["Added"]} rss={{ title: "Notion MCP Tools Now Use Official Notion Server" }}>
   ## Notion MCP Tools Now Use Official Notion Server
 
   ## 📌 Context
@@ -2101,7 +2130,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   If you have agents that used Notion tools before, you can edit them and replace them with the new tools (once you have added them to your workspace).
 </Update>
 
-<Update label="April 8th, 2026" tags={["Added"]}>
+<Update label="April 8th, 2026" tags={["Added"]} rss={{ title: "Interactive Workspace Analytics Dashboard & Public API" }}>
   ## Interactive Workspace Analytics Dashboard & Public API
 
   🎯 **What is it?**
@@ -2168,7 +2197,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   **Need help with migration?** Reach out to your Customer Success Manager or [support@dust.tt](mailto:support@dust.tt). We're here to help ensure a smooth transition.
 </Update>
 
-<Update label="April 8th, 2026" tags={["Added"]}>
+<Update label="April 8th, 2026" tags={["Added"]} rss={{ title: "Workspace Analytics: Interactive Dashboard + Public API" }}>
   ## Workspace Analytics: Interactive Dashboard \+ Public API
 
   🎯 **What is it?**
@@ -2227,7 +2256,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - **Reach out if needed**: If you need assistance with migration, contact your Customer Success team
 </Update>
 
-<Update label="April 8th, 2026" tags={["Added"]}>
+<Update label="April 8th, 2026" tags={["Added"]} rss={{ title: "Slack responses: streaming, live actions & rich formatting" }}>
   ## Slack responses: streaming, live actions & rich formatting
 
   **Better Slack responses for Dust agents**
@@ -2261,7 +2290,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This feature is rolling out progressively to all Slack users this week. No action required on your part, you'll automatically see these improvements in your Slack workspace when they're available.
 </Update>
 
-<Update label="April 8th, 2026" tags={["Added"]}>
+<Update label="April 8th, 2026" tags={["Added"]} rss={{ title: "GitOps sync for Skills & Agent configurations with GitHub Action" }}>
   ## GitOps sync for Skills & Agent configurations with GitHub Action
 
   🎯 **What is it?**
@@ -2301,7 +2330,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   The feature is in General Availability (GA) and ready for production use.
 </Update>
 
-<Update label="April 6th, 2026" tags={["Added"]}>
+<Update label="April 6th, 2026" tags={["Added"]} rss={{ title: "Send Emails from Your Gmail Aliases" }}>
   ## Send Emails from Your Gmail Aliases
 
   🎯 **What is it?**
@@ -2336,7 +2365,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This feature is automatically available if you're using the Gmail tool. Ensure your aliases are configured in your Gmail account settings, then specify which address you'd like to use when asking an agent to send an email.
 </Update>
 
-<Update label="April 1st, 2026" tags={["Added"]}>
+<Update label="April 1st, 2026" tags={["Added"]} rss={{ title: "Discover Skills - Find and leverage workspace capabilities directly in your agents" }}>
   ## Discover Skills - Find and leverage workspace capabilities directly in your agents
 
   🎯 **What is it?**
@@ -2373,7 +2402,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   **For Users**: Use @dust or @deep-dive as usual - they'll automatically discover and use relevant skills when needed.
 </Update>
 
-<Update label="April 1st, 2026" tags={["Added"]}>
+<Update label="April 1st, 2026" tags={["Added"]} rss={{ title: "Create Triggers on Any Agent You Can Talk To" }}>
   ## Create Triggers on Any Agent You Can Talk To
 
   🎯 **What is it?**
@@ -2415,7 +2444,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Agent editors can view and audit all triggers created on their agents directly in the builder. Workspace admins can delete any trigger if needed.
 </Update>
 
-<Update label="April 1st, 2026" tags={["Added"]}>
+<Update label="April 1st, 2026" tags={["Added"]} rss={{ title: "API Keys Can Now Be Scoped to Multiple Spaces" }}>
   ## API Keys Can Now Be Scoped to Multiple Spaces
 
   🎯 **What is it?**
@@ -2449,7 +2478,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This feature is already live for all workspace admins. When you create or manage API keys in your workspace admin panel, you'll see the option to select multiple spaces. All existing API keys have been automatically migrated, so nothing changes unless you want to adjust the configuration.
 </Update>
 
-<Update label="March 31st, 2026" tags={["Added"]}>
+<Update label="March 31st, 2026" tags={["Added"]} rss={{ title: "Salesforce MCP Tool Can Now Create and Update Objects" }}>
   ## Salesforce MCP Tool Can Now Create and Update Objects
 
   🎯 **What is it?**
@@ -2479,7 +2508,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Write access is available to all users who already have the Salesforce MCP tool configured in their workspace. Use it in your existing agents. The new capabilities are available now.
 </Update>
 
-<Update label="March 30th, 2026" tags={["Added"]}>
+<Update label="March 30th, 2026" tags={["Added"]} rss={{ title: "Email your agents directly at agent-name@dust.team" }}>
   ## Email your agents directly at [agent-name@dust.team](mailto:agent-name@dust.team)
 
   🎯 What is it?
@@ -2526,7 +2555,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   🔒 **Security note**: Just as you wouldn't click suspicious links in emails, avoid forwarding suspicious or untrusted emails to agents to minimize prompt injection risks.
 </Update>
 
-<Update label="March 30th, 2026" tags={["Added"]}>
+<Update label="March 30th, 2026" tags={["Added"]} rss={{ title: "Configurable OAuth Scopes for Microsoft MCP Tools" }}>
   ## Configurable OAuth Scopes for Microsoft MCP Tools
 
   🎯 **What is it?**
@@ -2560,7 +2589,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This feature is automatically available when installing or reconfiguring Microsoft MCP tools (Outlook Mail, Outlook Calendar, Microsoft Drive, Excel, Teams). Workspace admins will see the configurable scopes during the installation flow. If you need this capability for other MCP tools, reach out to your Customer Success Manager.
 </Update>
 
-<Update label="March 20th, 2026" tags={["Added"]}>
+<Update label="March 20th, 2026" tags={["Added"]} rss={{ title: "Google Drive Tool: Create Files in a Folder and Share Them Directly from Dust" }}>
   ## Google Drive Tool: Create Files in a Folder and Share Them Directly from Dust
 
   🎯 **What is it?**
@@ -2599,7 +2628,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   If you already have Google Drive connected to Dust, this capability is available immediately. When configuring an agent or using the Google Drive tool, specify the destination folder path and the sharing permissions you need. Your agent will handle the rest!
 </Update>
 
-<Update label="March 20th, 2026" tags={["Added"]}>
+<Update label="March 20th, 2026" tags={["Added"]} rss={{ title: "Browser Extension Now Available on Arc & Edge" }}>
   ## Browser Extension Now Available on Arc & Edge
 
   🎯 **What is it?**
@@ -2631,7 +2660,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   If you use Arc or Edge: visit the Chrome Web Store and install the Dust extension as you would for Chrome. The extension works natively on all Chromium-based browsers.
 </Update>
 
-<Update label="March 20th, 2026" tags={["Added"]}>
+<Update label="March 20th, 2026" tags={["Added"]} rss={{ title: "Dust Extension: Agents Now Understand Your Browser" }}>
   ## Dust Extension: Agents Now Understand Your Browser
 
   🎯 **What is it?**
@@ -2670,7 +2699,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Update your Chrome extension to the latest version. The new capabilities are available immediately: just start a conversation with an agent and it will automatically request browser access when needed.
 </Update>
 
-<Update label="March 20th, 2026" tags={["Added"]}>
+<Update label="March 20th, 2026" tags={["Added"]} rss={{ title: "Chrome Extension: Major Update" }}>
   ## Chrome Extension: Major Update
 
   🎯 **What is it?**
@@ -2713,7 +2742,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - **Attach anything**: add agents, tools, skills, or data sources directly to your conversations
 </Update>
 
-<Update label="March 19th, 2026" tags={["Added"]}>
+<Update label="March 19th, 2026" tags={["Added"]} rss={{ title: "Notion MCP now supports databases with multiple data sources" }}>
   ## Notion MCP now supports databases with multiple data sources
 
   ### 📌 Context
@@ -2735,7 +2764,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   **No action required on your part.** If you use the Notion MCP tool with databases containing multiple data sources, they will now work automatically. You can start using this capability immediately with your existing agents.
 </Update>
 
-<Update label="March 18th, 2026" tags={["Added"]}>
+<Update label="March 18th, 2026" tags={["Added"]} rss={{ title: "Enhanced Speech Capabilities: Upgraded Audio Quality and 21 Languages Now Supported" }}>
   ## Enhanced Speech Capabilities: Upgraded Audio Quality and 21 Languages Now Supported
 
   ## 📌 Context
@@ -2769,7 +2798,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   If you'd like to explore the newly available languages or test the improved voice quality, use speech features in your agents as you normally would.
 </Update>
 
-<Update label="March 18th, 2026" tags={["Added"]}>
+<Update label="March 18th, 2026" tags={["Added"]} rss={{ title: "Miro Integration Now Available in Dust" }}>
   ## Miro Integration Now Available in Dust
 
   🎯 **What is it?**
@@ -2810,7 +2839,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Learn more about Miro's MCP capabilities in their [official documentation](https://developers.miro.com/docs/miro-mcp?utm_campaign=glb-27q1-nsp-pn-c2_akc-miro-mcp-launch&utm_source=miro&utm_medium=redirect&utm_content=website&utm_term=landing-page&src=-miro_glb|Doc).
 </Update>
 
-<Update label="March 17th, 2026" tags={["Added"]}>
+<Update label="March 17th, 2026" tags={["Added"]} rss={{ title: "Fathom MCP Integration: Your Meeting Intelligence, Now in Dust" }}>
   ## Fathom MCP Integration: Your Meeting Intelligence, Now in Dust
 
   🎯 **What is it?**
@@ -2849,7 +2878,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Workspace admins can set up the Fathom MCP integration via OAuth in your workspace settings. Once configured, add the Fathom MCP to any agent's toolkit when building or editing an agent. Full setup instructions are available in our documentation: [/docs/user-documentation/agents/tools/fathom](/docs/user-documentation/agents/tools/fathom)
 </Update>
 
-<Update label="March 17th, 2026" tags={["Added"]}>
+<Update label="March 17th, 2026" tags={["Added"]} rss={{ title: "One-Click Hex Integration via MCP Server" }}>
   ## One-Click Hex Integration via MCP Server
 
   🎯 **What is it?**
@@ -2885,7 +2914,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This feature is available for **Hex Team and Enterprise plan customers**. To enable it, configure the Hex MCP server in your Dust workspace settings. Full setup instructions are available in the [Hex MCP documentation](https://learn.hex.tech/docs/administration/mcp-server).
 </Update>
 
-<Update label="March 17th, 2026" tags={["Added"]}>
+<Update label="March 17th, 2026" tags={["Added"]} rss={{ title: "Semrush MCP Integration: SEO Insights Directly in Your Agents" }}>
   ## Semrush MCP Integration: SEO Insights Directly in Your Agents
 
   🎯 **What is it?**
@@ -2924,7 +2953,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   **For users**: Once your admin has enabled the integration, you can activate Semrush capabilities in any of your agents and start querying SEO data right away.
 </Update>
 
-<Update label="March 16th, 2026" tags={["Added"]}>
+<Update label="March 16th, 2026" tags={["Added"]} rss={{ title: "Introducing Sidekick: Your AI Assistant for Building Better Agents" }}>
   ## Introducing Sidekick: Your AI Assistant for Building Better Agents
 
   🎯 **What is it?**
@@ -2962,12 +2991,12 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
 
   Sidekick is now available to all users directly in the Agent Builder. Open any agent or click "New Agent" to get started.
 
-  📚 **Learn more**: [Agent Builder Sidekick documentation](/docs/user-documentation/agents/agent-builder-sidekick)
+  📚 **Learn more**: [Agent Builder Sidekick documentation](/docs/user-documentation/agents/default-agents/agent-builder-sidekick)
 
   🎥 **Live webinar**: Join us for a hands-on demo and Q&A. [Register here](https://watch.getcontrast.io/register/dust-sidekick-hot-of-the-grill)
 </Update>
 
-<Update label="March 12th, 2026" tags={["Added"]}>
+<Update label="March 12th, 2026" tags={["Added"]} rss={{ title: "Enhanced Attachments Management in Conversations" }}>
   ## Enhanced Attachments Management in Conversations
 
   🎯 **What is it?**
@@ -3002,7 +3031,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This feature is now live for all users, no action needed. Open any conversation and click the Attachments button to experience the improved interface.
 </Update>
 
-<Update label="March 12th, 2026" tags={["Added"]}>
+<Update label="March 12th, 2026" tags={["Added"]} rss={{ title: "BigQuery connector: multi-project support" }}>
   ## BigQuery connector: multi-project support
 
   🎯 **What is it?**
@@ -3036,7 +3065,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This improvement is available by default for all BigQuery connector users. If you're already using the BigQuery connector, you'll automatically see all accessible projects the next time you browse your data sources. No configuration changes needed.
 </Update>
 
-<Update label="March 11th, 2026" tags={["Improved"]}>
+<Update label="March 11th, 2026" tags={["Improved"]} rss={{ title: "Slack Tool Now Uses Official Dust Marketplace App" }}>
   ## Slack Tool Now Uses Official Dust Marketplace App
 
   Slack Tool Now Uses Official Dust Marketplace App
@@ -3068,7 +3097,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   If you previously couldn't connect the Slack tool due to company policy restrictions, you can now try again. The official app should be approved by your security settings.
 </Update>
 
-<Update label="March 5th, 2026" tags={["Added"]}>
+<Update label="March 5th, 2026" tags={["Added"]} rss={{ title: "GPT 5.4 Now Available in Dust" }}>
   ## GPT 5.4 Now Available in Dust
 
   🎯 **What is it?**
@@ -3103,7 +3132,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - **For quick tasks**: Mention `@gpt5` or `@gpt5-thinking` in any conversation to use the global agents powered by GPT 5.4
 </Update>
 
-<Update label="February 25th, 2026" tags={["Added"]}>
+<Update label="February 25th, 2026" tags={["Added"]} rss={{ title: "Statuspage MCP Server - Now Available" }}>
   ## Statuspage MCP Server - Now Available
 
   🎯 **What is it?**
@@ -3142,7 +3171,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   The Statuspage MCP Server has been thoroughly tested over the past few weeks and is now stable and ready for production use.
 </Update>
 
-<Update label="February 25th, 2026" tags={["Added"]}>
+<Update label="February 25th, 2026" tags={["Added"]} rss={{ title: "Salesloft MCP Server Now Available" }}>
   ## Salesloft MCP Server Now Available
 
   🎯 **What is it?**
@@ -3177,7 +3206,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Workspace admins can set up the Salesloft integration by navigating to **Spaces \> Tools** and adding the connection with a Salesloft API Key. Once configured, anyone in your workspace can add the Salesloft tools to their agents and start using them immediately.
 </Update>
 
-<Update label="February 25th, 2026" tags={["Added"]}>
+<Update label="February 25th, 2026" tags={["Added"]} rss={{ title: "Front MCP Server: Now Generally Available" }}>
   ## Front MCP Server: Now Generally Available
 
   🎯 **What is it?**
@@ -3217,7 +3246,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   The integration has been tested and stabilized over the past few weeks and is ready for production use across all workspaces.
 </Update>
 
-<Update label="February 25th, 2026" tags={["Added"]}>
+<Update label="February 25th, 2026" tags={["Added"]} rss={{ title: "Ashby MCP Server Now Generally Available" }}>
   ## Ashby MCP Server Now Generally Available
 
   🎯 **What is it?**
@@ -3259,7 +3288,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This feature has been tested extensively over recent weeks, and we've refined the configuration process to make setup as smooth as possible.
 </Update>
 
-<Update label="February 25th, 2026" tags={["Added"]}>
+<Update label="February 25th, 2026" tags={["Added"]} rss={{ title: "Slab MCP Server: Now Available" }}>
   ## Slab MCP Server: Now Available
 
   🎯 **What is it?**
@@ -3295,7 +3324,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Admins can set up the Slab MCP Server in **Spaces \> Tools** using a Slab API Key. Once configured in a Space, any member can enable it on their agents and start searching Slab content immediately.
 </Update>
 
-<Update label="February 23rd, 2026" tags={["Added"]}>
+<Update label="February 23rd, 2026" tags={["Added"]} rss={{ title: "Better Support for Slideshow Frames" }}>
   ## Better Support for Slideshow Frames
 
   🎯 **What is it?**
@@ -3331,7 +3360,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   [Example slideshow Frame](https://app.dust.tt/share/frame/0b85cbbe-6f6d-42c2-b90a-d97837a128f3)
 </Update>
 
-<Update label="February 20th, 2026" tags={["Added"]}>
+<Update label="February 20th, 2026" tags={["Added"]} rss={{ title: "Attio CRM Integration Now Available" }}>
   ## Attio CRM Integration Now Available
 
   🎯 **What is it?**
@@ -3370,7 +3399,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This feature is available to all Dust users with an Attio account. To get started, connect your Attio workspace through Dust's connections settings using the OAuth authentication flow.
 </Update>
 
-<Update label="February 20th, 2026" tags={["Added"]}>
+<Update label="February 20th, 2026" tags={["Added"]} rss={{ title: "Dust is now a Single Page Application" }}>
   ## Dust is now a Single Page Application
 
   ## 📌 Context
@@ -3405,7 +3434,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   If you experience any unexpected behavior, the SPA mode can be disabled for your specific workspace. Reach out to our support team, and we'll assist you.
 </Update>
 
-<Update label="February 18th, 2026" tags={["Added"]}>
+<Update label="February 18th, 2026" tags={["Added"]} rss={{ title: "Intercom Official MCP Server Now Available in Dust" }}>
   ## Intercom Official MCP Server Now Available in Dust
 
   🎯 **What is it?**
@@ -3448,7 +3477,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This feature is available to all Dust users starting today. But only for US intercom workspace.
 </Update>
 
-<Update label="February 18th, 2026" tags={["Added"]}>
+<Update label="February 18th, 2026" tags={["Added"]} rss={{ title: "Claude Sonnet 4.6 Now Available in Agent Builder" }}>
   ## Claude Sonnet 4.6 Now Available in Agent Builder
 
   🎯 **What is it?**
@@ -3477,7 +3506,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Open the **Agent Builder**, create or edit an agent, and select **Claude Sonnet 4.6** in the model section. It's available now for all paid workspaces.
 </Update>
 
-<Update label="February 11th, 2026" tags={["Added"]}>
+<Update label="February 11th, 2026" tags={["Added"]} rss={{ title: "🆕 Dust Agents Can Now Create and Edit Google Drive Documents" }}>
   ## 🆕 Dust Agents Can Now Create and Edit Google Drive Documents
 
   🎯 **What is it?**
@@ -3516,7 +3545,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   If you already have Google Drive connected to Dust, you'll be prompted to re-authenticate with the updated permissions the next time an agent attempts a write operation. If you're new to this integration, connect Google Drive from your Dust connections settings, and all write capabilities will be available immediately to your agents.
 </Update>
 
-<Update label="February 5th, 2026" tags={["Added"]}>
+<Update label="February 5th, 2026" tags={["Added"]} rss={{ title: "🔗✨ Message Reactions & Message Links in Conversations" }}>
   ## 🔗✨ Message Reactions & Message Links in Conversations
 
   🎯 **What is it?**
@@ -3553,7 +3582,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This feature is now available to all Dust users in all conversations, no setup required! Just hover over any message to start using reactions and message links right away.
 </Update>
 
-<Update label="February 5th, 2026" tags={["Added"]}>
+<Update label="February 5th, 2026" tags={["Added"]} rss={{ title: "Granola Official MCP Server Now Available in Dust" }}>
   ## Granola Official MCP Server Now Available in Dust
 
   🎯 **What is it?**
@@ -3589,7 +3618,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   If you're a Granola user, head to your Dust workspace settings, navigate to the MCP servers configuration section, and add the Granola official MCP server. Once connected, your assistants will be able to access your Granola meetings data.
 </Update>
 
-<Update label="February 5th, 2026" tags={["Added"]}>
+<Update label="February 5th, 2026" tags={["Added"]} rss={{ title: "CSV Export for Programmatic Cost Chart" }}>
   ## CSV Export for Programmatic Cost Chart
 
   🎯 **What is it?**
@@ -3618,7 +3647,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Open the **Programmatic Cost Chart** in your workspace and click the export button to download your data as a CSV.
 </Update>
 
-<Update label="February 5th, 2026" tags={["Added"]}>
+<Update label="February 5th, 2026" tags={["Added"]} rss={{ title: "🆕 Statuspage MCP Server Integration Now Available" }}>
   ## 🆕 Statuspage MCP Server Integration Now Available
 
   🎯 **What is it?**
@@ -3655,7 +3684,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This integration is available on-demand for all Dust users with a Statuspage account. Workspace admins need to configure the Statuspage API key in your Dust workspace settings. Once configured, enable the Statuspage capability for any agent that needs incident management access.
 </Update>
 
-<Update label="February 3rd, 2026" tags={["Added"]}>
+<Update label="February 3rd, 2026" tags={["Added"]} rss={{ title: "📊 Agent Builder Insights: Real-time Observability Dashboard" }}>
   ## 📊 Agent Builder Insights: Real-time Observability Dashboard
 
   🎯 **What is it?**
@@ -3694,7 +3723,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Open any agent in the Agent Builder. You'll find the new Insights tab alongside your existing configuration options. The dashboard is available immediately for all users, no setup or activation required.
 </Update>
 
-<Update label="February 3rd, 2026" tags={["Added"]}>
+<Update label="February 3rd, 2026" tags={["Added"]} rss={{ title: "Daily Spending Cap for API Usage" }}>
   ## Daily Spending Cap for API Usage
 
   📌 Context
@@ -3741,7 +3770,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This change is live for all workspaces starting today.
 </Update>
 
-<Update label="January 30th, 2026" tags={["Added"]}>
+<Update label="January 30th, 2026" tags={["Added"]} rss={{ title: "Export Frames as PDF" }}>
   ## Export Frames as PDF
 
   🎯 What is it?
@@ -3782,7 +3811,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   **Note**: While PDF export is designed to handle a wide variety of Frame layouts, from standard reports to advanced visualizations, we're continuously improving the feature to support even the most creative Frame designs. If you encounter any issues with specific layouts, please let us know so we can refine the experience.
 </Update>
 
-<Update label="January 29th, 2026" tags={["Added"]}>
+<Update label="January 29th, 2026" tags={["Added"]} rss={{ title: "Per API-Key Usage Cap" }}>
   ## Per API-Key Usage Cap
 
   🎯 **What is it?**
@@ -3819,7 +3848,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Admins can access this feature in the Dust workspace settings, under the API Keys section. When creating a new API key or editing an existing one, you'll find the option to set a usage cap. No action is required if you prefer to keep your current setup: API keys without a cap will continue to work as before, limited only by your workspace's overall limit.
 </Update>
 
-<Update label="January 29th, 2026" tags={["Added"]}>
+<Update label="January 29th, 2026" tags={["Added"]} rss={{ title: "📬 Email Notifications Now Include Conversation Summaries" }}>
   ## 📬 Email Notifications Now Include Conversation Summaries
 
   🎯 **What is it?**
@@ -3853,7 +3882,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This feature is already active for all users. No setup required: your next notification email will automatically include summaries when you have unread messages.
 </Update>
 
-<Update label="January 28th, 2026" tags={["Added"]}>
+<Update label="January 28th, 2026" tags={["Added"]} rss={{ title: "Discover Existing Skills Before You Build – Automatic Similar Skills Detection" }}>
   ## Discover Existing Skills Before You Build – Automatic Similar Skills Detection
 
   🎯 **What is it?**
@@ -3888,7 +3917,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This feature is automatically active for all builders. Start creating a new skill as usual. If similar skills exist, Dust will notify you while you're writing the description. No configuration needed.
 </Update>
 
-<Update label="January 28th, 2026" tags={["Added"]}>
+<Update label="January 28th, 2026" tags={["Added"]} rss={{ title: "📧 Gmail Integration: Send Emails Directly from Dust" }}>
   ## 📧 Gmail Integration: Send Emails Directly from Dust
 
   🎯 **What is it?**
@@ -3926,7 +3955,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   **For new tool setup**: If you're installing a new instance of the Gmail tool now, the send mail feature will be enabled by default.
 </Update>
 
-<Update label="January 28th, 2026" tags={["Added"]}>
+<Update label="January 28th, 2026" tags={["Added"]} rss={{ title: "✨ More Powerful Image Generation with Gemini 3 Pro" }}>
   ## ✨ More Powerful Image Generation with Gemini 3 Pro
 
   🎯 **What is it?**
@@ -3963,7 +3992,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   The upgrade is already live in your Dust workspace. Use the image generation feature as usual: the new capabilities are automatically available. For inspiration and detailed examples, check out our documentation: [/docs/user-documentation/agents/tools/image-generation](/docs/user-documentation/agents/tools/image-generation)
 </Update>
 
-<Update label="January 27th, 2026" tags={["Added"]}>
+<Update label="January 27th, 2026" tags={["Added"]} rss={{ title: "🆕 Skills: Share Expertise Across All Your Agents" }}>
   ## 🆕 Skills: Share Expertise Across All Your Agents
 
   🎯 **What is it?**
@@ -4000,7 +4029,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Skills are now available to all builders in your workspace. Check out our documentation to learn how to create and manage Skills: [/docs/user-documentation/agents/skills/skill-examples](/docs/user-documentation/agents/skills/skill-examples)
 </Update>
 
-<Update label="January 27th, 2026" tags={["Added"]}>
+<Update label="January 27th, 2026" tags={["Added"]} rss={{ title: "✨ Customize global skills with your own branding and instructions" }}>
   ## ✨ Customize global skills with your own branding and instructions
 
   - Take any Dust-managed skill (like Create Frames) and make it your own
@@ -4009,7 +4038,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Each team can create their own independent extensions
 </Update>
 
-<Update label="January 27th, 2026" tags={["Added"]}>
+<Update label="January 27th, 2026" tags={["Added"]} rss={{ title: "🔍 Discover Tools - Global Skill for Agents" }}>
   ## 🔍 Discover Tools - Global Skill for Agents
 
   Agents can now automatically discover and use any toolset available in the workspace without manual configuration in the Agent Builder.
@@ -4019,7 +4048,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Provides agents with access to the entire panel of available integrations in one click
 </Update>
 
-<Update label="January 27th, 2026" tags={["Added"]}>
+<Update label="January 27th, 2026" tags={["Added"]} rss={{ title: "🔍 Discover Knowledge global skill" }}>
   ## 🔍 Discover Knowledge global skill
 
   - New pre-packaged skill that enables agents to search and query company data sources
@@ -4029,7 +4058,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Can be added to custom agents from the Agent Builder
 </Update>
 
-<Update label="January 27th, 2026" tags={["Added"]}>
+<Update label="January 27th, 2026" tags={["Added"]} rss={{ title: "✨ Reference knowledge directly in skill instructions" }}>
   ## ✨ Reference knowledge directly in skill instructions
 
   - Use `/` to search and tag specific folders or documents when building a skill
@@ -4038,7 +4067,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Enables specialized, knowledge-grounded skills with precise context
 </Update>
 
-<Update label="January 27th, 2026" tags={["Added"]}>
+<Update label="January 27th, 2026" tags={["Added"]} rss={{ title: "⚡ Just-in-time Skills" }}>
   ## ⚡ Just-in-time Skills
 
   - Add or remove skills from the input bar mid-conversation
@@ -4046,7 +4075,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Compose capabilities on the fly to create complex custom agents
 </Update>
 
-<Update label="January 26th, 2026" tags={["Added"]}>
+<Update label="January 26th, 2026" tags={["Added"]} rss={{ title: "✈️ UKG Ready integration for PTO management" }}>
   ## ✈️ UKG Ready integration for PTO management
 
   - UKG Ready MCP integration now available
@@ -4054,7 +4083,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Access PTO balances and submit time-off requests without leaving the platform
 </Update>
 
-<Update label="January 19th, 2026" tags={["Added"]}>
+<Update label="January 19th, 2026" tags={["Added"]} rss={{ title: "❄️ Snowflake MCP Tool with Personal Authentication" }}>
   ## ❄️ Snowflake MCP Tool with Personal Authentication
 
   - Added Snowflake as an MCP tool with OAuth-based personal authentication
@@ -4063,7 +4092,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - No manual table configuration required
 </Update>
 
-<Update label="January 19th, 2026" tags={["Improved"]}>
+<Update label="January 19th, 2026" tags={["Improved"]} rss={{ title: "⚡ Parallelized Google Drive synchronization" }}>
   ## ⚡ Parallelized Google Drive synchronization
 
   - Google Drive full and incremental syncs now run in parallel
@@ -4071,7 +4100,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Significantly faster completion times for multi-drive synchronization
 </Update>
 
-<Update label="January 16th, 2026" tags={["Added"]}>
+<Update label="January 16th, 2026" tags={["Added"]} rss={{ title: "🔒 Static IP for custom MCP server calls" }}>
   ## 🔒 Static IP for custom MCP server calls
 
   You can now whitelist Dust's static IP addresses for secure communication with your custom MCP servers:
@@ -4082,7 +4111,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - EU region: 35.195.191.222
 </Update>
 
-<Update label="January 16th, 2026" tags={["Added"]}>
+<Update label="January 16th, 2026" tags={["Added"]} rss={{ title: "🔧 Medium stake tools with per-agent approval history" }}>
   ## 🔧 Medium stake tools with per-agent approval history
 
   - Introduced a new medium stake level for tools that maintains approval history per agent rather than globally
@@ -4091,14 +4120,14 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Users will be prompted to approve medium stake tools on a per-agent basis
 </Update>
 
-<Update label="January 13th, 2026" tags={["Added"]}>
+<Update label="January 13th, 2026" tags={["Added"]} rss={{ title: "⬅️➡️ Navigate between messages in conversation view" }}>
   ## ⬅️➡️ Navigate between messages in conversation view
 
   - Added navigation arrows to jump to previous or next user message in conversations
   - Makes it easier to review and find specific messages in long conversations
 </Update>
 
-<Update label="January 12th, 2026" tags={["Added"]}>
+<Update label="January 12th, 2026" tags={["Added"]} rss={{ title: "🔌 Productboard integration" }}>
   ## 🔌 Productboard integration
 
   - Connect your workspace to Productboard to capture feedback and manage product data
@@ -4107,7 +4136,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Sync product hierarchy and roadmap planning data
 </Update>
 
-<Update label="January 9th, 2026" tags={["Added"]}>
+<Update label="January 9th, 2026" tags={["Added"]} rss={{ title: "🛡️ Vanta Tools" }}>
   ## 🛡️ Vanta Tools
 
   - Connect your workspace to Vanta directly from Dust
@@ -4116,27 +4145,27 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Monitor and audit compliance from the agent builder
 </Update>
 
-<Update label="January 8th, 2026" tags={["Added"]}>
+<Update label="January 8th, 2026" tags={["Added"]} rss={{ title: "✏️ Edit and Delete Messages & Conversations" }}>
   ## ✏️ Edit and Delete Messages & Conversations
 
   You can now edit or delete your messages and entire conversations directly in the interface. This feature is available to all users.
 </Update>
 
-<Update label="January 8th, 2026" tags={["Added"]}>
+<Update label="January 8th, 2026" tags={["Added"]} rss={{ title: "💬 Mention users in conversations" }}>
   ## 💬 Mention users in conversations
 
   - Use @mentions to directly notify and address specific users in conversations
   - Helps direct messages to the right people in multi-user discussions
 </Update>
 
-<Update label="January 8th, 2026" tags={["Added"]}>
+<Update label="January 8th, 2026" tags={["Added"]} rss={{ title: "🏷️ Mention users in the Agent Builder" }}>
   ## 🏷️ Mention users in the Agent Builder
 
   - You can now mention and tag real people directly while designing agents in the builder
   - Mentions work directly within the agent configuration interface
 </Update>
 
-<Update label="January 8th, 2026" tags={["Added"]}>
+<Update label="January 8th, 2026" tags={["Added"]} rss={{ title: "✨ Rich text formatting toolbar in conversations" }}>
   ## ✨ Rich text formatting toolbar in conversations
 
   - New formatting toolbar available in the conversation interface
@@ -4144,7 +4173,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Visual editing controls for composing messages
 </Update>
 
-<Update label="January 8th, 2026" tags={["Added"]}>
+<Update label="January 8th, 2026" tags={["Added"]} rss={{ title: "🔔 Mention and Agent Notifications" }}>
   ## 🔔 Mention and Agent Notifications
 
   Stay informed with new notification options:
@@ -4154,7 +4183,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Receive notifications when an agent completes its response
 </Update>
 
-<Update label="January 8th, 2026" tags={["Added"]}>
+<Update label="January 8th, 2026" tags={["Added"]} rss={{ title: "📬 New Inbox for Mentions and Notifications" }}>
   ## 📬 New Inbox for Mentions and Notifications
 
   - A new 'Inbox' section is now available
@@ -4162,7 +4191,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Easily track conversations where you've been mentioned
 </Update>
 
-<Update label="December 23rd, 2025" tags={["Added"]}>
+<Update label="December 23rd, 2025" tags={["Added"]} rss={{ title: "🧠 Guru Integration Now Available" }}>
   ## 🧠 Guru Integration Now Available
 
   • Connect your Guru knowledge base to Dust
@@ -4172,7 +4201,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   • Access your trusted knowledge without switching platforms
 </Update>
 
-<Update label="December 23rd, 2025" tags={["Added"]}>
+<Update label="December 23rd, 2025" tags={["Added"]} rss={{ title: "🆕 Freshservice MCP Tool Integration" }}>
   ## 🆕 Freshservice MCP Tool Integration
 
   - New Freshservice MCP tool now available
@@ -4182,31 +4211,31 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Handle approvals
 </Update>
 
-<Update label="December 18th, 2025" tags={["Added"]}>
+<Update label="December 18th, 2025" tags={["Added"]} rss={{ title: "☁️ Dust n8n node now available on n8n Cloud" }}>
   ## ☁️ Dust n8n node now available on n8n Cloud
 
   The Dust n8n node is now available as a verified community node on n8n Cloud. Previously, the node was only accessible for self-hosted n8n instances.
 </Update>
 
-<Update label="December 17th, 2025" tags={["Added"]}>
+<Update label="December 17th, 2025" tags={["Added"]} rss={{ title: "⚡ Gemini 3 Flash model now available" }}>
   ## ⚡ Gemini 3 Flash model now available
 
   • New Gemini 3 Flash model added to the agent builder • Fast performance with strong benchmark results • Available for immediate use in agent configurations
 </Update>
 
-<Update label="December 16th, 2025" tags={["Added"]}>
+<Update label="December 16th, 2025" tags={["Added"]} rss={{ title: "💾 Draft Mode: Auto-save your messages" }}>
   ## 💾 Draft Mode: Auto-save your messages
 
   • Messages are now automatically saved as drafts while you're composing them • Unsent messages persist across page reloads and browser sessions • Your drafts will be restored exactly where you left off
 </Update>
 
-<Update label="December 16th, 2025" tags={["Added"]}>
+<Update label="December 16th, 2025" tags={["Added"]} rss={{ title: "😊 Emoji shortcode support in messages" }}>
   ## 😊 Emoji shortcode support in messages
 
   You can now insert emojis in your messages using the `:emoji_name:` syntax. Type any supported emoji shortcode (like `:smile:` or `:rocket:`) and it will automatically convert to the corresponding emoji.
 </Update>
 
-<Update label="December 15th, 2025" tags={["Added"]}>
+<Update label="December 15th, 2025" tags={["Added"]} rss={{ title: "📎 Search and Attach Files from Tools" }}>
   ## 📎 Search and Attach Files from Tools
 
   You can now search and attach files directly from the attachment button in the input bar for: • Google Drive Tools • Microsoft Drive Tools • Notion Tools
@@ -4214,199 +4243,199 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   This feature is available on the web version when you have a Tool configured for these providers (and not the related Connection since we default to searching in the Connection it if is set).
 </Update>
 
-<Update label="December 11th, 2025" tags={["Added"]}>
+<Update label="December 11th, 2025" tags={["Added"]} rss={{ title: "🔍✨ Advanced Search & Pagination for GitHub MCP Issues & PRs" }}>
   ## 🔍✨ Advanced Search & Pagination for GitHub MCP Issues & PRs
 
   • Added advanced search capabilities for GitHub MCP issues and pull requests • Implemented robust pagination to handle large repositories • Support for GitHub's advanced search syntax to filter and find specific items
 </Update>
 
-<Update label="December 11th, 2025" tags={["Added"]}>
+<Update label="December 11th, 2025" tags={["Added"]} rss={{ title: "💳 Programmatic Usage Tracking and Billing" }}>
   ## 💳 Programmatic Usage Tracking and Billing
 
   • Programmatic usage is now tracked and billed separately from regular usage • New dedicated 'API & Programmatic' section for admins to monitor usage and purchase credits • Programmatic usage is blocked when credits run out, while human usage continues uninterrupted • Free discovery credits provided monthly • Enterprise users can opt for Pay-as-you-go billing
 </Update>
 
-<Update label="December 11th, 2025" tags={["Improved"]}>
+<Update label="December 11th, 2025" tags={["Improved"]} rss={{ title: "⚡ Search Latency Improvements" }}>
   ## ⚡ Search Latency Improvements
 
   • Optimized the search (retrieval) engine for faster performance • Search results now load significantly faster
 </Update>
 
-<Update label="November 28th, 2025" tags={["Added"]}>
+<Update label="November 28th, 2025" tags={["Added"]} rss={{ title: "🤖 Structured Response Format for Claude Sonnet 4.5" }}>
   ## 🤖 Structured Response Format for Claude Sonnet 4.5
 
   • Claude Sonnet 4.5 now supports Structured Response Format with JSON schema • Define a JSON schema in the advanced menu of the Agent Builder to enforce model output format • Useful for workflows where agent output needs to be parsed and sent to other tools
 </Update>
 
-<Update label="November 28th, 2025" tags={["Improved"]}>
+<Update label="November 28th, 2025" tags={["Improved"]} rss={{ title: "🔍 Better user search with accent support" }}>
   ## 🔍 Better user search with accent support
 
   User search now supports diacritics (accents) and provides better ranking of results. • Search now works properly with accented characters in names • Email addresses are now searchable with smart handling of username and domain • Improved search available in Space user management and Agent editor management
 </Update>
 
-<Update label="November 25th, 2025" tags={["Added"]}>
+<Update label="November 25th, 2025" tags={["Added"]} rss={{ title: "🎛️ Customizable tool approval settings for MCP tools" }}>
   ## 🎛️ Customizable tool approval settings for MCP tools
 
   Admins can now define and adjust approval settings for MCP tools directly from the admin interface: • High stake: Agent always asks users to confirm before using the tool • Low stake: Agent asks users to confirm, with option to 'never ask again' • Never ask: Agent performs the action directly without confirmation
 </Update>
 
-<Update label="November 25th, 2025" tags={["Added"]}>
+<Update label="November 25th, 2025" tags={["Added"]} rss={{ title: "🎟️ Linear Built-in Webhook Provider" }}>
   ## 🎟️ Linear Built-in Webhook Provider
 
   • New webhook provider for Linear integration • Trigger agents automatically on Linear issues and project updates • Configure webhooks directly in Spaces settings
 </Update>
 
-<Update label="November 18th, 2025" tags={["Improved"]}>
+<Update label="November 18th, 2025" tags={["Improved"]} rss={{ title: "🔐 Granular site access for Microsoft service principals" }}>
   ## 🔐 Granular site access for Microsoft service principals
 
   • Service principals can now be restricted to specific sites only • No longer requires Sites.Read.All permission for limited access scenarios • Provides more fine-grained control over Microsoft connector permissions
 </Update>
 
-<Update label="November 17th, 2025" tags={["Improved"]}>
+<Update label="November 17th, 2025" tags={["Improved"]} rss={{ title: "💬 Improved agent tagging in Slack" }}>
   ## 💬 Improved agent tagging in Slack
 
   • Agent mentions (\+agent or ~agent) must now come immediately after @Dust • Previous behavior allowed agent mentions anywhere in the message
 </Update>
 
-<Update label="November 14th, 2025" tags={["Added"]}>
+<Update label="November 14th, 2025" tags={["Added"]} rss={{ title: "🖼️✨ Image Editing Tool" }}>
   ## 🖼️✨ Image Editing Tool
 
   You can now edit images directly within Dust: • Upload images to the platform • Adjust and modify images in-place • Annotate images with built-in tools • No need to switch to external image editing applications
 </Update>
 
-<Update label="November 14th, 2025" tags={["Added"]}>
+<Update label="November 14th, 2025" tags={["Added"]} rss={{ title: "🤖 GPT-5.1 now available in the builder" }}>
   ## 🤖 GPT-5.1 now available in the builder
 
   • GPT-5.1 is now available as a model option in the agent builder • This is an alternative to GPT-5, which remains available • The new model offers improved performance characteristics
 </Update>
 
-<Update label="November 13th, 2025" tags={["Added"]}>
+<Update label="November 13th, 2025" tags={["Added"]} rss={{ title: "📊 Agent Builder Insights tab" }}>
   ## 📊 Agent Builder Insights tab
 
   • Added a new 'Insights' tab in the Agent Builder • View usage metrics and tool execution data • Track feedback trends and latency performance • Correlate all metrics with specific agent versions for performance tracking
 </Update>
 
-<Update label="November 13th, 2025" tags={["Added"]}>
+<Update label="November 13th, 2025" tags={["Added"]} rss={{ title: "🎙️ Fathom webhook integration" }}>
   ## 🎙️ Fathom webhook integration
 
   • New built-in webhook provider for Fathom • Automatically trigger agents when new Fathom transcripts are available • Configure webhooks directly from your Space settings
 </Update>
 
-<Update label="November 13th, 2025" tags={["Added"]}>
+<Update label="November 13th, 2025" tags={["Added"]} rss={{ title: "🎫 Zendesk built-in webhooks" }}>
   ## 🎫 Zendesk built-in webhooks
 
   You can now trigger your agents automatically with Zendesk events: • New tickets • New comments • Status changes • Configure webhooks directly in your Spaces
 </Update>
 
-<Update label="November 13th, 2025" tags={["Added"]}>
+<Update label="November 13th, 2025" tags={["Added"]} rss={{ title: "🎫 Zendesk tools" }}>
   ## 🎫 Zendesk tools
 
   • Fetch tickets directly from Zendesk • Pull ticket metrics for analysis • Search across tickets • Draft replies to customer inquiries
 </Update>
 
-<Update label="November 12th, 2025" tags={["Added"]}>
+<Update label="November 12th, 2025" tags={["Added"]} rss={{ title: "✉️ Improved invitation flow and workspace selection" }}>
   ## ✉️ Improved invitation flow and workspace selection
 
   • Predictable behavior when receiving multiple workspace invitations, no more random redirects • New selection page when you have multiple pending invitations, allowing you to choose which workspace to join • Invitation tokens are now always respected, ensuring you land in the correct workspace • Invitations now expire as expected • Pending invitations are now visible on your profile page with quick join buttons
 </Update>
 
-<Update label="November 10th, 2025" tags={["Added"]}>
+<Update label="November 10th, 2025" tags={["Added"]} rss={{ title: "🎫 Jira Built-in Webhook Provider" }}>
   ## 🎫 Jira Built-in Webhook Provider
 
   • Added native Jira webhook integration to trigger agents automatically • Agents can now respond to Jira ticket updates in real-time • Webhooks can be configured directly in Spaces settings
 </Update>
 
-<Update label="November 10th, 2025" tags={["Added"]}>
+<Update label="November 10th, 2025" tags={["Added"]} rss={{ title: "🔗 GitHub Built-in Webhook" }}>
   ## 🔗 GitHub Built-in Webhook
 
   • Trigger agents automatically on GitHub pull requests and issues updates • Configure webhooks directly in Spaces settings • Integrates with GitHub MCP Server for complete automation workflows
 </Update>
 
-<Update label="November 10th, 2025" tags={["Added"]}>
+<Update label="November 10th, 2025" tags={["Added"]} rss={{ title: "🌀 Webhooks as triggers" }}>
   ## 🌀 Webhooks as triggers
 
   • Agents can now be triggered by incoming webhooks • Admins can set up webhook sources directly in the Spaces UI • Webhook sources can be connected to any new or existing agent
 </Update>
 
-<Update label="November 7th, 2025" tags={["Added"]}>
+<Update label="November 7th, 2025" tags={["Added"]} rss={{ title: "🚀 Auto-create Spaces for provisioned groups" }}>
   ## 🚀 Auto-create Spaces for provisioned groups
 
   • New option to automatically create empty Spaces when groups are provisioned • Spaces are created alongside their corresponding groups • Feature can be enabled on demand
 </Update>
 
-<Update label="November 6th, 2025" tags={["Improved"]}>
+<Update label="November 6th, 2025" tags={["Improved"]} rss={{ title: "⚡ Lightning-Fast Photo-Realistic Image Generation" }}>
   ## ⚡ Lightning-Fast Photo-Realistic Image Generation
 
   • Upgraded to Nano Banana, Google's latest image generation model • 6x faster image generation • Photo-realistic image quality
 </Update>
 
-<Update label="November 5th, 2025" tags={["Improved"]}>
+<Update label="November 5th, 2025" tags={["Improved"]} rss={{ title: "🤖 Dust is now your default agent" }}>
   ## 🤖 Dust is now your default agent
 
   • When you don't @ mention a specific agent, your message now automatically goes to @dust • If @dust is not activated in your workspace, we still recommend a list of suited agents
 </Update>
 
-<Update label="November 5th, 2025" tags={["Added"]}>
+<Update label="November 5th, 2025" tags={["Added"]} rss={{ title: "🔌 Global Agent Can Now Query Data Warehouses" }}>
   ## 🔌 Global Agent Can Now Query Data Warehouses
 
   • The global agent can now execute SQL queries using the data warehouses tool • Supports Snowflake and BigQuery connections • Get instant answers to quantitative questions by querying structured data directly
 </Update>
 
-<Update label="November 5th, 2025" tags={["Added"]}>
+<Update label="November 5th, 2025" tags={["Added"]} rss={{ title: "🧠 Dust Global Agent Now Uses Memory" }}>
   ## 🧠 Dust Global Agent Now Uses Memory
 
   • The Dust global agent can now store and recall information from your conversations • Memory tool enables learning from interactions to provide personalized responses • Preferences and context are remembered across conversations for more relevant assistance
 </Update>
 
-<Update label="November 5th, 2025" tags={["Added"]}>
+<Update label="November 5th, 2025" tags={["Added"]} rss={{ title: "🔍 Advanced Search now available on Dust global agent" }}>
   ## 🔍 Advanced Search now available on Dust global agent
 
   The Dust global agent can now access Advanced Search (Data Source File System) in addition to traditional semantic search. This enables the agent to: • Read documents in full • Navigate data source structures • Provide more precise answers with reduced hallucinations
 </Update>
 
-<Update label="November 3rd, 2025" tags={["Added"]}>
+<Update label="November 3rd, 2025" tags={["Added"]} rss={{ title: "🎉 Dust Google Sheets Add-on now available on Google Workspace Marketplace" }}>
   ## 🎉 Dust Google Sheets Add-on now available on Google Workspace Marketplace
 
   • The Dust Google Sheets add-on is now officially published and available directly from the Google Workspace Marketplace • No more manual script installations required • Install and connect Dust to your spreadsheets in just a few clicks
 </Update>
 
-<Update label="October 31st, 2025" tags={["Improved"]}>
+<Update label="October 31st, 2025" tags={["Improved"]} rss={{ title: "🔧 Slack MCP server improvements" }}>
   ## 🔧 Slack MCP server improvements
 
   • Improved user permissions mapping for private channels and direct messages • Improved list channels functionality with reduced payload size to optimize LLM context usage • Added 'get channels details' function for more granular channel information • Added ability to schedule messages • Added ability to add and remove reactions to messages
 </Update>
 
-<Update label="October 31st, 2025" tags={["Added"]}>
+<Update label="October 31st, 2025" tags={["Added"]} rss={{ title: "📊 Excel MCP Server integration with SharePoint and OneDrive" }}>
   ## 📊 Excel MCP Server integration with SharePoint and OneDrive
 
   • Added tools to list, read, write, create, and clear data in Excel files • Direct integration with SharePoint and OneDrive storage • Simpler Excel workbook automation
 </Update>
 
-<Update label="October 31st, 2025" tags={["Added"]}>
+<Update label="October 31st, 2025" tags={["Added"]} rss={{ title: "🔗 Microsoft Teams MCP" }}>
   ## 🔗 Microsoft Teams MCP
 
   • Added new Microsoft Teams MCP server with a full set of tools • Search messages content across Teams • List teams, users, channels, and chats • View messages in channels • Post messages to teams and chats
 </Update>
 
-<Update label="October 31st, 2025" tags={["Added"]}>
+<Update label="October 31st, 2025" tags={["Added"]} rss={{ title: "📁 New SharePoint and OneDrive integration" }}>
   ## 📁 New SharePoint and OneDrive integration
 
   • Added search and retrieval capabilities for SharePoint and OneDrive files • Added file upload functionality to SharePoint and OneDrive • Added Word document editing capabilities • Agents can now perform end-to-end document workflows across Microsoft platforms
 </Update>
 
-<Update label="October 31st, 2025" tags={["Added"]}>
+<Update label="October 31st, 2025" tags={["Added"]} rss={{ title: "🤝 Microsoft Teams Dust Bot" }}>
   ## 🤝 Microsoft Teams Dust Bot
 
   • Interact with Dust assistants directly from Microsoft Teams • Available in private chats with Dust or any Teams channel • Install via feature flag for Microsoft ecosystem users
 </Update>
 
-<Update label="October 27th, 2025" tags={["Added"]}>
+<Update label="October 27th, 2025" tags={["Added"]} rss={{ title: "🧠 Dynamic toolset discovery for Dust assistant" }}>
   ## 🧠 Dynamic toolset discovery for Dust assistant
 
   • Dust assistant can now automatically discover and access available tools in the Company Data space • Tools are enabled dynamically on-demand during conversations • Expands what the assistant can do without manual tool setup
 </Update>
 
-<Update label="October 23rd, 2025" tags={["Added"]}>
+<Update label="October 23rd, 2025" tags={["Added"]} rss={{ title: "🔊 Voice generation tools" }}>
   ## 🔊 Voice generation tools
 
   - Added 'Sound Studio' tool for generating sound effects
@@ -4416,109 +4445,109 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   <br />
 </Update>
 
-<Update label="October 23rd, 2025" tags={["Added"]}>
+<Update label="October 23rd, 2025" tags={["Added"]} rss={{ title: "✨ Data warehouse exploration for Deep Dive" }}>
   ## ✨ Data warehouse exploration for Deep Dive
 
   • Deep Dive can now explore and query entire data warehouses (Snowflake, BigQuery) without pre-configuration • Search for tables by name and examine schemas dynamically • Run SQL queries across multiple tables in a single research session • Support for large-scale data exploration (hundreds of tables, thousands of columns)
 </Update>
 
-<Update label="October 23rd, 2025" tags={["Improved"]}>
+<Update label="October 23rd, 2025" tags={["Improved"]} rss={{ title: "🌐⚡ Offloaded Browsing with AI Summaries" }}>
   ## 🌐⚡ Offloaded Browsing with AI Summaries
 
   • Deep Dive sub-agents now receive AI-generated summaries (200-500 tokens) instead of full page content when browsing web pages • Full page content is stored as accessible files for detailed analysis when needed • Enables browsing 20\+ pages instead of 2-3 pages within context limits • Improves context efficiency by at least an order of magnitude for research tasks
 </Update>
 
-<Update label="October 23rd, 2025" tags={["Added"]}>
+<Update label="October 23rd, 2025" tags={["Added"]} rss={{ title: "🔨 ✨ Dynamic Tool Discovery with Toolsets" }}>
   ## 🔨 ✨ Dynamic Tool Discovery with Toolsets
 
   • @deep-dive can now discover and call MCP tools dynamically during research • Uses toolsets\_\_list to see available tool servers and selects relevant ones (GitHub, Salesforce, Monday, etc.) • Spawns sub-agents with specific tools for focused tasks • Extends capabilities on-demand based on task requirements
 </Update>
 
-<Update label="October 23rd, 2025" tags={["Improved"]}>
+<Update label="October 23rd, 2025" tags={["Improved"]} rss={{ title: "🧠 Better Context Management for All Agents" }}>
   ## 🧠 Better Context Management for All Agents
 
   • All agents now have improved context management that preserves conversations across more turns • When context window fills up, old tool outputs get pruned while keeping tool calls visible • Maintains reasoning chain so agents remember what they've done • Conversations stay coherent across more consecutive turns • Agents don't lose context even in extended back-and-forth sessions
 </Update>
 
-<Update label="October 23rd, 2025" tags={["Added"]}>
+<Update label="October 23rd, 2025" tags={["Added"]} rss={{ title: "🧠 New Go Deep Tool for enhanced agent capabilities" }}>
   ## 🧠 New Go Deep Tool for enhanced agent capabilities
 
   • Added a new Go Deep Tool that allows agents to hand off complex tasks for thorough analysis • Tool is available by default in @Dust agent • Can be added to any custom agent through the agent builder • Enables specialized agents to use deep-dive capabilities while maintaining awareness of main agent instructions
 </Update>
 
-<Update label="October 23rd, 2025" tags={["Added"]}>
+<Update label="October 23rd, 2025" tags={["Added"]} rss={{ title: "🧠 New Deep Dive agent for comprehensive research" }}>
   ## 🧠 New Deep Dive agent for comprehensive research
 
   • Added a new @deep-dive agent that conducts thorough research across company data, data warehouses, and the web • Uses sub-agents to perform parallel research tasks for extended periods (10\+ minutes) • Explores topics iteratively before producing detailed answers • Available for complex tasks requiring in-depth analysis and synthesis
 </Update>
 
-<Update label="October 23rd, 2025" tags={["Added"]}>
+<Update label="October 23rd, 2025" tags={["Added"]} rss={{ title: "🤖 Agent handover now supports direct conversation responses" }}>
   ## 🤖 Agent handover now supports direct conversation responses
 
   • Added option to select 'agent responds in conversation' when using Run Agent MCP tool • Agents can now post their answers directly in the conversation instead of running in background • Available across all workspaces for any user
 </Update>
 
-<Update label="October 23rd, 2025" tags={["Added"]}>
+<Update label="October 23rd, 2025" tags={["Added"]} rss={{ title: "🧠 Advanced Search Mode for Agents" }}>
   ## 🧠 Advanced Search Mode for Agents
 
   • Added exploratory search mode with new tools for systematic data navigation • New `list` tool to browse folders and directory structures • New `find` tool to search for documents by filename • New `cat` tool to read complete documents instead of just chunks • New `locate_in_tree` tool to view document hierarchies • Updated `search` tool with folder-scoped searching capabilities • Toggle available in Agent Builder under 'Advanced settings'
 </Update>
 
-<Update label="October 22nd, 2025" tags={["Added"]}>
+<Update label="October 22nd, 2025" tags={["Added"]} rss={{ title: "🚀 Val Town MCP Server Integration" }}>
   ## 🚀 Val Town MCP Server Integration
 
   • Added tools to interact with Val Town's platform • Users can now write and scale serverless JavaScript directly from Dust • Build, deploy, and manage Val Town scripts • Enables automation and custom workflows through Val Town's serverless JS platform
 </Update>
 
-<Update label="October 21st, 2025" tags={["Added"]}>
+<Update label="October 21st, 2025" tags={["Added"]} rss={{ title: "🔗🦊 GitLab Official MCP Integration" }}>
   ## 🔗🦊 GitLab Official MCP Integration
 
   • Added support for the official GitLab Model Context Protocol (MCP) as a remote MCP • Automatic app creation on GitLab when registering the MCP from Dust • Available tools include: issue management, merge request operations, pipeline monitoring, and semantic code search • Integration is now live for all users
 </Update>
 
-<Update label="October 17th, 2025" tags={["Added"]}>
+<Update label="October 17th, 2025" tags={["Added"]} rss={{ title: "🛠️ New agent tools: time, wait, and random utilities" }}>
   ## 🛠️ New agent tools: time, wait, and random utilities
 
   • Agents can now get the current time • Added ability for agents to wait/pause execution • Agents can generate random numbers and dice rolls • These utilities are available to all agents immediately
 </Update>
 
-<Update label="October 16th, 2025" tags={["Deprecated"]}>
+<Update label="October 16th, 2025" tags={["Deprecated"]} rss={{ title: "🕐 Dust Apps creation disabled for new workspaces" }}>
   ## 🕐 Dust Apps creation disabled for new workspaces
 
   • New workspaces can no longer create or use Dust Apps as tools • Existing workspaces with Dust Apps remain unaffected • Dust Apps will be replaced by various tools including fetch capabilities
 </Update>
 
-<Update label="October 15th, 2025" tags={["Added"]}>
+<Update label="October 15th, 2025" tags={["Added"]} rss={{ title: "🤖 Claude 4.5 Haiku model now available" }}>
   ## 🤖 Claude 4.5 Haiku model now available
 
   • Added support for Anthropic's new Claude 4.5 Haiku model • Available for selection when creating or editing agents under Advanced → From Anthropic → Claude 4.5 Haiku • Accessible to all users immediately
 </Update>
 
-<Update label="October 15th, 2025" tags={["Added"]}>
+<Update label="October 15th, 2025" tags={["Added"]} rss={{ title: "🖼️ Frames: Interactive responses for your agents" }}>
   ## 🖼️ Frames: Interactive responses for your agents
 
   • Agents can now create interactive components (Frames) instead of static text responses • Create live reports, dashboards, calculators, and data visualizations that users can explore in real time • Interactive features include hover, filter, click, and dive functionality • Frames update instantly when you ask your agent to make changes • Share Frames internally or externally as live, interactive files with secure, token-gated links • Available to all users with no feature flag required
 </Update>
 
-<Update label="October 13th, 2025" tags={["Improved"]}>
+<Update label="October 13th, 2025" tags={["Improved"]} rss={{ title: "📱 Mobile and tablet experience improvements" }}>
   ## 📱 Mobile and tablet experience improvements
 
   • Progressive loading of conversations and agents lists • Smooth conversation scrolling with virtualized message lists • Optimized performance for conversations with thousands of messages • Bigger touch targets for mobile-friendly interactions • Fixed mobile layouts for agent builder and conversation views • Smart keyboard handling that prevents unexpected pop-ups • Proper iOS status bar colors and theming • Touch-friendly interactions with disabled hover effects on mobile • Resizable panels that work correctly on mobile screens
 </Update>
 
-<Update label="October 10th, 2025" tags={["Added"]}>
+<Update label="October 10th, 2025" tags={["Added"]} rss={{ title: "📄 Document sharing in Slack channels" }}>
   ## 📄 Document sharing in Slack channels
 
   • Agents can now share documents directly in Slack channels • Available for all agents with the Slack tool enabled • Enables automated document distribution and workflow integration
 </Update>
 
-<Update label="October 9th, 2025" tags={["Added"]}>
+<Update label="October 9th, 2025" tags={["Added"]} rss={{ title: "🎙️ Voice input and audio file support" }}>
   ## 🎙️ Voice input and audio file support
 
   • Record audio directly in conversations or attach audio files (up to ~1 hour) • Automatic transcription with support for 29 spoken languages • Intent detection to automatically select relevant agents based on voice commands • Audio processing respects workspace region settings (EU/US models)
 </Update>
 
-<Update label="October 8th, 2025" tags={["Added"]}>
+<Update label="October 8th, 2025" tags={["Added"]} rss={{ title: "📝 (preview) Confluence Tool bring page creation and updates to Dust agents" }}>
   ## 📝 (preview) Confluence Tool bring page creation and updates to Dust agents
 
   • Added OAuth authentication for personal or workspace credentials • Enabled agents to create new pages directly in Confluence spaces • Enabled agents to update existing pages in Confluence spaces • Added write actions alongside the existing semantic search capabilities
@@ -4526,31 +4555,31 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   To access the feature, contact [support@dust.tt](mailto:support@dust.tt)
 </Update>
 
-<Update label="October 7th, 2025" tags={["Added"]}>
+<Update label="October 7th, 2025" tags={["Added"]} rss={{ title: "📚 Select entire datasources from search" }}>
   ## 📚 Select entire datasources from search
 
   • You can now select full datasources (not just individual files) directly from search results • Available in Agent Builder, Knowledge section, and the input bar • Enables adding all content from a datasource with a single click
 </Update>
 
-<Update label="September 29th, 2025" tags={["Added"]}>
+<Update label="September 29th, 2025" tags={["Added"]} rss={{ title: "📎 Auto-attachment for long pasted text" }}>
   ## 📎 Auto-attachment for long pasted text
 
   • Long text content pasted into conversations is now automatically converted into file attachments • Keeps conversations visually clean and uncluttered • Handles lengthy content without disrupting message flow
 </Update>
 
-<Update label="September 19th, 2025" tags={["Added"]}>
+<Update label="September 19th, 2025" tags={["Added"]} rss={{ title: "🔑 GitHub Tool now supports personal credentials" }}>
   ## 🔑 GitHub Tool now supports personal credentials
 
   • Actions like creating issues and posting PR comments now appear as coming from you instead of the dust-agent bot • Personal attribution improves collaboration and makes audit trails clearer • Available to all users with no feature flag required
 </Update>
 
-<Update label="September 19th, 2025" tags={["Added"]}>
+<Update label="September 19th, 2025" tags={["Added"]} rss={{ title: "📁 Google Drive Tool for real-time document access" }}>
   ## 📁 Google Drive Tool for real-time document access
 
   • Agents can now access Google Drive documents in real-time using personal user credentials • Read-only access with role-based permissions - users only see files they have access to • No syncing or indexing required - documents are accessed on-demand • Available for all workspaces
 </Update>
 
-<Update label="September 18th, 2025" tags={["Added"]}>
+<Update label="September 18th, 2025" tags={["Added"]} rss={{ title: "🎉 Microsoft Excel Extension" }}>
   ## 🎉 Microsoft Excel Extension
 
   • Use Dust directly inside Microsoft Excel on both online and desktop versions • Access Dust functionality directly within your Excel workflows • Available at [office-addins.dust.tt](https://office-addins.dust.tt) with full documentation
@@ -4562,13 +4591,13 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   <br />
 </Update>
 
-<Update label="September 16th, 2025" tags={["Added"]}>
+<Update label="September 16th, 2025" tags={["Added"]} rss={{ title: "🎫 Jira integration now globally available" }}>
   ## 🎫 Jira integration now globally available
 
   • Create, read, update, and transition Jira issues directly from Dust • Advanced search capabilities with custom fields and JQL query support • Flexible authentication options with personal or workspace credentials • Comment on issues and manage workflows
 </Update>
 
-<Update label="September 16th, 2025" tags={["Added"]}>
+<Update label="September 16th, 2025" tags={["Added"]} rss={{ title: "⏰ Agent Scheduling" }}>
   ## ⏰ Agent Scheduling
 
   • Users can now add schedules to their agents in the Agent Builder. More info here [schedules](/docs/user-documentation/agents/triggers/schedules)
@@ -4578,50 +4607,50 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   • Available for all users
 </Update>
 
-<Update label="September 15th, 2025" tags={["Added"]}>
+<Update label="September 15th, 2025" tags={["Added"]} rss={{ title: "👍 Agent feedback reactions in Slack" }}>
   ## 👍 Agent feedback reactions in Slack
 
   • Added thumbs up, thumbs down, and arrow down reaction buttons to agent replies in Slack • Users can now provide direct feedback on agent responses without leaving Slack • Feedback reactions are consistent with the web application experience
 </Update>
 
-<Update label="September 8th, 2025" tags={["Added"]}>
+<Update label="September 8th, 2025" tags={["Added"]} rss={{ title: "🔧 Retry policies for Dust-provided tools" }}>
   ## 🔧 Retry policies for Dust-provided tools
 
   • Dust-provided tools can now be configured with retry policies<br />• First available policy automatically retries tools if they are interrupted due to timeouts, deployments, or other issues<br />• Tool developers can flag each tool with specific retry policies<br />• Improves tool reliability and enables longer-running operations to resume after interruptions
 </Update>
 
-<Update label="September 5th, 2025" tags={["Added"]}>
+<Update label="September 5th, 2025" tags={["Added"]} rss={{ title: "👀 'Used by' columns for tools in Space admin" }}>
   ## 👀 'Used by' columns for tools in Space admin
 
   • Added 'Used by' columns to the Space admin tools list<br />• Admins can now instantly see which assistants are using which tools<br />• Consistent 'Used by' UI across all admin interfaces
 </Update>
 
-<Update label="September 4th, 2025" tags={["Added"]}>
+<Update label="September 4th, 2025" tags={["Added"]} rss={{ title: "💬 Unread message indicators for conversations" }}>
   ## 💬 Unread message indicators for conversations
 
   • Conversations now display clear indicators when you have unread messages<br />• Makes it easier to track new activity across ongoing conversations<br />• Helps prioritize which conversations need attention
 </Update>
 
-<Update label="September 2nd, 2025" tags={["Improved"]}>
+<Update label="September 2nd, 2025" tags={["Improved"]} rss={{ title: "🤖 Complete redesign of agent creation interface" }}>
   ## 🤖 Complete redesign of agent creation interface
 
   • New simplified interface for building custom agents<br />• Improved tool selection dialog with better discoverability<br />• XML block formatting for structured instructions<br />• Redesigned data source selection experience<br />• More intuitive knowledge configuration<br />• Better accessibility for new builders while maintaining advanced capabilities for power users
 </Update>
 
-<Update label="September 1st, 2025" tags={["Added"]}>
+<Update label="September 1st, 2025" tags={["Added"]} rss={{ title: "⚡ Zapier integration now supports non-blocking requests" }}>
   ## ⚡ Zapier integration now supports non-blocking requests
 
   • Added 'blocking' parameter to Zapier integration<br />• Allows instant retrieval of conversation ID without waiting for agent response<br />• Enables separate polling for conversation results to avoid timeout issues
 </Update>
 
-<Update label="August 30th, 2025" tags={["Added"]}>
+<Update label="August 30th, 2025" tags={["Added"]} rss={{ title: "🔄 Asana available as tool" }}>
   ## 🔄 Asana available as tool
 
   - Asana is now available in the tools selection menu (Spaces \> Tools \> Add Tools)
   - No manual configuration required to connect Asana workspace
 </Update>
 
-<Update label="August 26th, 2025" tags={["Added"]}>
+<Update label="August 26th, 2025" tags={["Added"]} rss={{ title: "🪐 Cross-space tool and datasource access for Agents" }}>
   ## 🪐 Cross-space tool and datasource access for Agents
 
   - Agents can now use tools and datasources from multiple spaces simultaneously
@@ -4629,7 +4658,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Unified access to all available resources across spaces
 </Update>
 
-<Update label="August 25th, 2025" tags={["Added"]}>
+<Update label="August 25th, 2025" tags={["Added"]} rss={{ title: "⚡️ Long-Running Durable Agents" }}>
   ## ⚡️ Long-Running Durable Agents
 
   - Improved time limitations on agent execution duration
@@ -4639,21 +4668,21 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Added capability for granular message retry from point of failure in backend
 </Update>
 
-<Update label="August 22nd, 2025" tags={["Added"]}>
+<Update label="August 22nd, 2025" tags={["Added"]} rss={{ title: "🔍 Channel selection for Slack tool" }}>
   ## 🔍 Channel selection for Slack tool
 
   - Added ability to select specific Slack channels when configuring the Slack tool in agents
   - Enables targeted channel access for both keyword and semantic search scenarios
 </Update>
 
-<Update label="August 14th, 2025" tags={["Improved"]}>
+<Update label="August 14th, 2025" tags={["Improved"]} rss={{ title: "🔧 Multiple workspace selection in Agent Builder" }}>
   ## 🔧 Multiple workspace selection in Agent Builder
 
   - Expanded tool and knowledge selection to support both company workspace and one additional workspace when configuring agents
   - Previously limited to a single workspace selection
 </Update>
 
-<Update label="August 13th, 2025" tags={["Added"]}>
+<Update label="August 13th, 2025" tags={["Added"]} rss={{ title: "✈️ Seamless cross-region workspace switching" }}>
   ## ✈️ Seamless cross-region workspace switching
 
   - Added ability to switch between US and EU workspaces directly from the user menu
@@ -4661,21 +4690,21 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Unified login system between dust.tt and eu.dust.tt domains
 </Update>
 
-<Update label="August 12th, 2025" tags={["Improved"]}>
+<Update label="August 12th, 2025" tags={["Improved"]} rss={{ title: "🌐 Enhanced Web Search & Browse with HTML and Screenshot Support" }}>
   ## 🌐 Enhanced Web Search & Browse with HTML and Screenshot Support
 
   - Added ability to retrieve complete HTML source code of web pages
   - Added support for capturing viewport and full-page screenshots
 </Update>
 
-<Update label="August 11th, 2025" tags={["Added"]}>
+<Update label="August 11th, 2025" tags={["Added"]} rss={{ title: "🛠️ Tools Now Available in Conversations" }}>
   ## 🛠️ Tools Now Available in Conversations
 
   - Added the ability to use tools directly within conversations
   - Access the full suite of tools without creating an agent
 </Update>
 
-<Update label="August 11th, 2025" tags={["Added"]}>
+<Update label="August 11th, 2025" tags={["Added"]} rss={{ title: "🤖 Added GPT-5 model support" }}>
   ## 🤖 Added GPT-5 model support
 
   - Added OpenAI's latest GPT-5 model
@@ -4683,21 +4712,21 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Includes dedicated global agent with medium reasoning settings
 </Update>
 
-<Update label="August 7th, 2025" tags={["Added"]}>
+<Update label="August 7th, 2025" tags={["Added"]} rss={{ title: "🔗 Personal Notion integration support" }}>
   ## 🔗 Personal Notion integration support
 
   - Added ability to connect personal Notion accounts to the Notion integration
   - Enable individual user authentication when the tool is configured as 'Personal'
 </Update>
 
-<Update label="August 7th, 2025" tags={["Added"]}>
+<Update label="August 7th, 2025" tags={["Added"]} rss={{ title: "📂 Added support for Confluence folder content synchronization" }}>
   ## 📂 Added support for Confluence folder content synchronization
 
   - Content stored within Confluence folders is now synchronized and indexed
   - All folder content is searchable and retrievable alongside other Confluence content
 </Update>
 
-<Update label="August 1st, 2025" tags={["Added"]}>
+<Update label="August 1st, 2025" tags={["Added"]} rss={{ title: "🎛️ Filter Zendesk ticket syncing with tags" }}>
   ## 🎛️ Filter Zendesk ticket syncing with tags
 
   - Added ticket tag filtering to control which Zendesk tickets sync to Dust
@@ -4706,21 +4735,21 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Filters apply to new tickets only
 </Update>
 
-<Update label="August 1st, 2025" tags={["Added"]}>
+<Update label="August 1st, 2025" tags={["Added"]} rss={{ title: "🔄 Support for duplicate MCP server URLs" }}>
   ## 🔄 Support for duplicate MCP server URLs
 
   - Multiple remote MCP servers can now be configured with identical URLs
   - Enables more flexible server configurations
 </Update>
 
-<Update label="August 1st, 2025" tags={["Added"]}>
+<Update label="August 1st, 2025" tags={["Added"]} rss={{ title: "🎛️ Selective MCP Tool Enablement" }}>
   ## 🎛️ Selective MCP Tool Enablement
 
   - Individual tools from MCP servers can now be enabled/disabled when configuring a remote MCP server
   - Granular control over which tools are available to agents
 </Update>
 
-<Update label="July 30th, 2025" tags={["Added"]}>
+<Update label="July 30th, 2025" tags={["Added"]} rss={{ title: "🗓️ New Outlook Calendar integration" }}>
   ## 🗓️ New Outlook Calendar integration
 
   - List and manage calendar events directly from Dust
@@ -4728,7 +4757,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Send event invitations to other participants
 </Update>
 
-<Update label="July 30th, 2025" tags={["Added"]}>
+<Update label="July 30th, 2025" tags={["Added"]} rss={{ title: "📧 Connect and manage Outlook emails in Dust" }}>
   ## 📧 Connect and manage Outlook emails in Dust
 
   - Connect Outlook email accounts to Dust
@@ -4738,13 +4767,13 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Early access: Contact [support@dust.tt](mailto:support@dust.tt) for activation
 </Update>
 
-<Update label="July 29th, 2025" tags={["Added"]}>
+<Update label="July 29th, 2025" tags={["Added"]} rss={{ title: "🗄️ Improved table storage infrastructure" }}>
   ## 🗄️ Improved table storage infrastructure
 
   • Migrated table data storage from SQL to individual GCS files<br />• Significantly improved data upsert performance<br />• Reduced storage footprint by over 80%
 </Update>
 
-<Update label="July 29th, 2025" tags={["Added"]}>
+<Update label="July 29th, 2025" tags={["Added"]} rss={{ title: "🔐 Personal authentication mode for HubSpot integration" }}>
   ## 🔐 Personal authentication mode for HubSpot integration
 
   - Added personal connection mode to HubSpot integration
@@ -4752,7 +4781,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Scope of accessible objects is tied to individual user accounts
 </Update>
 
-<Update label="July 25th, 2025" tags={["Added"]}>
+<Update label="July 25th, 2025" tags={["Added"]} rss={{ title: "🧠 Agent Memory - Store and recall information across conversations" }}>
   ## 🧠 Agent Memory - Store and recall information across conversations
 
   - New memory capabilities for agents to store and recall information
@@ -4760,14 +4789,14 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Can be added to any agent without configuration
 </Update>
 
-<Update label="July 21st, 2025" tags={["Removed"]}>
+<Update label="July 21st, 2025" tags={["Removed"]} rss={{ title: "🔒 Standardized agent step limit to 128" }}>
   ## 🔒 Standardized agent step limit to 128
 
   - Removed configurable step limit for agents (previously 1-24 steps)
   - All agents now have a fixed limit of 128 steps
 </Update>
 
-<Update label="July 18th, 2025" tags={["Improved"]}>
+<Update label="July 18th, 2025" tags={["Improved"]} rss={{ title: "🎨 Enhanced error message visualization" }}>
   ## 🎨 Enhanced error message visualization
 
   - Redesigned error display with improved visual hierarchy
@@ -4775,14 +4804,14 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Implemented expanded message layout for better readability
 </Update>
 
-<Update label="July 17th, 2025" tags={["Added"]}>
+<Update label="July 17th, 2025" tags={["Added"]} rss={{ title: "🤖 New Kimi K2 Instruct model available" }}>
   ## 🤖 New Kimi K2 Instruct model available
 
   - Added Kimi K2 Instruct model from Fireworks AI
   - Available for selection in the agent builder
 </Update>
 
-<Update label="July 11th, 2025" tags={["Added"]}>
+<Update label="July 11th, 2025" tags={["Added"]} rss={{ title: "📧 Gmail Tool now reads and replies to email threads" }}>
   ## 📧 Gmail Tool now reads and replies to email threads
 
   - Added ability to read email message content directly within the tool
@@ -4790,21 +4819,21 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Integrated thread context handling for easier email management
 </Update>
 
-<Update label="July 10th, 2025" tags={["Added"]}>
+<Update label="July 10th, 2025" tags={["Added"]} rss={{ title: "📄 Self-serve PDF scanning controls and workspace storage limits" }}>
   ## 📄 Self-serve PDF scanning controls and workspace storage limits
 
   - Added storage quota indicators showing when workspace document limits are reached
   - Introduced self-serve PDF scanning toggle in Google Drive and Microsoft connectors settings
 </Update>
 
-<Update label="July 9th, 2025" tags={["Added"]}>
+<Update label="July 9th, 2025" tags={["Added"]} rss={{ title: "💳 SEPA Direct Debit Support" }}>
   ## 💳 SEPA Direct Debit Support
 
   - Added SEPA direct debit as a payment method
   - Available for organizations based in France and the United Kingdom
 </Update>
 
-<Update label="July 8th, 2025" tags={["Added"]}>
+<Update label="July 8th, 2025" tags={["Added"]} rss={{ title: "📊 Google Sheets integration with read and write capabilities" }}>
   ## 📊 Google Sheets integration with read and write capabilities
 
   - Read data from Google Sheets directly in workflows
@@ -4812,7 +4841,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Direct integration with spreadsheet data
 </Update>
 
-<Update label="July 7th, 2025" tags={["Improved"]}>
+<Update label="July 7th, 2025" tags={["Improved"]} rss={{ title: "🔄 Enhanced HubSpot integration capabilities" }}>
   ## 🔄 Enhanced HubSpot integration capabilities
 
   - Increased API results limit from 50 to 200 records
@@ -4823,7 +4852,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Added association management features
 </Update>
 
-<Update label="July 7th, 2025" tags={["Added"]}>
+<Update label="July 7th, 2025" tags={["Added"]} rss={{ title: "🔧 Linear Integration Available as a Tool" }}>
   ## 🔧 Linear Integration Available as a Tool
 
   - Linear tool integration now available for configuration in all workspaces
@@ -4831,7 +4860,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Supports automated project management workflows
 </Update>
 
-<Update label="July 7th, 2025" tags={["Added"]}>
+<Update label="July 7th, 2025" tags={["Added"]} rss={{ title: "🧠 New Reasoning Effort Controls for Language Models" }}>
   ## 🧠 New Reasoning Effort Controls for Language Models
 
   - Introduced configurable reasoning effort levels for language models in the agent builder
@@ -4839,14 +4868,14 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Implemented 'light' and 'none' reasoning options for Claude and Gemini 2.5 pro models (light is default)
 </Update>
 
-<Update label="July 3rd, 2025" tags={["Added"]}>
+<Update label="July 3rd, 2025" tags={["Added"]} rss={{ title: "✈️ Import Front Conversations Feature" }}>
   ## ✈️ Import Front Conversations Feature
 
   - New open-source script available to import Front conversations into Dust
   - Conversations can be used as a data source for Dust workflows
 </Update>
 
-<Update label="July 3rd, 2025" tags={["Improved"]}>
+<Update label="July 3rd, 2025" tags={["Improved"]} rss={{ title: "🧠 Enhanced OpenAI Model Reasoning" }}>
   ## 🧠 Enhanced OpenAI Model Reasoning
 
   - Added native reasoning capabilities for OpenAI o-series models
@@ -4854,7 +4883,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Added visibility into model's thought process through summary display
 </Update>
 
-<Update label="July 3rd, 2025" tags={["Added"]}>
+<Update label="July 3rd, 2025" tags={["Added"]} rss={{ title: "💳 Stripe integration now available as a tool" }}>
   ## 💳 Stripe integration now available as a tool
 
   - Added official Stripe integration as a configurable tool
@@ -4862,7 +4891,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Available as a standard tool for all workspaces
 </Update>
 
-<Update label="July 2nd, 2025" tags={["Added"]}>
+<Update label="July 2nd, 2025" tags={["Added"]} rss={{ title: "🔍 New Slack Tool: Search and Post Messages" }}>
   ## 🔍 New Slack Tool: Search and Post Messages
 
   - Search messages across Slack channels directly from Dust
@@ -4870,7 +4899,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Interact with Slack workspace content
 </Update>
 
-<Update label="July 2nd, 2025" tags={["Added"]}>
+<Update label="July 2nd, 2025" tags={["Added"]} rss={{ title: "🔄 SCIM User and Group Provisioning Support" }}>
   ## 🔄 SCIM User and Group Provisioning Support
 
   - Enable user provisioning through SCIM-compatible identity providers
@@ -4878,7 +4907,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Automate user access management across spaces
 </Update>
 
-<Update label="June 30th, 2025" tags={["Added"]}>
+<Update label="June 30th, 2025" tags={["Added"]} rss={{ title: "🤖 Non-Interactive Chat Support in CLI" }}>
   ## 🤖 Non-Interactive Chat Support in CLI
 
   - Added new CLI flags for non-interactive chat mode:
@@ -4887,7 +4916,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
     - `--conversationId` (`-c`) to continue existing conversations
 </Update>
 
-<Update label="June 27th, 2025" tags={["Added"]}>
+<Update label="June 27th, 2025" tags={["Added"]} rss={{ title: "🔌 New Salesforce Integration" }}>
   ## 🔌 New Salesforce Integration
 
   - Query Salesforce data directly from the platform
@@ -4895,7 +4924,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Support for individual user authentication
 </Update>
 
-<Update label="June 25th, 2025" tags={["Improved"]}>
+<Update label="June 25th, 2025" tags={["Improved"]} rss={{ title: "🔌 Gmail & Google Calendar tools now available with simple authentication" }}>
   ## 🔌 Gmail & Google Calendar tools now available with simple authentication
 
   - Gmail and Google Calendar tools can now be used with standard Google account login
@@ -4903,7 +4932,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Direct connection through Google account authentication
 </Update>
 
-<Update label="June 24th, 2025" tags={["Improved"]}>
+<Update label="June 24th, 2025" tags={["Improved"]} rss={{ title: "🔄 Authentication System Upgrade" }}>
   ## 🔄 Authentication System Upgrade
 
   - Transitioned to a new authentication platform
@@ -4911,38 +4940,38 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Maintained backward compatibility for existing enterprise SSO users
 </Update>
 
-<Update label="June 24th, 2025" tags={["Added"]}>
+<Update label="June 24th, 2025" tags={["Added"]} rss={{ title: "🛠️ Enhanced CLI with new flags, commands and caching" }}>
   ## 🛠️ Enhanced CLI with new flags, commands and caching
 
   • Added `--agent` flag for specifying agent name at launch<br />• New `/attach` and `/clear-files` commands for native file management<br />• Implemented caching system for faster CLI startup<br />• Added `dust cache:clear` command for cache management
 </Update>
 
-<Update label="June 24th, 2025" tags={["Added"]}>
+<Update label="June 24th, 2025" tags={["Added"]} rss={{ title: "🔍 Improved BigQuery views support" }}>
   ## 🔍 Improved BigQuery views support
 
   • Automatic handling of access to underlying tables when a view is selected<br />• Support for authorized views
 </Update>
 
-<Update label="June 24th, 2025" tags={["Added"]}>
+<Update label="June 24th, 2025" tags={["Added"]} rss={{ title: "🕷️ Enhanced Web Crawler with Advanced Features" }}>
   ## 🕷️ Enhanced Web Crawler with Advanced Features
 
   • Added support for client-side rendered pages and JavaScript execution<br />• Integrated PDF and Google Docs parsing capabilities<br />• Improved content extraction from modern websites<br />• Implemented residential proxy rotation for better reliability
 </Update>
 
-<Update label="June 20th, 2025" tags={["Added"]}>
+<Update label="June 20th, 2025" tags={["Added"]} rss={{ title: "🔍 Notion Page Visibility Checker" }}>
   ## 🔍 Notion Page Visibility Checker
 
   - Added a diagnostic tool to verify Notion page visibility and indexing status
   - Enables checking whether specific Notion pages are accessible and indexed
 </Update>
 
-<Update label="June 19th, 2025" tags={["Added"]}>
+<Update label="June 19th, 2025" tags={["Added"]} rss={{ title: "🔑 Support for Snowflake key pair authentication" }}>
   ## 🔑 Support for Snowflake key pair authentication
 
   • Added support for key pair authentication in the Snowflake connector<br />• Alternative to password-based authentication
 </Update>
 
-<Update label="June 18th, 2025" tags={["Added"]}>
+<Update label="June 18th, 2025" tags={["Added"]} rss={{ title: "🔍 Search for documents by URL" }}>
   ## 🔍 Search for documents by URL
 
   - Added URL-based search functionality in Knowledge base and Assistant Builder
@@ -4950,14 +4979,14 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Automatically detect and retrieve matching documents from sources
 </Update>
 
-<Update label="June 16th, 2025" tags={["Added"]}>
+<Update label="June 16th, 2025" tags={["Added"]} rss={{ title: "🔄 New script for importing Planhat data" }}>
   ## 🔄 New script for importing Planhat data
 
   - Added script to import data from Planhat into Dust
   - Available in dust-labs repository: [https://github.com/dust-tt/dust-labs/tree/main/planhat](https://github.com/dust-tt/dust-labs/tree/main/planhat)
 </Update>
 
-<Update label="June 16th, 2025" tags={["Improved"]}>
+<Update label="June 16th, 2025" tags={["Improved"]} rss={{ title: "🔄 Enhanced Zendesk App with Extended Response Time" }}>
   ## 🔄 Enhanced Zendesk App with Extended Response Time
 
   - Increased maximum wait time for agent responses to 3 minutes
@@ -4965,7 +4994,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Refreshed UI design to align with Dust's visual identity
 </Update>
 
-<Update label="June 11th, 2025" tags={["Added"]}>
+<Update label="June 11th, 2025" tags={["Added"]} rss={{ title: "🤖 New Run Agent Tool" }}>
   ## 🤖 New Run Agent Tool
 
   - Added ability to execute agents as tools within other agents
@@ -4973,34 +5002,34 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - New tool enables modular agent capabilities and longer execution chains
 </Update>
 
-<Update label="June 11th, 2025" tags={["Added"]}>
+<Update label="June 11th, 2025" tags={["Added"]} rss={{ title: "🔐 Added OAuth credential options for remote MCP servers" }}>
   ## 🔐 Added OAuth credential options for remote MCP servers
 
   - Added support for both workspace-level and personal credentials when authenticating to remote MCP servers
   - Administrators can now choose between shared workspace credentials or individual user credentials for OAuth authentication
 </Update>
 
-<Update label="June 11th, 2025" tags={["Added"]}>
+<Update label="June 11th, 2025" tags={["Added"]} rss={{ title: "🔐 Flexible authentication options for Salesforce integration" }}>
   ## 🔐 Flexible authentication options for Salesforce integration
 
   - Added support for both workspace-level and personal Salesforce credentials
   - Users can now authenticate using either shared workspace credentials or individual accounts
 </Update>
 
-<Update label="June 10th, 2025" tags={["Added"]}>
+<Update label="June 10th, 2025" tags={["Added"]} rss={{ title: "🔄 Salesforce SOQL Query Sync Support" }}>
   ## 🔄 Salesforce SOQL Query Sync Support
 
   • Added ability to sync custom SOQL queries as data source documents<br />• Documents from SOQL queries are now available through the Search tool
 </Update>
 
-<Update label="June 6th, 2025" tags={["Added"]}>
+<Update label="June 6th, 2025" tags={["Added"]} rss={{ title: "🔐 OAuth Authentication Support for Remote MCP Servers" }}>
   ## 🔐 OAuth Authentication Support for Remote MCP Servers
 
   - Added automatic OAuth authentication flow when connecting to remote MCP servers
   - Implemented support for the latest MCP protocol revision
 </Update>
 
-<Update label="June 4th, 2025" tags={["Added"]}>
+<Update label="June 4th, 2025" tags={["Added"]} rss={{ title: "📝 New Notion Agent Tool" }}>
   ## 📝 New Notion Agent Tool
 
   - New MCP-powered tool for agents to:
@@ -5009,7 +5038,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
     - Create and write new Notion content
 </Update>
 
-<Update label="June 4th, 2025" tags={["Added"]}>
+<Update label="June 4th, 2025" tags={["Added"]} rss={{ title: "📂 Dropbox Files Import Integration" }}>
   ## 📂 Dropbox Files Import Integration
 
   - New integration to import files directly from Dropbox into Dust
@@ -5017,7 +5046,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Supports importing Dropbox content as a data source
 </Update>
 
-<Update label="June 4th, 2025" tags={["Added"]}>
+<Update label="June 4th, 2025" tags={["Added"]} rss={{ title: "🔌 New Hubspot Integration Tool" }}>
   ## 🔌 New Hubspot Integration Tool
 
   - Added Hubspot CRM tool for agents
@@ -5025,7 +5054,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Supports interactions with contacts, deals, and other Hubspot objects
 </Update>
 
-<Update label="June 2nd, 2025" tags={["Added"]}>
+<Update label="June 2nd, 2025" tags={["Added"]} rss={{ title: "🤖 New xAI Grok Models Available" }}>
   ## 🤖 New xAI Grok Models Available
 
   - Added Grok 3 model to the agent builder
@@ -5033,14 +5062,14 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - To use these models, make sure the xAI provider is enabled in your Workspace Settings.
 </Update>
 
-<Update label="May 30th, 2025" tags={["Improved"]}>
+<Update label="May 30th, 2025" tags={["Improved"]} rss={{ title: "📊 Enhanced Google Sheets data selection capabilities" }}>
   ## 📊 Enhanced Google Sheets data selection capabilities
 
   - Added support for multiple-column selection in Google Sheets
   - Included column headers in data context for more accurate responses
 </Update>
 
-<Update label="May 27th, 2025" tags={["Added"]}>
+<Update label="May 27th, 2025" tags={["Added"]} rss={{ title: "🔐 Personal Tools Support" }}>
   ## 🔐 Personal Tools Support
 
   - New support for tools requiring personal authentication
@@ -5050,7 +5079,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - User authentication happens on first tool execution
 </Update>
 
-<Update label="May 26th, 2025" tags={["Improved"]}>
+<Update label="May 26th, 2025" tags={["Improved"]} rss={{ title: "🚀 System-wide performance optimizations" }}>
   ## 🚀 System-wide performance optimizations
 
   - Optimized expensive database queries
@@ -5058,14 +5087,14 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Resolved streaming chunk errors caused by resource constraints
 </Update>
 
-<Update label="May 24th, 2025" tags={["Improved"]}>
+<Update label="May 24th, 2025" tags={["Improved"]} rss={{ title: "🔌 Remote MCP Server Connection Enhancements" }}>
   ## 🔌 Remote MCP Server Connection Enhancements
 
   - Added support for StreamableHTTP transport protocol
   - Added ability to set bearer token when adding a remote MCP server
 </Update>
 
-<Update label="May 15th, 2025" tags={["Added"]}>
+<Update label="May 15th, 2025" tags={["Added"]} rss={{ title: "🏷️ Improved Assistant Discovery and Organization" }}>
   ## 🏷️ Improved Assistant Discovery and Organization
 
   - Added tags and categories for assistants
@@ -5074,7 +5103,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Added assistant routing capabilities
 </Update>
 
-<Update label="May 15th, 2025" tags={["Added"]}>
+<Update label="May 15th, 2025" tags={["Added"]} rss={{ title: "🛠️ New GitHub Tools" }}>
   ## 🛠️ New GitHub Tools
 
   Agents can now:
@@ -5084,7 +5113,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Generate code reviews
 </Update>
 
-<Update label="May 15th, 2025" tags={["Improved"]}>
+<Update label="May 15th, 2025" tags={["Improved"]} rss={{ title: "🔄 Simplified Assistant Builder Interface" }}>
   ## 🔄 Simplified Assistant Builder Interface
 
   - Merged Tools & Capabilities sections into a cleaner interface
@@ -5092,7 +5121,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Implemented search functionality for tools
 </Update>
 
-<Update label="May 14th, 2025" tags={["Added"]}>
+<Update label="May 14th, 2025" tags={["Added"]} rss={{ title: "🎉 MCP Support Now Available for All Workspaces" }}>
   ## 🎉 MCP Support Now Available for All Workspaces
 
   - Remote MCP server connections available
@@ -5101,7 +5130,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Feature available in all regions
 </Update>
 
-<Update label="May 12th, 2025" tags={["Added"]}>
+<Update label="May 12th, 2025" tags={["Added"]} rss={{ title: "🖥️ Chat with Dust Agents via CLI" }}>
   ## 🖥️ Chat with Dust Agents via CLI
 
   - New CLI tool to interact with Dust agents from the terminal
@@ -5109,31 +5138,31 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Start chatting by running the `dust` command
 </Update>
 
-<Update label="May 2nd, 2025" tags={["Added"]}>
+<Update label="May 2nd, 2025" tags={["Added"]} rss={{ title: "📊 BigQuery table descriptions available to Agents" }}>
   ## 📊 BigQuery table descriptions available to Agents
 
   • Table and column descriptions from BigQuery schemas are now accessible to Agents<br />• Can be enabled in BigQuery connection settings
 </Update>
 
-<Update label="April 30th, 2025" tags={["Added"]}>
+<Update label="April 30th, 2025" tags={["Added"]} rss={{ title: "🤖 Smarter Agent Recommendations" }}>
   ## 🤖 Smarter Agent Recommendations
 
   • Added automatic agent suggestions when posting messages without @mentions<br />• Suggestions are based on message content and agent capabilities
 </Update>
 
-<Update label="April 24th, 2025" tags={["Added"]}>
+<Update label="April 24th, 2025" tags={["Added"]} rss={{ title: "🎨 GPT Image Model Integration for Enhanced Image Generation" }}>
   ## 🎨 GPT Image Model Integration for Enhanced Image Generation
 
   • Added gpt-image-1 model for image generation in agents<br />• Available through 'Image Generation' capability in agent builder<br />• Includes tiered usage limits per workspace
 </Update>
 
-<Update label="April 23rd, 2025" tags={["Improved"]}>
+<Update label="April 23rd, 2025" tags={["Improved"]} rss={{ title: "🔄 Enhanced Extract Data Tool Capabilities" }}>
   ## 🔄 Enhanced Extract Data Tool Capabilities
 
   • Added dynamic timeframe support for data extraction<br />• Introduced dynamic schema support<br />• Implemented JSON schema formatting<br />• Added ability to store extraction results in downloadable files<br />• Enabled direct extraction from files shared in conversations
 </Update>
 
-<Update label="April 17th, 2025" tags={["Added"]}>
+<Update label="April 17th, 2025" tags={["Added"]} rss={{ title: "🛠️ Preview: New Tools and External MCP Server Support in Agents" }}>
   ## 🛠️ Preview: New Tools and External MCP Server Support in Agents
 
   - We're adding new tools: image generation, file conversion, improved web browsing, GitHub issues and pull request, etc...
@@ -5143,59 +5172,59 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   [Contact us](mailto:support@dust.tt) if you'd like early access to the preview!
 </Update>
 
-<Update label="April 17th, 2025" tags={["Added"]}>
+<Update label="April 17th, 2025" tags={["Added"]} rss={{ title: "🤖 New OpenAI o4-mini Model Available" }}>
   ## 🤖 New OpenAI o4-mini Model Available
 
   • Added o4-mini model<br />• Added o4-mini (High Reasoning) model<br />• Both models can now be used in the agent builder
 </Update>
 
-<Update label="April 16th, 2025" tags={["Added"]}>
+<Update label="April 16th, 2025" tags={["Added"]} rss={{ title: "🤖 GPT-4.1 Model Now Available" }}>
   ## 🤖 GPT-4.1 Model Now Available
 
   - New GPT-4.1 model is now accessible across all agents
   - Default @gpt4 agent has been upgraded to use GPT-4.1
 </Update>
 
-<Update label="April 15th, 2025" tags={["Added"]}>
+<Update label="April 15th, 2025" tags={["Added"]} rss={{ title: "🔧 Structured JSON Output Support for OpenAI Models" }}>
   ## 🔧 Structured JSON Output Support for OpenAI Models
 
   • Added ability to enforce JSON-schema formatted responses from OpenAI models<br />• Available in both agent configurations (via advanced builder settings) and app chat blocks<br />• Ensures consistent output formatting for reliable downstream processing
 </Update>
 
-<Update label="April 11th, 2025" tags={["Added"]}>
+<Update label="April 11th, 2025" tags={["Added"]} rss={{ title: "🔌 Personal connections support for Salesforce connector" }}>
   ## 🔌 Personal connections support for Salesforce connector
 
   - Added the ability to use personal Salesforce credentials instead of a shared service account when connecting to Salesforce
   - Users can now access data based on their individual Salesforce permissions
 </Update>
 
-<Update label="April 8th, 2025" tags={["Added"]}>
+<Update label="April 8th, 2025" tags={["Added"]} rss={{ title: "🧪 Import Linear Issues Feature" }}>
   ## 🧪 Import Linear Issues Feature
 
   • New script to import issues from Linear into Dust<br />• Available in dust-labs repository
 </Update>
 
-<Update label="April 8th, 2025" tags={["Improved"]}>
+<Update label="April 8th, 2025" tags={["Improved"]} rss={{ title: "🔗 Smoother account linking experience" }}>
   ## 🔗 Smoother account linking experience
 
   • Added a new notice screen explaining the account merge process when signing in with different authentication methods<br />• Automatic redirection to merge flow when duplicate email accounts are detected<br />• Accounts are now consolidated based on the oldest identity
 </Update>
 
-<Update label="April 8th, 2025" tags={["Added"]}>
+<Update label="April 8th, 2025" tags={["Added"]} rss={{ title: "🤖 Gemini 2.5 Pro available in Custom Agents" }}>
   ## 🤖 Gemini 2.5 Pro available in Custom Agents
 
   - Added Gemini 2.5 Pro as a model option for Custom Agents
   - Can be selected from the model dropdown menu
 </Update>
 
-<Update label="April 4th, 2025" tags={["Added"]}>
+<Update label="April 4th, 2025" tags={["Added"]} rss={{ title: "🌗 Chrome extension now supports Dark mode" }}>
   ## 🌗 Chrome extension now supports Dark mode
 
   - Added Dark mode support to the Chrome extension
   - Refreshed extension design to match current website styling
 </Update>
 
-<Update label="April 3rd, 2025" tags={["Added"]}>
+<Update label="April 3rd, 2025" tags={["Added"]} rss={{ title: "🖥️ New Dust CLI Tool" }}>
   ## 🖥️ New Dust CLI Tool
 
   - Introduced a Command Line Interface (CLI) tool for Dust
@@ -5204,7 +5233,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Install via npm: `@dust-tt/dust-cli`
 </Update>
 
-<Update label="April 2nd, 2025" tags={["Added"]}>
+<Update label="April 2nd, 2025" tags={["Added"]} rss={{ title: "📎 Attach Knowledge Items Directly in Input Bar" }}>
   ## 📎 Attach Knowledge Items Directly in Input Bar
 
   • Added ability to search and attach documents, tables, and folders from Knowledge directly in the input bar<br />• Added support for pasting document URLs in the input bar to attach them
@@ -5212,13 +5241,13 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   [▶️ Attach datasources to your conversations dynamically](https://www.youtube.com/watch?v=ZCtwc-j7i90)
 </Update>
 
-<Update label="April 2nd, 2025" tags={["Added"]}>
+<Update label="April 2nd, 2025" tags={["Added"]} rss={{ title: "🔑 Service Principal authentication for Microsoft connector" }}>
   ## 🔑 Service Principal authentication for Microsoft connector
 
   • Added Service Principal (service account) authentication method as an alternative to OAuth<br />• Enables automated, non-interactive authentication with Microsoft services
 </Update>
 
-<Update label="March 7th, 2025" tags={["Improved"]}>
+<Update label="March 7th, 2025" tags={["Improved"]} rss={{ title: "🔍 Smarter label filtering with dynamic search" }}>
   ## 🔍 Smarter label filtering with dynamic search
 
   - Added dynamic label search capability before filtering
@@ -5230,7 +5259,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   [▶️ Introducing labels as a filter for data sources](https://www.youtube.com/watch?v=QwHyMpVJva4)
 </Update>
 
-<Update label="March 6th, 2025" tags={["Added"]}>
+<Update label="March 6th, 2025" tags={["Added"]} rss={{ title: "🔌 Native Gong Integration Released" }}>
   ## 🔌 Native Gong Integration Released
 
   - Direct connection to sync Gong call transcripts
@@ -5241,14 +5270,14 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   [Read more](/docs/user-documentation/admins/connections-management/gong)
 </Update>
 
-<Update label="March 4th, 2025" tags={["Added"]}>
+<Update label="March 4th, 2025" tags={["Added"]} rss={{ title: "🔍 Added keyword search in Builder and Knowledge" }}>
   ## 🔍 Added keyword search in Builder and Knowledge
 
   - Search and add documents by keywords when configuring data sources in Assistant Builder
   - Search functionality added for documents in Knowledge management
 </Update>
 
-<Update label="February 28th, 2025" tags={["Improved"]}>
+<Update label="February 28th, 2025" tags={["Improved"]} rss={{ title: "🎯 Solutions Pages Revamp with Enhanced Use Cases" }}>
   ## 🎯 Solutions Pages Revamp with Enhanced Use Cases
 
   - Added solutions pages featuring 10 core functions
@@ -5258,14 +5287,14 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Added customer success stories for real-world applications
 </Update>
 
-<Update label="February 28th, 2025" tags={["Improved"]}>
+<Update label="February 28th, 2025" tags={["Improved"]} rss={{ title: "✨ Enhanced markdown support in chat" }}>
   ## ✨ Enhanced markdown support in chat
 
   - Added proper markdown handling in the chat input bar
   - Pasted formatted text now maintains its original formatting
 </Update>
 
-<Update label="February 26th, 2025" tags={["Added"]}>
+<Update label="February 26th, 2025" tags={["Added"]} rss={{ title: "🌙 Dark mode support" }}>
   ## 🌙 Dark mode support
 
   - Added dark mode theme option to Dust's interface
@@ -5273,14 +5302,14 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Respects system color scheme preferences
 </Update>
 
-<Update label="February 24th, 2025" tags={["Added"]}>
+<Update label="February 24th, 2025" tags={["Added"]} rss={{ title: "🤖 Claude 3.7 Sonnet Model Now Available" }}>
   ## 🤖 Claude 3.7 Sonnet Model Now Available
 
   - Added Claude 3.7 Sonnet to the list of available models in the assistant builder
   - Accessible when creating or editing assistants
 </Update>
 
-<Update label="February 24th, 2025" tags={["Added"]}>
+<Update label="February 24th, 2025" tags={["Added"]} rss={{ title: "🔄 Optional sync of unresolved Zendesk tickets" }}>
   ## 🔄 Optional sync of unresolved Zendesk tickets
 
   - Added ability to sync unresolved tickets (new, open, pending, on-hold) from Zendesk
@@ -5288,20 +5317,20 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Both resolved and unresolved tickets can now be synced based on configuration
 </Update>
 
-<Update label="February 19th, 2025" tags={["Added"]}>
+<Update label="February 19th, 2025" tags={["Added"]} rss={{ title: "🏷️ Enhanced data filtering with labels" }}>
   ## 🏷️ Enhanced data filtering with labels
 
   • Added label-based filtering capabilities to Search, Include, and Extract data source tools<br />• New documents in Connections now automatically capture labels
 </Update>
 
-<Update label="February 14th, 2025" tags={["Added"]}>
+<Update label="February 14th, 2025" tags={["Added"]} rss={{ title: "Notion management: Admins can force sync pages/dbs" }}>
   ## Notion management: Admins can force sync pages/dbs
 
   - In connection admin / notion, Admins can provide a list of URLs for databases or pages they want to sync immediately
   - Feature is available on demand only (feature flag)
 </Update>
 
-<Update label="February 14th, 2025" tags={["Added"]}>
+<Update label="February 14th, 2025" tags={["Added"]} rss={{ title: "🔌 BigQuery Connector Now Available" }}>
   ## 🔌 BigQuery Connector Now Available
 
   - Connect and query BigQuery datasets directly from Dust
@@ -5310,7 +5339,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   [Read more](/docs/user-documentation/admins/connections-management/bigquery)
 </Update>
 
-<Update label="February 14th, 2025" tags={["Improved"]}>
+<Update label="February 14th, 2025" tags={["Improved"]} rss={{ title: "🧩 Browser Extension Updates" }}>
   ## 🧩 Browser Extension Updates
 
   - Improved assistant autocomplete and search functionality
@@ -5319,7 +5348,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   [Read more](/docs/user-documentation/agents/integrations/browser-extension)
 </Update>
 
-<Update label="February 13th, 2025" tags={["Added"]}>
+<Update label="February 13th, 2025" tags={["Added"]} rss={{ title: "📊 Support for Excel file uploads in conversations" }}>
   ## 📊 Support for Excel file uploads in conversations
 
   - Added support for uploading .xls and .xlsx files directly in conversations
@@ -5327,7 +5356,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Converted sheets can be queried using table operations
 </Update>
 
-<Update label="February 11th, 2025" tags={["Added"]}>
+<Update label="February 11th, 2025" tags={["Added"]} rss={{ title: "🏢 New About Us page" }}>
   ## 🏢 New About Us page
 
   - Added a dedicated About Us page showcasing company information
@@ -5336,7 +5365,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Accessible at /home/about
 </Update>
 
-<Update label="February 11th, 2025" tags={["Added"]}>
+<Update label="February 11th, 2025" tags={["Added"]} rss={{ title: "🔌 Released Dust Node for n8n Integration" }}>
   ## 🔌 Released Dust Node for n8n Integration
 
   - New n8n community node available for installation
@@ -5345,7 +5374,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Documentation: [/docs/user-documentation/agents/integrations/n8n](/docs/user-documentation/agents/integrations/n8n)
 </Update>
 
-<Update label="February 7th, 2025" tags={["Added"]}>
+<Update label="February 7th, 2025" tags={["Added"]} rss={{ title: "🇪🇺 EU Data Hosting Option Available" }}>
   ## 🇪🇺 EU Data Hosting Option Available
 
   - New data hosting option in European servers
@@ -5354,7 +5383,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Language models accessed through provider APIs
 </Update>
 
-<Update label="February 6th, 2025" tags={["Added"]}>
+<Update label="February 6th, 2025" tags={["Added"]} rss={{ title: "🔌 BigQuery Connector Beta Release" }}>
   ## 🔌 BigQuery Connector Beta Release
 
   - New data connector for BigQuery databases
@@ -5363,13 +5392,13 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Provides similar functionality to the Snowflake connector
 </Update>
 
-<Update label="February 3rd, 2025" tags={["Added"]}>
+<Update label="February 3rd, 2025" tags={["Added"]} rss={{ title: "🤖 OpenAI O3-mini model now available" }}>
   ## 🤖 OpenAI O3-mini model now available
 
   • Added O3-mini model with two modes: normal and high-reasoning<br />• Available in the builder as main assistant and reasoning model<br />• New 'O3 Mini' global agent using O3-mini high-reasoning mode
 </Update>
 
-<Update label="January 29th, 2025" tags={["Added"]}>
+<Update label="January 29th, 2025" tags={["Added"]} rss={{ title: "🐳 New DeepSeek R1 Global Agent" }}>
   ## 🐳 New DeepSeek R1 Global Agent
 
   - Added DeepSeek R1 model as a global agent for direct interactions
@@ -5377,26 +5406,26 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Served through fireworks.ai, US based servers
 </Update>
 
-<Update label="January 29th, 2025" tags={["Added"]}>
+<Update label="January 29th, 2025" tags={["Added"]} rss={{ title: "🧠 New Reasoning Tool for Assistants" }}>
   ## 🧠 New Reasoning Tool for Assistants
 
   • Added a new tool for Assistants to invoke reasoning models (R1 or O1)<br />• Enables better handling of complex problems while maintaining fast responses for simpler queries<br />• Integrates with existing Assistant tools and instructions<br />• Supports both DeepSeek R and OpenAI O1 models
 </Update>
 
-<Update label="January 29th, 2025" tags={["Added"]}>
+<Update label="January 29th, 2025" tags={["Added"]} rss={{ title: "🏥 HIPAA Compliance Certification" }}>
   ## 🏥 HIPAA Compliance Certification
 
   • Dust is now HIPAA compliant<br />• Documentation can be found on the security page and on Dusts' trust center
 </Update>
 
-<Update label="January 28th, 2025" tags={["Added"]}>
+<Update label="January 28th, 2025" tags={["Added"]} rss={{ title: "👥 Batch member addition in Space settings" }}>
   ## 👥 Batch member addition in Space settings
 
   - Added a new feature to add multiple members to a Space at once
   - Support for adding up to 100 members simultaneously via email addresses
 </Update>
 
-<Update label="January 25th, 2025" tags={["Added"]}>
+<Update label="January 25th, 2025" tags={["Added"]} rss={{ title: "🔗 Slack bot now includes thread files in conversations" }}>
   ## 🔗 Slack bot now includes thread files in conversations
 
   - Files shared in Slack threads are now automatically included when invoking @dust or custom assistants
@@ -5406,52 +5435,52 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   ⚠️ **Existing workspaces must re-authorize the Slack connexion to enable this feature.**
 </Update>
 
-<Update label="January 24th, 2025" tags={["Added"]}>
+<Update label="January 24th, 2025" tags={["Added"]} rss={{ title: "🎙️ Added Modjo as a transcripts processing provider" }}>
   ## 🎙️ Added Modjo as a transcripts processing provider
 
   - Support for Modjo transcripts integration
   - Ability to sync personal transcripts or company-wide transcripts
 </Update>
 
-<Update label="January 24th, 2025" tags={["Added"]}>
+<Update label="January 24th, 2025" tags={["Added"]} rss={{ title: "🔍 OCR Support for uploaded PDF Files" }}>
   ## 🔍 OCR Support for uploaded PDF Files
 
   Automatically run OCR (Optical Character Recognition) on PDF files uploaded to conversations when text cannot be directly extracted, enabling text extraction from PDFs containing images of text
 </Update>
 
-<Update label="January 24th, 2025" tags={["Improved"]}>
+<Update label="January 24th, 2025" tags={["Improved"]} rss={{ title: "🧩 Browser Extension Updates" }}>
   ## 🧩 Browser Extension Updates
 
   • Added feedback functionality in conversations<br />• Added support for EU region<br />• Added URL blacklisting with path-level control<br />• Improved SSO workspace integration<br />• Refreshed various UI elements
 </Update>
 
-<Update label="January 23rd, 2025" tags={["Improved"]}>
+<Update label="January 23rd, 2025" tags={["Improved"]} rss={{ title: "🔒 Completed Annual Security Certification" }}>
   ## 🔒 Completed Annual Security Certification
 
   Successfully renewed security certifications and compliance requirements for platform infrastructure and data handling capabilities
 </Update>
 
-<Update label="January 21st, 2025" tags={["Added"]}>
+<Update label="January 21st, 2025" tags={["Added"]} rss={{ title: "📦 Extended File Format Support for Attachments" }}>
   ## 📦 Extended File Format Support for Attachments
 
   Added support for multiple new file formats:<br />• Programming languages: Python, C/C\+\+, C#, Java, PHP, Ruby, SQL, Swift, Rust, Go, Kotlin, Scala, Groovy, Perl<br />• Presentations: PowerPoint<br />• Configuration: YAML
 </Update>
 
-<Update label="January 17th, 2025" tags={["Improved"]}>
+<Update label="January 17th, 2025" tags={["Improved"]} rss={{ title: "📂 More granular file selection in assistant tools" }}>
   ## 📂 More granular file selection in assistant tools
 
   - Added ability to select individual files from a folder when configuring assistant tools (search, include, etc.)
   - No longer required to select an entire folder when using folder content in tools
 </Update>
 
-<Update label="January 17th, 2025" tags={["Improved"]}>
+<Update label="January 17th, 2025" tags={["Improved"]} rss={{ title: "🔄 Increased default and maximum steps for assistant runs" }}>
   ## 🔄 Increased default and maximum steps for assistant runs
 
   - Default number of steps per assistant run increased from 3 to 8
   - Maximum allowed steps increased from 8 to 12
 </Update>
 
-<Update label="January 16th, 2025" tags={["Improved"]}>
+<Update label="January 16th, 2025" tags={["Improved"]} rss={{ title: "📱 Improved conversation layout responsiveness" }}>
   ## 📱 Improved conversation layout responsiveness
 
   - Messages now adapt their width based on content length
@@ -5459,14 +5488,14 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Optimized layout for both mobile and desktop views
 </Update>
 
-<Update label="January 14th, 2025" tags={["Improved"]}>
+<Update label="January 14th, 2025" tags={["Improved"]} rss={{ title: "🔒 Reduced Google Meet permissions scope" }}>
   ## 🔒 Reduced Google Meet permissions scope
 
   - Now using a more restrictive permission scope (`drive.meet.readonly`) to access Google Meet transcripts
   - Dust only requests access to Google Meet-generated files instead of all Google Drive files
 </Update>
 
-<Update label="January 9th, 2025" tags={["Added"]}>
+<Update label="January 9th, 2025" tags={["Added"]} rss={{ title: "👍 Assistant feedback system launch" }}>
   ## 👍 Assistant feedback system launch
 
   - Added feedback functionality for custom assistant responses
@@ -5479,19 +5508,19 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   [▶️ Agents Feedback loop](https://www.youtube.com/watch?v=KYihEH1Z-bQ)
 </Update>
 
-<Update label="January 8th, 2025" tags={["Added"]}>
+<Update label="January 8th, 2025" tags={["Added"]} rss={{ title: "⏱️ Conversations now sorted by last activity" }}>
   ## ⏱️ Conversations now sorted by last activity
 
   Conversations are now automatically sorted by most recent activity:<br />• When posting a message in a conversation, it moves to the top of the list<br />• Most recently used conversations appear first
 </Update>
 
-<Update label="January 6th, 2025" tags={["Added"]}>
+<Update label="January 6th, 2025" tags={["Added"]} rss={{ title: "🤖 DeepSeek V3 Model Now Available" }}>
   ## 🤖 DeepSeek V3 Model Now Available
 
   • Added DeepSeek V3, a new large language model, to the platform<br />• Model can be used in Dust Apps, as a global agent, and in custom assistants<br />• Known for high performance on benchmarks, fast response times, and efficient processing<br />• Enabling DeepSeek on a Workspace requires reaching out to Dust
 </Update>
 
-<Update label="December 30th, 2024" tags={["Added"]}>
+<Update label="December 30th, 2024" tags={["Added"]} rss={{ title: "🚫 New option to skip storage of Dust app execution logs" }}>
   ## 🚫 New option to skip storage of Dust app execution logs
 
   - Added ability to disable storage of execution logs for custom Dust apps
@@ -5499,13 +5528,13 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Only affects custom Dust apps (conversation agents are not impacted)
 </Update>
 
-<Update label="December 19th, 2024" tags={["Added"]}>
+<Update label="December 19th, 2024" tags={["Added"]} rss={{ title: "⚡️ Faster conversation page loading" }}>
   ## ⚡️ Faster conversation page loading
 
   • Improved assistant loading time for quicker auto-complete availability<br />• Simplified input bar animation for smoother transitions
 </Update>
 
-<Update label="December 19th, 2024" tags={["Added"]}>
+<Update label="December 19th, 2024" tags={["Added"]} rss={{ title: "📚 New Dust Enterprise Rollout Guide" }}>
   ## 📚 New Dust Enterprise Rollout Guide
 
   • Added detailed documentation to help deploy Dust within organizations<br />• Introduced resources including webinar registration and community access<br />• Created step-by-step guidelines for successful enterprise implementation
@@ -5513,14 +5542,14 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   [Read more](/docs/user-documentation/getting-started/dust-rollout-guide/index)
 </Update>
 
-<Update label="December 18th, 2024" tags={["Added"]}>
+<Update label="December 18th, 2024" tags={["Added"]} rss={{ title: "🎙️ Added support for Modjo transcripts processing" }}>
   ## 🎙️ Added support for Modjo transcripts processing
 
   - Process and store transcripts from Modjo conversations
   - Support for both individual and company-wide transcript processing
 </Update>
 
-<Update label="December 16th, 2024" tags={["Added"]}>
+<Update label="December 16th, 2024" tags={["Added"]} rss={{ title: "🎯 Zendesk integration now available publicly" }}>
   ## 🎯 Zendesk integration now available publicly
 
   - Sync your Zendesk Help Center articles and tickets histories directly into Dust
@@ -5529,13 +5558,13 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Check out the docs at [/docs/user-documentation/admins/connections-management/zendesk](/docs/user-documentation/admins/connections-management/zendesk)
 </Update>
 
-<Update label="December 5th, 2024" tags={["Added"]}>
+<Update label="December 5th, 2024" tags={["Added"]} rss={{ title: "💾 Prompt version history" }}>
   ## 💾 Prompt version history
 
   • Added ability to recover previous assistant instructions<br />• Each version of a prompt is now saved and accessible
 </Update>
 
-<Update label="December 3rd, 2024" tags={["Added"]}>
+<Update label="December 3rd, 2024" tags={["Added"]} rss={{ title: "🧩 Chrome Extension Now Available on Chrome Web Store" }}>
   ## 🧩 Chrome Extension Now Available on Chrome Web Store
 
   • Official Dust Chrome extension released on Chrome Web Store<br />• Share webpage content directly in Dust conversations<br />• Access Dust features while browsing
@@ -5545,14 +5574,14 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   [▶️ Integrating Dust into your Customer Support flow](https://www.youtube.com/watch?v=UC9B4l8FMTc)
 </Update>
 
-<Update label="December 3rd, 2024" tags={["Added"]}>
+<Update label="December 3rd, 2024" tags={["Added"]} rss={{ title: "🔐 SAML SSO Authentication Support" }}>
   ## 🔐 SAML SSO Authentication Support
 
   - Added SAML SSO authentication method
   - Compatible with most Identity Providers (IdPs)
 </Update>
 
-<Update label="November 28th, 2024" tags={["Added"]}>
+<Update label="November 28th, 2024" tags={["Added"]} rss={{ title: "🎫 New Zendesk connection" }}>
   ## 🎫 New Zendesk connection
 
   - Sync your Zendesk Help Center articles and tickets histories directly into Dust
@@ -5561,7 +5590,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Check out the docs at [/docs/user-documentation/admins/connections-management/zendesk](/docs/user-documentation/admins/connections-management/zendesk)
 </Update>
 
-<Update label="November 27th, 2024" tags={["Improved"]}>
+<Update label="November 27th, 2024" tags={["Improved"]} rss={{ title: "📄 Enhanced document upload capabilities" }}>
   ## 📄 Enhanced document upload capabilities
 
   - Added support for more file extensions, including .docx files
@@ -5569,7 +5598,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Refreshed upload interface design
 </Update>
 
-<Update label="November 27th, 2024" tags={["Added"]}>
+<Update label="November 27th, 2024" tags={["Added"]} rss={{ title: "👍 New feedback system with thumbs up/down reactions" }}>
   ## 👍 New feedback system with thumbs up/down reactions
 
   - Introduced a new feedback system allowing users to rate assistant responses
@@ -5578,21 +5607,21 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Feedback data available through the workspace-usage API
 </Update>
 
-<Update label="November 27th, 2024" tags={["Added"]}>
+<Update label="November 27th, 2024" tags={["Added"]} rss={{ title: "🔄 New PagerDuty Schedule Import Script" }}>
   ## 🔄 New PagerDuty Schedule Import Script
 
   - Added a new script to import PagerDuty schedules into Dust
   - Available in dust-labs repository
 </Update>
 
-<Update label="November 20th, 2024" tags={["Added"]}>
+<Update label="November 20th, 2024" tags={["Added"]} rss={{ title: "🔍 Code inspection for visualizations" }}>
   ## 🔍 Code inspection for visualizations
 
   - Added a new button to visualizations allowing users to view the underlying code
   - Enables direct access to visualization implementation details
 </Update>
 
-<Update label="November 15th, 2024" tags={["Improved"]}>
+<Update label="November 15th, 2024" tags={["Improved"]} rss={{ title: "🚀 Enhanced Raycast Extension with New Features" }}>
   ## 🚀 Enhanced Raycast Extension with New Features
 
   - Added sign-in functionality with Dust account credentials
@@ -5604,13 +5633,13 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   [Read more](/docs/user-documentation/agents/integrations/raycast-extension)
 </Update>
 
-<Update label="November 13th, 2024" tags={["Added"]}>
+<Update label="November 13th, 2024" tags={["Added"]} rss={{ title: "🎨 Visualization and web search features enabled in assistants" }}>
   ## 🎨 Visualization and web search features enabled in assistants
 
   • Visualization feature automatically enabled for new assistants<br />• Web search capability added to raw model assistants (except anthropic models)<br />• Visualization support added to raw model assistants
 </Update>
 
-<Update label="November 13th, 2024" tags={["Improved"]}>
+<Update label="November 13th, 2024" tags={["Improved"]} rss={{ title: "🔄 Enhanced Zendesk Integration" }}>
   ## 🔄 Enhanced Zendesk Integration
 
   - Added assistant descriptions for better context
@@ -5618,7 +5647,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Added option to hide sensitive information
 </Update>
 
-<Update label="November 13th, 2024" tags={["Added"]}>
+<Update label="November 13th, 2024" tags={["Added"]} rss={{ title: "📊 Added CSV support and export in Visualization" }}>
   ## 📊 Added CSV support and export in Visualization
 
   - Support for parsing and loading CSV files in Visualization
@@ -5626,7 +5655,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Full data transformation capabilities including merging, computed columns and transformations
 </Update>
 
-<Update label="November 12th, 2024" tags={["Added"]}>
+<Update label="November 12th, 2024" tags={["Added"]} rss={{ title: "🔒 Private Slack channels indexing (available on request)" }}>
   ## 🔒 Private Slack channels indexing (available on request)
 
   - On request to the Dust team, private Slack channels can now be indexed when the Dust bot is invited
@@ -5635,7 +5664,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Safety confirmations when adding private channels to spaces
 </Update>
 
-<Update label="November 12th, 2024" tags={["Improved"]}>
+<Update label="November 12th, 2024" tags={["Improved"]} rss={{ title: "🔄 'Most Recent Data' Tool Renamed to 'Include Data'" }}>
   ## 🔄 'Most Recent Data' Tool Renamed to 'Include Data'
 
   - Tool renamed to 'Include Data' for better clarity
@@ -5643,7 +5672,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Documents can be included in their entirety when they fit within context window
 </Update>
 
-<Update label="November 10th, 2024" tags={["Improved"]}>
+<Update label="November 10th, 2024" tags={["Improved"]} rss={{ title: "🎨 Enhanced UI Design System" }}>
   ## 🎨 Enhanced UI Design System
 
   - Upgraded core UI components for better accessibility
@@ -5651,7 +5680,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Implemented more sophisticated document-centric interface elements
 </Update>
 
-<Update label="November 7th, 2024" tags={["Improved"]}>
+<Update label="November 7th, 2024" tags={["Improved"]} rss={{ title: "🔍 Enhanced Extract Tool with Improved Context Awareness" }}>
   ## 🔍 Enhanced Extract Tool with Improved Context Awareness
 
   - Completely revamped extraction pipeline for better data analysis
@@ -5660,14 +5689,14 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Increased overall accuracy of extraction results
 </Update>
 
-<Update label="November 5th, 2024" tags={["Improved"]}>
+<Update label="November 5th, 2024" tags={["Improved"]} rss={{ title: "🤖 Claude 3.5 Haiku Integration" }}>
   ## 🤖 Claude 3.5 Haiku Integration
 
   - Added support for Claude 3.5 Haiku model
   - Upgraded all existing Claude Haiku assistants to version 3.5
 </Update>
 
-<Update label="October 29th, 2024" tags={["Added"]}>
+<Update label="October 29th, 2024" tags={["Added"]} rss={{ title: "💾 Store Google Meet and Gong Meeting Transcripts" }}>
   ## 💾 Store Google Meet and Gong Meeting Transcripts
 
   - Meeting transcripts from Google Meet and Gong can now be stored in Dust Folders
@@ -5675,20 +5704,20 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Stored transcripts can be accessed and used within Dust workspaces
 </Update>
 
-<Update label="October 28th, 2024" tags={["Improved"]}>
+<Update label="October 28th, 2024" tags={["Improved"]} rss={{ title: "🔄 New Google Sheets Integration with Sidebar" }}>
   ## 🔄 New Google Sheets Integration with Sidebar
 
   - Completely redesigned Google Sheets integration now appears in a sidebar
   - Improved performance and reliability of the `DUST()` function
 </Update>
 
-<Update label="October 25th, 2024" tags={["Improved"]}>
+<Update label="October 25th, 2024" tags={["Improved"]} rss={{ title: "🤖 Updated Claude 3.5 Sonnet model version" }}>
   ## 🤖 Updated Claude 3.5 Sonnet model version
 
   Upgraded all assistants using Claude 3.5 Sonnet to the latest model version (20241022)
 </Update>
 
-<Update label="October 23rd, 2024" tags={["Added"]}>
+<Update label="October 23rd, 2024" tags={["Added"]} rss={{ title: "🚀 Spaces: Enhanced Data Management" }}>
   ## 🚀 Spaces: Enhanced Data Management
 
   - Introduced Spaces to organize and share data within workspaces
@@ -5697,20 +5726,20 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - [Documentation](/docs/user-documentation/admins/spaces-management)
 </Update>
 
-<Update label="October 21st, 2024" tags={["Added"]}>
+<Update label="October 21st, 2024" tags={["Added"]} rss={{ title: "🌨️ Snowflake Integration: Connect and Query Your Data" }}>
   ## 🌨️ Snowflake Integration: Connect and Query Your Data
 
   • Add Snowflake data warehouses as connections in Dust<br />• Add Snowflake tables to vaults<br />• Query Snowflake tables using Tables Query feature in assistants and Dust apps
 </Update>
 
-<Update label="October 18th, 2024" tags={["Added"]}>
+<Update label="October 18th, 2024" tags={["Added"]} rss={{ title: "🚨 Dust Incidents Now Visible in UI" }}>
   ## 🚨 Dust Incidents Now Visible in UI
 
   - Dust-specific incidents are now displayed directly in the user interface
   - Incidents are shown in the same manner as provider incidents
 </Update>
 
-<Update label="October 17th, 2024" tags={["Added"]}>
+<Update label="October 17th, 2024" tags={["Added"]} rss={{ title: "⭐️ Add Assistant to Favorites" }}>
   ## ⭐️ Add Assistant to Favorites
 
   - Add ability to mark assistants as favorites
@@ -5719,13 +5748,13 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - New button bar in assistant details modal for quick actions
 </Update>
 
-<Update label="October 10th, 2024" tags={["Improved"]}>
+<Update label="October 10th, 2024" tags={["Improved"]} rss={{ title: "📊 Tables Query outputs now available as file attachments" }}>
   ## 📊 Tables Query outputs now available as file attachments
 
   • Query results are accessible by the model as a file<br />• Supports larger datasets without manual data input<br />• Allows retrieval of more than 128 rows from tables<br />• Enables generation of charts with numerous data points directly from database
 </Update>
 
-<Update label="October 10th, 2024" tags={["Improved"]}>
+<Update label="October 10th, 2024" tags={["Improved"]} rss={{ title: "🚀 Slack Integration Enhancements" }}>
   ## 🚀 Slack Integration Enhancements
 
   - Shorter, clearer responses
@@ -5733,13 +5762,13 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Introduced ability to choose from the 10 most popular assistants directly in Slack
 </Update>
 
-<Update label="October 10th, 2024" tags={["Improved"]}>
+<Update label="October 10th, 2024" tags={["Improved"]} rss={{ title: "📚 Updated Documentation and Video Guides for Data Management" }}>
   ## 📚 Updated Documentation and Video Guides for Data Management
 
   ➡️ Connect Data to Dust: [/docs/user-documentation/data-sources/connections](/docs/user-documentation/data-sources/connections)<br />➡️ Manage Data on Dust (Company Data vs Vaults): [/docs/user-documentation/admins/spaces-management](/docs/user-documentation/admins/spaces-management)<br />➡️ Adding data to a vault as an admin: [/docs/user-documentation/admins/spaces-management#how-to-add-data-to-a-vault](/docs/user-documentation/admins/spaces-management#how-to-add-data-to-a-vault)
 </Update>
 
-<Update label="October 8th, 2024" tags={["Added"]}>
+<Update label="October 8th, 2024" tags={["Added"]} rss={{ title: "📘 OpenAPI definition and Postman collection now available" }}>
   ## 📘 OpenAPI definition and Postman collection now available
 
   - Added OpenAPI definition for easy integration with developer tools
@@ -5747,20 +5776,20 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Accessible here: [OpenAPI and Postman](https://docs.dust.tt/reference/openapi)
 </Update>
 
-<Update label="October 4th, 2024" tags={["Improved"]}>
+<Update label="October 4th, 2024" tags={["Improved"]} rss={{ title: "📁 Enhanced Folder Naming Flexibility" }}>
   ## 📁 Enhanced Folder Naming Flexibility
 
   • Expanded character support for folder names<br />• Now accepts any valid UTF-8 character<br />• Improved user experience in folder creation and management
 </Update>
 
-<Update label="September 26th, 2024" tags={["Added"]}>
+<Update label="September 26th, 2024" tags={["Added"]} rss={{ title: "📸 Download Visualizations" }}>
   ## 📸 Download Visualizations
 
   - Added a download button that appears when hovering over visualizations
   - Allows users to save visualization outputs for use elsewhere
 </Update>
 
-<Update label="September 24th, 2024" tags={["Improved"]}>
+<Update label="September 24th, 2024" tags={["Improved"]} rss={{ title: "🔍 Improved Data Source Exploration" }}>
   ## 🔍 Improved Data Source Exploration
 
   - Added a file explorer interface in the 'Data Sources' tab
@@ -5768,7 +5797,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Simplified connection management
 </Update>
 
-<Update label="September 18th, 2024" tags={["Added"]}>
+<Update label="September 18th, 2024" tags={["Added"]} rss={{ title: "🗑️ Multi-select and bulk delete conversations" }}>
   ## 🗑️ Multi-select and bulk delete conversations
 
   - Added 'edit mode' accessible via new '...' button next to 'New Conversation' in sidebar
@@ -5777,7 +5806,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - New feature to delete entire conversation history with one click
 </Update>
 
-<Update label="September 12th, 2024" tags={["Added"]}>
+<Update label="September 12th, 2024" tags={["Added"]} rss={{ title: "🧪 Zendesk Knowledge Base Import Tool" }}>
   ## 🧪 Zendesk Knowledge Base Import Tool
 
   - New script available to import articles from a Zendesk knowledge base into a Dust datasource
@@ -5785,7 +5814,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Script can be run using `npm run articles` in the Dust-labs repository here: [https://github.com/dust-tt/dust-labs/tree/main/zendesk](https://github.com/dust-tt/dust-labs/tree/main/zendesk)
 </Update>
 
-<Update label="September 10th, 2024" tags={["Removed"]}>
+<Update label="September 10th, 2024" tags={["Removed"]} rss={{ title: "🔒 Removal of public Dust apps" }}>
   ## 🔒 Removal of public Dust apps
 
   - Removed the concept of public Dust apps
@@ -5794,13 +5823,13 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Removed clone operations for apps
 </Update>
 
-<Update label="September 6th, 2024" tags={["Added"]}>
+<Update label="September 6th, 2024" tags={["Added"]} rss={{ title: "🔗 Make.com Integration Added" }}>
   ## 🔗 Make.com Integration Added
 
   • Dust is now available as an integration on Make.com<br />• Users can incorporate Dust functionalities into their Make.com scenarios<br />• Enables creation of automated workflows using Dust capabilities<br />• Documentation available here: [Make.com: Trigger Dust assistants from any scenario](/docs/user-documentation/agents/integrations/make-com)
 </Update>
 
-<Update label="September 4th, 2024" tags={["Added"]}>
+<Update label="September 4th, 2024" tags={["Added"]} rss={{ title: "🧪 [Dust Labs] Hubspot Companies to Dust Datasource Exporter" }}>
   ## 🧪 \[Dust Labs\] Hubspot Companies to Dust Datasource Exporter
 
   - New script available in dust-labs repository: [https://github.com/dust-tt/dust-labs/tree/main/hubspot](https://github.com/dust-tt/dust-labs/tree/main/hubspot)
@@ -5808,14 +5837,14 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Enables importing exported data into a Dust Datasource
 </Update>
 
-<Update label="September 4th, 2024" tags={["Improved"]}>
+<Update label="September 4th, 2024" tags={["Improved"]} rss={{ title: "🔍 Improved search accuracy for specific data sources" }}>
   ## 🔍 Improved search accuracy for specific data sources
 
   - Improved precision when searching within individual data sources (e.g., Notion, Slack)
   - Users can now get more relevant results when querying information from a particular source
 </Update>
 
-<Update label="August 30th, 2024" tags={["Added"]}>
+<Update label="August 30th, 2024" tags={["Added"]} rss={{ title: "🎙️ New Gong Transcripts Exporter for Dust" }}>
   ## 🎙️ New Gong Transcripts Exporter for Dust
 
   - Added a script to export Gong transcripts
@@ -5823,20 +5852,20 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Script available in the dust-labs GitHub repository: [https://github.com/dust-tt/dust-labs/tree/main/gong](https://github.com/dust-tt/dust-labs/tree/main/gong)
 </Update>
 
-<Update label="August 29th, 2024" tags={["Added"]}>
+<Update label="August 29th, 2024" tags={["Added"]} rss={{ title: "🔗 New Microsoft SharePoint Connector" }}>
   ## 🔗 New Microsoft SharePoint Connector
 
   • Added a new datasource connector for Microsoft SharePoint<br />• Enables indexing of various document types including docs, spreadsheets, PowerPoint presentations, and PDFs from Microsoft drives<br />• Now available for all users
 </Update>
 
-<Update label="August 27th, 2024" tags={["Added"]}>
+<Update label="August 27th, 2024" tags={["Added"]} rss={{ title: "🤖 New Zapier action to interact with Dust assistants" }}>
   ## 🤖 New Zapier action to interact with Dust assistants
 
   - Added a new Zapier action that allows users to communicate with Dust assistants
   - Enables integration of Dust assistants with other Zapier-supported tools and workflows
 </Update>
 
-<Update label="August 27th, 2024" tags={["Added"]}>
+<Update label="August 27th, 2024" tags={["Added"]} rss={{ title: "🚀 Dust for Google Spreadsheets (Beta)" }}>
   ## 🚀 Dust for Google Spreadsheets (Beta)
 
   - Introduced a beta integration of Dust with Google Spreadsheets
@@ -5847,7 +5876,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Exclusively available to Enterprise customers
 </Update>
 
-<Update label="August 21st, 2024">
+<Update label="August 21st, 2024" rss={{ title: "🧪 [Dust Labs] Jira Issues To Dust Import Script" }}>
   ## 🧪 \[Dust Labs\] Jira Issues To Dust Import Script
 
   - Added a pre-made script to import updated issues from Jira to Dust
@@ -5856,7 +5885,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Available here: [https://github.com/dust-tt/dust-labs/tree/main/jira](https://github.com/dust-tt/dust-labs/tree/main/jira)
 </Update>
 
-<Update label="August 19th, 2024">
+<Update label="August 19th, 2024" rss={{ title: "🧪 [Dust Labs] Salesforce Accounts To Dust Import Script" }}>
   ## 🧪 \[Dust Labs\] Salesforce Accounts To Dust Import Script
 
   - Added a pre-made script for importing updated account summaries from Salesforce to Dust
@@ -5865,14 +5894,14 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Available here: [https://github.com/dust-tt/dust-labs/tree/main/salesforce](https://github.com/dust-tt/dust-labs/tree/main/salesforce)
 </Update>
 
-<Update label="August 13th, 2024" tags={["Added"]}>
+<Update label="August 13th, 2024" tags={["Added"]} rss={{ title: "🚀 Provider Status Page Updates" }}>
   ## 🚀 Provider Status Page Updates
 
   - Added ability to display incident banners in the app for provider disruptions
   - Status page can now be updated to show real-time information about provider issues
 </Update>
 
-<Update label="August 2nd, 2024" tags={["Added"]}>
+<Update label="August 2nd, 2024" tags={["Added"]} rss={{ title: "🎨 Data Visualization with React Components" }}>
   ## 🎨 Data Visualization with React Components
 
   - Assistants can now generate visual elements using code
@@ -5881,13 +5910,13 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Feature can be toggled for any assistant via the assistant builder tools screen
 </Update>
 
-<Update label="July 26th, 2024" tags={["Added"]}>
+<Update label="July 26th, 2024" tags={["Added"]} rss={{ title: "🔐 Microsoft Entra ID SSO now available" }}>
   ## 🔐 Microsoft Entra ID SSO now available
 
   • Implemented Single Sign-On (SSO) support for Microsoft Entra ID<br />• Enabled upon request for Enterprise customers
 </Update>
 
-<Update label="July 26th, 2024" tags={["Added"]}>
+<Update label="July 26th, 2024" tags={["Added"]} rss={{ title: "🔌 Microsoft SharePoint Connector (Beta)" }}>
   ## 🔌 Microsoft SharePoint Connector (Beta)
 
   - Added a new datasource connector for Microsoft SharePoint
@@ -5895,13 +5924,13 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Currently available as a beta feature
 </Update>
 
-<Update label="July 23rd, 2024" tags={["Added"]}>
+<Update label="July 23rd, 2024" tags={["Added"]} rss={{ title: "🚀 GPT4o mini model now available in assistant builder" }}>
   ## 🚀 GPT4o mini model now available in assistant builder
 
   • Added support for the new GPT4o mini model<br />• Users can now select and utilize this model when creating assistants
 </Update>
 
-<Update label="July 22nd, 2024" tags={["Removed"]}>
+<Update label="July 22nd, 2024" tags={["Removed"]} rss={{ title: "🔥 Nango dependency removed from connectors" }}>
   ## 🔥 Nango dependency removed from connectors
 
   - Completely eliminated Nango as a dependency from the connectors codebase
@@ -5909,25 +5938,25 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Migrated all connector code to be Nango-free
 </Update>
 
-<Update label="July 18th, 2024" tags={["Added"]}>
+<Update label="July 18th, 2024" tags={["Added"]} rss={{ title: "🖼️ Vision Capabilities Added to Anthropic Models" }}>
   ## 🖼️ Vision Capabilities Added to Anthropic Models
 
   • Integrated support for Anthropic's vision models<br />• All three Anthropic models now support vision capabilities<br />• This feature is accessible to all users
 </Update>
 
-<Update label="July 8th, 2024" tags={["Improved"]}>
+<Update label="July 8th, 2024" tags={["Improved"]} rss={{ title: "🚀 Drag-and-Drop File Support in Conversations" }}>
   ## 🚀 Drag-and-Drop File Support in Conversations
 
   • Added drag-and-drop functionality for files in the conversation view<br />• Supported file formats include JPEG, PNG, and PDF<br />• Simplifies sharing files within conversations
 </Update>
 
-<Update label="July 4th, 2024" tags={["Added"]}>
+<Update label="July 4th, 2024" tags={["Added"]} rss={{ title: "🖼️ Vision Support Added to the App" }}>
   ## 🖼️ Vision Support Added to the App
 
   • Integrated Vision capability for OpenAI's gpt-4 and gpt-4-turbo models/assistants<br />• Supports JPEG and PNG image formats<br />• Available for all users to explore and use
 </Update>
 
-<Update label="July 3rd, 2024" tags={["Improved"]}>
+<Update label="July 3rd, 2024" tags={["Improved"]} rss={{ title: "📊 Workspace Metrics: Monthly Reports Now Available" }}>
   ## 📊 Workspace Metrics: Monthly Reports Now Available
 
   • Introduced downloadable monthly reports as a zip file<br />• Reports include four CSV files:
@@ -5938,7 +5967,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Assistants: List and usage statistics
 </Update>
 
-<Update label="July 2nd, 2024" tags={["Improved"]}>
+<Update label="July 2nd, 2024" tags={["Improved"]} rss={{ title: "🎨 Emoji Suggestions for New Assistants" }}>
   ## 🎨 Emoji Suggestions for New Assistants
 
   - Automatically suggest an appropriate emoji based on the assistant's instructions when creating a new assistant
@@ -5947,13 +5976,13 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Users can still edit and choose any other avatar
 </Update>
 
-<Update label="July 1st, 2024" tags={["Fixed"]}>
+<Update label="July 1st, 2024" tags={["Fixed"]} rss={{ title: "🔢 LaTeX Equations Now Supported in Agent Messages" }}>
   ## 🔢 LaTeX Equations Now Supported in Agent Messages
 
   • Added support for LaTeX equations in agent messages<br />• Useful for mathematical and scientific communication
 </Update>
 
-<Update label="July 1st, 2024" tags={["Deprecated"]}>
+<Update label="July 1st, 2024" tags={["Deprecated"]} rss={{ title: "Removal of @github, @notion and @slack global assistants" }}>
   ## Removal of @github, @notion and @slack global assistants
 
   We have removed the generic assistants @slack and @notion because of their lack of usage on the platform.
@@ -5961,7 +5990,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   If you were using them, you can use the **@dust** general assistant in the exact same way by asking it to search in slack, notion or github
 </Update>
 
-<Update label="June 26th, 2024" tags={["Added"]}>
+<Update label="June 26th, 2024" tags={["Added"]} rss={{ title: "Product Update 4" }}>
   ## Product Update 4
 
   - Multi-Tool assistants
@@ -5979,7 +6008,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Full updates descriptions: [https://blog.dust.tt/dust-product-update-4/](https://blog.dust.tt/dust-product-update-4/)
 </Update>
 
-<Update label="June 24th, 2024" tags={["Improved"]}>
+<Update label="June 24th, 2024" tags={["Improved"]} rss={{ title: "New documentation & developer platform" }}>
   ## New documentation & developer platform
 
   The documentation was fully refreshed and merged with our developer platform
@@ -5990,7 +6019,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   - Discussions
 </Update>
 
-<Update label="May 21st, 2024" tags={["Added"]}>
+<Update label="May 21st, 2024" tags={["Added"]} rss={{ title: "Product update 3" }}>
   ## Product update 3
 
   - Updated GPT-4 Model to GPT4o
@@ -6008,7 +6037,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Full updates descriptions: [https://blog.dust.tt/dust-product-update-3-gemini-gpt4o-templates/](https://blog.dust.tt/dust-product-update-3-gemini-gpt4o-templates/)
 </Update>
 
-<Update label="April 18th, 2024" tags={["Added"]}>
+<Update label="April 18th, 2024" tags={["Added"]} rss={{ title: "Product update 2" }}>
   ## Product update 2
 
   - Gemini 1.5 pro
@@ -6022,7 +6051,7 @@ GPT6 Astra is now available in Dust. You can select it when choosing a model for
   Full updates at: [https://blog.dust.tt/dust-product-update-2/](https://blog.dust.tt/dust-product-update-2/)
 </Update>
 
-<Update label="March 21st, 2024" tags={["Added"]}>
+<Update label="March 21st, 2024" tags={["Added"]} rss={{ title: "Product update 1" }}>
   ## Product update 1
 
   - Mistral Large Now Available
