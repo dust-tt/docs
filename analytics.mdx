@@ -86,11 +86,16 @@ Select **Filters** in the Explore section to narrow the chart, Attribution, and 
 - Tools
 - Skills
 - Sources
+- Triggers
 - API keys
 
 You can select several values in one category. A record can match any selected value within that category. When you combine categories, records must match every selected category.
 
 Select **Apply** to update the analysis. Applied filters appear beneath the Explore heading, where you can remove individual values or clear them. Filters remain applied when you change the period or Attribution tab, but reset when you leave or reload the page.
+
+<Note>
+Each value in a filter category is checked for activity given the selected period and the values already applied to the other categories. A value with no matching activity in that context is marked **No activity**. It stays visible so you can see what exists in the workspace, but you cannot select it until another filter change makes it available again. If a value you already selected later shows **No activity** because of a change elsewhere, it remains selected and you can still remove it.
+</Note>
 
 ## Find what drives consumption
 
@@ -105,7 +110,10 @@ Attribution ranks contributors for the selected period and filters. Choose the d
 | **Tools** | Which tool invocations consume credits |
 | **Skills** | Which skills are associated with tool consumption |
 | **Sources** | Where requests originate |
+| **Triggers** | Which schedules, webhooks, and other triggers account for consumption |
 | **API keys** | Which keys account for programmatic consumption |
+
+**Triggers** attributes consumption to the specific trigger, such as a schedule or webhook. This differs from the **triggered** source, which only indicates that the request originated from automation.
 
 Member consumption is attributed to the member who triggered it. Group consumption is attributed to every group that member belongs to, so the same consumption can appear under more than one group.
 
