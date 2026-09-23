@@ -3,6 +3,16 @@ title: "Changelog"
 description: "New updates and improvements to Dust"
 ---
 
+<Update label="September 23rd, 2026" tags={["Added"]}>
+## Automatic fallback during model provider outages
+
+Auto models (**Basic**, **Standard**, and **Premium**) now skip models affected by detected provider outages and use the next available candidate. The model picker displays the temporary replacement. No additional setup is required.
+
+Dust warns you but do not act on an outage for a model that you specifically selected. If a provider error causes a message to fail on a specific model, you can retry with the corresponding auto-model level. Please review completed actions before retrying to avoid duplicates. Read about [provider outage handling](/docs/user-documentation/agents/model-selection#provider-outages-and-automatic-fallback).
+
+</Update>
+
+
 <Update label="September 23rd, 2026" tags={["Added"]} rss={{ title: "GPT-6 Luna, GPT-6 Sol, and Claude Opus 5.5 support" }}>
 ## GPT-6 Luna support
 
