@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[Changelog RSS test - PR 155]]></title>
+        <link>https://docs.dust.tt</link>
+        <description><![CDATA[Test feed replicating the post-merge item structure of docs.dust.tt/docs/changelog/rss.xml]]></description>
+        <lastBuildDate>Wed, 23 Sep 2026 17:01:42 GMT</lastBuildDate>
+        <generator>Mintlify</generator>
+        <item>
+            <title><![CDATA[[TEST] Automatic fallback during model provider outages]]></title>
+            <description><![CDATA[Auto models now skip models affected by detected provider outages and use the next available candidate.]]></description>
+            <link>https://docs.dust.tt/docs/changelog#september-23rd-2026</link>
+            <guid isPermaLink="false">test-f2da7b64b0b4a02a</guid>
+            <category><![CDATA[Added]]></category>
+            <pubDate>Wed, 23 Sep 2026 17:01:42 GMT</pubDate>
+            <content:encoded><![CDATA[<h2>Automatic fallback during model provider outages</h2>
+<p>Auto models (<strong>Basic</strong>, <strong>Standard</strong>, and <strong>Premium</strong>) now skip models affected by detected provider outages and use the next available candidate. The model picker displays the temporary replacement. No additional setup is required.</p>
+<p>Dust warns you but do not act on an outage for a model that you specifically selected. If a provider error causes a message to fail on a specific model, you can retry with the corresponding auto-model level. Please review completed actions before retrying to avoid duplicates. Read about <a href="https://docs.dust.tt/docs/user-documentation/agents/model-selection#provider-outages-and-automatic-fallback">provider outage handling</a>.</p>]]></content:encoded>
+        </item><item>
+            <title><![CDATA[[TEST] GPT-6 Luna, GPT-6 Sol, and Claude Opus 5.5 support]]></title>
+            <description><![CDATA[GPT-6 Luna, GPT-6 Sol, and Claude Opus 5.5 are now available for your Dust agents.]]></description>
+            <link>https://docs.dust.tt/docs/changelog#september-23rd-2026</link>
+            <guid isPermaLink="false">test-28f409a3b44d3e12</guid>
+            <category><![CDATA[Added]]></category>
+            <pubDate>Wed, 23 Sep 2026 17:01:42 GMT</pubDate>
+            <content:encoded><![CDATA[<h2>GPT-6 Luna support</h2>
+<p>GPT-6 Luna is now available as a model for new and existing agents in all workspaces, including the EU. It uses the same context window as GPT-5.6 Luna with lower token costs. Existing agents keep their current model, and no premium plan or model-specific feature flag is required.</p>
+<h2>GPT-6 Sol support</h2>
+<p>You can now use GPT-6 Sol in your Dust agents, with availability in both the global and EU regions. Select GPT-6 Sol from the model picker when configuring an agent. It is available to workspaces on new credit pricing plans or with advanced-model access. No model-specific feature flag is required.</p>
+<h2>Claude Opus 5.5 support</h2>
+<p>Claude Opus 5.5 is now available in Dust for coding and enterprise workflows. You can select it when building or configuring agents in workspaces on new credit pricing or with advanced-model access. The model is available globally and in the EU, with no model-specific feature flag required.</p>]]></content:encoded>
+        </item><item>
+            <title><![CDATA[[TEST] Siit remote MCP]]></title>
+            <description><![CDATA[Siit is now available as a default remote MCP server in the Dust MCP catalog.]]></description>
+            <link>https://docs.dust.tt/docs/changelog#september-21st-2026</link>
+            <guid isPermaLink="false">test-e7a4b1dcb2d853bf</guid>
+            <category><![CDATA[Added]]></category>
+            <pubDate>Wed, 23 Sep 2026 17:01:42 GMT</pubDate>
+            <content:encoded><![CDATA[<h2>Siit remote MCP</h2>
+<p>Siit is now available as a default remote MCP server in Dust’s MCP catalog. Admins can add Siit from Spaces > Tools, connect it through OAuth, and let agents triage and act on internal IT and HR requests without leaving Dust.</p>
+<p>Available in all workspaces. Once an admin adds Siit, anyone can use it in their agents.</p>]]></content:encoded>
+        </item><item>
+            <title><![CDATA[[TEST] Choose Grok 4.7 for your agents]]></title>
+            <description><![CDATA[Grok 4.7 is now available in the agent builder and input bar.]]></description>
+            <link>https://docs.dust.tt/docs/changelog#september-22nd-2026</link>
+            <guid isPermaLink="false">test-6e68c5ab768e11d5</guid>
+            <category><![CDATA[Added]]></category>
+            <pubDate>Wed, 23 Sep 2026 17:01:42 GMT</pubDate>
+            <content:encoded><![CDATA[<h2>Choose Grok 4.7 for your agents</h2>
+<p>Grok 4.7 is now available in the agent builder and input bar. Select it when you want to use the latest Grok model, with improved capabilities compared with Grok 4.6.</p>
+<p>Grok 4.7 is available to everyone except workspaces configured for EU data residency only.</p>
+<p>This new model comes with zero data retention standard terms. It is available to everyone automatically, except workspaces configured for EU data residency only.</p>]]></content:encoded>
+        </item><item>
+            <title><![CDATA[[TEST] Replace selected text with any Dust agent from Raycast]]></title>
+            <description><![CDATA[One-line summary for this entry.]]></description>
+            <link>https://docs.dust.tt/docs/changelog#september-21st-2026</link>
+            <guid isPermaLink="false">test-0833a6de55f2996e</guid>
+            <category><![CDATA[Added]]></category>
+            <pubDate>Wed, 23 Sep 2026 17:01:42 GMT</pubDate>
+            <content:encoded><![CDATA[<h2>Replace selected text with any Dust agent from Raycast</h2>
+<p>You can now bind any Dust agent to a Raycast Quicklink and keyboard shortcut, then replace selected text with the agent's response from any Mac app without opening a Raycast window. Use it for grammar correction, translation, tone editing, rewriting, or support responses. Available to all Dust users using the Raycast extension.</p>]]></content:encoded>
+        </item>
+    </channel>
+</rss>
