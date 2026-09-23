@@ -126,8 +126,16 @@
             ]
           },
           "docs/user-documentation/agents/templates",
-          "docs/user-documentation/agents/deep-dive-agent",
-          "docs/user-documentation/agents/agent-builder-sidekick",
+          {
+            "group": "Dust default agents",
+            "pages": [
+              "docs/user-documentation/agents/default-agents/dust",
+              "docs/user-documentation/agents/default-agents/deep-dive-agent",
+              "docs/user-documentation/agents/default-agents/help",
+              "docs/user-documentation/agents/default-agents/analyst",
+              "docs/user-documentation/agents/default-agents/agent-builder-sidekick"
+            ]
+          },
           "docs/user-documentation/agents/troubleshooting-your-agent",
           "docs/user-documentation/agents/structured-output-format",
           "docs/user-documentation/agents/steering-conversations",
@@ -229,6 +237,7 @@
               "docs/user-documentation/agents/tools/voice-and-sound-generation",
               "docs/user-documentation/agents/tools/salesloft",
               "docs/user-documentation/agents/tools/semrush",
+              "docs/user-documentation/agents/tools/servicenow",
               "docs/user-documentation/agents/tools/slab",
               "docs/user-documentation/agents/tools/snowflake",
               "docs/user-documentation/agents/tools/statuspage",
@@ -268,7 +277,7 @@
                 "group": "Dust in Slack",
                 "pages": [
                   "docs/user-documentation/agents/integrations/dust-in-slack/slack-auto-reply",
-         "docs/user-documentation/agents/integrations/dust-in-slack/slack-auto-join",
+                  "docs/user-documentation/agents/integrations/dust-in-slack/slack-auto-join",
                   "docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows"
                 ]
               },
@@ -693,7 +702,7 @@
     },
     {
       "source": "/docs/agent-builder-sidekick",
-      "destination": "/docs/user-documentation/agents/agent-builder-sidekick"
+      "destination": "/docs/user-documentation/agents/default-agents/agent-builder-sidekick"
     },
     {
       "source": "/docs/agent-memory",
@@ -733,7 +742,7 @@
     },
     {
       "source": "/docs/beta-deep-dive-agent-for-comprehensive-work",
-      "destination": "/docs/user-documentation/agents/deep-dive-agent"
+      "destination": "/docs/user-documentation/agents/default-agents/deep-dive-agent"
     },
     {
       "source": "/docs/beta-google-spreadsheets",
@@ -2266,6 +2275,14 @@
     {
       "source": "/docs/user-documentation/pods/getting-started",
       "destination": "/docs/user-documentation/getting-started/dust-rollout-guide"
+    },
+    {
+      "source": "/docs/user-documentation/agents/deep-dive-agent",
+      "destination": "/docs/user-documentation/agents/default-agents/deep-dive-agent"
+    },
+    {
+      "source": "/docs/user-documentation/agents/agent-builder-sidekick",
+      "destination": "/docs/user-documentation/agents/default-agents/agent-builder-sidekick"
     }
   ],
   "thumbnails": {
