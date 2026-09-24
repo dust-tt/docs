@@ -61,6 +61,17 @@ Each permission uses one of three modes:
 | Groups | Members of the selected groups |
 | Admin only | Admins only |
 
+### Managing groups with the workspace management MCP server
+
+Admins and Managers can also manage groups programmatically through the workspace management MCP server, using four tools:
+
+- `list_groups`: list workspace groups, optionally filtered by kind
+- `get_group_members`: list a group's current members
+- `create_group`: create a new manual group with an initial member list
+- `update_group_members`: add or remove members from an existing manual group
+
+These tools only see and manage provisioned (SCIM) and manually-created groups. Internal group kinds used by Dust are not exposed, even to a caller who knows their ID.
+
 ## Permission matrix
 
 The following permissions are available in the workspace governance settings.
