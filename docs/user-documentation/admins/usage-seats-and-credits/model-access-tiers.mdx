@@ -8,10 +8,10 @@ Members can pick the model an agent runs on from the composer and Agent Builder.
 As an administrator, you can cap how far up the model list each member can go. This lets you keep everyday work within a defined cost range while reserving higher-cost options for members who need them.
 
 <Info>
-  **Model access tiers are broader than the auto-model levels in the picker.** Here, **Basic**, **Standard**, and **Premium** are administrator controls that apply to individual models, reasoning-effort combinations, and the corresponding auto models. The picker’s **Basic**, **Standard**, and **Premium** are curated auto-model choices, not the complete set of models and reasoning efforts that these controls cover. For the curated auto-model lists, see [Auto models and the model picker](/docs/user-documentation/agents/model-selection).
+  **Model access tiers are broader than the auto-model levels in the picker.** Here, **Basic**, **Standard**, **Premium**, and **Ultra** are administrator controls that apply to individual models, reasoning-effort combinations, and the corresponding auto models. The picker’s **Basic**, **Standard**, and **Premium** are curated auto-model choices, while **Ultra** is a separate administrator tier for the highest-cost model and reasoning-effort combinations, not a fourth auto-model choice. For the curated auto-model lists, see [Auto models and the model picker](/docs/user-documentation/agents/model-selection).
 </Info>
 
-## The three tiers
+## The four tiers
 
 Every model and supported reasoning effort belongs to one tier. The same model can appear in more than one tier because its tier can change with the reasoning effort.
 
@@ -20,8 +20,9 @@ Every model and supported reasoning effort belongs to one tier. The same model c
 | **Basic** | Lower-cost model and reasoning-effort combinations for well-defined and repetitive work. |
 | **Standard** | Everyday model and reasoning-effort combinations for most work. |
 | **Premium** | Higher-cost combinations for demanding work that benefits from stronger capabilities. |
+| **Ultra** | Frontier models priced far above Premium, for the most demanding work. |
 
-Tiers are cumulative. **Up to Standard** grants access to Basic and Standard. **Up to Premium** grants access to all three tiers, which is the default for every workspace.
+Tiers are cumulative. **Up to Standard** grants access to Basic and Standard. **Up to Premium** grants access to Basic, Standard, and Premium. **Up to Ultra** grants access to all four tiers, which is the default for every workspace.
 
 <Note>
   The selector applies to every option in the selected category, not only to the three auto-model rows. It controls individual models, their supported reasoning efforts, and the corresponding Basic, Standard, or Premium auto model. A model can remain selectable at one reasoning effort while another effort on the same model is disabled.
@@ -29,7 +30,7 @@ Tiers are cumulative. **Up to Standard** grants access to Basic and Standard. **
 
 ## Current options in each tier
 
-The lists below match the model options shown by the model-tier information panel as of September 14, 2026. They include the model and reasoning-effort combinations currently assigned to each tier. Dust can change these assignments as providers release models, update pricing, or change availability.
+The lists below match the model options shown by the model-tier information panel as of September 24, 2026. They include the model and reasoning-effort combinations currently assigned to each tier. Dust can change these assignments as providers release models, update pricing, or change availability.
 
 *Asterisks mark models that depend on workspace configuration or plan eligibility.*
 
@@ -85,12 +86,18 @@ The lists below match the model options shown by the model-tier information pane
 | Gemini 3.7 Flash | High |
 | Gemini 3.8 Flash | High |
 | Mistral Medium 3.5 | High |
-| GPT 6 Astra* | Light, Medium, High |
 | GPT 5.6 Sol* | Light, Medium, High |
 | GPT 5.6 Terra (long context)* | None, Light, Medium, High |
 | Grok 4.6* | High |
 
-The three auto models are separate curated choices in the picker. **Basic** corresponds to the lower-cost auto model, **Standard** to the default auto model, and **Premium** to the higher-capability auto model. They are also gated by the member's maximum tier.
+### Ultra
+
+| Model | Reasoning efforts in this tier |
+| --- | --- |
+| Claude Fable 5* | Light, Medium, High |
+| GPT 6 Astra* | Light, Medium, High |
+
+The three auto models are separate curated choices in the picker. **Basic** corresponds to the lower-cost auto model, **Standard** to the default auto model, and **Premium** to the higher-capability auto model. **Ultra** is an administrator tier above Premium for the highest-cost model and reasoning-effort combinations; it does not add a fourth auto-model row. They are also gated by the member's maximum tier.
 
 ## Set the workspace ceiling
 
@@ -98,7 +105,7 @@ The three auto models are separate curated choices in the picker. **Basic** corr
 2. In the **Models tier** section, set **Workspace access** to the highest tier available to members of the workspace.
 3. The change applies to every member who has no group or personal override.
 
-The default is **Up to Premium**, so nothing is restricted until you lower it.
+The default is **Up to Ultra**, so nothing is restricted until you lower it.
 
 ## Override for a group
 
@@ -142,13 +149,13 @@ Changes to model tier settings are recorded in your [audit logs](/docs/user-docu
 
 ## Availability
 
-Model access tiers are available on usage-based credit plans. On legacy plans, premium model and reasoning-effort combinations are not selectable through the model picker, and there is no tier setting to configure.
+Model access tiers are available on usage-based credit plans. On legacy plans, Premium and Ultra model and reasoning-effort combinations are not selectable through the model picker, and there is no tier setting to configure.
 
 ## FAQ
 
 ### Do I have to configure anything for members to use the latest models?
 
-No. Every workspace starts at **Up to Premium**, which restricts nothing. Configure tiers only if you want to limit what members can select.
+No. Every workspace starts at **Up to Ultra**, which allows all four tiers and restricts nothing. Configure tiers only if you want to limit what members can select.
 
 ### Why does the same model appear in more than one tier?
 
@@ -156,9 +163,9 @@ A tier applies to a model and a reasoning effort together. For example, Claude S
 
 ### Does the selector disable only the auto-model choices?
 
-No. The tier ceiling applies to every model and reasoning-effort combination in that category, as well as to the corresponding auto model. If you cap a member at Standard, Premium model combinations and the Premium auto model are unavailable to that member.
+No. The tier ceiling applies to every model and reasoning-effort combination in that category, as well as to the corresponding auto model. If you cap a member at Standard, Premium and Ultra model combinations and the Premium auto model are unavailable to that member.
 
-### Does restricting tiers break agents that were already built on Premium models?
+### Does restricting tiers break agents that were already built on Premium or Ultra models?
 
 The agents keep their configuration. What changes is who can run them: a member below the required tier is blocked unless the agent is published and you have enabled **Published agents**.
 
