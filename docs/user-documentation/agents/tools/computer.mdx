@@ -98,7 +98,7 @@ Computer can also help with other file workflows, including:
 
 ### Process PDF files
 
-Computer can extract text from text-based PDFs and use the PDF skill to process scanned or image-only PDFs. For scans, render pages and run OCR with the installed Tesseract and `pytesseract` tools. English (`eng`), French (`fra`), mixed English and French (`eng+fra`), and orientation/script detection (`osd`) data are available. Process scans one page at a time, preserve page references, and report pages where recognition fails or text remains illegible.
+Computer can extract text from text-based PDFs and use the PDF skill to process scanned or image-only PDFs. For scans, it renders each page and runs OCR to recognize the text, supporting English, French, and mixed English/French documents. It processes scans one page at a time, preserves page references, and reports pages where recognition fails or text remains illegible.
 
 OCR can misread names, numbers, symbols, and tables, so compare the recognized text with the rendered pages and visually verify the result. To create a searchable PDF, add a recognized text layer, preserve existing searchable pages in mixed PDFs, and verify text extraction, page count, page order, and appearance. OCR does not reliably recover table structure. For unsupported languages, handwriting, or environments without OCR support, use vision instead and disclose that limitation.
 
