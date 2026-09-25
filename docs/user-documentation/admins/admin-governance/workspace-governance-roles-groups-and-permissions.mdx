@@ -81,7 +81,7 @@ The following permissions are available in the workspace governance settings.
 | Create agents | Yes | When granted | When granted |
 | Publish agents | Yes | When granted | When granted |
 | Create skills | Yes | When granted | When granted |
-| Make skills auto-discoverable | Admin only | No | No |
+| Make skills discoverable to agents | Yes | No | No |
 | View and export audit logs | Yes | When granted | When granted |
 | Manage billing and subscriptions | Yes by default | When granted | When granted |
 | Manage security and provisioning | Yes by default | When granted | When granted |
@@ -91,7 +91,7 @@ The following permissions are available in the workspace governance settings.
 | View workspace analytics | Yes | Yes | No |
 | Manage group spend limits (previously Admin only) | Yes | Yes | No |
 
-Making a skill auto-discoverable, or changing the availability of an already auto-discoverable skill, requires the `make_discoverable:skill` permission. This permission is **Admin only** by default; users without it cannot enable or change auto-discoverability.
+Making a skill discoverable to agents, or changing the availability of an already discoverable skill, requires the **Make skills discoverable to agents** permission (Settings & Governance → Skills). It's Admin only by default; users without it cannot enable or change auto-discoverability. Granting it without also granting **Manage skill availability** has no effect: a group needs both to act on it.
 
 ## Workspace governance settings
 
