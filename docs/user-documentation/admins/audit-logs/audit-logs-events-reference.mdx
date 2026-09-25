@@ -165,6 +165,14 @@ This page lists all events currently emitted by Dust.
 | `audit_log.viewed` | The Audit Logs viewer was accessed by an admin |
 | `audit_log.export_configured` | An audit log export or log stream was configured |
 
+## Frames
+
+| Event | Description |
+|---|---|
+| `frame.email_grant_added` | Email sharing grants were added to a Frame; targets: `workspace`, `frame`; metadata: `frame_name`, `emails`, `actor_type` |
+| `frame.email_grant_revoked` | An email sharing grant was revoked from a Frame; targets: `workspace`, `frame`; metadata: `frame_name`, `grant_id`, `actor_type` |
+| `frame.share_scope_updated` | A Frame's sharing scope was updated; targets: `workspace`, `frame`; metadata: `frame_name`, `share_scope`, `actor_type` |
+
 ## Model Access Tiers
 
 | Event | Description |
@@ -178,4 +186,3 @@ This page lists all events currently emitted by Dust.
 | Event | Description |
 |---|---|
 | `workspace.deleted` | The workspace was deleted |
-
