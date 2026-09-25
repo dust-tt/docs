@@ -35,6 +35,18 @@ Action credits are a fixed amount charged per tool action, regardless of respons
 
 When an agent runs sub-agents in the background, each sub-agent's credit cost is added to the total. Costs accumulate across the full agent chain and are displayed alongside the main agent cost.
 
+## Credit-spend checkpoints
+
+To help prevent a single long-running task from using excessive credits, Dust pauses a root task started from the web app or browser extension when its cumulative AI spend reaches 200 AWU credits. Spend from sub-agents in the same task counts toward the checkpoint.
+
+When Dust pauses a task, it marks the conversation as requiring action and displays a checkpoint card:
+
+- **Yes, continue** resumes the task from the next step. Dust does not ask again for the same task after you continue.
+- **No, stop** cancels the task and prevents it from using more credits.
+- If you are viewing the conversation but did not start the task, Dust waits for the person who started it to decide.
+
+This checkpoint applies to root tasks started from the web app or browser extension. It does not pause sub-agent messages or tasks started from other origins. The checkpoint measures AWU credits for AI processing; tool credits are not included.
+
 ## When credits are not consumed
 
 Some interactions are exempt from credit consumption:
