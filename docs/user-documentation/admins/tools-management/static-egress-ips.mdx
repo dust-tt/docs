@@ -8,10 +8,10 @@ Some security teams need to whitelist Dust's outbound IP addresses in their fire
 
 Dust routes outbound traffic through static egress IPs only in these two cases:
 
-- **Remote MCP servers** hosted on a domain verified for your workspace (Admin > People & Security > Verified domains). The MCP server hostname must belong to the verified domain itself, for example `mcp.acme.com` under a verified `acme.com`. A host on a different domain, including a vendor's domain, is not covered.
-- **Snowflake connections**.
+- **Remote MCP servers** hosted on a domain verified for your workspace (Admin > People & Security > Verified domains). The MCP server hostname must belong to the verified domain itself, for example `mcp.acme.com` under a verified `acme.com`. A host on a different domain, including a vendor's domain, is not covered. Without a verified domain, MCP traffic uses dynamic cloud IPs like everything else below.
+- **Snowflake connections**, unconditionally, regardless of domain verification.
 
-All other outbound traffic (web search, browsing, other tools and connections) uses dynamic cloud IPs that can change at any time. Do not whitelist those.
+All other outbound traffic, including calls to BigQuery or any other data warehouse connection, web search, browsing, and other tools and connections, uses dynamic cloud IPs that can change at any time. Do not whitelist those, and do not assume another data warehouse connection gets a static IP just because Snowflake does.
 
 ## The IP addresses
 
