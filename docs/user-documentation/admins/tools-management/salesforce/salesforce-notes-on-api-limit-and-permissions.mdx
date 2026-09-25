@@ -76,6 +76,8 @@ Example configurations:
 * Salesforce data is available through the tool "[Query Tables](/docs/user-documentation/agents/knowledge/table-queries)" in the Agent Builder.
 * Note that not all fields are automatically queryable - they may need to be made accessible in your Salesforce configuration first
 
+The Salesforce tool executes read-only SOQL queries against the standard REST query endpoint. Objects exposed only through the Tooling API (such as `ApexClass`, `ApexTrigger`, or `FlowDefinition`) are not supported and return a `sObject type not supported` error.
+
 ### Agent Understanding of the Data Structure
 
 * Even though the agent is quite smart to discover the data structure, we recommend taking the time to properly explain what data is actually relevant for your use case in your agent instructions, especially if it involves Custom Objects. A relevant Account Summary can be very different from one business to another.

@@ -155,13 +155,17 @@ dust chat                          # uses env vars automatically
 ### Method 2: Command-line flags
 
 ```bash
-dust chat --wId ws_abc123 --api-key sk_your_api_key_here
+dust chat --workspaceId ws_abc123 --key sk_your_api_key_here
 ```
 
-| Parameter    | Env variable        | CLI flag    | Description                      |
-| ------------ | ------------------- | ----------- | -------------------------------- |
-| API key      | `DUST_API_KEY`      | `--api-key` | Your API key for authentication. |
-| Workspace ID | `DUST_WORKSPACE_ID` | `--wId`     | Your workspace ID.               |
+| Parameter    | Env variable        | CLI flag        | Description                      |
+| ------------ | ------------------- | --------------- | -------------------------------- |
+| API key      | `DUST_API_KEY`      | `--key`         | Your API key for authentication. |
+| Workspace ID | `DUST_WORKSPACE_ID` | `--workspaceId` | Your workspace ID.               |
+
+<Note>
+API key authentication runs with workspace-level identity rather than your personal user session. Commands that require a logged-in user are only available after `dust login`.
+</Note>
 
 <Note>
 Command-line flags take precedence over environment variables.
