@@ -27,7 +27,7 @@ OAuth authenticates the connection; it does not authorize anything by itself. Wh
 | Field | Value |
 | ----- | ----- |
 | **Name** | `Dust` (or any recognizable name) |
-| **Redirect URL** | `https://dust.tt/oauth/servicenow/finalize` (US) or `https://eu.dust.tt/oauth/servicenow/finalize` (EU) |
+| **Redirect URL** | `https://app.dust.tt/oauth/servicenow/finalize,https://eu.dust.tt/oauth/servicenow/finalize,https://dust.tt/oauth/servicenow/finalize` |
 | **Default Grant type** | `Authorization Code` |
 | **Public Client** | Unchecked |
 | **Active** | Checked |
@@ -35,7 +35,7 @@ OAuth authenticates the connection; it does not authorize anything by itself. Wh
 | **Accessible from** | `All application scopes` |
 
 <Warning>
-The redirect URL must match exactly: same hostname (`dust.tt` vs `eu.dust.tt`), same path, no trailing slash. A mismatch causes an `invalid redirect URI` error.
+Register all three URLs as a single comma-separated list. `https://app.dust.tt/oauth/servicenow/finalize` is the redirect used for new connections; the `eu.dust.tt` and `dust.tt` URLs keep existing connections working. Each URL must match exactly: same hostname, same path, no trailing slash. A mismatch causes an `invalid redirect URI` error.
 </Warning>
 
 5. Save the record and let ServiceNow **generate** the Client ID and Client Secret (do not type your own client ID).
@@ -156,7 +156,7 @@ Keep credentials out of the skill: it should describe usage rules only. Access c
 
 | Error | Fix |
 | ----- | --- |
-| **`invalid redirect URI`** | The redirect URL in ServiceNow doesn't exactly match Dust's. Re-copy the URI; check `dust.tt` vs `eu.dust.tt`, the path, and the trailing slash. |
+| **`invalid redirect URI`** | The redirect URL in ServiceNow doesn't exactly match Dust's. Re-copy the comma-separated list of redirect URLs from step 1 (`app.dust.tt`, `eu.dust.tt`, and `dust.tt`); check the hostnames, the path, and the trailing slash. |
 | **`unauthorized_client`** | The Application Registry record is an "OAuth Provider" instead of an "OAuth API endpoint for external clients". Recreate it with the correct type and let ServiceNow generate the credentials. |
 | **`Access to unscoped API is not allowed`** | The OAuth application is securely scoped. Set it to `Global` / `Accessible from: All application scopes`, revoke old tokens in **System OAuth → Manage Tokens**, then reconnect. |
 | **`401 Unauthorized` after OAuth succeeds** | Check the integration user, its roles, and the token configuration. |
