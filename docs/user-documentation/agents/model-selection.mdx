@@ -143,9 +143,14 @@ When you select a specific model, you can also choose how much reasoning effort 
 | Effort | Behavior |
 | --- | --- |
 | **None** | No additional reasoning, for the fastest responses. |
-| **Light** | Light reasoning effort, for faster responses. |
+| **Minimal** | Minimal reasoning effort, for faster responses. |
+| **Low** | Low reasoning effort, balancing speed and quality. |
 | **Medium** | Medium reasoning effort, balancing speed and quality. |
 | **High** | High reasoning effort, with longer wait times and more deliberate reasoning. |
+| **XHigh** | Extra-high reasoning effort, for more deliberate reasoning. |
+| **Maximal** | Maximum reasoning effort, for the most deliberate reasoning. |
+
+**Light** is a deprecated alias for **Low**. Existing configurations that use **Light** are read as **Low**.
 
 Only the levels a model supports are selectable. Reasoning effort also affects credit consumption and the [model access tier](/docs/user-documentation/admins/usage-seats-and-credits/model-access-tiers) for that model. The same model can appear in different tiers at different reasoning efforts.
 
