@@ -37,7 +37,7 @@ When an agent runs sub-agents in the background, each sub-agent's credit cost is
 
 ## Credit-spend checkpoints
 
-To help prevent a single long-running task from using excessive credits, Dust pauses a root task started from the web app or browser extension when its cumulative AI spend reaches 200 AWU credits. Spend from sub-agents in the same task counts toward the checkpoint.
+To help prevent a single long-running task from using excessive credits, Dust pauses a root task started from the web app or browser extension when its cumulative AI spend reaches 600 AWU credits. Spend from sub-agents in the same task counts toward the checkpoint.
 
 When Dust pauses a task, it marks the conversation as requiring action and displays a checkpoint card:
 
@@ -46,6 +46,8 @@ When Dust pauses a task, it marks the conversation as requiring action and displ
 - If you are viewing the conversation but did not start the task, Dust waits for the person who started it to decide.
 
 This checkpoint applies to root tasks started from the web app or browser extension. It does not pause sub-agent messages or tasks started from other origins. The checkpoint measures AWU credits for AI processing; tool credits are not included.
+
+The checkpoint is on by default for every workspace. Admins can turn it off entirely from **Admin > Usage > Cost management**; the toggle only switches the checkpoint on or off, the 600-credit threshold itself is fixed and not configurable. Managers can also exempt a specific agent from ever pausing with the **Ignore credit spend threshold alert** setting in that agent's builder, under Cost Management.
 
 ## When credits are not consumed
 
