@@ -1,0 +1,48 @@
+---
+title: "[Beta] Frame backends"
+description: Give Frames saved data, stored files, and server-side logic.
+---
+
+<Warning>
+  This is a beta feature. To enable it on your workspace, contact us at [support@dust.tt](mailto:support@dust.tt).
+</Warning>
+
+By default, a [Frame](/docs/user-documentation/agents/frames/overview) runs entirely in the browser, so anything a viewer changes is lost on reload. With a backend, an agent can also give a Frame:
+
+- **Databases** that save records shared by everyone who opens the Frame.
+- **Files** that store uploads and generated documents.
+- **Server functions** that run trusted logic, call Dust tools, and reach external APIs.
+
+This turns a Frame into a small application, such as a task tracker, a request form, a CRM view, or an approval queue.
+
+## Build a Frame with a backend
+
+Ask the agent for the application you want, for example: **Build a tracker for our launch tasks where the team can add, assign, and close items.** The agent decides what needs to be saved and adds the backend for you.
+
+To add saving to an existing Frame, ask for it: **Make these tasks persist.** Older Frames are upgraded in place and keep their share link, recipients, and Pod pin.
+
+## Databases
+
+A Frame can have up to 4 databases, each limited to 1 GiB.
+
+Data belongs to the Frame, not to a version of it. When the agent edits the Frame, existing records are kept. The agent only adds tables and fields, so an edit never deletes or renames stored data.
+
+## Files
+
+Each Frame has a folder for storing files, such as uploaded images or generated documents. Files are kept for the life of the Frame. A single upload or download through the Frame is limited to 5 MB.
+
+## Dust tools and external APIs
+
+Server functions can call the tools available in your workspace, such as Gmail, Slack, or HubSpot, to read or update data from the Frame. Tool approvals and personal authentication work as they do in a conversation. Tool calls are slower than other actions, so expect a loading state. **Important**: tool calls are currently experimental, and there could be breaking changes.
+
+Functions follow the same network access rules and use the same configuration variables and HTTPS secrets as [Computer](/docs/user-documentation/agents/tools/computer). Admins manage them in [Computer admin setup](/docs/user-documentation/admins/tools-management/computer-admin-setup).
+
+## Who can use a Frame's backend
+
+- Only signed-in members of your workspace can load or save data. People viewing the Frame through a public share link see the Frame, but its backend is not available to them.
+- Functions know who is calling them. The agent can use this for per-person data, such as **My tasks**, and for actions reserved to people who can edit the Frame. In a Pod, these are Pod editors.
+
+## Limitations
+
+- A Frame cannot trigger a file download in the browser. It displays content in the Frame instead.
+- Frame backends are in beta. Behavior and limits may change.
