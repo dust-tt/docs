@@ -138,19 +138,21 @@ Choosing a specific model pins the agent to that model. Choosing an auto model m
 
 ## Reasoning effort
 
-When you select a specific model, you can also choose how much reasoning effort it spends before answering:
+When you select a specific model, the picker shows every reasoning effort that model supports, from its minimum through its maximum. In the model picker and `/m` menu, effort labels use the following display names, depending on what the model supports:
 
 | Effort | Behavior |
 | --- | --- |
-| **None** | No additional reasoning, for the fastest responses. |
-| **Minimal** | Minimal reasoning effort, for faster responses. |
-| **Low** | Low reasoning effort, balancing speed and quality. |
-| **Medium** | Medium reasoning effort, balancing speed and quality. |
-| **High** | High reasoning effort, with longer wait times and more deliberate reasoning. |
-| **XHigh** | Extra-high reasoning effort, for more deliberate reasoning. |
-| **Maximal** | Maximum reasoning effort, for the most deliberate reasoning. |
+| **none** | No additional reasoning, for the fastest responses. |
+| **minimal** | Minimal reasoning effort, for faster responses. |
+| **low** | Low reasoning effort, balancing speed and quality. |
+| **medium** | Medium reasoning effort, balancing speed and quality. |
+| **high** | High reasoning effort, with longer wait times and more deliberate reasoning. |
+| **xHigh** | Extra-high reasoning effort, for more deliberate reasoning. |
+| **maximal** | Maximum reasoning effort, for the most deliberate reasoning. |
 
-**Light** is a deprecated alias for **Low**. Existing configurations that use **Light** are read as **Low**.
+The `/m` menu shows the model's reasoning effort as a chip. It shows a **none** chip only when the model supports other reasoning efforts as well.
+
+**light** is a deprecated input alias for **low** in the API, SDK, and YAML. Existing stored `light` values are read as `low`.
 
 Only the levels a model supports are selectable. Reasoning effort also affects credit consumption and the [model access tier](/docs/user-documentation/admins/usage-seats-and-credits/model-access-tiers) for that model. The same model can appear in different tiers at different reasoning efforts.
 
