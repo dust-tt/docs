@@ -1,0 +1,95 @@
+---
+title: "[Beta] Frames"
+description: Turn agent outputs into interactive content and small apps you can share.
+---
+
+<Warning>
+  This version of Frames is in beta. To enable it on your workspace, contact us at [support@dust.tt](mailto:support@dust.tt).
+</Warning>
+
+## What is a Frame?
+
+A Frame is something an agent builds for you that is meant to be used, not just read: a dashboard, a report, a presentation, a calculator, or a small app. Frames open next to the conversation, respond to clicks and hovers, and can be shared with a link.
+
+A Frame keeps its identity as it changes. You can ask the agent to improve it, edit its text yourself, and share it, and the link you shared keeps pointing to the latest version.
+
+## What you can make
+
+- **Reports**: polished documents with charts and key figures, for client deliverables or executive summaries. [See an example](https://dust.tt/share/frame/fbda8d18-d4ba-4c73-8e38-1de91011e9cc).
+- **Dashboards**: views of your data that people can filter and explore on their own. [See an example](https://dust.tt/share/frame/6e6b1382-eee6-4bf5-a6c0-29a690d6113a).
+- **Presentations**: slide decks with a consistent look, built from your content.
+- **Interactive tools**: calculators, simulators, quizzes, and other tools that react to input.
+- **Apps that save data**: task trackers, request forms, CRM views, and approval queues that remember what people enter. See [Save data in a Frame](#save-data-in-a-frame).
+
+## Get started
+
+To let an agent create Frames:
+
+1. Open **Add capabilities** in the Agent Builder.
+2. Select the **Create Frames** skill.
+3. Save the agent.
+
+Then describe what you want, for example: **Build a dashboard of last quarter's sales by region, with a filter for product line.**
+
+The more you say about the audience and the look you want, the better the result. You can also share brand assets, such as a logo or colors, for the agent to follow.
+
+## Find your Frames
+
+- **In a conversation**: the Frame opens in a side panel when the agent creates it. All Frames from the conversation are also listed under the folder icon.
+- **In a Pod**: Frames are stored in the Pod's **Files** tab. Pod editors can pin a Frame as the Pod banner or add it as a Pod tab. See [Frames in Pods](/docs/user-documentation/pods/frames).
+
+## Edit and iterate
+
+**Ask the agent.** Describe the change in the conversation, for example: **Add a breakdown by region** or **Use our brand colors.** The agent updates the same Frame.
+
+**Edit text yourself.** To fix a word or a number without going back to the agent, switch the Frame header from **Preview** to **Edit**, click the text, type your change, and click **Save**.
+
+**Undo a change.** If the agent's latest edit is not what you wanted, click the **Revert the last change** button in the Frame header. Click it again to go further back. You can also ask the agent, for example: **Restore the Frame as it was yesterday.**
+
+## Save data in a Frame
+
+By default, a Frame only shows what the agent put in it: anything a viewer types or changes is gone when the page reloads. For an app, ask the agent to make the data persist, for example: **Build a tracker for our launch tasks where the team can add, assign, and close items.**
+
+The agent then gives the Frame its own storage:
+
+- **Records** that everyone who opens the Frame shares. A Frame can hold up to 4 databases of 1 GiB each.
+- **Files**, such as uploaded images or generated documents. Each upload or download is limited to 5 MB.
+
+Saved data belongs to the Frame. When the agent improves the Frame later, existing data is kept.
+
+The Frame also knows who is using it. The agent can use this for personal views, such as **My tasks**, or to reserve some actions to people who can edit the Frame.
+
+An existing Frame can start saving data too: just ask. It keeps its share link and recipients.
+
+## Connect a Frame to your tools
+
+A Frame that saves data can also use the tools available in your workspace, such as Gmail, Slack, or HubSpot, to read or update information. Tool approvals and personal authentication work as they do in a conversation. These actions take longer, so the Frame shows a loading state while they run.
+
+<Warning>
+  Tool calls from Frames are experimental, and there could be breaking changes.
+</Warning>
+
+A Frame can also reach external services, following the same network access rules and secrets as [Computer](/docs/user-documentation/agents/tools/computer). Admins manage these in [Computer admin setup](/docs/user-documentation/admins/tools-management/computer-admin-setup).
+
+## Share a Frame
+
+Open the Frame's sharing settings and choose who can access it:
+
+- **Invite only**: only the people and company domains you invite.
+- **All workspace members + invites**: everyone in your workspace, plus anyone you invite.
+- **Anyone with the link**: anyone, including people outside Dust.
+
+People you share with always see the latest version. Workspace admins control which options are available with the **Frame sharing policy** in **Workspace settings**. On eligible plans, publicly shared Frames can show your company branding instead of Dust's. See [White-labeled Frames](/docs/user-documentation/agents/frames/white-labeled-frames).
+
+<Note>
+  Only signed-in members of your workspace can load or save data in a Frame. People outside your workspace can view the Frame, but its saved data and tool actions are not available to them.
+</Note>
+
+## Export a Frame
+
+Ask the agent to export a Frame as a PDF or PNG, for example to attach it to an email or add it to a slide deck.
+
+## Limitations
+
+- A Frame cannot download files to your computer. It shows content, such as images or tables, inside the Frame instead.
+- This version of Frames is in beta. Behavior and limits may change.
