@@ -50,6 +50,8 @@ When connecting the tool as an admin, you will be able to pick between **Persona
 - **Workspace** means all agents will use the connecting admin's account when querying Hubspot
 - **Personal** means users will need to authenticate the first time they use an agent that has Hubspot access and the actions will then be taken through their account (permissions, audit, etc)
 
+If HubSpot reports that you do not have permission to install the app while completing OAuth, the HubSpot user authorizing the app must be a Super Admin or have the **HubSpot Marketplace Access** permission. Ask your HubSpot admin to grant this permission, then retry the connection.
+
 ## Adding HubSpot Tools to agents
 
 HubSpot tools can be added to an agent by selecting them in the agent builder. They require no configuration. Note that when connecting a tool, you can define the provided tools as high stake or low stake.
@@ -64,3 +66,4 @@ In general you will want to mention in the instructions of your agents the objec
 ```text
 From the transcripts you are receiving, create a contact if you can't find any existing contact with the interlocutor's name or email, and if a deal has been set create a deal to attach to the current account.
 ```
+
