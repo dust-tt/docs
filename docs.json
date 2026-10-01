@@ -329,6 +329,7 @@
             "group": "Admin Governance",
             "pages": [
               "docs/user-documentation/admins/admin-governance/workspace-governance-roles-groups-and-permissions",
+              "docs/user-documentation/admins/admin-governance/group-managers",
               "docs/user-documentation/admins/admin-governance/access-controls-and-permissions",
               {
                 "group": "Single Sign-On (SSO)",
