@@ -1,0 +1,87 @@
+---
+title: "Group managers"
+description: "Let team leads manage group membership, credit limits, and credit requests."
+---
+
+Appoint group managers so team leads can manage their groups' members and credit limits without asking an admin for every change.
+
+<Info>
+  Managing a group is separate from the workspace **Manager** role. Appointment does not change your workspace role or add you to the group.
+</Info>
+
+## Appoint a group manager
+
+You need the workspace **Admin** role to appoint or remove group managers.
+
+1. Go to **Admin > People > Groups**.
+2. Open the group you want to manage.
+3. In **Group managers**, select the people you want to appoint.
+4. Click **Save**.
+
+You can appoint several managers per group. Each person can manage several groups. They must be active workspace members but do not need to belong to the group.
+
+When you appoint someone outside a manual group, Dust asks you to confirm that you trust them to give the group's access to others, including themselves. Choose **Appoint anyway** to confirm or **Cancel** to save nothing.
+
+Groups managed through your company's directory and groups granting **Admin** skip this confirmation. Their membership remains controlled by your directory or a workspace admin.
+
+**People > Groups** shows each group's managers. Group dialogs show manager and member counts.
+
+<Note>
+  If you do not see the **Group managers** setting as an admin, contact Dust support.
+</Note>
+
+## Manage group membership
+
+As a group manager, open **Admin > People** to see your groups and their members. People in several of your groups appear once in **Members**.
+
+Open a manual group from **Groups**, select or deselect members, and click **Save**. You can add any active workspace member, including people outside your groups.
+
+Membership rules depend on the group:
+
+| Group | What you can do |
+| --- | --- |
+| Manual group without the Admin role | Add and remove existing workspace members. |
+| Group managed through your company's directory | View members. Membership changes happen in your directory. |
+| Group that grants the Admin role | View members. A workspace admin must change membership. |
+
+Adding someone gives them the group's access to spaces and data, roles, and seats. This can include billing or security access, the workspace **Manager** role, or a paid seat. These effects also apply when you add yourself.
+
+Removing someone from a group does not remove them from the workspace. They keep access received through other groups.
+
+## View usage and change credit limits
+
+Open **Admin > Usage** to see your groups' members, credit consumption, and limits. Filter by one group or all the groups you manage.
+
+- In **Members**, open a member's **···** menu and choose **Edit spend limit** to change their personal limit.
+- In **Groups**, change a group's spend limit to set the allowance for each member.
+
+A group allowance applies to each person, rather than a shared team budget. A personal limit applies across the workspace, including outside your team.
+
+A personal limit takes priority over group allowances. Otherwise, the highest group allowance applies, then the workspace default if no group allowance is set. The usage row shows which limit applies.
+
+Other managers can edit the same person's limit. The last saved change applies, even if an admin set the earlier limit. You can edit your own limit if you belong to a group you manage.
+
+You can change only your groups' allowances. Other group allowances and the workspace default appear for reference.
+
+Raising a limit does not buy credits. For how limits affect workspace pool usage and seat credits, see [Credit management](/docs/user-documentation/admins/usage-seats-and-credits/credit-management).
+
+## Handle credit requests
+
+In **Usage > Members**, select **Requests** to see pending requests from members of your groups.
+
+- Choose **Edit limit** to adjust the member's limit and approve the request.
+- Choose **Deny** to decline the request without changing their limit.
+
+If Dust saves a limit but cannot finish approving the request, it tells you the limit was saved and updates the request status. Check the status before trying again.
+
+Any manager of the member's groups can handle their request. Appointment does not add you to request email notifications.
+
+## Remove a group manager
+
+As an admin, open the group, deselect the person in **Group managers**, and click **Save**.
+
+Removal ends their management access through that group. Earlier membership and limit changes stay in place. Remove any membership separately if it gives them access you also want to revoke.
+
+## Workspace actions need separate access
+
+You need separate access to invite or remove workspace members, create, rename or delete groups, change group permissions, appoint managers, change workspace roles or seats directly, buy credits, or change workspace settings. Your existing workspace role and permissions still apply.
