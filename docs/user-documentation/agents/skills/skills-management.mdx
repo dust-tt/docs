@@ -1,0 +1,64 @@
+---
+title: "Skills management"
+description: "Find, filter, and manage reusable skills in your workspace."
+---
+
+Open **Manage Skills** to browse skills, review their usage, and manage the skills you can edit. To create a skill, click **Create skill** and choose **From scratch** or **From existing**. See the [Skills overview](/docs/user-documentation/agents/skills/skills-overview) for guidance on building skills.
+
+**From existing** lets you import skills from a GitHub repository or upload a `.zip` or `.skill` file. Select the detected skills you want to add, then click **Import**. Creating and importing skills requires permission to create skills.
+
+## Search and browse skills
+
+Use **Search skills by name** to find a skill. Choose a tab to browse:
+
+| Tab | What you see |
+| :--- | :--- |
+| **Workspace** | Active skills created in your workspace that you can access. |
+| **Dust** | Default skills provided by Dust. |
+| **Archived** | Archived skills that you can access. |
+
+Skills are sorted by usage by default. When you search, results are sorted by relevance unless you have chosen another sort order. Click **Name**, **Usage**, or **Last edited** to sort by that column. Use the pagination controls below the table to browse more results.
+
+Hover over a skill's name to read its description. Click its row to open the details panel. The table also shows availability, editors, and when the skill was last edited.
+
+**Usage** is the number of active users in the last 30 days. A dash means usage data is unavailable.
+
+## Filter skills
+
+Click **Filters**, select a category, and choose the values you want. Click **Apply** to update the list.
+
+| Filter | Use it to find skills by |
+| :--- | :--- |
+| **Availability** | **Editors only**, **Members**, or **Members and agents**. See [Skill availability](/docs/user-documentation/agents/skill-availability). |
+| **Tools** | Tools referenced by the skill. |
+| **Skills** | Other skills referenced by the skill. |
+| **Editors** | People who can edit the skill. Select your name, marked **(You)**, to find skills you can edit. |
+| **Spaces** | Spaces required to use the skill. |
+| **Usage** | A range of active users, selected with the slider. |
+
+You can combine filters with your search. Filter options reflect the skills matching your search and the other selected filters.
+
+Applied filters appear above the table. Remove a filter with its **×** button, or click **Clear all** to reset all filters. You can also reset selections with **Clear filters** inside the filter panel. To share a filtered view, copy the page URL. The link preserves the tab and filters; recipients see only skills they can access.
+
+### View hidden skills as an admin
+
+Open **Filters**, select **Hidden skills**, and click **Apply** to include skills you are not an editor of. Skills that require spaces you cannot access have their content hidden. This setting does not grant access to those spaces.
+
+## Manage skills
+
+Open a skill's **...** menu to edit it, view more information, copy its link, or archive it. Available actions depend on your permissions. You can also copy a skill's link from its details panel.
+
+From the details panel, click **Try skill** to start a conversation with the skill, or use the favorite button to save it to your favorites.
+
+### Update several skills
+
+Select the checkboxes next to active workspace skills you edit. Admins can also select skills they administer. Use the action bar to:
+
+- **Set availability**: Choose **Editors only**, **Members**, or **Members and agents**, then confirm with **Update**.
+- **Archive**: Archive the selected skills after reviewing the confirmation.
+
+Changing availability requires the **Manage skill availability** permission. Choosing **Members and agents** also requires **Make skills discoverable to agents**. See [Skill availability](/docs/user-documentation/agents/skill-availability) for what each setting allows.
+
+The header checkbox selects eligible skills on the current page. You can add selections from other pages. Changing the search, filters, tab, or sort order clears the selection.
+
+To restore an archived skill, open it from the **Archived** tab and click **Restore**. You must be an editor or a workspace admin.
