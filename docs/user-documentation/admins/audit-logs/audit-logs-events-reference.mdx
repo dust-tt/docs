@@ -24,6 +24,19 @@ This page lists all events currently emitted by Dust.
 | `agent.scope_changed` | An agent's visibility scope was changed (e.g. private  workspace) |
 | `agent.executed` | An agent was invoked in a conversation |
 
+## Skills
+
+| Event | Description |
+|---|---|
+| `skill.created` | An active skill was created or activated |
+| `skill.updated` | A skill's configuration was updated |
+| `skill.archived` | A skill was archived |
+| `skill.restored` | An archived skill was restored |
+| `skill.availability_updated` | A skill's availability changed |
+| `skill.editors_updated` | Editors were added to or removed from a skill |
+
+When an agent or skill change is emitted from a suggestion, the audit event includes `suggestion_batch_id` and, when available, `conversation_id` metadata.
+
 ## Tools
 
 | Event | Description |
