@@ -3,6 +3,15 @@ title: "Changelog"
 description: "New updates and improvements to Dust"
 ---
 
+<Update label="October 2nd, 2026" tags={["Improved"]} rss={{ title: "Reconnect MCP servers when sync fails", description: "MCP servers with a failed sync now show a warning, and Refresh relaunches sign-in so you can reconnect without re-creating the server." }}>
+## Reconnect MCP servers when sync fails
+
+Remote MCP servers whose sync has failed, for example after authentication expires, now show a warning in the tools list and in the server's settings instead of appearing healthy. Click Refresh in the server's settings to sign in again: Dust relaunches OAuth directly with the existing connection configuration, so you skip the connection type picker.
+
+Refreshing keeps the same server, so agents and skills that use it keep working. Servers that need credential fields, such as Snowflake, still open the credentials form.
+
+</Update>
+
 <Update label="October 2nd, 2026" tags={["Improved"]} rss={{ title: "Filter and search your agents and skills", description: "The Manage agents and Manage skills pages now show searchable tables you can filter by tools, editors, availability, spaces, and tags." }}>
 ## Filter and search your agents and skills
 
