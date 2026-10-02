@@ -1,21 +1,59 @@
 ---
 title: "Agents management"
+description: "Find, filter, and manage agents in your workspace."
 ---
 
-## Agent creation and tagging
+Open **Manage Agents** to find agents, review their usage, and manage the agents you can edit. To build a new agent, click **Create agent**. See [Create your first agent](/docs/user-documentation/agents/create-your-first-agent) for a walkthrough.
 
-## Agent management
+## Search and browse agents
 
-Agents can be managed through the **Manage** page, accessible from the main page
+Use the search bar to find agents by name or description. Choose a tab to browse:
 
-### Browsing and searching
+| Tab | What you see |
+| :--- | :--- |
+| **Workspace** | Active agents created in your workspace that you can access. |
+| **Dust** | Default agents provided by Dust. |
+| **Archived** | Archived agents that you can access. |
 
-From there, all accessible Agents can be found easily, via the Search bar, or by filters
+Agents are sorted by usage by default. When you search, results are sorted by relevance unless you have chosen another sort order. Click **Name**, **Usage**, or **Last edited** to sort by that column. Use the pagination controls below the table to browse more results.
 
-- Editable by me : All agents that you can edit - this includes your own Agents and the ones your colleagues added you to as **Editor**
-- Default : The Default Agents provided by Dust
+Hover over an agent's name to read its description. Click its row to open the details panel. The table also shows access, model, editors, tags, and feedback. Hover over **Feedback** values to see the positive and negative counts.
 
-### Admins: become an editor of any agent
+**Usage** is the number of active users in the last 30 days. A dash means usage data is unavailable.
+
+## Filter agents
+
+Click **Filters**, select a category, and choose the values you want. Click **Apply** to update the list.
+
+| Filter | Use it to find agents by |
+| :--- | :--- |
+| **Access** | **Published** or **Not published** status. |
+| **Editors** | People who can edit the agent. Select your name, marked **(You)**, to find agents you can edit. |
+| **Models** | The model the agent uses. |
+| **Skills** | Skills added to the agent. |
+| **Tags** | Tags assigned to the agent. |
+| **Spaces** | Spaces the agent requires access to. |
+| **Usage** | A range of active users, selected with the slider. |
+
+You can combine filters with your search. Filter options reflect the agents matching your search and the other selected filters. **Access** and **Usage** are not available on the **Dust** tab.
+
+Applied filters appear above the table. Remove a filter with its **×** button, or click **Clear all** to reset all filters. You can also reset selections with **Clear filters** inside the filter panel. To share a filtered view, copy the page URL. The link preserves the tab and filters; recipients see only agents they can access.
+
+### View hidden agents as an admin
+
+On the **Workspace** tab, open **Filters**, select **Hidden agents**, and click **Apply**. This includes unpublished agents from other members and agents that use restricted spaces. Admins can also see all archived workspace agents on the **Archived** tab.
+
+## Manage agents
+
+Open an agent's **...** menu to edit it, copy its ID, view more information, duplicate it, or archive it. Available actions depend on your permissions.
+
+To update several agents, select their checkboxes. Use **Change tag**, **Set model**, **Unpublish**, or **Archive** in the action bar. You can select active workspace agents you edit; admins can select any active workspace agent. Tag changes also respect your workspace's publishing permissions.
+
+The header checkbox selects eligible agents on the current page. You can add selections from other pages. Changing the search, filters, tab, or sort order clears the selection.
+
+To restore an archived agent, open it from the **Archived** tab and click **Restore** in its details panel. You must be an editor or a workspace admin.
+
+### Become an editor as an admin
 
 As a workspace admin, you can open any agent in the Agent Builder, even if you are not one of its editors. In that case, the builder opens in view-only mode with a banner indicating that you are not an editor of the agent.
 
@@ -29,9 +67,7 @@ Tags help organize agents in your workspace and make them easier to find. Think 
 
 As an administrator, you play a key role in organizing your workspace's agents through tags. Here's how to set up and manage an effective tagging system.
 
-### Setting Up Tags
-
-Navigate to **Manage Agents** > **Tags** > **Manage Tags**
+### Set up tags
 
 Only administrators can access the **Managing tags** dashboard and create new tags. In this dashboard you will also be able to edit and delete tags, and check how many agents are tagged.
 
@@ -39,6 +75,6 @@ Only administrators can access the **Managing tags** dashboard and create new ta
 **Tag suggestions:** If you don't have any tag set up yet, Dust will suggest a list of tags that can be assigned to your existing agents.
 </Info>
 
-### Assigning Tags to agents
+### Assign tags to agents
 
-Once Tags have been created, they can be assigned to existing agents from the agent list to keep things tidy 
+Use the tag selector in an agent's **Tags** cell to add or remove tags. To update several agents at once, select them and click **Change tag**.
