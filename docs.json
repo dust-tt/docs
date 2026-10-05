@@ -147,6 +147,7 @@
         "group": "Skills",
         "pages": [
           "docs/user-documentation/agents/skills/skills-overview",
+          "docs/user-documentation/agents/skills/skills-management",
           "docs/user-documentation/agents/skills/skill-examples",
           "docs/user-documentation/agents/skill-availability",
           "docs/user-documentation/agents/discover-knowledge",
@@ -329,6 +330,7 @@
             "group": "Admin Governance",
             "pages": [
               "docs/user-documentation/admins/admin-governance/workspace-governance-roles-groups-and-permissions",
+              "docs/user-documentation/admins/admin-governance/group-managers",
               "docs/user-documentation/admins/admin-governance/access-controls-and-permissions",
               {
                 "group": "Single Sign-On (SSO)",

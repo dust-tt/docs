@@ -68,7 +68,7 @@ Use the following URL as redirect URI : [https://app.dust.tt/oauth/microsoft/fin
 | **API name** | **Claim value** | **Permission** | **Type** | **Granted through** | **Granted by** | Comment |
 | --- | --- | --- | --- | --- | --- | :-- |
 | Microsoft Graph | Files.Read.All | Read all files that user can a... | **Delegated** | Admin consent | An administrator | For the connector to access files to ingest |
-| Microsoft Graph | Sites.Read.All <br />or<br />Sites.Selected | Read items in all site collecti... | **Delegated** | Admin consent | An administrator | For the connector to access Sharepoint sites to ingest |
+| Microsoft Graph | Sites.Read.All <br />or<br />Sites.Selected | Read items in all site collecti... | **Application** | Admin consent | An administrator | For the connector to access Sharepoint sites to ingest |
 | Microsoft Graph | User.Read | Sign in and read user profile | **Delegated** | Admin consent | An administrator | For the connector to log in as the service account |
 | Microsoft Graph | offline\_access | Maintain access to data you... | **Delegated** | Admin consent | An administrator | For the refresh of the connection after timing out |
 
@@ -88,7 +88,7 @@ Step 3 : Fill in the details in Dust
 
 NB : In Sharepoint admin, you will need to Select the Sites that your app has access to. Check out the [Microsoft documentation](https://learn.microsoft.com/en-us/graph/permissions-selected-overview?tabs=http)
 
-This is usually done by API or Powershell using the `Grant-PnpAzureADAppSitePermission` command. Check out the [Microsoft documentation](https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins-modernize/understanding-rsc-for-msgraph-and-sharepoint-online#granting-permissions-via-pnp-powershell)
+This is usually done by Powershell using the `Grant-PnpAzureADAppSitePermission` command, or via the [Microsoft Graph API](https://developer.microsoft.com/en-us/graph/graph-explorer) Check out the [Microsoft documentation](https://learn.microsoft.com/en-us/sharepoint/dev/sp-add-ins-modernize/understanding-rsc-for-msgraph-and-sharepoint-online#granting-permissions-via-pnp-powershell)
 
 A synchronization happens every 5 minutes. All files created, modified or deleted during this period will not be updated immediately, but changes will be reflected only once a new synchronization is executed.
 

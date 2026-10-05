@@ -71,7 +71,7 @@ By default, all members with workspace pool access can draw from it without indi
 
 The personal spend limit applies **on top of** a member's individual seat credits: it restricts access to the workspace pool, not the seat credits themselves.
 
-* If no personal spend limit is set, the member has unlimited pool access.
+* A personal spend limit takes priority over group allowances. Without a personal limit, the highest group allowance applies, then the workspace default if no group allowance is set. If none of these limits is set, the member has unlimited pool access.
 * When a member reaches their cap, they are blocked from further pool usage and receive an in-app notification.
 * Admins can set a workspace-wide default limit. When the default is updated, only members currently on the previous default are affected.
 
@@ -92,6 +92,8 @@ Admins can configure a monthly cap on programmatic credit consumption from **Adm
 ## Tracking usage
 
 Workspace admins can view and manage everything credit-related from **Admin > Usage**.
+
+[Group managers](/docs/user-documentation/admins/admin-governance/group-managers) can use the same page to view usage, edit personal and group limits, and handle requests for members of the groups they manage.
 
 ## Workspace credit pool
 
