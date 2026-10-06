@@ -60,3 +60,13 @@ Some websites are blocking crawling, here is a non exhaustive list:
 **Page Limit**
 
 Each new website connection can be set for a maximum limit of 1024 pages.
+
+**Page size limit**
+
+Each page can hold up to 500,000 characters of text, measured after Dust converts the page to text. Pages above that size are skipped, and the sync still shows as successful, so the content of those pages won't be available to your agents.
+
+If you need the content of a page that's too large, split it into smaller pages on your website, or upload its content as a file to a folder in a Space.
+
+**A page is missing from my website connection**
+
+If an agent can't find content from a page you expected to be indexed, check the page size first: pages over the size limit are skipped without an error. Then check that the page is public, isn't on a blocked website, and is covered by your Page Limit and Depth of Search settings.
