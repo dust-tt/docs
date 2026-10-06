@@ -29,6 +29,7 @@ Managers are delegated workspace administrators. They can:
 - Assign the Manager and Member roles
 - View workspace analytics and usage page
 - Access the Groups tab and set group spend limits
+- Appoint and remove group managers
 - Review and act on credit upgrade requests from members
 - Choose which groups can create and publish agents and skills
 
@@ -44,7 +45,7 @@ Admins can grant Members additional permissions through groups.
 
 ### Group managers
 
-Admins can appoint [group managers](/docs/user-documentation/admins/admin-governance/group-managers) to manage membership, credit limits, and credit requests for selected groups. This appointment is separate from a person's workspace role. It lets team leads manage their groups without giving them the workspace **Manager** role.
+Workspace Admins and Managers can appoint [group managers](/docs/user-documentation/admins/admin-governance/group-managers) to manage membership, credit limits, and credit requests for selected groups. This appointment is separate from a person's workspace role. It lets team leads manage their groups without giving them the workspace **Manager** role.
 
 ## Groups and permissions
 
@@ -94,6 +95,7 @@ The following permissions are available in the workspace governance settings.
 | Publish Frames | Yes when the policy allows | When granted if the policy allows | When granted if the policy allows |
 | View workspace analytics | Yes | Yes | No |
 | Manage group spend limits | Yes | Yes | For managed groups, when appointed group manager |
+| Appoint and remove group managers | Yes | Yes | No |
 
 Making a skill discoverable to agents, or changing the availability of an already discoverable skill, requires the **Make skills discoverable to agents** permission (Settings & Governance → Skills). It's Admin only by default; users without it cannot enable or change auto-discoverability. Granting it without also granting **Manage skill availability** has no effect: a group needs both to act on it.
 
