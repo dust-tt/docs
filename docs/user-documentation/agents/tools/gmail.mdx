@@ -31,20 +31,22 @@ The Gmail tool provides the following capabilities:
 | Tool                     | Description                                                               | Stake Level |
 | ------------------------ | ------------------------------------------------------------------------- | ----------- |
 | **`get_messages`**       | Retrieves messages from Gmail inbox with support for Gmail search queries | Never ask   |
+| **`get_thread`**         | Retrieves all messages in a Gmail thread                                  | Never ask   |
 | **`get_attachment`**     | Retrieves the content of a specific attachment from a Gmail message       | Never ask   |
+| **`get_labels`**         | Retrieves all Gmail labels, including system and user-created labels      | Never ask   |
 | **`get_drafts`**         | Retrieves all drafts from Gmail                                           | Never ask   |
-| **`create_draft`**       | Creates a new email draft in Gmail                                        | Medium      |
-| **`create_reply_draft`** | Creates a reply draft to an existing email thread in Gmail                | Medium      |
-| **`delete_draft`**       | Deletes a draft email from Gmail                                          | Low         |
+| **`create_draft`**       | Creates a new email draft, or a reply draft to an existing message        | Medium      |
+| **`set_message_labels`** | Adds or removes message labels to mark read/unread, star, or archive      | Low         |
+| **`delete_draft`**       | Deletes a draft email from Gmail                                          | High        |
 | **`send_mail`**          | Sends an email directly from Gmail _(new)_                                | High\*      |
 
 ** Note:**`send_mail` is disabled by default on existing workspaces. Admins must manually enable it in **Spaces > Tools > Gmail**. It is enabled by default on new Gmail tool installations.
 
 Gmail tools use specific approval levels ("stakes") to control automation:
 
-- **High stake** (e.g., `send_mail`): Requires explicit user approval every time the tool is used
-- **Medium stake** (e.g., `create_draft`, `create_reply_draft`): Requires approval once per set of recipients. Once you approve, the approval is saved and applies to all agents, so any agent can repeat the action for those recipients without interruption
-- **Low stake** (e.g., `delete_draft`): Users can disable confirmations
+- **High stake** (e.g., `send_mail`, `delete_draft`): Requires explicit user approval every time the tool is used
+- **Medium stake** (e.g., `create_draft`): Requires approval once per set of recipients. Once you approve, the approval is saved and applies to all agents, so any agent can repeat the action for those recipients without interruption
+- **Low stake** (e.g., `set_message_labels`): Users can disable confirmations
 - **Never ask** (e.g., `get_messages`, `get_drafts`): Executes automatically without confirmation
 
 Admins can modify the stake level of each tool in **Spaces > Tools > Gmail** to match their team's workflows and risk tolerance.
