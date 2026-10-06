@@ -19,7 +19,7 @@ Setting up the Gong connection involves the following steps that must be complet
 2. Authenticate on Gong, you will then be redirected to a Gong consent screen in order to give Dust access your Gong workspace.
 
 
-3. That's it! By default, Dust will sync all transcripts in your Gong workspace. Transcripts marked as Private in Gong are not synced. The connection will appear under **Spaces > Connections**. Don't forget that to be able to use this data you need to add it to a [Space](/docs/developer-platform/dust-api-documentation/list-available-spaces).
+3. That's it! By default, Dust will sync all transcripts in your Gong workspace. Transcripts marked as Private in Gong are not synced. The connection will appear under **Spaces > Connections**. Don't forget that to be able to use this data you need to add it to a [Space](/docs/user-documentation/admins/spaces-management).
 
 
 <Info>
@@ -36,7 +36,7 @@ Setting up the Gong connection involves the following steps that must be complet
 
 We synchronize the following in a transcript:
 
-* The text of the transcript and the email addresses of the speakers.
+* The text of the transcript and the email addresses of the speakers. Individual lines in the transcript don't include timestamps.
 * The URL to the page in the Gong web application where the call is available.
 * The duration of the call.
 * The **labels** listed in the "Labels" section.
@@ -57,5 +57,14 @@ When syncing transcripts, Dust attaches the following **labels** to the synced d
 * The direction of the call (Inbound, Outbound, Conference).
 * The participant's emails if exposed by Gong.
 * (Optional) The names of the trackers triggered during a call in the format `tracker:{name}`.
+* (Optional) The names of the accounts linked to the call in your CRM, in the format `account:{name}`.
 
 **Labels**  allow for additional filtering on data sources selected on the [semantic search](/docs/user-documentation/agents/knowledge/search-data-sources) tool.
+
+Tracker and account labels are off by default. An admin can turn them on in the Gong connection settings, under **Spaces** > **Connections**, with **Enable Trackers (Keyword and Smart)** and **Sync Account metadata**. These settings only apply to transcripts synced after you turn them on. If you need them on transcripts that are already synced, contact us at support@dust.tt.
+
+### Gong connection or Gong tools?
+
+The Gong connection syncs your transcripts into Dust, so agents can search across all your calls and filter them with the labels above.
+
+If you want an agent to look up a specific call directly in Gong, for example to get its summary or its full transcript, add the [Gong tools](/docs/user-documentation/agents/tools/gong) to that agent. The tools can't search calls by keyword, account, or participant, so for that kind of question, use the connection. You can use both on the same agent.
