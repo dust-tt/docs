@@ -289,3 +289,39 @@ Once the connection is successful, you can select the tables you want to make av
 **Tables only (no views)**
 The Snowflake connector only syncs and exposes tables for Query Tables (Table queries) in agents. Views (including materialized views) are not supported and will not be exposed to agents.
 </Info>
+
+## Rotating credentials
+
+To change the password or private key that Dust uses to connect to Snowflake, update the connection in Dust. You can't do this through the Dust API.
+
+1. Go to **Spaces** > **Connections** and open your Snowflake connection.
+2. Click **Manage Snowflake**, then **Edit connection**.
+3. The form opens empty. Fill in all the fields again, the same way as when you first connected, with your new password or private key.
+4. Click **Save**.
+
+Dust tests the new credentials before using them. If the test fails, you see an error message and Dust keeps using the current credentials.
+
+### Switching keys without interrupting your agents
+
+If you use key pair authentication, Snowflake lets the user you created for Dust (`dust_user` in this guide) have two public keys at the same time. The old key keeps working while you set up the new one, so your agents aren't interrupted.
+
+Follow these steps in this order:
+
+1. Create a new key pair, as described in [Setting up Key Pair Authentication](#setting-up-key-pair-authentication).
+2. In Snowflake, add the new public key to `dust_user`, next to the current one:
+   ```sql
+   ALTER USER dust_user SET RSA_PUBLIC_KEY_2='MIIBIjANBgkqhki...';
+   ```
+3. In Dust, edit the connection with the new private key, as described above. Once **Save** succeeds, Dust uses the new key.
+4. In Snowflake, remove the old public key:
+   ```sql
+   ALTER USER dust_user UNSET RSA_PUBLIC_KEY;
+   ```
+
+<Warning>
+Only remove the old key once **Save** has succeeded with the new one. If you remove it earlier, Dust can't connect to Snowflake until you update the connection.
+</Warning>
+
+<Note>
+These commands are for your first rotation, when the current key is in `RSA_PUBLIC_KEY`. Next time, swap the two names: add the new key to `RSA_PUBLIC_KEY`, then remove `RSA_PUBLIC_KEY_2`.
+</Note>
