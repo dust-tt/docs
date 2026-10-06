@@ -73,6 +73,21 @@ You can define who will be able to edit the agent by adding users the **"Editors
    2. Link your agent to a Slack channel. Every time **@dust** is called in the Slack channel, your agent will answer (instead of the generic **@dust** agent). Click on "Manage channels" under "Slack preferences"
 3. **In Zapier**: [Using your agent in Zapier](/docs/user-documentation/agents/integrations/zapier)
 
+## Create an agent from a YAML file
+
+You can also create an agent from a YAML file. The easiest way to get a file in the right format is to start from an existing agent: open its details and choose **Export to YAML**.
+
+When you create a new agent, choose **From YAML** and pick your `.yaml` or `.yml` file. Dust creates the agent right away and opens it in the builder.
+
+A few things to check before you import:
+
+- **Avatar**: `avatar_url` needs to be a Dust avatar (a URL starting with `https://dust.tt/static/`) or an image already uploaded to Dust. If it's missing or points somewhere else, the import fails.
+- **Editors**: editors are listed by email, and only members of your workspace are kept. When you import from Dust, you're added as an editor automatically. When you import with the API, at least one email needs to match a workspace member.
+- **Tags**: every tag in the file needs to already exist in your workspace, otherwise the import fails.
+- **Tools**: if a tool in the file can't be set up in your workspace, Dust skips it and tells you which ones were skipped. The agent is still created.
+
+To import agents with the API, see [Import agent configuration](/api-reference/agents/import-agent-configuration).
+
 ## Best practices
 
 **The three rules to create great agents**
