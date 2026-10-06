@@ -5,7 +5,7 @@ title: "File Generation"
 
 ## Overview
 
-Dust agents can generate files from text content and convert files between different formats using the File Generation capability. This allows your agents to create downloadable documents in formats like PDF, Word, Excel, and more.
+Dust agents can generate files from text content and convert files between different formats using the File Generation capability. This allows your agents to create downloadable documents in formats like Word, Excel, PowerPoint, and more.
 
 ## Supported Formats
 
@@ -13,7 +13,6 @@ The File Generation capability supports the following output formats:
 
 | Format     | Extension               | Description                       |
 | ---------- | ----------------------- | --------------------------------- |
-| PDF        | .pdf                    | Portable Document Format          |
 | Word       | .docx                   | Microsoft Word Document           |
 | Excel      | .xlsx, .xls             | Microsoft Excel Spreadsheet       |
 | PowerPoint | .pptx                   | Microsoft PowerPoint Presentation |
@@ -23,6 +22,10 @@ The File Generation capability supports the following output formats:
 | HTML       | .html                   | Web page format                   |
 | XML        | .xml                    | Extensible Markup Language        |
 | Images     | .jpg, .png, .gif, .webp | Image formats                     |
+
+<Note>
+  PDFs are created with [Computer](/docs/user-documentation/agents/tools/computer), not with File Generation. Just ask your agent for a PDF and it will create it there. If Computer isn't available in your workspace, File Generation creates PDFs instead.
+</Note>
 
 ## How to Enable File Generation
 
@@ -38,7 +41,7 @@ No additional configuration is required.
 
 ### Generating Files
 
-The agent can generate files from text content you provide or content it creates. When generating files for binary formats (PDF, DOCX, XLSX, PPTX), the agent can accept content in:
+The agent can generate files from text content you provide or content it creates. When generating files for binary formats (DOCX, XLSX, PPTX), the agent can accept content in:
 
 | Tool | Description |
 | --- | --- |
@@ -50,7 +53,7 @@ The agent can generate files from text content you provide or content it creates
 
 The agent can also convert files between different formats. For example:
 
-- Convert a Markdown file to PDF
+- Convert a Markdown file to Word
 - Convert HTML to Word document
 - Convert CSV to Excel
 
@@ -59,7 +62,7 @@ The agent can also convert files between different formats. For example:
 **Creating a Report:**
 
 ```
-Please create a PDF report summarizing the quarterly sales data we discussed.
+Please create a Word report summarizing the quarterly sales data we discussed.
 ```
 
 **Converting a Document:**
