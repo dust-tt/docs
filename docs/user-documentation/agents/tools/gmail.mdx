@@ -43,7 +43,7 @@ The Gmail tool provides the following capabilities:
 Gmail tools use specific approval levels ("stakes") to control automation:
 
 - **High stake** (e.g., `send_mail`): Requires explicit user approval every time the tool is used
-- **Medium stake** (e.g., `create_draft`, `create_reply_draft`): Requires approval once per agent + recipient combination. Once approved, the agent can repeat the action without interruption for that specific combination
+- **Medium stake** (e.g., `create_draft`, `create_reply_draft`): Requires approval once per set of recipients. Once you approve, the approval is saved and applies to all agents, so any agent can repeat the action for those recipients without interruption
 - **Low stake** (e.g., `delete_draft`): Users can disable confirmations
 - **Never ask** (e.g., `get_messages`, `get_drafts`): Executes automatically without confirmation
 
