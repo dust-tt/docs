@@ -22,6 +22,8 @@ All other outbound traffic, including other data warehouse connections, web sear
 | US (`dust.tt`) | `34.46.9.232` |
 | EU (`eu.dust.tt`) | `35.195.191.222` |
 
+Use the IP for the region your workspace is hosted in. If you only allow the other region's IP, requests from Dust are blocked and the connection fails.
+
 <Warning>
 These IPs are shared by all Dust workspaces. A firewall rule that allows them does not identify your workspace. Never rely on source IP alone to authenticate requests: keep authentication (bearer token or OAuth) enabled on your MCP server. IP whitelisting is a network-level restriction, not an identity guarantee.
 </Warning>
