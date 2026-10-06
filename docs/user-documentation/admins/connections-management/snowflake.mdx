@@ -289,3 +289,23 @@ Once the connection is successful, you can select the tables you want to make av
 **Tables only (no views)**
 The Snowflake connector only syncs and exposes tables for Query Tables (Table queries) in agents. Views (including materialized views) are not supported and will not be exposed to agents.
 </Info>
+
+## Rotating credentials
+
+You update the credentials of a Snowflake connection in Dust. There's no API for it. In **Spaces** > **Connections**, open the Snowflake connection, click **Edit connection**, fill in the connection details again with your new password or private key, and click **Save**.
+
+If you use key pair authentication, Snowflake lets a user have two public keys at the same time, so you can rotate keys without any downtime:
+
+1. Generate a new key pair, the same way as in [Setting up Key Pair Authentication](#setting-up-key-pair-authentication).
+2. Add the new public key to the Dust user as its second key:
+```sql
+ALTER USER dust_user SET RSA_PUBLIC_KEY_2='MIIBIjANBgkqhki...';
+```
+3. In Dust, click **Edit connection** on the Snowflake connection, enter the connection details with the new private key, and click **Save**.
+4. Check that the connection still works, for example by asking a quick question to an agent that uses it.
+5. Remove the old public key in Snowflake:
+```sql
+ALTER USER dust_user UNSET RSA_PUBLIC_KEY;
+```
+
+Always remove the old key last. As long as both keys are set on the user, Dust can connect with either one.
