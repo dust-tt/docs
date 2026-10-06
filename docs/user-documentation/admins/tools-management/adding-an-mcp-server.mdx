@@ -92,6 +92,8 @@ You can also create a MCP Server yourself, and plug it directly into Dust. For t
   * assign it a public URL
   * secure its access by creating an Oauth app in your cloud provider, or dropping all network traffic except the white-listed Authorization Header contained in the **Bearer Token** field
 
+If your server only accepts traffic from known IP addresses, see [Static egress IP addresses](/docs/user-documentation/admins/tools-management/static-egress-ips). Dust only calls an MCP server from a static IP when the server is on a domain verified for your workspace.
+
 <Info>
 Connectivity to the custom MCP server can be tested using the official [MCP inspector](https://modelcontextprotocol.io/docs/tools/inspector) tool
 </Info>
