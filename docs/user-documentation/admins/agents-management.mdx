@@ -61,6 +61,18 @@ To make changes, click the **Become an editor** button, available both in the ba
 
 The same applies to skills: admins can view any skill in the Skill Builder and click **Become an editor** to add themselves as editors before saving changes.
 
+## Before removing a member
+
+When you remove a member from the workspace, or when user provisioning (SCIM) removes them, Dust permanently deletes every trigger they created. Deleted triggers can't be restored.
+
+Before removing someone:
+
+1. Under **Programmatic Usage > Automations**, look for their name in the **Owner** column and note the triggers you want to keep.
+2. Add another editor to the agents they edit. Unpublished agents can only be used by their editors. To add yourself, see [Become an editor as an admin](#become-an-editor-as-an-admin).
+3. After the removal, recreate the triggers you need. A recreated trigger runs on behalf of the person who creates it, so they need access to the agent and must connect their own accounts for tools that use personal credentials.
+
+On plans with [audit logs](/docs/user-documentation/admins/audit-logs/audit-logs), each deleted trigger appears as a `trigger.deleted` event with its name and agent, but not its schedule or instructions.
+
 ## Tags
 
 Tags help organize agents in your workspace and make them easier to find. Think of them as **labels** that describe what an agent does, which team uses it, or its purpose.
