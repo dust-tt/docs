@@ -18,7 +18,7 @@ Seat types define the monthly credit allocation available to each member. Availa
 | **Pro**   | 8,000 credits/month                        |
 | **Max**   | 40,000 credits/month                       |
 
-* **Free seat:** A limited-access tier included on all plans. Free seat credits are a one-time lifetime allocation: they don't renew monthly and cannot be replenished once consumed.
+* **Free seat:** A limited-access tier included on all plans. Free seat credits are a one-time lifetime allocation: they don't renew monthly and cannot be replenished once consumed. A member can only have a Free seat once: see [Changing an existing member's seat](#changing-an-existing-members-seat).
 * **Pro seat:** Standard access with a solid monthly credit allocation, well-suited for regular usage.
 * **Max seat:** High-capacity access designed for power users with significantly more monthly credits.
 
@@ -45,11 +45,17 @@ When inviting someone to your workspace, you specify both their **role** and **s
 
 Admins can change a member's seat type at any time from **Admin > Usage**, in the Members list, using the **Change seat type** action. Timing depends on the direction of the change:
 
-| Transition        | Timing                                                                                                    |
-| ----------------- | --------------------------------------------------------------------------------------------------------- |
-| Free  Pro or Max | Immediate. Full credit allocation granted right away.                                                     |
-| Pro  Max         | Immediate.                                                                                                |
-| Max  Pro         | Deferred to the next billing period. The member retains Max access through the end of the current period. |
+| Transition         | Timing                                                                                                    |
+| ------------------ | --------------------------------------------------------------------------------------------------------- |
+| Free → Pro or Max | Immediate. Full credit allocation granted right away.                                                     |
+| Pro → Max         | Immediate.                                                                                                |
+| Max → Pro         | Deferred to the next billing period. The member retains Max access through the end of the current period. |
+| Pro or Max → Free | Not possible. See below.                                                                                  |
+
+The Free seat is meant for discovering Dust, and a member can only have it once:
+
+* After a member moves from a Free seat to a Pro or Max seat, they can't go back to a Free seat.
+* A member who held a seat, left the workspace, and rejoins it can't get a Free seat again.
 
 ### Member-initiated upgrade requests
 
