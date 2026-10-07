@@ -14,14 +14,14 @@ The **EU-hosted models only** setting is available to workspaces that:
 
 ## Turn on EU-hosted models only
 
-1. Go to **Admin** > **Models**.
-2. Turn on **EU-hosted models only**.
+1. Make sure every active agent uses an EU-hosted model or an auto model (**Basic**, **Standard**, or **Premium**). If any active agent uses a model that isn't EU-hosted, Dust doesn't turn on the setting and shows "Some active agents may not be eligible for regional models."
+2. Go to **Admin** > **Models**.
+3. Turn on **EU-hosted models only**.
 
 ## What changes
 
 - The model picker and the Agent Builder only offer EU-hosted models.
 - Auto models (**Basic**, **Standard**, and **Premium**) only use EU-hosted models.
-- An agent set to a specific model that isn't EU-hosted can no longer run: messages to it return "The model is not supported." Switch it to an EU-hosted model or to an auto model.
 
 ## Check whether a model is EU-hosted
 
@@ -29,12 +29,10 @@ In workspaces where the setting is available, the model picker shows the EU flag
 
 ## EU-hosted models
 
-As of October 2026:
-
 | Provider | EU-hosted models |
 | --- | --- |
-| Anthropic | Claude Opus 5.5, Claude Opus 5, Claude Opus 4.8, Claude Opus 4.7, Claude Opus 4.6, Claude Sonnet 5.5, Claude Sonnet 5, Claude Sonnet 4.6, Claude 4.5 Haiku |
-| OpenAI | GPT 6.1 Sol, GPT 6 Sol, GPT 6 Astra, GPT 6 Luna, GPT 5.6 Sol, GPT 5.6 Terra, GPT 5.6 Luna, GPT 5.5, GPT 5.4, GPT-5.4 Mini, GPT-5.4 Nano, GPT 5.2, GPT 5.1, GPT 5, GPT-5 Mini, GPT-5 Nano |
+| Anthropic | Claude Opus 5.5, Claude Opus 5, Claude Opus 4.8, Claude Sonnet 5.5, Claude Sonnet 5, Claude Sonnet 4.6, Claude 4.5 Haiku |
+| OpenAI | GPT 6.1 Sol, GPT 6 Sol, GPT 6 Astra, GPT 6 Luna, GPT 5.6 Sol, GPT 5.6 Terra, GPT 5.6 Luna, GPT-5.4 Mini, GPT-5.4 Nano |
 | Mistral | Mistral Large 4 (Preview), Mistral Large, Mistral Medium 3.5, Mistral Small, Mistral Codestral |
 | Google | Gemini 3.8 Flash, Gemini 3.7 Flash |
 | Fireworks | GLM-5.3 |
