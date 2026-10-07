@@ -38,9 +38,12 @@ Now that you have built the first steps of your connections, you can start putti
 
 **What @dust can access**
 
-* **@dust** searches the data in **Company Data**, the Space that every member of your workspace can access. To make a connection or folder available to **@dust**, add it to Company Data.
-* Data in other Spaces isn't searched by **@dust**. To use it, build an agent that has that data as [knowledge](/docs/user-documentation/agents/knowledge/index).
-* There's no setting to choose which data sources **@dust** uses.
+* **@dust** uses the data in **Company Data**, the default Space of your workspace. To make data available to **@dust**, add it to Company Data.
+* **@dust** doesn't search other [Spaces](/docs/user-documentation/admins/spaces-management) on its own, whether they're open or restricted. To use that data:
+  * **In one conversation:** type `/` in the message bar, choose **Attach**, and pick a document or folder from any Space you have access to. If it comes from a restricted Space, only members of that Space can access the conversation.
+  * **For repeated use:** build an agent that has that data as [knowledge](/docs/user-documentation/agents/knowledge/index). Only members of the Spaces the agent uses can see and use it.
+* In a Pod, **@dust** also uses the Pod's [files and linked data](/docs/user-documentation/pods/files).
+* There's no setting to choose which data sources **@dust** uses. Admins can only enable or disable it.
 
 
 One great use of Dust is to call the agents directly in Slack. The agent can use the ongoing conversation as context, and anybody in the Slack channel will be able to see the answer.
