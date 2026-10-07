@@ -1,0 +1,39 @@
+---
+title: "Triggers"
+description: "Run an agent automatically, on a schedule or when something happens in another tool."
+---
+
+A **trigger** starts an agent without anyone sending it a message. The agent runs with its usual instructions, tools, and knowledge, and each run creates a conversation you can open to see what it did.
+
+## Types of triggers
+
+| Type | Runs the agent | Example |
+| --- | --- | --- |
+| [Schedule](/docs/user-documentation/agents/triggers/schedules) | At times you describe in plain language | Every weekday at 8 AM, summarize yesterday's new support tickets |
+| [Webhook](/docs/user-documentation/agents/triggers/webhooks/index) | When another system sends an event | When a pull request is opened on GitHub, review it |
+
+Webhook triggers work with built-in sources (GitHub, Jira, Linear, Zendesk, and Fathom) or with a custom webhook from any system that can send HTTP requests.
+
+## Add a trigger to an agent
+
+1. Open the agent in the **Agent Builder**.
+2. In the **Triggers** section, click **Add triggers**.
+3. Pick **Schedule**, or one of the webhook sources available to you.
+4. Fill in the trigger settings, then save the agent.
+
+Webhook sources must first be created by a workspace admin: see [Webhooks](/docs/user-documentation/agents/triggers/webhooks/index). To check whether you can add a trigger to a given agent, see [Who can add a trigger](/docs/user-documentation/agents/triggers/schedules#who-can-add-a-trigger).
+
+Triggers belong to the member who created them. Triggers that other members added to the same agent appear under **Other members' triggers** in the Agent Builder.
+
+## Where runs appear
+
+Each run starts a new conversation with the agent. It includes the trigger's message and, for webhook triggers, the event data if you chose to include it.
+
+By default, the conversation appears in your own conversation history. To share runs with your team, pick a Pod under **Where to create this conversation?** in the trigger settings: the conversation is then created in that Pod, where all its members can see it. See [Pod conversations](/docs/user-documentation/pods/conversations).
+
+## Credits and limits
+
+- Trigger runs consume credits like any other agent run. The **Credits** setting on each trigger decides whether your credits or the workspace's pay for them. See [Credits usage](/docs/user-documentation/agents/triggers/credits-usage).
+- Webhook triggers run at most 42 times per 24 hours by default. See [Rate limiting](/docs/user-documentation/agents/triggers/webhooks/rate-limiting).
+
+To review your triggers and their credit consumption, or to enable, disable, or delete them, see [Review your triggers](/docs/user-documentation/agents/triggers/credits-usage#review-your-triggers).

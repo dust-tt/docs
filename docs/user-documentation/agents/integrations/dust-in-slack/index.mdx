@@ -1,0 +1,37 @@
+---
+title: "Dust in Slack"
+description: "Call your Dust agents from Slack channels, threads, and direct messages."
+---
+
+With the Dust app for Slack, members can call agents without leaving Slack: mention **@Dust** in a channel or thread, or send the app a direct message. The agent replies in a thread.
+
+## Set up the Dust app (admins)
+
+A workspace admin enables the app once for the whole workspace:
+
+1. In Dust, go to **Admin** > **Integrations**.
+2. Turn on **Slack Bot**.
+3. Follow the Slack authorization flow to install the Dust app in your Slack workspace.
+
+The Slack Bot is separate from the [Slack connection](/docs/user-documentation/admins/connections-management/slack), which syncs Slack channels into Dust as company data, and from the [Slack tools](/docs/user-documentation/agents/tools/slack-tools), which let agents search and post in Slack.
+
+## Call an agent
+
+Mention **@Dust**, followed by your request. To pick a specific agent, add **+** and its name right after the mention (**~** works too):
+
+- `@Dust What were the key decisions in this thread?`
+- `@Dust +SupportExpert How do I reset my password?`
+
+Good to know:
+
+- You can call one agent per message.
+- Without an agent name, the channel's default agent answers if an admin has set one (see below). Otherwise, the **@dust** agent answers, or another default agent if @dust is turned off in your workspace.
+- In a direct message with the Dust app, you don't need the @Dust mention. Write your request, optionally starting with **+** and the agent's name.
+
+## Set up channels
+
+- **Default agent for a channel**: admins can link an agent to channels from the agent's **Slack Channel Settings**, so @Dust mentions there go to that agent. The agent can also answer every message in the channel without a mention. See [Slack Auto-Reply without @mention](/docs/user-documentation/agents/integrations/dust-in-slack/slack-auto-reply).
+- **Slack workflows**: run agents from Slack Workflow Builder, for example when someone adds an emoji reaction. See [Slack workflows](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows).
+- **Auto-join (beta)**: automatically sync new public channels that match a pattern into the Slack connection. See [Slack Auto-Join](/docs/user-documentation/agents/integrations/dust-in-slack/slack-auto-join).
+
+If something doesn't work as expected, see [Slack troubleshooting](/docs/user-documentation/admins/admin-troubleshooting/slack-troubleshooting).

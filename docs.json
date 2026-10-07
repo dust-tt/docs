@@ -251,11 +251,13 @@
           },
           {
             "group": "Triggers",
+            "root": "docs/user-documentation/agents/triggers/index",
             "pages": [
               "docs/user-documentation/agents/triggers/credits-usage",
               "docs/user-documentation/agents/triggers/schedules",
               {
                 "group": "Webhooks",
+                "root": "docs/user-documentation/agents/triggers/webhooks/index",
                 "pages": [
                   "docs/user-documentation/agents/triggers/webhooks/filter-webhooks-payload",
                   "docs/user-documentation/agents/triggers/webhooks/rate-limiting"
@@ -272,10 +274,12 @@
           },
           {
             "group": "Integrations",
+            "root": "docs/user-documentation/agents/integrations/index",
             "pages": [
               "docs/user-documentation/agents/integrations/dust-mcp-server",
               {
                 "group": "Dust in Slack",
+                "root": "docs/user-documentation/agents/integrations/dust-in-slack/index",
                 "pages": [
                   "docs/user-documentation/agents/integrations/dust-in-slack/slack-auto-reply",
                   "docs/user-documentation/agents/integrations/dust-in-slack/slack-auto-join",
@@ -742,7 +746,7 @@
     },
     {
       "source": "/docs/automations",
-      "destination": "/docs/user-documentation/agents/triggers/schedules"
+      "destination": "/docs/user-documentation/agents/integrations/index"
     },
     {
       "source": "/docs/beta-deep-dive-agent-for-comprehensive-work",
@@ -1282,7 +1286,7 @@
     },
     {
       "source": "/docs/slack",
-      "destination": "/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows"
+      "destination": "/docs/user-documentation/agents/integrations/dust-in-slack/index"
     },
     {
       "source": "/docs/slack-auto-join-channel-to-synchronize",
@@ -1354,7 +1358,7 @@
     },
     {
       "source": "/docs/triggers",
-      "destination": "/docs/user-documentation/agents/triggers/schedules"
+      "destination": "/docs/user-documentation/agents/triggers/index"
     },
     {
       "source": "/docs/ukg-ready",
@@ -1402,7 +1406,7 @@
     },
     {
       "source": "/docs/webhooks",
-      "destination": "/docs/user-documentation/agents/triggers/webhooks/filter-webhooks-payload"
+      "destination": "/docs/user-documentation/agents/triggers/webhooks/index"
     },
     {
       "source": "/docs/website-connection",
