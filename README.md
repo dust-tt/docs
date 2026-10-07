@@ -7,7 +7,7 @@ Source for [docs.dust.tt](https://docs.dust.tt), built with [Mintlify](https://m
 - `docs.json`: site configuration and navigation
 - `index.mdx`: homepage
 - `docs/user-documentation/`: product documentation (getting started, agents, data sources, admins)
-- `docs/developer-platform/`: developer platform docs and API reference (auto-generated from `docs/developer-platform/dust-api-documentation/openapi.json`)
+- `docs/developer-platform/`: developer platform docs and API reference (auto-generated from `front-api/public/swagger.json` in [dust-tt/dust](https://github.com/dust-tt/dust))
 - `docs/changelog.mdx`: product changelog
 - `branding/`: logos and favicon
 
