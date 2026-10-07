@@ -141,21 +141,19 @@ While in an interactive chat session, type these with a forward slash:
 
 ## Headless authentication
 
-For automated workflows, CI/CD pipelines, or environments without interactive terminals, the CLI supports headless authentication.
-
-### Method 1: Environment variables (recommended)
+If you can't sign in through a browser, you can sign in with an API key instead. Run `dust login` with your API key and workspace ID:
 
 ```bash
-export DUST_API_KEY="sk_your_api_key_here"
-export DUST_WORKSPACE_ID="ws_abc123"
-
-dust chat                          # uses env vars automatically
+dust login --key sk-your_api_key_here --workspaceId ws_abc123
 ```
 
-### Method 2: Command-line flags
+You can also set environment variables, then run `dust login`:
 
 ```bash
-dust chat --workspaceId ws_abc123 --key sk_your_api_key_here
+export DUST_API_KEY="sk-your_api_key_here"
+export DUST_WORKSPACE_ID="ws_abc123"
+
+dust login
 ```
 
 | Parameter    | Env variable        | CLI flag        | Description                      |
@@ -164,12 +162,12 @@ dust chat --workspaceId ws_abc123 --key sk_your_api_key_here
 | Workspace ID | `DUST_WORKSPACE_ID` | `--workspaceId` | Your workspace ID.               |
 
 <Note>
-API key authentication runs with workspace-level identity rather than your personal user session. Commands that require a logged-in user are only available after `dust login`.
+Only `dust login` reads these flags and environment variables. Other commands, such as `dust chat`, use the credentials that `dust login` saved. Command-line flags take precedence over environment variables.
 </Note>
 
-<Note>
-Command-line flags take precedence over environment variables.
-</Note>
+### What works with an API key
+
+After signing in with an API key, interactive `dust chat` works. Commands that need your user profile return an authentication error, including non-interactive messages (`dust chat --message`) and `dust status`. To use them, sign in with `dust login` without an API key.
 
 ### Security considerations
 
