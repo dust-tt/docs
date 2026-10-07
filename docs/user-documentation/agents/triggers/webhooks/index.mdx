@@ -1,0 +1,41 @@
+---
+title: "Webhooks"
+description: "Run an agent when an event happens in another system, like a new ticket or a pull request."
+---
+
+A **webhook trigger** runs an agent each time another system sends an event to Dust: a ticket is created, a pull request is opened, an issue changes status. The agent can receive the event data and act on it.
+
+Setting one up takes two steps: a workspace admin creates a **webhook source**, then members add triggers that use it to their agents.
+
+## Built-in and custom sources
+
+- **Built-in sources**: GitHub, Jira, Linear, Zendesk, and Fathom. The admin connects the account and picks the events to watch, and Dust registers the webhook with the provider.
+- **Custom webhook**: for any other system that can send HTTP requests. After saving the source, copy its **Webhook URL** and paste it into the system that sends the events. The URL contains a secret, so share it only with that system.
+
+For a custom webhook, you can also have Dust check that each request is signed: under **Advanced settings**, set a **Signature header** and a **Signature algorithm** (sha1, sha256, or sha512). Dust then rejects requests without a valid signature. It generates the signing secret for you, unless you turn off **Auto-generate** and enter your own.
+
+## Create a webhook source (admins)
+
+Only workspace admins can create webhook sources.
+
+1. Go to **Spaces** > **Triggers** and click **Add source**.
+2. Pick a provider, or **Custom webhook**.
+3. Name the source, then connect your account and select the events to watch (built-in sources), or set up the webhook (custom).
+4. Save the source.
+
+A new source is available to all workspace members. To limit it to members of specific Spaces, open the source's **Sharing** tab.
+
+## Add a webhook trigger to an agent
+
+1. In the Agent Builder, go to **Triggers** > **Add triggers** and pick the source.
+2. Set up the trigger:
+   - **Listen for** (built-in sources): the event that runs the agent.
+   - **Run only when** (optional, built-in sources): describe in plain language when the agent should run, and Dust generates the filter.
+   - **Filter expression** (optional, custom webhooks): write the filter yourself. See [Filter webhooks payload](/docs/user-documentation/agents/triggers/webhooks/filter-webhooks-payload).
+   - **Include webhook payload**: send the event data to the agent, so it can use details like a ticket's title or a pull request's author.
+   - **Message** (optional): what the agent should do on each run.
+   - **Rate limits**: the maximum number of runs over 24 hours. See [Rate limiting](/docs/user-documentation/agents/triggers/webhooks/rate-limiting).
+   - **Credits** and **Where to create this conversation?**: see [Triggers](/docs/user-documentation/agents/triggers/index).
+3. Save the agent.
+
+Without a filter, every matching event runs the agent, up to the rate limit.
