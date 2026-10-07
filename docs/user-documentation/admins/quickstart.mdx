@@ -32,19 +32,23 @@ Go to **Spaces** > **Connections**, select the desired Connection, click **Conne
 
 To get help on how to set-up the various connections, you can refer directly to [Connections](/docs/user-documentation/data-sources/connections).
 
-Now that you have built the first steps of your connections, you can start putting Dust to work. A very useful agent in your journey is th&#x65;**@dust** agent.
+Now that you have built the first steps of your connections, you can start putting Dust to work. A very useful agent in your journey is the **@dust** agent.
 
 **@dust** is created to help you **answer questions by looking into your company data**. Think about it as your company data researcher, or "Perplexity for internal data". It works using [Retrieval Augmented Generation](/docs/user-documentation/agents/llm-best-practices/understanding-rag).
 
-**How to set-up Dust**
+**What @dust can access**
 
-* Go to **Chat >  Manage Agents > Default>@dust** and click on **Manage**. From there, you will be able to choose which data sources @dust has access to.
-* Select the data sources you want to give **@dust** access to.
+* **@dust** uses the data in **Company Data**, the default Space of your workspace. To make data available to **@dust**, add it to Company Data.
+* **@dust** doesn't search other [Spaces](/docs/user-documentation/admins/spaces-management) on its own, whether they're open or restricted. To use that data:
+  * **In one conversation:** type `/` in the message bar, choose **Attach**, and pick a document or folder from any Space you have access to. If it comes from a restricted Space, only members of that Space can access the conversation.
+  * **For repeated use:** build an agent that has that data as [knowledge](/docs/user-documentation/agents/knowledge/index). Only members of the Spaces the agent uses can see and use it.
+* In a Pod, **@dust** also uses the Pod's [files and linked data](/docs/user-documentation/pods/files).
+* There's no setting to choose which data sources **@dust** uses. Admins can only enable or disable it.
 
 
 One great use of Dust is to call the agents directly in Slack. The agent can use the ongoing conversation as context, and anybody in the Slack channel will be able to see the answer.
 
-1. [Install and authorize the Dust app in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows).
+1. [Install and authorize the Dust app in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/index#set-up-the-dust-app-admins).
 2. Add the Dust app to your Slack channels.
 3. You're all set! All workspace members can interact with @dust directly in Slack.
 
