@@ -336,6 +336,7 @@
               "docs/user-documentation/admins/admin-governance/workspace-governance-roles-groups-and-permissions",
               "docs/user-documentation/admins/admin-governance/group-managers",
               "docs/user-documentation/admins/admin-governance/access-controls-and-permissions",
+              "docs/user-documentation/admins/admin-governance/eu-hosted-models",
               {
                 "group": "Single Sign-On (SSO)",
                 "pages": [
