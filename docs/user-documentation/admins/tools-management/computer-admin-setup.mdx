@@ -3,17 +3,15 @@ title: "Computer admin setup"
 ---
 
 
-This page explains how workspace admins can configure Computer. For an overview of what Computer does for users and builders, see [Computer](/docs/user-documentation/agents/tools/computer).
+This page explains how to configure Computer. For an overview of what Computer does for users and builders, see [Computer](/docs/user-documentation/agents/tools/computer).
 
-The Computer admin page controls workspace-level network access and environment variables for Computer. Only workspace admins can manage these settings.
+Computer administration is split across two pages: manage network access under **Admin > Organization > Security > Network**, and workspace environment variables under **Admin > Platform > Developers > Computer environment**. Workspace admins and members of groups granted **Access security features** can manage these controls. To delegate this access, an admin can grant the permission under **Admin > Organization > Members > Roles > Billing and security**.
 
 ## Configure settings for a single Pod
 
-When Computer is enabled for your workspace, workspace admins can configure egress domains and environment variables for an individual Pod from its **Settings > Advanced** tab. Pod-level settings are used by Computers in that Pod and do not change the workspace-wide settings.
+When Computer is enabled for your workspace, workspace admins can configure egress domains and environment variables for an individual Pod from its **Settings > Advanced** tab. These direct Pod-level settings are used by Computers in that Pod and do not change workspace-wide settings. The Security page can also apply network policies to the workspace or selected Pods.
 
 Pod members can view the Pod's egress domains and environment-variable names, types, and allowed domains. Only workspace admins can add, edit, or remove Pod-level settings. Environment-variable values are write-only and are not displayed.
-
-If Computer administration is not enabled for your workspace, the page will show a message explaining that Computer administration is not enabled.
 
 ## What admins can configure
 
@@ -24,12 +22,12 @@ Admins can configure two areas:
 
 ## Configure network access
 
-Computer does not have open internet access by default. The Network section lets admins decide which domains are trusted for the workspace.
+Computer does not have open internet access by default. The **Network** tab lets admins decide which domains are trusted for the workspace or selected Pods.
 
 To add a domain:
 
-1. Open the **Computer** admin page.
-2. Go to the **Network** section.
+1. Open **Admin > Organization > Security > Network**.
+2. Select the workspace or the Pods to configure.
 3. Find **Allowed domains**.
 4. Enter a trusted domain.
 5. Click **Add domain**.
@@ -46,7 +44,7 @@ You can also add wildcard domains such as:
 *.mistral.ai
 ```
 
-Allowed domains apply to every Computer in the workspace. Changes are typically picked up within around 60 seconds. Invalid or duplicate domains are rejected before saving.
+Allowed domains apply to the selected scope. Changes are typically picked up within around 60 seconds. Invalid or duplicate domains are rejected before saving.
 
 To remove a domain, use the delete action next to that domain in the allowed domains list.
 
@@ -71,11 +69,10 @@ When Agent-requested domains is enabled, a non-admin user can grant temporary ne
 
 To change this setting:
 
-1. Open the **Computer** admin page.
-2. Go to the **Network** section.
-3. Find **Agent-requested domains**.
-4. Turn the toggle on or off.
-5. When turning it on, confirm that users will be able to grant temporary access to additional domains.
+1. Open **Admin > Organization > Security > Network**.
+2. Find **Agent-requested domains**.
+3. Turn the toggle on or off.
+4. When turning it on, confirm that users will be able to grant temporary access to additional domains.
 
 ## Add configuration variables
 
@@ -85,13 +82,12 @@ Do not use configuration variables for credentials. They are mounted as plain en
 
 To add a configuration variable:
 
-1. Open the **Computer** admin page.
-2. Go to **Environment variables**.
-3. Click **Add variable**.
-4. Choose **Config**.
-5. Enter a name suffix using uppercase letters, digits, and underscores.
-6. Paste the value.
-7. Save.
+1. Open **Admin > Platform > Developers > Computer environment**.
+2. Click **Add variable**.
+3. Choose **Config**.
+4. Enter a name suffix using uppercase letters, digits, and underscores.
+5. Paste the value.
+6. Save.
 
 Configuration variable names use the `DST_` prefix.
 
@@ -110,14 +106,13 @@ Inside Computer, an HTTPS secret appears as a placeholder. When Computer makes a
 
 To add an HTTPS secret:
 
-1. Open the **Computer** admin page.
-2. Go to **Environment variables**.
-3. Click **Add variable**.
-4. Choose **HTTPS secret**.
-5. Enter a name suffix using uppercase letters, digits, and underscores.
-6. Paste the secret value.
-7. Add at least one allowed domain, for example `api.openai.com` or `*.mistral.ai`.
-8. Save.
+1. Open **Admin > Platform > Developers > Computer environment**.
+2. Click **Add variable**.
+3. Choose **HTTPS secret**.
+4. Enter a name suffix using uppercase letters, digits, and underscores.
+5. Paste the secret value.
+6. Add at least one allowed domain, for example `api.openai.com` or `*.mistral.ai`.
+7. Save.
 
 HTTPS secret names use the `DSEC_` prefix.
 
@@ -177,6 +172,7 @@ Environment variables are loaded when a Computer starts. Start a new conversatio
 
 Make sure the secret has at least one allowed domain. HTTPS secrets require allowed domains because the credential should only be sent to the services it is meant for.
 
-### The admin page is unavailable
+### Computer settings are unavailable
 
-Make sure Computer administration is enabled for the workspace and that you are a workspace admin.
+Make sure Computer is enabled for the workspace and that you are a workspace admin or belong to a group with **Access security features**. Direct Pod-level settings under **Settings > Advanced** require the workspace Admin role.
+

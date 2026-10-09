@@ -27,15 +27,15 @@ Managers are delegated workspace administrators. They can:
 - Invite and remove members
 - Change the roles of non-admin members
 - Assign the Manager and Member roles
-- View workspace analytics and usage page
+- View workspace Analytics and the Credits page. Credit-priced plans show credit pools and member/group usage; non-credit-priced plans show programmatic usage and settings.
 - Access the Groups tab and set group spend limits
 - Appoint and remove group managers
 - Review and act on credit upgrade requests from members
 - Choose which groups can create and publish agents and skills
 
-Managers do not receive billing or security access by default. Admins can grant these permissions to groups when needed.
+Managers do not receive **Access billing features** or **Access security features** by default. Admins can grant either permission to groups from **Admin > Organization > Members > Roles > Billing and security**.
 
-Managers cannot manage the policy for sharing Frames externally or audit logs. When the external Frame sharing policy is enabled, Managers can configure which groups may invite users to Frames and make them public.
+The Manager role alone does not grant access to Security settings or audit logs. An Admin can delegate **Access security features** to a group, which gives its members access to the corresponding Security controls. The Manager role also does not let someone change the workspace policy for sharing Frames externally. When that policy is enabled, Managers can configure which groups may invite users to Frames and make them public.
 
 ### Member
 
@@ -79,7 +79,7 @@ These tools only see and manage provisioned (SCIM) and manually-created groups. 
 
 ## Permission matrix
 
-The following permissions are available in the workspace governance settings.
+The following permissions can be assigned through **Admin > Organization > Members > Roles** or managed in the corresponding Governance settings.
 
 | Permission | Admin | Manager | Member |
 | --- | --- | --- | --- |
@@ -87,23 +87,22 @@ The following permissions are available in the workspace governance settings.
 | Publish agents | Yes | When granted | When granted |
 | Create skills | Yes | When granted | When granted |
 | Make skills discoverable to agents | Yes | No | No |
-| View and export audit logs | Yes | When granted | When granted |
-| Manage billing and subscriptions | Yes by default | When granted | When granted |
-| Manage security and provisioning | Yes by default | When granted | When granted |
+| Access billing features | Yes by default | When granted | When granted |
+| Access security features | Yes by default | When granted | When granted |
 | Manage workspace model providers | Yes | No | No |
-| Invite external users to Frames | Yes when the policy allows | When granted if the policy allows | When granted if the policy allows |
-| Publish Frames | Yes when the policy allows | When granted if the policy allows | When granted if the policy allows |
+| Invite people by email | Yes when the policy allows | When granted if the policy allows | When granted if the policy allows |
+| Share Frames by public link | Yes when the policy allows | When granted if the policy allows | When granted if the policy allows |
 | View workspace analytics | Yes | Yes | No |
 | Manage group spend limits | Yes | Yes | For managed groups, when appointed group manager |
 | Appoint and remove group managers | Yes | Yes | No |
 
-Making a skill discoverable to agents, or changing the availability of an already discoverable skill, requires the **Make skills discoverable to agents** permission (Settings & Governance → Skills). It's Admin only by default; users without it cannot enable or change auto-discoverability. Granting it without also granting **Manage skill availability** has no effect: a group needs both to act on it.
+Making a skill discoverable to agents, or changing the availability of an already discoverable skill, requires the **Make skills discoverable to agents** permission (**Admin > Organization > Governance > Agents & Skills > Skills**). It's Admin only by default; users without it cannot enable or change auto-discoverability. Granting it without also granting **Manage skill availability** has no effect: a group needs both to act on it.
 
 ## Workspace governance settings
 
-Workspace settings and permission controls are managed under **Settings & Governance**.
+Workspace governance policies are managed under **Admin > Organization > Governance**. Group role mapping and billing/security access are managed under **Admin > Organization > Members > Roles**.
 
-Billing and security are permissions, not separate roles. Admins receive access by default. Admins can delegate either permission to selected groups without changing those members' workspace roles.
+**Access billing features** and **Access security features** are group permissions, not separate workspace roles. Admins receive access by default and can delegate either permission without changing members’ workspace roles. Access security features also grants access to workspace Security and Computer network/environment controls.
 
 ## The Builder role
 
@@ -124,3 +123,4 @@ A person's effective access combines:
 3. Their access to specific resources, such as spaces, agents, skills, and other workspace content
 
 These sources of access are additive. A permission granted through one group does not remove access granted through another group or through the person's workspace role.
+

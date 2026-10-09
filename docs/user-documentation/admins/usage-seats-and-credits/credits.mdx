@@ -47,7 +47,7 @@ When Dust pauses a task, it marks the conversation as requiring action and displ
 
 This checkpoint applies to root tasks started from the web app or browser extension. It does not pause sub-agent messages or tasks started from other origins. The checkpoint measures AWU credits for AI processing; tool credits are not included.
 
-The checkpoint is on by default for every workspace. Admins can turn it off entirely from **Admin > Usage > Settings tab > Cost management**; the toggle only switches the checkpoint on or off, the 600-credit threshold itself is fixed and not configurable. Managers can also exempt a specific agent from ever pausing with the **Ignore credit spend threshold alert** setting in that agent's builder, under Cost Management.
+The checkpoint is on by default for every workspace. Admins can turn it off entirely from **Admin > Spend > Credits > Settings > Cost management**; the toggle only switches the checkpoint on or off, the 600-credit threshold itself is fixed and not configurable. Managers can also exempt a specific agent from ever pausing with the **Ignore credit spend threshold alert** setting in that agent's builder, under Cost Management.
 
 ## When credits are not consumed
 
@@ -57,7 +57,7 @@ Some interactions are exempt from credit consumption:
 
 ## Credit cost display
 
-After each message, Dust shows the credit cost of that interaction directly in the conversation. This lets every member track their usage in real time without navigating to the Usage page.
+After each message, Dust shows the credit cost of that interaction directly in the conversation. This lets every member track their usage in real time without navigating to the Credits page. The conversation breakdown can also be viewed **By tools**, **By models**, or **By agents**.
 
 The display includes the cost of the main agent response and any sub-agents that ran in the background as part of that interaction.
 
@@ -81,3 +81,4 @@ For details on how credits are drawn from different sources (individual allocati
 Individual seat credits reset monthly, on the anniversary of your subscription start date. Unused credits do not carry over to the following month.
 
 **Free seat credits** are a one-time lifetime allocation and do not reset.
+

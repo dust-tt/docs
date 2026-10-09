@@ -4,7 +4,7 @@ title: "Seat management"
 
 Seats control each workspace member's AI usage capacity. Every member has two independent attributes: a **role** (what they can configure and access; see [Memberships & Roles](/docs/user-documentation/getting-started/dust-rollout-guide/admin-guide-set-up-your-dust-workspace)) and a **seat type** (their credit allocation).
 
-Roles and seat types are independent: an Admin can hold a Free seat, and a Viewer can hold a Pro seat.
+Roles and seat types are independent: an Admin can hold a Free seat, and a Member can hold a Pro seat.
 
 ## Seat types
 
@@ -30,7 +30,7 @@ On the Enterprise Pooled plan, there is a single seat type, the **Workspace seat
 
 ## Assigning and managing seats
 
-Admins can assign and change seats from **Admin > Members**.
+Admins can assign and change seats from **Admin > Organization > Members**.
 
 ### Inviting a new member
 
@@ -43,7 +43,7 @@ When inviting someone to your workspace, you specify both their **role** and **s
 
 ### Changing an existing member's seat
 
-Admins can change a member's seat type at any time from **Admin > Usage**, in the Members list, using the **Change seat type** action. Timing depends on the direction of the change:
+Admins can change a member’s seat type at any time from **Admin > Spend > Credits > Members**, using the **Change seat type** action. Timing depends on the direction of the change:
 
 | Transition         | Timing                                                                                                    |
 | ------------------ | --------------------------------------------------------------------------------------------------------- |
@@ -61,7 +61,7 @@ The Free seat is meant for discovering Dust, and a member can only have it once:
 
 When members reach their credit limit, they are blocked from sending messages. Admins can allow members to request a seat upgrade instead of being silently blocked.
 
-To enable this, go to **Admin > Usage > Settings** and turn on the **Upgrade request** toggle. Once enabled, blocked members see a prompt to request an upgrade. Workspace admins and managers can then review and act on pending requests from the **Requests** tab in the Members section.
+To enable this, go to **Admin > Spend > Credits > Settings** and turn on the **Upgrade request** toggle. Once enabled, blocked members see a prompt to request an upgrade. Workspace admins and managers can then review and act on pending requests from **Admin > Spend > Credits > Members > Requests**.
 
 The video below shows how to review and process an upgrade request as a workspace admin or manager:
 
@@ -79,3 +79,4 @@ When a seat is unassigned:
 
 * **Monthly seats** are removed immediately (with a prorated credit applied to the next invoice).
 * **Annual seats** are returned to your seat stock and can be reassigned to another member at the end of the current credit period. Seats vacated when someone leaves are not refunded.
+
