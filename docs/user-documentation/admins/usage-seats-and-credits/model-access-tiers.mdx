@@ -1,11 +1,13 @@
 ---
 title: "Model access tiers"
-description: "Restrict which models and reasoning efforts your members can select, for the whole workspace, a group, or one member."
+description: "On credit-priced plans, restrict which models and reasoning efforts members can select at the workspace, group, or individual level."
 ---
 
 Members can pick the model an agent runs on from the composer and Agent Builder. See [Auto models and the model picker](/docs/user-documentation/agents/model-selection).
 
-As an administrator, you can cap how far up the model list each member can go. This lets you keep everyday work within a defined cost range while reserving higher-cost options for members who need them.
+On credit-priced plans, administrators can cap how far up the model list each member can go. This lets you keep everyday work within a defined cost range while reserving higher-cost options for members who need them.
+
+Model access tier controls are not available on non-credit-priced plans. Model availability on those plans is determined by plan access and any applicable workspace feature flags.
 
 <Info>
   **Model access tiers are broader than the auto-model levels in the picker.** Here, **Basic**, **Standard**, **Premium**, and **Ultra** are administrator controls that apply to individual models, reasoning-effort combinations, and the corresponding auto models. The picker’s **Basic**, **Standard**, and **Premium** are curated auto-model choices, while **Ultra** is a separate administrator tier for the highest-cost model and reasoning-effort combinations, not a fourth auto-model choice. For the curated auto-model lists, see [Auto models and the model picker](/docs/user-documentation/agents/model-selection).
@@ -22,7 +24,7 @@ Every model and supported reasoning effort belongs to one tier. The same model c
 | **Premium** | Higher-cost combinations for demanding work that benefits from stronger capabilities. |
 | **Ultra** | Frontier models priced far above Premium, for the most demanding work. |
 
-Tiers are cumulative. **Up to Standard** grants access to Basic and Standard. **Up to Premium** grants access to Basic, Standard, and Premium. **Up to Ultra** grants access to all four tiers, which is the default for every workspace.
+Tiers are cumulative. **Up to Standard** grants access to Basic and Standard. **Up to Premium** grants access to Basic, Standard, and Premium. **Up to Ultra** grants access to all four tiers; this is the default on eligible credit-priced plans.
 
 <Note>
   The selector applies to every option in the selected category, not only to the three auto-model rows. It controls individual models, their supported reasoning efforts, and the corresponding Basic, Standard, or Premium auto model. A model can remain selectable at one reasoning effort while another effort on the same model is disabled.
@@ -102,21 +104,21 @@ The three auto models are separate curated choices in the picker. **Basic** corr
 
 ## Set the workspace ceiling
 
-1. Go to **Admin** > **Usage**.
+1. On a credit-priced plan, go to **Admin > Platform > Models > Settings**.
 2. In the **Models tier** section, set **Workspace access** to the highest tier available to members of the workspace.
 3. The change applies to every member who has no group or personal override.
 
-The default is **Up to Ultra**, so nothing is restricted until you lower it.
+The default on eligible credit-priced plans is **Up to Ultra**, so nothing is restricted until you lower it.
 
 ## Override for a group
 
-On the same **Usage** page, the groups table lets you set a tier per group. A group set to **Inherited from workspace** follows the workspace ceiling.
+On a credit-priced plan, open **Admin > Spend > Credits > Groups** to set a tier per group. A group set to **Inherited from workspace** follows the workspace ceiling.
 
 Group overrides let you give a specific team access to Premium options while the rest of the workspace stays on Standard.
 
 ## Override for a member
 
-The members table on the **Usage** page lets you set a tier for one member. Leaving a member on **Inherit** makes them follow their groups, or the workspace if they have no group override.
+On a credit-priced plan, open **Admin > Spend > Credits > Members** to set a tier for one member. Leaving a member on **Inherit** makes them follow their groups, or the workspace if they have no group override.
 
 ## How the ceiling is resolved
 
@@ -130,7 +132,7 @@ Dust resolves one ceiling per member, in this order:
 
 Restricting a member also restricts the agents they can run. If an agent is configured on a model and reasoning effort above the member's ceiling, the run is blocked with **Model tier not enabled**.
 
-That can be too strict for a well-built shared agent that deliberately uses a stronger model. In the **Models tier** section, enable **Published agents** to let every member run published agents regardless of the agent's model tier, while still capping what they can select themselves.
+That can be too strict for a well-built shared agent that deliberately uses a stronger model. In **Admin > Platform > Models > Settings**, enable **Published agents** to let every member run published agents regardless of the agent's model tier, while still capping what they can select themselves.
 
 With **Published agents** enabled:
 
@@ -150,13 +152,13 @@ Changes to model tier settings are recorded in your [audit logs](/docs/user-docu
 
 ## Availability
 
-Model access tiers are available on usage-based credit plans. On legacy plans, Premium and Ultra model and reasoning-effort combinations are not selectable through the model picker, and there is no tier setting to configure.
+The model options shown here may depend on provider configuration and workspace plan eligibility, as marked by asterisks. On non-credit-priced plans, model access is determined by plan access and any applicable workspace feature flags, not by model-tier settings.
 
 ## FAQ
 
 ### Do I have to configure anything for members to use the latest models?
 
-No. Every workspace starts at **Up to Ultra**, which allows all four tiers and restricts nothing. Configure tiers only if you want to limit what members can select.
+No. Eligible credit-priced workspaces start at **Up to Ultra**, which allows all four tiers and restricts nothing. Configure tiers only if you want to limit what members can select. Non-credit-priced plans do not have a configurable tier ceiling.
 
 ### Why does the same model appear in more than one tier?
 
@@ -176,8 +178,9 @@ The highest of the two applies. Group overrides grant access; they do not subtra
 
 ### Can I restrict a single person rather than a group?
 
-Yes. Set a tier directly on that member in the members table on the **Usage** page. A member override takes precedence over their groups and the workspace ceiling.
+Yes. On a credit-priced plan, set a tier directly on that member in **Admin > Spend > Credits > Members**. A member override takes precedence over their groups and the workspace ceiling.
 
 ### Does this reduce credit consumption?
 
 It caps the most expensive model and reasoning-effort combinations members can select on their own, which removes one source of unplanned spend. It is one lever among several. See [Optimize credit consumption](/docs/user-documentation/admins/usage-seats-and-credits/optimize-credit-consumption).
+

@@ -24,7 +24,7 @@ A good workflow uses the right model, the right context, the right tools, and th
 
 ## Review usage in Analytics
 
-Workspace admins can review credit consumption from **Admin > Analytics**. Select the current cycle, the last 7 days, the last 30 days, or the last 90 days. Then compare consumption with the workspace cap, inspect changes over time, and attribute credits to agents, members, groups, models, tools, skills, sources, or API keys. See [Analytics](/analytics) for details.
+Workspace admins can review credit consumption from **Admin > Spend > Analytics**. Select the current cycle, the last 7 days, the last 30 days, or the last 90 days. Then compare consumption with the workspace cap, inspect changes over time, and attribute credits to agents, members, groups, models, tools, skills, sources, or API keys. See [Analytics](/analytics) for details.
 
 Start with these questions:
 
@@ -45,7 +45,7 @@ Programmatic usage should be reviewed separately from regular human usage.
 
 Dust defines programmatic usage as messages sent through a custom Dust API key, or messages that are not manually typed and sent by a person. Examples include API usage, automated workflows in Slack, Zapier or n8n, and batch operations in Google Sheets or Excel. Manually typed messages in the web app, browser extension, Slack, or Teams are not considered programmatic in the usual case.
 
-Workspace admins can review programmatic credit consumption in **Admin > Usage** under the Programmatic usage settings. For details on how programmatic usage draws credits and how to configure the monthly cap, see [Credit management](/docs/user-documentation/admins/usage-seats-and-credits/credit-management).
+Workspace admins can review programmatic credit consumption in **Admin > Spend > Credits > Settings**. For details on how programmatic usage draws credits and how to configure the monthly cap, see [Credit management](/docs/user-documentation/admins/usage-seats-and-credits/credit-management).
 
 When reviewing programmatic usage, check:
 
@@ -167,7 +167,7 @@ Use Go Deep when the question requires broad investigation or synthesis across m
 
 Automations can create a lot of value, but they can also scale faster than expected.
 
-Two settings keep them in check. [Rate limits](/docs/user-documentation/agents/triggers/webhooks/rate-limiting) cap how often a webhook trigger runs, 42 times per 24 hours by default, and its editor can adjust that. The [credit pool](/docs/user-documentation/agents/triggers/credits-usage) decides who pays: the trigger's editor, or the workspace. Put high-volume automations on the workspace pool, where you see their cost under Programmatic Usage > Automations and cap it with the monthly programmatic limit.
+Two settings keep them in check. [Rate limits](/docs/user-documentation/agents/triggers/webhooks/rate-limiting) cap how often a webhook trigger runs, 42 times per 24 hours by default, and its editor can adjust that. The [credit pool](/docs/user-documentation/agents/triggers/credits-usage) decides who pays: the trigger's editor, or the workspace. Put high-volume automations on the workspace pool, where you see their cost under **Admin > Platform > Automations** and cap it with the monthly programmatic limit.
 
 ### Before scaling an automation
 
@@ -244,3 +244,4 @@ Good AI adoption creates usage.
 Good credit optimization makes that usage explainable, governed, and worth scaling.
 
 The goal is not less AI. The goal is better-designed workflows.
+

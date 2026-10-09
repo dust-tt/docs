@@ -5,7 +5,7 @@ description: "Monitor workspace credit consumption, identify what drives it, and
 
 Analytics helps workspace admins and managers understand how their workspace consumes credits. Use it to check whether consumption is on pace, find changes over time, and identify the agents, members, or other contributors driving usage.
 
-Go to **Admin > Analytics** to open the page.
+Go to **Admin > Spend > Analytics** to open the page.
 
 <Tip>
 Start with the pace indicator, look for spikes in the consumption chart, then use Attribution to find what drove them.
@@ -176,3 +176,4 @@ Analytics and raw-data exports do not include message content.
 ## Export analytics through the API
 
 For programmatic reporting, use `GET /api/v1/w/{wId}/analytics/export` with a workspace admin API key. This API export is separate from the raw-data export generated in the Analytics page. See the [Dust API documentation](/docs/developer-platform/dust-api-documentation/openapi-and-postman) for authentication and endpoint details.
+

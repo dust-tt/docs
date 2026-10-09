@@ -12,7 +12,7 @@ Open the trigger in the Agent Builder and pick from the **Credits** dropdown:
 - **My credits**, the default, bills the run to the trigger editor's, as if they had sent the message themselves.
 - **Workspace credits** bills the run to the workspace as programmatic usage, alongside API calls and other automations. It is not attributed to any member.
 
-To change the setting you must be an editor of the agent and have access to the workspace pool, which an admin grants (see [Grant access to the workspace pool](#grant-access-to-the-workspace-pool)). Without that access, you can see the setting but not change it. Admins and managers can also change it from the Automations page. Your change are automatically picked up starting from the next run.
+To change the setting you must be an editor of the agent and have access to the workspace pool, which an admin grants (see [Grant access to the workspace pool](#grant-access-to-the-workspace-pool)). Without that access, you can see the setting but not change it. Admins and managers can also change it from the Automations page. Your changes are automatically picked up starting from the next run.
 
 ## Which pool to pick
 
@@ -22,7 +22,7 @@ Leave a trigger on personal credits when its editor is also the one who reads th
 
 ## Grant access to the workspace pool
 
-Only admins can charge triggers to the workspace by default. Admins and managers change that in **Settings & Governance**, under *Charge automations to the workspace*: everyone, selected groups, or admins only.
+Only admins can charge triggers to the workspace by default. Admins and managers change that in **Admin > Organization > Governance > Pods & Frames > Automations**, under *Charge automations to the workspace*: everyone, selected groups, or admins only.
 
 Removing the access does not move existing triggers back to personal credits. Triggers already on workspace credits stay there until someone changes them.
 
@@ -31,20 +31,20 @@ Removing the access does not move existing triggers back to personal credits. Tr
 On credit-priced plans:
 
 - **My credits** uses the editor's seat credits first, then the workspace credit pool if their seat has access and their personal spend limit allows it. [Credit management](/docs/user-documentation/admins/usage-seats-and-credits/credit-management) covers that order in detail.
-- **Workspace credits** uses the workspace credit pool, then Pay As You Go on Enterprise plans. It counts against the monthly programmatic cap in **Admin > Usage** and has no free credit baseline.
+- **Workspace credits** uses the workspace credit pool, then Pay As You Go on Enterprise plans. It counts against the monthly programmatic cap in **Admin > Spend > Credits > Settings** and has no free credit baseline.
 
 On legacy plans, which still use message quotas instead of credits:
 
 - **My credits** counts against the workspace's fair-use message allowance. Webhook triggers can use up to half of it, leaving the rest for people's conversations.
-- **Workspace credits** uses programmatic usage credits, the balance shown in **Programmatic Usage > Credits Usage**, and counts against the daily programmatic cap.
+- **Workspace credits** uses programmatic usage credits, the balance shown in **Admin > Spend > Credits > Programmatic usage**, and counts against the monthly programmatic limit.
 
 <Note>
-A trigger stops running once the pool it charges is out: its editor's credits or personal spend limit on **My credits**, the workspace pool or the monthly programmatic cap on **Workspace credits**. Admins top up the pool or raise the cap in **Admin > Usage**. The trigger starts running again once the limit resets or the balance goes back up, and runs missed in the meantime are not replayed.
+A trigger stops running once the pool it charges is out: its editor's credits or personal spend limit on **My credits**, the workspace pool or the monthly programmatic cap on **Workspace credits**. Admins can add credits from **Admin > Spend > Credits** and raise the monthly cap under **Admin > Spend > Credits > Settings**. The trigger starts running again once the limit resets or the balance goes back up, and runs missed in the meantime are not replayed.
 </Note>
 
 ## Review your triggers
 
-Admins and managers see every trigger in the workspace under **Programmatic Usage > Automations**, with its agent, its credit consumption over the selected period, and a **Pool** column showing *Member* or *Workspace*.
+Admins and managers see every trigger in the workspace under **Admin > Platform > Automations**, with its agent, its credit consumption over the selected period, and a **Pool** column showing *Member* or *Workspace*.
 
 Members can review their own automations from the **Automations** entry under **Tools** in the user menu. This view lists the automations they edit, with filters, an expandable per-trigger credit breakdown for the current billing cycle, and controls to enable, disable, or delete an automation.
 
@@ -53,3 +53,4 @@ Select several rows to move them to another pool in one go, which is the quickes
 ## Rate limits
 
 The pool is separate from the rate limit. A webhook trigger keeps its own cap on runs per 24 hours whichever pool it charges. See [Rate limiting](/docs/user-documentation/agents/triggers/webhooks/rate-limiting).
+

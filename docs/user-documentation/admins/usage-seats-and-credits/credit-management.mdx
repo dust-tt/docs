@@ -6,7 +6,9 @@ Credits are the unit of AI work on Dust. See [Credits](/docs/user-documentation/
 
 When using Dust, members can draw credits from different sources depending on their plan and seat type. This page explains how those sources work, in what order they are consumed, how admins can set limits, and how to monitor your workspace's usage.
 
-When a user or automated workflow consumes credits, they are drawn in this order:
+The seat allocations, shared pool, member and group spend limits, and top-ups described here apply to credit-priced plans. On non-credit-priced plans, **Admin > Spend > Credits** shows programmatic usage and settings instead of seat or workspace-pool tables.
+
+When a user or automated workflow consumes credits on a credit-priced plan, they are drawn in this order:
 
 1. **Individual credits**: from the user's seat credit pool (see [Credits](/docs/user-documentation/admins/usage-seats-and-credits/credits))
 2. **Workspace credit pool**: a shared pool managed by your admin
@@ -76,7 +78,7 @@ The personal spend limit applies **on top of** a member's individual seat credit
 * Dust checks the limit before each message starts. A message's credits count toward the limit once the message finishes, so a message that starts below the limit can take the member past it. They are then blocked from sending new messages. To limit how much a single long task can spend, see [Credit-spend checkpoints](/docs/user-documentation/admins/usage-seats-and-credits/credits#credit-spend-checkpoints).
 * Admins can set a workspace-wide default limit. When the default is updated, only members currently on the previous default are affected.
 
-Members can view their personal spend limit in the Usage page (**Admin > Usage**).
+Admins and group managers with access can view members’ personal spend limits under **Admin > Spend > Credits > Members**.
 
 Programmatic usage covers all interactions that are not manually sent by a user, including API calls, Zapier automations, n8n workflows, Google Sheets integrations, Slack bots, and automated triggers.
 
@@ -88,17 +90,17 @@ There is no free credit baseline for programmatic usage.
 
 **Monthly programmatic cap:**
 
-Admins can configure a monthly cap on programmatic credit consumption from **Admin > Usage**. An email notification is sent when 80% of the cap is reached.
+Admins can configure a monthly cap on programmatic credit consumption from **Admin > Spend > Credits > Settings**. An email notification is sent when 80% of the cap is reached.
 
 ## Tracking usage
 
-Workspace admins can view and manage everything credit-related from **Admin > Usage**.
+Workspace admins can view and manage credit-priced plan usage from **Admin > Spend > Credits**. On non-credit-priced plans, this page shows programmatic usage and settings.
 
 [Group managers](/docs/user-documentation/admins/admin-governance/group-managers) can use the same page to view usage, edit personal and group limits, and handle requests for members of the groups they manage.
 
 ## Workspace credit pool
 
-At the top of the page, the current workspace credit pool balance is displayed (credits consumed vs. total available). Admins on Business plans can purchase top-up packages directly from this page using the **Top up** button.
+On credit-priced plans, the **Credits** page shows the current workspace credit pool balance (credits consumed vs. total available). Admins on Business plans can purchase top-up packages directly from this page using the **Top up** button.
 
 Each top-up is at least 100 credits, and there is a maximum per billing cycle. The **Top up** dialog limits the amount to what you can still buy in the current cycle. If an earlier top-up hasn't been paid yet, you can't buy more credits until its invoice is paid.
 
@@ -129,3 +131,4 @@ The Members section lists all workspace members with their usage details. Admins
 * Review pending upgrade requests in the **Requests** tab.
 
 For a broader view of workspace credit consumption, trends, and contributing agents or members, see [Analytics](/analytics).
+
