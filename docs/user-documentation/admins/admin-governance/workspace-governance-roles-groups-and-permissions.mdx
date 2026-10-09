@@ -16,7 +16,8 @@ By default, Admins can:
 
 - Manage billing and subscriptions
 - Manage security settings, user access, identity verification, and provisioning
-- Configure governance permissions
+- Configure all governance permissions, including **Access billing features** and **Access security features**
+- Map groups to the Admin or Manager role
 - Enable or disable the policy for sharing Frames externally
 - Enable or disable audit logs
 
@@ -31,9 +32,9 @@ Managers are delegated workspace administrators. They can:
 - Access the Groups tab and set group spend limits
 - Appoint and remove group managers
 - Review and act on credit upgrade requests from members
-- Choose which groups can create and publish agents and skills
+- Configure governance permissions for agents, skills, Frames, and automations, such as which groups can create and publish agents and skills
 
-Managers do not receive **Access billing features** or **Access security features** by default. Admins can grant either permission to groups from **Admin > Organization > Members > Roles > Billing and security**.
+Managers do not receive **Access billing features** or **Access security features** by default. Admins can grant either permission to groups in **Admin > Members**, **Roles** tab, **Billing and security** section.
 
 The Manager role alone does not grant access to Security settings or audit logs. An Admin can delegate **Access security features** to a group, which gives its members access to the corresponding Security controls. The Manager role also does not let someone change the workspace policy for sharing Frames externally. When that policy is enabled, Managers can configure which groups may invite users to Frames and make them public.
 
@@ -79,40 +80,36 @@ These tools only see and manage provisioned (SCIM) and manually-created groups. 
 
 ## Permission matrix
 
-The following permissions can be assigned through **Admin > Organization > Members > Roles** or managed in the corresponding Governance settings.
+Most of the following permissions are managed in **Admin > Governance**. **Access billing features** and **Access security features** are managed in **Admin > Members**, **Roles** tab.
 
 | Permission | Admin | Manager | Member |
 | --- | --- | --- | --- |
 | Create agents | Yes | When granted | When granted |
 | Publish agents | Yes | When granted | When granted |
 | Create skills | Yes | When granted | When granted |
-| Make skills discoverable to agents | Yes | No | No |
+| Manage skill availability | Yes | When granted | When granted |
+| Make skills discoverable to agents | Yes | When granted | When granted |
+| Charge automations to the workspace | Yes | When granted | When granted |
 | Access billing features | Yes by default | When granted | When granted |
 | Access security features | Yes by default | When granted | When granted |
 | Manage workspace model providers | Yes | No | No |
 | Invite people by email | Yes when the policy allows | When granted if the policy allows | When granted if the policy allows |
-| Share Frames by public link | Yes when the policy allows | When granted if the policy allows | When granted if the policy allows |
+| Share by public link | Yes when the policy allows | When granted if the policy allows | When granted if the policy allows |
 | View workspace analytics | Yes | Yes | No |
 | Manage group spend limits | Yes | Yes | For managed groups, when appointed group manager |
 | Appoint and remove group managers | Yes | Yes | No |
 
-Making a skill discoverable to agents, or changing the availability of an already discoverable skill, requires the **Make skills discoverable to agents** permission (**Admin > Organization > Governance > Agents & Skills > Skills**). It's Admin only by default; users without it cannot enable or change auto-discoverability. Granting it without also granting **Manage skill availability** has no effect: a group needs both to act on it.
+In a new workspace, **Create agents**, **Publish agents**, **Invite people by email**, and **Share by public link** are set to **Everyone**. **Create skills**, **Manage skill availability**, **Make skills discoverable to agents**, and **Charge automations to the workspace** are **Admin only** until an Admin or Manager changes them. **Access billing features** and **Access security features** can only be granted to groups, by an Admin.
+
+**Charge automations to the workspace** lets people run their triggers on the workspace credit pool instead of their own credits. See [Credits usage](/docs/user-documentation/agents/triggers/credits-usage).
+
+Making a skill discoverable to agents, or changing the availability of an already discoverable skill, requires the **Make skills discoverable to agents** permission (**Admin > Governance**, **Agents & Skills** tab). It's Admin only by default; users without it cannot enable or change auto-discoverability. Granting it without also granting **Manage skill availability** has no effect: a group needs both to act on it.
 
 ## Workspace governance settings
 
-Workspace governance policies are managed under **Admin > Organization > Governance**. Group role mapping and billing/security access are managed under **Admin > Organization > Members > Roles**.
+Workspace governance policies are managed in **Admin > Governance**. Managers can change the permissions there. Other settings on that page, such as pod and feature settings, are Admin only. Group role mapping and billing/security access are managed in **Admin > Members**, **Roles** tab.
 
 **Access billing features** and **Access security features** are group permissions, not separate workspace roles. Admins receive access by default and can delegate either permission without changing members’ workspace roles. Access security features also grants access to workspace Security and Computer network/environment controls.
-
-## The Builder role
-
-The Builder role is being replaced by separate permissions for creating and publishing agents and skills.
-
-During the transition, workspaces that used the Builder role receive a **Builders** group. Existing builders are added to that group, which preserves their agent and skill creation access without preserving a broad Builder role.
-
-API keys using the `builder` role receive the legacy Builders group instead. The API key role is removed in the end state.
-
-Admins can move those permissions to other manual or provisioned groups as their workspace model evolves.
 
 ## How access is determined
 
