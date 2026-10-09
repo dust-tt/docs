@@ -94,12 +94,12 @@ The following permissions can be assigned through **Admin > Organization > Membe
 | Access security features | Yes by default | When granted | When granted |
 | Manage workspace model providers | Yes | No | No |
 | Invite people by email | Yes when the policy allows | When granted if the policy allows | When granted if the policy allows |
-| Share Frames by public link | Yes when the policy allows | When granted if the policy allows | When granted if the policy allows |
+| Share by public link | Yes when the policy allows | When granted if the policy allows | When granted if the policy allows |
 | View workspace analytics | Yes | Yes | No |
 | Manage group spend limits | Yes | Yes | For managed groups, when appointed group manager |
 | Appoint and remove group managers | Yes | Yes | No |
 
-In a new workspace, **Create agents**, **Publish agents**, **Invite people by email**, and **Share by public link** are set to **Everyone**. The other permissions are **Admin only** until an Admin or Manager changes them. **Access billing features** and **Access security features** can only be granted to groups, by an Admin.
+In a new workspace, **Create agents**, **Publish agents**, **Invite people by email**, and **Share by public link** are set to **Everyone**. **Create skills**, **Manage skill availability**, **Make skills discoverable to agents**, and **Charge automations to the workspace** are **Admin only** until an Admin or Manager changes them. **Access billing features** and **Access security features** can only be granted to groups, by an Admin.
 
 **Charge automations to the workspace** lets people run their triggers on the workspace credit pool instead of their own credits. See [Credits usage](/docs/user-documentation/agents/triggers/credits-usage).
 
@@ -115,7 +115,7 @@ Workspace governance policies are managed under **Admin > Organization > Governa
 
 Dust no longer has a Builder role. It was replaced by separate permissions for creating and publishing agents and skills.
 
-Former builders are now Members. Workspaces that used the Builder role received a **Builders** group containing those people, so they kept their agent and skill creation access. API keys that had the Builder role now have the Member role and belong to the same **Builders** group.
+Former builders are now Members. Workspaces that used the Builder role received a **Builders** group containing those people, so they kept their agent and skill creation access. API keys that had the Builder role now have the **Read-only** scope, like other non-admin keys, and belong to the same **Builders** group.
 
 Admins and Managers can grant those permissions to other manual or provisioned groups as their workspace model evolves.
 
