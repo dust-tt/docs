@@ -7,7 +7,7 @@ Members can pick the model an agent runs on from the composer and Agent Builder.
 
 On credit-priced plans, administrators can cap how far up the model list each member can go. This lets you keep everyday work within a defined cost range while reserving higher-cost options for members who need them.
 
-Model access tier controls are not available on non-credit-priced plans. Model availability on those plans is determined by plan access and any applicable workspace feature flags.
+Model access tier controls are available only on credit-priced workspaces. On legacy (non-credit-priced) workspaces, tier settings are hidden from the Models admin page: there is no workspace ceiling, member or group override, or Published agents setting to configure. Model availability on legacy workspaces is determined by plan access and any applicable workspace feature flags.
 
 <Info>
   **Model access tiers are broader than the auto-model levels in the picker.** Here, **Basic**, **Standard**, **Premium**, and **Ultra** are administrator controls that apply to individual models, reasoning-effort combinations, and the corresponding auto models. The picker’s **Basic**, **Standard**, and **Premium** are curated auto-model choices, while **Ultra** is a separate administrator tier for the highest-cost model and reasoning-effort combinations, not a fourth auto-model choice. For the curated auto-model lists, see [Auto models and the model picker](/docs/user-documentation/agents/model-selection).
@@ -132,7 +132,7 @@ Dust resolves one ceiling per member, in this order:
 
 Restricting a member also restricts the agents they can run. If an agent is configured on a model and reasoning effort above the member's ceiling, the run is blocked with **Model tier not enabled**.
 
-That can be too strict for a well-built shared agent that deliberately uses a stronger model. In **Admin > Platform > Models > Settings**, enable **Published agents** to let every member run published agents regardless of the agent's model tier, while still capping what they can select themselves.
+That can be too strict for a well-built shared agent that deliberately uses a stronger model. On a credit-priced workspace, go to **Admin > Platform > Models > Settings** and enable **Published agents** to let every member run published agents regardless of the agent's model tier, while still capping what they can select themselves.
 
 With **Published agents** enabled:
 
@@ -152,13 +152,13 @@ Changes to model tier settings are recorded in your [audit logs](/docs/user-docu
 
 ## Availability
 
-The model options shown here may depend on provider configuration and workspace plan eligibility, as marked by asterisks. On non-credit-priced plans, model access is determined by plan access and any applicable workspace feature flags, not by model-tier settings.
+The model options shown here may depend on provider configuration and workspace plan eligibility, as marked by asterisks. For legacy workspaces, this tier catalog does not add tier settings; model access follows plan eligibility and applicable workspace feature flags.
 
 ## FAQ
 
 ### Do I have to configure anything for members to use the latest models?
 
-No. Eligible credit-priced workspaces start at **Up to Ultra**, which allows all four tiers and restricts nothing. Configure tiers only if you want to limit what members can select. Non-credit-priced plans do not have a configurable tier ceiling.
+No. Eligible credit-priced workspaces start at **Up to Ultra**, which allows all four tiers and restricts nothing. Configure tiers only if you want to limit what members can select. Legacy workspaces do not display a tier ceiling or tier override controls.
 
 ### Why does the same model appear in more than one tier?
 
@@ -183,4 +183,5 @@ Yes. On a credit-priced plan, set a tier directly on that member in **Admin > Sp
 ### Does this reduce credit consumption?
 
 It caps the most expensive model and reasoning-effort combinations members can select on their own, which removes one source of unplanned spend. It is one lever among several. See [Optimize credit consumption](/docs/user-documentation/admins/usage-seats-and-credits/optimize-credit-consumption).
+
 
