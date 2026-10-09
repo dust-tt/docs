@@ -16,7 +16,8 @@ By default, Admins can:
 
 - Manage billing and subscriptions
 - Manage security settings, user access, identity verification, and provisioning
-- Configure governance permissions
+- Configure all governance permissions, including **Access billing features** and **Access security features**
+- Map groups to the Admin or Manager role
 - Enable or disable the policy for sharing Frames externally
 - Enable or disable audit logs
 
@@ -31,7 +32,7 @@ Managers are delegated workspace administrators. They can:
 - Access the Groups tab and set group spend limits
 - Appoint and remove group managers
 - Review and act on credit upgrade requests from members
-- Choose which groups can create and publish agents and skills
+- Configure governance permissions for agents, skills, Frames, and automations, such as which groups can create and publish agents and skills
 
 Managers do not receive **Access billing features** or **Access security features** by default. Admins can grant either permission to groups from **Admin > Organization > Members > Roles > Billing and security**.
 
@@ -86,7 +87,9 @@ The following permissions can be assigned through **Admin > Organization > Membe
 | Create agents | Yes | When granted | When granted |
 | Publish agents | Yes | When granted | When granted |
 | Create skills | Yes | When granted | When granted |
-| Make skills discoverable to agents | Yes | No | No |
+| Manage skill availability | Yes | When granted | When granted |
+| Make skills discoverable to agents | Yes | When granted | When granted |
+| Charge automations to the workspace | Yes | When granted | When granted |
 | Access billing features | Yes by default | When granted | When granted |
 | Access security features | Yes by default | When granted | When granted |
 | Manage workspace model providers | Yes | No | No |
@@ -96,23 +99,25 @@ The following permissions can be assigned through **Admin > Organization > Membe
 | Manage group spend limits | Yes | Yes | For managed groups, when appointed group manager |
 | Appoint and remove group managers | Yes | Yes | No |
 
+In a new workspace, **Create agents**, **Publish agents**, **Invite people by email**, and **Share by public link** are set to **Everyone**. The other permissions are **Admin only** until an Admin or Manager changes them. **Access billing features** and **Access security features** can only be granted to groups, by an Admin.
+
+**Charge automations to the workspace** lets people run their triggers on the workspace credit pool instead of their own credits. See [Credits usage](/docs/user-documentation/agents/triggers/credits-usage).
+
 Making a skill discoverable to agents, or changing the availability of an already discoverable skill, requires the **Make skills discoverable to agents** permission (**Admin > Organization > Governance > Agents & Skills > Skills**). It's Admin only by default; users without it cannot enable or change auto-discoverability. Granting it without also granting **Manage skill availability** has no effect: a group needs both to act on it.
 
 ## Workspace governance settings
 
-Workspace governance policies are managed under **Admin > Organization > Governance**. Group role mapping and billing/security access are managed under **Admin > Organization > Members > Roles**.
+Workspace governance policies are managed under **Admin > Organization > Governance**. Managers can change the permissions there. Other settings on that page, such as pod and feature settings, are Admin only. Group role mapping and billing/security access are managed under **Admin > Organization > Members > Roles**.
 
 **Access billing features** and **Access security features** are group permissions, not separate workspace roles. Admins receive access by default and can delegate either permission without changing members’ workspace roles. Access security features also grants access to workspace Security and Computer network/environment controls.
 
-## The Builder role
+## The former Builder role
 
-The Builder role is being replaced by separate permissions for creating and publishing agents and skills.
+Dust no longer has a Builder role. It was replaced by separate permissions for creating and publishing agents and skills.
 
-During the transition, workspaces that used the Builder role receive a **Builders** group. Existing builders are added to that group, which preserves their agent and skill creation access without preserving a broad Builder role.
+Former builders are now Members. Workspaces that used the Builder role received a **Builders** group containing those people, so they kept their agent and skill creation access. API keys that had the Builder role now have the Member role and belong to the same **Builders** group.
 
-API keys using the `builder` role receive the legacy Builders group instead. The API key role is removed in the end state.
-
-Admins can move those permissions to other manual or provisioned groups as their workspace model evolves.
+Admins and Managers can grant those permissions to other manual or provisioned groups as their workspace model evolves.
 
 ## How access is determined
 
