@@ -177,3 +177,14 @@ Analytics and raw-data exports do not include message content.
 
 For programmatic reporting, use `GET /api/v1/w/{wId}/analytics/export` with a workspace admin API key. This API export is separate from the raw-data export generated in the Analytics page. See the [Dust API documentation](/docs/developer-platform/dust-api-documentation/openapi-and-postman) for authentication and endpoint details.
 
+To export per-call consumption records, use [`POST /api/v1/w/{wId}/analytics/consumption/export`](/api-reference/analytics/export-consumption-analytics). What the export can cover depends on the API key:
+
+- A workspace admin API key can export the whole workspace.
+- A user API key must filter the export on `groups` and have analytics access to every group listed. The export then covers the messages of the members who belonged to those groups when each message was sent.
+
+To give a user API key analytics access, select its groups in the **Analytics** section of the **New API Key** panel when you create the key. Admin API keys can access all analytics, so they do not take a group selection.
+
+<Note>
+The consumption export endpoint is enabled per workspace. When it is not enabled for your workspace, requests return a 403 error.
+</Note>
+
