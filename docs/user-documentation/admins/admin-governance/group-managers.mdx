@@ -56,29 +56,33 @@ Removing someone from a group does not remove them from the workspace. They keep
 
 ## View usage and change credit limits
 
-On a credit-priced plan, open **Admin > Credits** to see your groups’ members, credit consumption, and limits. Filter by one group or all the groups you manage. Non-credit-priced plans do not have the seat and group spend-limit tables described here.
+On a credit-priced plan, open **Admin > Spend > Credits** to see your groups’ members, credit consumption, and limits. Filter by one group or all the groups you manage. Non-credit-priced plans do not have the seat and group spend-limit tables described here.
 
 Only current members of your managed groups appear here. People in several of your groups appear once. Usage covers their current cycle, including consumption before they joined the group.
 
 - In **Members**, open a member's **···** menu and choose **Edit spend limit** to change their personal limit.
-- In **Groups**, change a group's spend limit to set the allowance for each member.
+- In **Groups**, click a group and change its **Limit per member** to cap what each member can spend.
 
-A group allowance applies to each person, rather than a shared team budget. A personal limit applies across the workspace, including outside your team.
+A limit per member applies to each person. A personal limit applies across the workspace, including outside your team.
 
-A personal limit takes priority over group allowances. Otherwise, the highest group allowance applies, then the workspace default if no group allowance is set. The usage row shows which limit applies.
+A personal limit takes priority over limits per member. Otherwise, the highest limit per member among the person's groups applies, then the workspace default if none of their groups sets one. The usage row shows which limit applies.
+
+On the Enterprise Pooled plan, a group can also have a **Group budget** that all its members share. You can see the budget and its usage for your groups, but only a workspace admin or manager can change it. See [Group budgets](/docs/user-documentation/admins/usage-seats-and-credits/credit-management#group-budgets).
 
 Other managers can edit the same person's limit. The last saved change applies, even if an admin set the earlier limit. You can edit your own limit if you belong to a group you manage.
 
-You can change only your groups' allowances. Other group allowances and the workspace default appear for reference.
+You can change only your groups' limits per member. Other groups' limits and the workspace default appear for reference.
 
 Raising a limit does not buy credits. For how limits affect workspace pool usage and seat credits, see [Credit management](/docs/user-documentation/admins/usage-seats-and-credits/credit-management).
 
 ## Handle credit requests
 
-In **Admin > Credits**, open the **Members** tab and select **Requests** to see pending requests from members of your groups.
+In **Admin > Spend > Credits**, open the **Members** tab and select **Requests** to see pending requests from members of your groups.
 
 - Choose **Edit limit** to adjust the member's limit and approve the request.
 - Choose **Deny**, then confirm, to decline the request without changing their limit.
+
+When a group budget blocks the member, the request offers **Edit group budget** instead of **Edit limit**. Only a workspace admin or manager can raise a group budget.
 
 If Dust saves a limit but cannot finish approving the request, it tells you the limit was saved and updates the request status. Check the status before trying again.
 

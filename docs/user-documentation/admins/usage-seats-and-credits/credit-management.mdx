@@ -6,7 +6,7 @@ Credits are the unit of AI work on Dust. See [Credits](/docs/user-documentation/
 
 When using Dust, members can draw credits from different sources depending on their plan and seat type. This page explains how those sources work, in what order they are consumed, how admins can set limits, and how to monitor your workspace's usage.
 
-The seat allocations, shared pool, member and group spend limits, and top-ups described here apply to credit-priced plans. On non-credit-priced plans, **Admin > Spend > Credits** shows programmatic usage and settings instead of seat or workspace-pool tables.
+The seat allocations, shared pool, personal limits, limits per member, group budgets, and top-ups described here apply to credit-priced plans. On non-credit-priced plans, **Admin > Spend > Credits** shows programmatic usage and settings instead of seat or workspace-pool tables.
 
 When a user or automated workflow consumes credits on a credit-priced plan, they are drawn in this order:
 
@@ -14,7 +14,7 @@ When a user or automated workflow consumes credits on a credit-priced plan, they
 2. **Workspace credit pool**: a shared pool managed by your admin
 3. **Overage / Pay As You Go**: Enterprise plans only
 
-A user is only blocked when all available sources are exhausted or when a personal spend limit is reached.
+A user is only blocked when all available sources are exhausted, when their spend limit is reached, or when their [group budget](#group-budgets) is used up.
 
 <Info>
 **Free seat users only have individual credits. They cannot draw from the workspace pool and are blocked once their 500 lifetime credits are exhausted.**
@@ -73,12 +73,82 @@ By default, all members with workspace pool access can draw from it without indi
 
 The personal spend limit applies **on top of** a member's individual seat credits: it restricts access to the workspace pool, not the seat credits themselves.
 
-* A personal spend limit takes priority over group allowances. Without a personal limit, the highest group allowance applies, then the workspace default if no group allowance is set. If none of these limits is set, the member has unlimited pool access.
+* A group's **Limit per member** caps what each member of that group can spend. A personal spend limit takes priority over limits per member. Without a personal limit, the highest limit per member among the member's groups applies, then the workspace default if none of their groups sets one. If none of these limits is set, the member has unlimited pool access.
 * When a member reaches their cap, they are blocked from further pool usage and receive an in-app notification.
 * Dust checks the limit before each message starts. A message's credits count toward the limit once the message finishes, so a message that starts below the limit can take the member past it. They are then blocked from sending new messages. To limit how much a single long task can spend, see [Credit-spend checkpoints](/docs/user-documentation/admins/usage-seats-and-credits/credits#credit-spend-checkpoints).
 * Admins can set a workspace-wide default limit. When the default is updated, only members currently on the previous default are affected.
 
 Admins and group managers with access can view members’ personal spend limits under **Admin > Spend > Credits > Members**.
+
+## Group budgets
+
+A **group budget** is one credit amount per billing cycle that all members of a group share. Everything the members spend together counts against it.
+
+<Info>
+  Group budgets are in beta and available on the Enterprise Pooled plan. To enable them on your workspace, contact us at [support@dust.tt](mailto:support@dust.tt). They don't appear on seat-based plans (Business and Enterprise Seat-based).
+</Info>
+
+A group budget works alongside the group's **Limit per member**, and both apply:
+
+* **Limit per member** caps what each member spends.
+* **Group budget** caps what the group spends as a whole.
+
+A group budget counts every non-free credit its members spend. Programmatic usage (API calls, triggers, and integrations) does not count toward it.
+
+### When a group budget is used up
+
+When a group budget is used up, the members who draw from it are blocked and see **Group budget reached**. Admins are pointed to the usage page. Other members are asked to contact their group managers or an administrator.
+
+Raising a member's personal limit does not unblock them: you need to raise or remove the group budget. Usage counts from zero again at the start of the next billing cycle.
+
+When a member is blocked, Dust reports the first reason that applies, in this order:
+
+1. The member has no seat.
+2. The member reached their personal limit.
+3. The member's group budget is used up.
+4. The workspace has no credits left.
+
+### Members in several groups
+
+A member draws from exactly one group budget. Among their groups that have a budget, it's the group that comes first in the order of group budgets. Members can't choose which budget they use.
+
+* A group goes to the end of the order when you set its first budget.
+* Removing a group's budget takes the group out of the order. If you set a budget again later, the group goes back to the end.
+
+The **Group budget** column of the **Members** table shows which budget each member draws from. You can change the order from the **Order** tab of the group dialog: see [Change the order of group budgets](#change-the-order-of-group-budgets).
+
+### Who can manage group budgets
+
+| Role | Group budget | Limit per member | Order |
+| --- | --- | --- | --- |
+| Workspace admin or manager | Set, change, and remove | Set, change, and remove | Change |
+| [Group manager](/docs/user-documentation/admins/admin-governance/group-managers) | View, for the groups they manage | Set, change, and remove, for the groups they manage | No access |
+| Other members | No access | No access | No access |
+
+### Set a group budget
+
+1. Go to **Admin > Spend > Credits** and open the **Groups** tab.
+2. Click a group to open **Edit limits for** the group.
+3. In the **Limits** tab, enter an amount in **Group budget**. The field shows how many credits the group has used so far this cycle.
+4. Optionally, set **Limit per member** to cap each member as well.
+5. Click **Save**.
+
+To remove a limit, click **Remove** next to the field or empty the field, then click **Save**. If group seat provisioning is enabled, admins also see **Granted seat** in this tab. Dust asks you to confirm a seat change before saving.
+
+In the **Groups** table, the **Group budget** column shows credits used against the budget, with a progress bar that turns red when the budget is used up. **Limit per member** and **Models tier** appear next to it.
+
+### Change the order of group budgets
+
+The order decides which budget a member draws from when they belong to several groups with a budget.
+
+1. Open the group from the **Groups** tab, then select the **Order** tab. The tab is available once the group has a group budget, saved or typed in the **Limits** tab.
+2. Review the groups with a budget. Each row shows the group's position, group budget, limit per member, and how many members it shares with this group.
+3. Use the up and down arrows to move the group.
+4. Click **Save**.
+
+By default, the list shows only groups that share members with this group. Remove the **Shares members with** chip to see all groups with a budget, and click it again to reapply the filter.
+
+**Save** applies the limits first, then the order. If someone else changed the order while you were editing, Dust rejects your change and asks you to reopen the group.
 
 Programmatic usage covers all interactions that are not manually sent by a user, including API calls, Zapier automations, n8n workflows, Google Sheets integrations, Slack bots, and automated triggers.
 
@@ -96,7 +166,7 @@ Admins can configure a monthly cap on programmatic credit consumption from **Adm
 
 Workspace admins can view and manage credit-priced plan usage from **Admin > Spend > Credits**. On non-credit-priced plans, this page shows programmatic usage and settings.
 
-[Group managers](/docs/user-documentation/admins/admin-governance/group-managers) can use the same page to view usage, edit personal and group limits, and handle requests for members of the groups they manage.
+[Group managers](/docs/user-documentation/admins/admin-governance/group-managers) can use the same page to view usage, edit personal limits and limits per member, view group budgets, and handle requests for members of the groups they manage.
 
 ## Workspace credit pool
 
@@ -128,7 +198,8 @@ The Members section lists all workspace members with their usage details. Admins
 * See each member's **seat type** (Free, Pro, Max, or Platform), **credits consumed**, and **credits remaining** for the current period.
 * Search members by name and filter by seat type.
 * Use the **···** menu on each member row to adjust their personal spend limit or seat type individually.
-* Review pending upgrade requests in the **Requests** tab.
+* See which [group budget](#group-budgets) each member draws from in the **Group budget** column. Hover over it to see how much of the budget is used and when it resets.
+* Review pending upgrade requests in the **Requests** tab. When a member is blocked by a group budget, click **Edit group budget** to open that group's limits and raise its budget.
 
 For a broader view of workspace credit consumption, trends, and contributing agents or members, see [Analytics](/analytics).
 
