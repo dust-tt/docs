@@ -5,7 +5,7 @@ title: "Computer admin setup"
 
 This page explains how to configure Computer. For an overview of what Computer does for users and builders, see [Computer](/docs/user-documentation/agents/tools/computer).
 
-Computer administration is split across two pages: manage network access under **Admin > Organization > Security > Network**, and workspace environment variables under **Admin > Platform > Developers > Computer environment**. Workspace admins and members of groups granted **Access security features** can manage these controls. To delegate this access, an admin can grant the permission under **Admin > Organization > Members > Roles > Billing and security**.
+Computer administration is split across two pages: manage network access under **Admin > Security**, **Network** tab, and workspace environment variables under **Admin > Developers**, **Computer environment** tab. Workspace admins and members of groups granted **Access security features** can manage these controls. To delegate this access, an admin can grant the permission under **Admin > Members**, **Roles** tab, **Billing and security** section.
 
 ## Configure settings for a single Pod
 
@@ -26,7 +26,7 @@ Computer does not have open internet access by default. The **Network** tab lets
 
 To add a domain:
 
-1. Open **Admin > Organization > Security > Network**.
+1. Open **Admin > Security**, **Network** tab.
 2. Select the workspace or the Pods to configure.
 3. Find **Allowed domains**.
 4. Enter a trusted domain.
@@ -69,7 +69,7 @@ When Agent-requested domains is enabled, a non-admin user can grant temporary ne
 
 To change this setting:
 
-1. Open **Admin > Organization > Security > Network**.
+1. Open **Admin > Security**, **Network** tab.
 2. Find **Agent-requested domains**.
 3. Turn the toggle on or off.
 4. When turning it on, confirm that users will be able to grant temporary access to additional domains.
@@ -82,7 +82,7 @@ Do not use configuration variables for credentials. They are mounted as plain en
 
 To add a configuration variable:
 
-1. Open **Admin > Platform > Developers > Computer environment**.
+1. Open **Admin > Developers**, **Computer environment** tab.
 2. Click **Add variable**.
 3. Choose **Config**.
 4. Enter a name suffix using uppercase letters, digits, and underscores.
@@ -106,7 +106,7 @@ Inside Computer, an HTTPS secret appears as a placeholder. When Computer makes a
 
 To add an HTTPS secret:
 
-1. Open **Admin > Platform > Developers > Computer environment**.
+1. Open **Admin > Developers**, **Computer environment** tab.
 2. Click **Add variable**.
 3. Choose **HTTPS secret**.
 4. Enter a name suffix using uppercase letters, digits, and underscores.
