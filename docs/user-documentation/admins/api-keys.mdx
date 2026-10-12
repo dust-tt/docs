@@ -12,7 +12,7 @@ API keys let your scripts and integrations call the [Dust API](/docs/developer-p
 3. Choose an **Access scope**:
    * **Read-only**: can create conversations, read agents and data sources.
    * **Admin**: can also create and modify resources and administer the workspace (members, analytics export).
-4. Under **Spaces**, add the Spaces where the key needs to write, for example to upload files. Every key can already read what all workspace members can read, including open Spaces and Company Data.
+4. Under **Spaces**, add the Spaces where the key needs to write, for example to upload files or add documents and table rows. Every key can already read what all workspace members can read, including open Spaces and Company Data. A **Read-only** key can only write to the Spaces you add here, so add **Company Data** if the key needs to write to it.
 5. Under **Analytics**, add the groups whose members' analytics the key can read. An Admin key can access all analytics.
 6. Optionally, set a monthly cap. Leave it empty for no cap. See [Cap what a key can consume](#cap-what-a-key-can-consume).
 7. Click **Create**, then copy the key. It stays visible for 10 minutes only.
@@ -28,6 +28,16 @@ The table lists each key with its scope, the Spaces it can write to, when it was
 * **Revoked**: the key no longer works.
 
 To revoke a key, click the revoke icon on its row. Revoking can't be undone.
+
+## A key can't write to Company Data
+
+On September 11, 2026, API keys with the former Builder role became **Read-only** keys. A Read-only key can read Company Data, but it can't write to it unless Company Data was added under **Spaces** when the key was created. An integration that adds documents or table rows to Company Data with such a key gets a `403` error of type `data_source_auth_error`: "You are not allowed to update data in this data source."
+
+You can't add Spaces to an existing key. To restore write access:
+
+1. [Create a new key](#create-an-api-key) and add **Company Data** under **Spaces**, plus any other Space the integration writes to.
+2. Replace the old key in your integration.
+3. Revoke the old key.
 
 ## Cap what a key can consume
 
