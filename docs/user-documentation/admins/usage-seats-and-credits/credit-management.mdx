@@ -6,7 +6,7 @@ Credits are the unit of AI work on Dust. See [Credits](/docs/user-documentation/
 
 When using Dust, members can draw credits from different sources depending on their plan and seat type. This page explains how those sources work, in what order they are consumed, how admins can set limits, and how to monitor your workspace's usage.
 
-The seat allocations, shared pool, personal limits, limits per member, group budgets, and top-ups described here apply to credit-priced plans. On non-credit-priced plans, **Admin > Spend > Credits** shows programmatic usage and settings instead of seat or workspace-pool tables.
+The seat allocations, shared pool, personal limits, limits per member, group budgets, and top-ups described here apply to credit-priced plans. On non-credit-priced plans, **Admin > Credits** shows programmatic usage and settings instead of seat or workspace-pool tables.
 
 When a user or automated workflow consumes credits on a credit-priced plan, they are drawn in this order:
 
@@ -78,7 +78,7 @@ The personal spend limit applies **on top of** a member's individual seat credit
 * Dust checks the limit before each message starts. A message's credits count toward the limit once the message finishes, so a message that starts below the limit can take the member past it. They are then blocked from sending new messages. To limit how much a single long task can spend, see [Credit-spend checkpoints](/docs/user-documentation/admins/usage-seats-and-credits/credits#credit-spend-checkpoints).
 * Admins can set a workspace-wide default limit. When the default is updated, only members currently on the previous default are affected.
 
-Admins and group managers with access can view members’ personal spend limits under **Admin > Spend > Credits > Members**.
+Admins and group managers with access can view members’ personal spend limits under **Admin > Credits**, **Members** tab.
 
 ## Group budgets
 
@@ -127,7 +127,7 @@ The **Group budget** column of the **Members** table shows which budget each mem
 
 ### Set a group budget
 
-1. Go to **Admin > Spend > Credits** and open the **Groups** tab.
+1. Go to **Admin > Credits** and open the **Groups** tab.
 2. Click a group to open **Edit limits for** the group.
 3. In the **Limits** tab, enter an amount in **Group budget**. The field shows how many credits the group has used so far this cycle.
 4. Optionally, set **Limit per member** to cap each member as well.
@@ -160,11 +160,11 @@ There is no free credit baseline for programmatic usage.
 
 **Monthly programmatic cap:**
 
-Admins can configure a monthly cap on programmatic credit consumption from **Admin > Spend > Credits > Settings**. An email notification is sent when 80% of the cap is reached.
+Admins can configure a monthly cap on programmatic credit consumption from **Admin > Credits**, **Settings** tab. An email notification is sent when 80% of the cap is reached.
 
 ## Tracking usage
 
-Workspace admins can view and manage credit-priced plan usage from **Admin > Spend > Credits**. On non-credit-priced plans, this page shows programmatic usage and settings.
+Workspace admins can view and manage credit-priced plan usage from **Admin > Credits**. On non-credit-priced plans, this page shows programmatic usage and settings.
 
 [Group managers](/docs/user-documentation/admins/admin-governance/group-managers) can use the same page to view usage, edit personal limits and limits per member, view group budgets, and handle requests for members of the groups they manage.
 
