@@ -1,0 +1,50 @@
+---
+title: "API keys"
+description: "Create Dust API keys, choose what they can access, and cap how much each key can consume."
+---
+
+API keys let your scripts and integrations call the [Dust API](/docs/developer-platform/overview/developer-platform). Workspace admins manage them in **Admin > Developers**, **API keys** tab.
+
+## Create an API key
+
+1. Go to **Admin > Developers**, open the **API keys** tab, and click **Create API Key**.
+2. Enter a name for the key.
+3. Choose an **Access scope**:
+   * **Read-only**: can create conversations, read agents and data sources.
+   * **Admin**: can also create and modify resources and administer the workspace (members, analytics export).
+4. Under **Spaces**, add the Spaces where the key needs to write, for example to upload files. Every key can already read what all workspace members can read, including open Spaces and Company Data.
+5. Under **Analytics**, add the groups whose members' analytics the key can read. An Admin key can access all analytics.
+6. Optionally, set a monthly cap. Leave it empty for no cap. See [Cap what a key can consume](#cap-what-a-key-can-consume).
+7. Click **Create**, then copy the key. It stays visible for 10 minutes only.
+
+After creation, you can only change a key's monthly cap. To change its access scope or Spaces, create a new key and revoke the old one.
+
+## Review your keys
+
+The table lists each key with its scope, the Spaces it can write to, when it was last used, and its status:
+
+* **Active**: the key works.
+* **Capped**: the key reached its monthly cap. Its API calls are refused until an admin raises the cap or the key's usage over the counted period drops back under it.
+* **Revoked**: the key no longer works.
+
+To revoke a key, click the revoke icon on its row. Revoking can't be undone.
+
+## Cap what a key can consume
+
+Each key can have its own monthly cap. To change it, open the **···** menu on the key's row and select **Edit monthly cap**.
+
+The cap's unit depends on your plan:
+
+| | Credit-priced plans | Legacy plans |
+| --- | --- | --- |
+| **Cap field** | **Monthly credit cap**, in credits | **Monthly cap (USD)**, in dollars |
+| **Counted over** | The current billing cycle | The last 30 days |
+| **Where to check usage** | **Credits** column, for the period selected at the top of the page (pick **This cycle** to compare with the cap) | **Monthly cap** column, which shows the amount used next to the cap |
+
+On credit-priced plans, the cap uses the same unit as [Analytics](/analytics), so you can compare a key's credits in Analytics with its cap directly.
+
+<Warning>
+On legacy plans, the per-key cap is a dollar amount, while Analytics reports consumption in credits. The two units can't be converted into each other: you can't use Analytics credits to work out how close a key is to its dollar cap. Check the **Monthly cap** column on the API keys page instead.
+</Warning>
+
+To limit all programmatic usage in the workspace instead of a single key, see [Credit management](/docs/user-documentation/admins/usage-seats-and-credits/credit-management#programmatic-usage).
