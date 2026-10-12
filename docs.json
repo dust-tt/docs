@@ -1270,6 +1270,10 @@
       "destination": "/docs/user-documentation/agents/tools/semrush"
     },
     {
+      "source": "/docs/servicenow",
+      "destination": "/docs/user-documentation/agents/tools/servicenow"
+    },
+    {
       "source": "/docs/setting-up-your-workspace",
       "destination": "/docs/user-documentation/admins/admin-governance/workspace-governance-roles-groups-and-permissions"
     },
