@@ -1,0 +1,70 @@
+---
+title: "Conversational building"
+description: "Create, update, and delete agents and skills by talking with an agent in a conversation."
+---
+
+## What is conversational building
+
+Conversational building lets you create, update, and archive agents and skills directly from a conversation. Instead of opening the Agent Builder or the Skill Builder, you describe what you want and the agent prepares the changes for you.
+
+It relies on the **Build Agents and Skills** skill. Type `/` in the conversation input and select **Build Agents and Skills** to give the agent this capability.
+
+Everything you can do by hand in the builders, you can also do through a conversation: write instructions, add tools, knowledge, and skills, change the model, rename, or delete.
+
+## How it works
+
+### The agent suggests, you decide
+
+The agent never changes an agent or a skill on its own.
+Each change it wants to make shows up in the conversation as a suggestion card.
+Nothing happens until you accept the card.
+
+### One card can hold several changes
+
+A card groups changes that belong together.
+For example, a single card can add a skill to an agent and update the agent's instructions to explain when to use that skill.
+You accept or decline the whole set at once.
+
+When a request involves separate changes, the agent suggests several cards.
+They pile up in the conversation, and you review them one by one.
+
+### Review the changes
+
+You can review a suggestion in two places:
+
+- **In the card**: see a summary of the proposed changes directly in the conversation.
+- **In the side panel**: open the agent or skill to see the changes in the context of its full configuration.
+
+### Changes apply immediately
+
+When you accept a card, the changes are applied right away:
+
+- A newly created agent or skill is available immediately.
+- An update creates a new version of the agent or skill.
+
+## Permissions
+
+The agent acts on your behalf and can only do what you can do yourself. Depending on the change, you need:
+
+- The permission to create agents
+- The permission to create skills
+- To be an editor of the agent or skill, to update or delete it.
+
+If you don't have the required permission, the change can't be suggested or applied.
+
+## Examples
+
+### Getting started
+
+- "Create an agent that reads my calendar and prepares a summary of my meetings for the week."
+- "Create a skill that writes customer-facing release notes following our tone of voice."
+- "Add the web search tool to @research and explain in its instructions when to use it."
+- "Delete my old test-agent."
+
+### Advanced use cases
+
+Builders and admins can use conversational building to manage agents and skills across the workspace:
+
+- "Rename all agents to follow our naming convention: team name first, then purpose."
+- "Find all agents that use the GitHub tool, extract how they use it into a shared skill, then add that skill to each of these agents in place of the tool."
+- "Find all agents still using an older model and switch them to the latest one."
