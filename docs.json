@@ -114,6 +114,7 @@
         "group": "Agents",
         "pages": [
           "docs/user-documentation/agents/create-your-first-agent",
+          "docs/user-documentation/agents/conversational-building",
           "docs/user-documentation/agents/model-selection",
           {
             "group": "LLM Best practices",
