@@ -208,7 +208,6 @@
               "docs/user-documentation/agents/tools/canva",
               "docs/user-documentation/agents/tools/confluence",
               "docs/user-documentation/agents/tools/databricks",
-              "docs/user-documentation/agents/tools/file-generation",
               "docs/user-documentation/agents/tools/fathom",
               "docs/user-documentation/agents/tools/gong",
               "docs/user-documentation/agents/tools/freshservice",
@@ -944,7 +943,11 @@
     },
     {
       "source": "/docs/file-generation",
-      "destination": "/docs/user-documentation/agents/tools/file-generation"
+      "destination": "/docs/user-documentation/agents/tools/computer"
+    },
+    {
+      "source": "/docs/user-documentation/agents/tools/file-generation",
+      "destination": "/docs/user-documentation/agents/tools/computer"
     },
     {
       "source": "/docs/file-size-limits",
