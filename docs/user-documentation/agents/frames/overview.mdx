@@ -77,3 +77,53 @@ To configure the Frame sharing policy:
 3. Select the preferred **Frame sharing policy**.
 
 Public sharing is enabled by default, allowing members to share Frames externally with clients and partners.
+
+### Share Scope options
+
+When you share a Frame, you choose a **Share Scope** that determines who can open the link:
+
+| Scope | Who can open it |
+| --- | --- |
+| **Invite only** | Only people whose email address you explicitly add to the Frame. |
+| **All workspace members** (add **+ invites** if you also add email addresses) | Anyone signed into your Dust workspace, plus any invited email addresses. |
+| **Anyone with the link** | Anyone who has the link, including people outside your workspace. No sign-in required. |
+
+The scopes available to you depend on the **Frame sharing policy** an admin has configured for the workspace:
+
+- If the policy only allows internal sharing, only **Invite only** and **All workspace members** are available.
+- If the policy allows public sharing, **Anyone with the link** is also available, which is the default policy.
+
+To grant access to a specific external person without making the Frame public, add their email address to the Frame's share settings. They'll be asked to verify that email address before the Frame opens.
+
+<Note>
+  A recipient who doesn't have access to a shared Frame sees the link as **not found** (a 404), not a sign-in prompt or an access-denied message. If some recipients can open a Frame and others can't, check the Share Scope first: for **Invite only** or **All workspace members + invites**, confirm the failing recipients are either active workspace members or have been added by email.
+</Note>
+
+### File scope for shared Frames
+
+A Frame can read data from files in two different scopes: files scoped to the conversation that built it (`conversation-<conversationId>/...`), and files scoped to a [Pod](/docs/user-documentation/pods/files) (`pod-<podId>/...`).
+
+**A shared Frame can only read Pod-scoped files.** It cannot reach files scoped to the conversation that built it, even though those files work fine when the Frame is viewed from inside that conversation.
+
+If a Frame reads its data from a conversation-scoped file, it renders correctly in the conversation but hangs on its loading state indefinitely, with no error message, when opened through its public share link. This is the symptom to look for: **works in the conversation, hangs on "Loading" via the share link.**
+
+To fix it, either:
+
+- Move the data file to a Pod and update the Frame to read from its Pod-scoped path, or
+- Embed the data directly in the Frame's code instead of reading it from a separate file.
+
+For anything you plan to share outside the conversation, embedding the data is the safer default: the Frame then has no runtime dependency on a file living anywhere else. Moving a file between a conversation and a Pod later can silently break a Frame that already depends on its old path, so update the Frame's code at the same time you move the file.
+
+## How a Frame relates to its conversation
+
+A conversation produces a Frame's source file. Publishing that source renders it into a Frame file with its own stable file ID, and the Frame's share URL points at that file ID.
+
+**Only the conversation that owns the source can update that same Frame at its existing share URL.** To do so, publish the updated source to the existing Frame file, for example by asking the agent to publish `pod-<podId>/<File>.tsx` to Frame file `fil_xxxxx`. This is also why storing a Frame's source in a Pod file, rather than only in the conversation, is recommended: a Pod file keeps working as the update target regardless of which conversation you're in.
+
+**Rebuilding a Frame in a new conversation always produces a new share URL.** The old URL cannot be repointed at the new Frame, so any links you've already distributed will keep pointing at the old version.
+
+**If the conversation that owns a Frame's source becomes unavailable, for example because it's deleted, the Frame can no longer be updated.** There is no way to recover or redirect it. Keeping Frame sources in Pod files, rather than relying solely on a single conversation, protects against this.
+
+<Note>
+  If a Frame won't refresh or update, first check whether the conversation that originally built it still exists and still works. A message claiming the conversation is in a restricted "observer mode" is not a real Dust setting. If you see it, treat it the same as any other sign that the originating conversation is broken: rebuild in a working conversation, ideally publishing from a Pod-scoped source file.
+</Note>
