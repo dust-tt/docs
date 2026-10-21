@@ -3,12 +3,48 @@ title: "Changelog"
 description: "New updates and improvements to Dust"
 ---
 
-<Update label="October 14th, 2026" tags={["Deprecated"]} rss={{ title: "File Generation tool deprecated in favor of Computer", description: "Computer and the Files management tool now cover everything File Generation did, including creating Word, Excel, PowerPoint, and CSV files." }}>
-## File Generation tool deprecated in favor of Computer
+<Update label="October 20th, 2026" tags={["Added"]} rss={{ title: "Connect your agents to Grafana", description: "Grafana Cloud's hosted MCP server lets your agents query metrics, logs, and traces and work with dashboards, alerts, and incidents." }}>
+## Connect your agents to Grafana
 
-The File Generation tool is now deprecated. [Computer](/docs/user-documentation/agents/tools/computer) and the Files management tool cover everything it did, and agents already use Computer to create Word, Excel, PowerPoint, CSV, and other files that match or exceed File Generation's output.
+Agents can now use Grafana Cloud's hosted MCP server to query metrics, logs, and traces, and to work with dashboards, alerts, and incidents. Actions that can change your Grafana data, including raw SQL queries, ask for your approval first.
 
-To get a file, ask your agent for it in the conversation and it builds the file with Computer. Applies to all workspaces.
+To get started, an admin adds Grafana from Spaces > Tools, then you sign in to Grafana Cloud and authorize your stack. You need the Assistant Cloud MCP User role and Grafana Assistant enabled on your stack, and connecting counts toward your Grafana Assistant billing. Available in all workspaces.
+
+</Update>
+
+<Update label="October 19th, 2026" tags={["Added"]} rss={{ title: "Conversation timeline", description: "A timeline on the right side of each conversation lets you preview and jump to earlier messages without scrolling." }}>
+## Conversation timeline
+
+Conversations now have a timeline docked to the right side of the page. Hover a mark to preview that exchange, with your message and the start of the agent's answer, then click it to jump straight there.
+
+When agent answers run several screens long, you can find an earlier message or browse the conversation's history without scrolling through everything in between.
+
+</Update>
+
+<Update label="October 16th, 2026" tags={["Added"]} rss={{ title: "Dust is available in French", description: "French joins English (US) and English (UK) as an interface language, with a personal preference and a workspace-wide default." }}>
+## Dust is available in French
+
+You can now switch Dust to French, alongside English (US) and English (UK). Set your language in Personal Settings > Customization; the preference applies across all your workspaces. Workspace admins can set a default language in workspace settings, which Dust uses for anyone who hasn't picked a personal language.
+
+French covers the product interface, Frames, the browser extension, Sidekick, and the Slack and Microsoft Teams integrations. Some areas remain in English, including agent and skill names and instructions. Available in all workspaces.
+
+</Update>
+
+<Update label="October 15th, 2026" tags={["Added"]} rss={{ title: "Connect your agents to Figma", description: "Agents can use Figma's official MCP server to work with design context, components, variables, and screenshots, scoped to each user's own Figma access." }}>
+## Connect your agents to Figma
+
+Agents can now connect to Figma's official MCP server and work with design context, components, variables, screenshots, and design systems. You connect your own Figma account, so agents only reach the files you can already access in Figma.
+
+Use it to answer design-system questions, draft UX copy, document components, write implementation specs, or prepare engineering handoffs. To get started, add Figma as a tool to an agent and connect your account. Available to all workspaces on credit-based pricing plans.
+
+</Update>
+
+<Update label="October 14th, 2026" tags={["Added"]} rss={{ title: "Pod usage breakdown in Analytics", description: "A new Pods tab on the Analytics page ranks your Pods by credit consumption over the selected period." }}>
+## Pod usage breakdown in Analytics
+
+The attribution section of the Analytics page now has a Pods tab that ranks Pods by credit consumption over the selected period. Alongside the existing breakdowns by agent, user, model, and tool, you can now see which Pods drive your usage. Each viewer only sees the Pods they have access to.
+
+Available to admins and members with analytics access on credit-based plans.
 
 </Update>
 
@@ -18,6 +54,15 @@ To get a file, ask your agent for it in the conversation and it builds the file 
 Gemini 4 Argon, Google's new reasoning model, is now available in the model picker and the Dust SDK, in both global and EU regions. It has a 1M-token context window and supports low, medium, and high reasoning effort, which you set from the model picker. It takes over from Gemini 3.1 Pro as Google's latest model in Dust.
 
 Available to all users with no feature flag, including workspaces that bring their own API key.
+
+</Update>
+
+<Update label="October 14th, 2026" tags={["Deprecated"]} rss={{ title: "File Generation tool deprecated in favor of Computer", description: "Computer and the Files management tool now cover everything File Generation did, including creating Word, Excel, PowerPoint, and CSV files." }}>
+## File Generation tool deprecated in favor of Computer
+
+The File Generation tool is now deprecated. [Computer](/docs/user-documentation/agents/tools/computer) and the Files management tool cover everything it did, and agents already use Computer to create Word, Excel, PowerPoint, CSV, and other files that match or exceed File Generation's output.
+
+To get a file, ask your agent for it in the conversation and it builds the file with Computer. Applies to all workspaces.
 
 </Update>
 
