@@ -59,3 +59,4 @@ Click **Compute stats** next to the filter field. Dust looks at the last 24 hour
 * **Wildcards go one level deep.** `"tags.*.name"` works; `"tags.*.sub.name"` does not.
 * **An empty expression always runs.** Leave **Filter expression** blank and the trigger fires on every event from that source.
 * **A missing field just means "false", not an error.** Any check on a field the payload doesn't have returns `false`, except `(not (exists "field"))`, which returns `true`.
+* **An empty list in `has-all` is trivially true.** `(has-all "issue.labels" ())` returns `true`, there are no required values left to fail on. `has-any` with an empty list behaves as you'd expect and returns `false`.
