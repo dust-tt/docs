@@ -386,6 +386,7 @@
             ]
           },
           "analytics",
+          "docs/user-documentation/admins/api-keys",
           {
             "group": "Audit Logs",
             "pages": [
