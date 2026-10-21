@@ -3,12 +3,138 @@ title: "Changelog"
 description: "New updates and improvements to Dust"
 ---
 
-<Update label="October 5th, 2026" tags={["Improved"]} rss={{ title: "New default models behind Premium", description: "Selecting Premium in the composer now routes to Opus 5.5 at medium reasoning effort, with Sol 6.1 as the fallback." }}>
-## New default models behind Premium
+<Update label="October 20th, 2026" tags={["Added"]} rss={{ title: "Connect your agents to Grafana", description: "Grafana Cloud's hosted MCP server lets your agents query metrics, logs, and traces and work with dashboards, alerts, and incidents." }}>
+## Connect your agents to Grafana
 
-Selecting Premium in the composer now routes your messages to Opus 5.5 at medium reasoning effort, replacing Opus 5 at high effort. When Opus is not available in your workspace, Premium falls back to Sol 6.1 at extra-high effort instead of GPT 5.6 Sol at medium.
+Agents can now use Grafana Cloud's hosted MCP server to query metrics, logs, and traces, and to work with dashboards, alerts, and incidents. Actions that can change your Grafana data, including raw SQL queries, ask for your approval first.
 
-We chose this pairing based on internal evaluations, and we expect it to produce higher-quality outputs at a lower cost. No action is required: the change applies automatically to every workspace using Premium.
+To get started, an admin adds Grafana from Spaces > Tools, then you sign in to Grafana Cloud and authorize your stack. You need the Assistant Cloud MCP User role and Grafana Assistant enabled on your stack, and connecting counts toward your Grafana Assistant billing. Available in all workspaces.
+
+</Update>
+
+<Update label="October 19th, 2026" tags={["Added"]} rss={{ title: "Conversation timeline", description: "A timeline on the right side of each conversation lets you preview and jump to earlier messages without scrolling." }}>
+## Conversation timeline
+
+Conversations now have a timeline docked to the right side of the page. Hover a mark to preview that exchange, with your message and the start of the agent's answer, then click it to jump straight there.
+
+When agent answers run several screens long, you can find an earlier message or browse the conversation's history without scrolling through everything in between.
+
+</Update>
+
+<Update label="October 16th, 2026" tags={["Added"]} rss={{ title: "Dust is available in French", description: "French joins English (US) and English (UK) as an interface language, with a personal preference and a workspace-wide default." }}>
+## Dust is available in French
+
+You can now switch Dust to French, alongside English (US) and English (UK). Set your language in Personal Settings > Customization; the preference applies across all your workspaces. Workspace admins can set a default language in workspace settings, which Dust uses for anyone who hasn't picked a personal language.
+
+French covers the product interface, Frames, the browser extension, Sidekick, and the Slack and Microsoft Teams integrations. Some areas remain in English, including agent and skill names and instructions. Available in all workspaces.
+
+</Update>
+
+<Update label="October 15th, 2026" tags={["Added"]} rss={{ title: "Connect your agents to Figma", description: "Agents can use Figma's official MCP server to work with design context, components, variables, and screenshots, scoped to each user's own Figma access." }}>
+## Connect your agents to Figma
+
+Agents can now connect to Figma's official MCP server and work with design context, components, variables, screenshots, and design systems. You connect your own Figma account, so agents only reach the files you can already access in Figma.
+
+Use it to answer design-system questions, draft UX copy, document components, write implementation specs, or prepare engineering handoffs. To get started, add Figma as a tool to an agent and connect your account. Available to all workspaces on credit-based pricing plans.
+
+</Update>
+
+<Update label="October 14th, 2026" tags={["Added"]} rss={{ title: "Pod usage breakdown in Analytics", description: "A new Pods tab on the Analytics page ranks your Pods by credit consumption over the selected period." }}>
+## Pod usage breakdown in Analytics
+
+The attribution section of the Analytics page now has a Pods tab that ranks Pods by credit consumption over the selected period. Alongside the existing breakdowns by agent, user, model, and tool, you can now see which Pods drive your usage. Each viewer only sees the Pods they have access to.
+
+Available to admins and members with analytics access on credit-based plans.
+
+</Update>
+
+<Update label="October 14th, 2026" tags={["Added"]} rss={{ title: "Gemini 4 Argon is live on Dust", description: "Google's new reasoning model brings a 1M-token context window and low, medium, or high reasoning effort to your agents in global and EU workspaces." }}>
+## Gemini 4 Argon is live on Dust
+
+Gemini 4 Argon, Google's new reasoning model, is now available in the model picker and the Dust SDK, in both global and EU regions. It has a 1M-token context window and supports low, medium, and high reasoning effort, which you set from the model picker. It takes over from Gemini 3.1 Pro as Google's latest model in Dust.
+
+Available to all users with no feature flag, including workspaces that bring their own API key.
+
+</Update>
+
+<Update label="October 13th, 2026" tags={["Added"]} rss={{ title: "Create and manage triggers with Dust Default", description: "Ask Dust Default, Dust's default agent, to create, update, or remove any supported trigger type, including scheduled runs and event-based automations." }}>
+## Create and manage triggers with Dust Default
+
+Dust Default, Dust's default agent, can now create and manage any trigger type supported in Dust, including scheduled runs and event-based automations. Describe what you want, such as a summary every Monday morning or an automation that runs when an event occurs, and Dust Default sets up the trigger for you. You can also ask it to update or remove triggers later, without leaving the conversation to configure them manually.
+
+Available to anyone using the Dust Default agent.
+
+</Update>
+
+<Update label="October 13th, 2026" tags={["Added"]} rss={{ title: "Connect Webflow to your agents", description: "Webflow's remote MCP server lets your agents work with your site's pages, CMS content, assets, forms, and publishing after you connect through OAuth." }}>
+## Connect Webflow to your agents
+
+Webflow's remote MCP server is now available natively in Dust. Once you connect your Webflow account through OAuth, your agents can work with your site's pages, styles, components, CMS content, assets, forms, localization, analytics, and publishing.
+
+Ask an agent to find information on your site or update CMS content without switching tools. Admins can add Webflow from Spaces > Tools, then you connect your Webflow account. Available to all users.
+
+</Update>
+
+<Update label="October 12th, 2026" tags={["Improved"]} rss={{ title: "Pronouns and job title in personal settings", description: "You can now share your pronouns and job title with coworkers, view theirs from their name, and agents use your pronouns when referring to you." }}>
+## Pronouns and job title in personal settings
+
+Your personal settings now include your pronouns and job title, which you can edit, along with your role and the groups you belong to. Click a coworker's name to see the same details for them.
+
+Agents know the pronouns you set and use them when referring to you. To add yours, open your personal settings.
+
+</Update>
+
+<Update label="October 9th, 2026" tags={["Added"]} rss={{ title: "Search conversations, members, and settings from one place", description: "Unified search is generally available, covering your conversations, workspace members, and admin settings from the command palette or a new sidebar button." }}>
+## Search conversations, members, and settings from one place
+
+Unified search is now generally available. Results cover your conversations, workspace members, and admin settings, so you can jump to a past conversation, find a teammate, or open a specific setting without navigating menus.
+
+Open it from the command palette, or click the new search button in the sidebar. Available to all users.
+
+</Update>
+
+<Update label="October 8th, 2026" tags={["Improved"]} rss={{ title: "Read item updates and comments with the Monday tool", description: "Agents using the Monday tool can now read the discussion posted on each item through the new get_updates action." }}>
+## Read item updates and comments with the Monday tool
+
+The Monday tool now includes a `get_updates` action, so your agents can read the updates and comments posted on each item. Updates hold the discussion on a Monday item, and agents can now use it alongside the item's other details to give more complete answers about it.
+
+Available to all users of the Monday tool.
+
+</Update>
+
+<Update label="October 6th, 2026" tags={["Added"]} rss={{ title: "Connect Paddle to your agents", description: "Your agents can now work with your Paddle pricing, billing, and subscription data without leaving Dust." }}>
+## Connect Paddle to your agents
+
+Paddle is now available natively in Dust. Once you connect your Paddle account, your agents can work with your pricing, billing, and subscription data.
+
+Ask an agent to look up a subscription or check the pricing on a plan, without switching tools. Admins can add Paddle from Spaces > Tools, then you connect your Paddle account. Available to all users.
+
+</Update>
+
+<Update label="October 6th, 2026" tags={["Added"]} rss={{ title: "Connect Superhuman Docs to your agents", description: "Your agents can search, read, and edit Superhuman Docs documents and tables, manage comments, and recap recent changes." }}>
+## Connect Superhuman Docs to your agents
+
+Superhuman Docs is now available natively in Dust. Once you connect your account, your agents can search and read your content, create and update documents and tables, manage comments, and recap what has changed.
+
+Ask an agent to find the latest version of a spec, fill in a tracking table, or reply to open comments, without switching tools. Admins can add Superhuman Docs from Spaces > Tools, then you connect your Superhuman Docs account.
+
+</Update>
+
+<Update label="October 6th, 2026" tags={["Added"]} rss={{ title: "Connect ClickUp to your agents", description: "Agents can now search your ClickUp workspace, recap task activity, and create or update tasks, documents, lists, and folders." }}>
+## Connect ClickUp to your agents
+
+ClickUp is now available natively in Dust. Your agents can search your ClickUp workspace, recap recent task activity, and create or update tasks, documents, lists, and folders.
+
+Ask an agent what changed on a project, which tasks have stalled, or to open a follow-up task, without switching tools. Admins can add ClickUp from Spaces > Tools, then you connect your ClickUp account. Available to all users.
+
+</Update>
+
+<Update label="October 6th, 2026" tags={["Added"]} rss={{ title: "Connect FullEnrich to your agents", description: "FullEnrich's remote MCP server lets your agents find contacts and enrich them with verified work emails and phone numbers." }}>
+## Connect FullEnrich to your agents
+
+FullEnrich's remote MCP server is now available natively in Dust. Once you connect your FullEnrich account, your agents can find contacts and enrich them with verified work emails and phone numbers, drawing on data from more than 20 providers.
+
+Go-to-market teams can run contact search and enrichment directly in agent conversations. Admins can add FullEnrich from Spaces > Tools, then you connect your FullEnrich account. Available to all users.
 
 </Update>
 
@@ -27,6 +153,15 @@ Admins can add Clay from Spaces > Tools, then you connect your Clay account thro
 Airtable's vendor-hosted MCP server is now available natively in Dust. Once you connect your Airtable account with OAuth, your agents can read and work with your bases, tables, records, interfaces, forms, and automations.
 
 To get started, add Airtable from your workspace's tools settings and sign in with your Airtable account. Available to all users.
+
+</Update>
+
+<Update label="October 5th, 2026" tags={["Improved"]} rss={{ title: "New default models behind Premium", description: "Selecting Premium in the composer now routes to Opus 5.5 at medium reasoning effort, with Sol 6.1 as the fallback." }}>
+## New default models behind Premium
+
+Selecting Premium in the composer now routes your messages to Opus 5.5 at medium reasoning effort, replacing Opus 5 at high effort. When Opus is not available in your workspace, Premium falls back to Sol 6.1 at extra-high effort instead of GPT 5.6 Sol at medium.
+
+We chose this pairing based on internal evaluations, and we expect it to produce higher-quality outputs at a lower cost. No action is required: the change applies automatically to every workspace using Premium.
 
 </Update>
 
