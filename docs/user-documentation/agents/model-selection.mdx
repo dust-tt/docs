@@ -78,6 +78,12 @@ Dust does not automatically replace a model you selected in the composer or pinn
 
 A change in the composer applies to your next message only. To change the agent's default for future runs, update it in the agent builder. Pinned agents do not have a separate backup-model setting.
 
+### If a Claude model declines to answer
+
+If a Claude model declines to answer a message, another model can answer it instead. This applies whether you selected the Claude model in the composer, pinned it in the agent builder, or an auto model chose it. The message then shows **Answered by** followed by the name of the model that answered.
+
+This doesn't happen in workspaces limited to [EU-hosted models](/docs/user-documentation/admins/admin-governance/eu-hosted-models).
+
 ### If a message fails
 
 If a provider-related error interrupts a message on a specific model, the error message offers a retry with the corresponding auto-model level, such as **Retry with Standard model tier**. Dust determines that level from the failed model and its reasoning effort. Retrying does not change the agent's configuration or your selection in the composer.
