@@ -6,9 +6,9 @@ description: "New updates and improvements to Dust"
 <Update label="October 27th, 2026" tags={["Added"]} rss={{ title: "BigQuery tool with personal authentication", description: "A new BigQuery tool lets agents query your data warehouse with each member signed in to their own Google account." }}>
 ## BigQuery tool with personal authentication
 
-Your agents can now query Google BigQuery through the new BigQuery tool. An admin adds it from Spaces > Tools with an OAuth client from your Google Cloud project, then each member connects their own Google account, so queries run with that person's BigQuery permissions instead of a shared service account.
+Your agents can now query Google BigQuery through the new BigQuery tool. An admin adds it from Spaces > Tools with the client ID and secret of a Google Cloud OAuth client. With personal credentials, each member connects their own Google account, so queries run with that person's BigQuery permissions instead of a shared service account.
 
-If your workspace uses the BigQuery connector today, this tool is its recommended replacement: add it and move your agents over. Available in every workspace.
+If your workspace uses the BigQuery connector today, this tool is its recommended replacement. See the [BigQuery tool setup guide](/docs/user-documentation/agents/tools/bigquery) for the redirect URIs and scope. Available in every workspace.
 
 </Update>
 

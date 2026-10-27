@@ -1,0 +1,88 @@
+---
+title: "BigQuery"
+---
+
+## Overview
+
+The BigQuery tool connects your agents to Google's official [BigQuery MCP server](https://docs.cloud.google.com/bigquery/docs/use-bigquery-mcp). Agents can list datasets and tables, read their metadata, run SQL queries, and manage query jobs, within the BigQuery permissions of the connected Google account.
+
+<Info>
+  This tool is separate from the [BigQuery
+  connection](/docs/user-documentation/admins/connections-management/bigquery),
+  which connects BigQuery as a data source through a service account.
+</Info>
+
+## Available tools
+
+| Tool                   | What it does                                                                     |
+| ---------------------- | -------------------------------------------------------------------------------- |
+| `list_dataset_ids`     | List the datasets in a project.                                                  |
+| `get_dataset_info`     | Get a dataset's metadata.                                                        |
+| `list_table_ids`       | List the tables in a dataset.                                                    |
+| `get_table_info`       | Get a table's metadata.                                                          |
+| `execute_sql_readonly` | Run a read-only SQL query.                                                       |
+| `get_query_results`    | Get the results of a query job.                                                  |
+| `get_job`              | Get the details of a job.                                                        |
+| `execute_sql`          | Run any SQL statement, including DDL and DML. Asks for confirmation every time.  |
+| `cancel_job`           | Cancel a running job. Asks for confirmation every time.                          |
+
+Google cancels queries that run longer than three minutes and returns at most 3,000 rows per query.
+
+## Admin: Setup in Google Cloud
+
+You need a Google Cloud project with the BigQuery API enabled. Enabling the BigQuery API also enables the BigQuery MCP server.
+
+1. Configure the project's OAuth consent screen. Choose **Internal** for a Google Workspace organization. If you choose **External** and keep the app unpublished, add every member who will connect as a test user.
+2. On the consent screen's **Data Access** page, add the BigQuery scope:
+
+   ```
+   https://www.googleapis.com/auth/bigquery
+   ```
+
+3. Go to **APIs & Services > Credentials**, click **Create credentials > OAuth client ID**, and choose **Web application**.
+4. Under **Authorized redirect URIs**, add the two redirect URIs for your Dust region:
+
+   **US workspaces:**
+
+   ```
+   https://dust.tt/oauth/mcp_static/finalize
+   https://app.dust.tt/oauth/mcp_static/finalize
+   ```
+
+   **EU workspaces:**
+
+   ```
+   https://eu.dust.tt/oauth/mcp_static/finalize
+   https://app.dust.tt/oauth/mcp_static/finalize
+   ```
+
+5. Click **Create** and download the client's JSON file. It contains the client ID and client secret you enter in Dust.
+
+Each member who connects needs these IAM roles on the projects they query:
+
+- MCP Tool User (`roles/mcp.toolUser`)
+- BigQuery Job User (`roles/bigquery.jobUser`)
+- BigQuery Data Viewer (`roles/bigquery.dataViewer`)
+
+## Admin: Setup in Dust
+
+1. Go to **Spaces > Tools > Add Tools** and select **BigQuery**.
+2. Enter the client ID and client secret from the JSON file. Dust discovers Google's authorization and token endpoints and requests the `https://www.googleapis.com/auth/bigquery` scope, so you don't fill in anything else.
+3. Choose the credentials type:
+   - **Personal**: each member signs in with their own Google account on first use, and queries run with that member's BigQuery permissions.
+   - **Workspace**: one admin signs in, and everyone with access to the tool shares that connection.
+4. Complete the Google sign-in.
+
+Dust reaches the BigQuery MCP server through its [static egress IP](/docs/user-documentation/admins/tools-management/static-egress-ips), so you can allow it if your organization restricts BigQuery access by IP address.
+
+## Usage
+
+Add the tool to an agent from the Agent Builder (**Add Tool > BigQuery**). With personal credentials, members click **Connect** the first time an agent uses the tool, then **Retry**.
+
+## Troubleshooting
+
+| Error                                  | Fix                                                                                                                  |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `redirect_uri_mismatch`                | The OAuth client's redirect URIs don't match Dust's. Re-copy both URIs for your region, with no trailing slash.     |
+| `Error 403: access_denied` at sign-in  | The consent screen is External and unpublished. Add the member as a test user, or switch the consent screen to Internal. |
+| Permission errors when a query runs    | The connected Google account is missing one of the IAM roles above on that project.                                 |
