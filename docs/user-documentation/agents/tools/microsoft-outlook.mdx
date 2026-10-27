@@ -33,6 +33,8 @@ ensures full access to the necessary permissions.
    settings.
 3. On the first connection, tick **Consent on behalf of your organization**.
 
+If the checkbox "Consent on behalf of your authorization" does not appear, it means you are using an account that does not have the required "Global Administrator" role.
+
 Once the tool is set up, **each user must connect their own Microsoft account**
 the first time an agent uses an Outlook tool on their behalf. Dust prompts them
 automatically.
@@ -50,7 +52,7 @@ from the agent builder. They require no additional configuration.
 | --- | --- | --- |
 | Get Messages | | Get message metadata and previews (subject, sender, date, and a ~255 character body preview, not the full body). Supports search queries and a folder path. |
 | Get Message Body | | Get the full body of a single message. Supports chunked reads for large emails. |
-| List Folders | | List mail folders. Returns the children of a given folder path, or top-level folders. Use it to discover the hierarchy before filtering messages by folder. |
+| List Folders | | List the children of a given folder path, or top-level folders. Use it to discover the hierarchy before filtering messages by folder. |
 | List Attachments | | List attachments on a message (metadata only: id, name, content type, size). |
 | Get Attachment | | Retrieve a single attachment by ID. Works for files above 4MB via a dedicated download endpoint. |
 | Get Attachments | | Retrieve all attachments of a message at once. |
@@ -73,7 +75,7 @@ from the agent builder. They require no additional configuration.
 | Get Event | | Get a single event by ID. |
 | Create Event | ✓ | Create a new event, with attendees, location, and online meeting options. |
 | Update Event | ✓ | Update an existing event. |
-| Delete Event | ✓ | Delete an event. |
+| Delete Event | ✓ | Delete an existing event. |
 | Check Availability | | Compute combined free/busy availability across several participants over a date range. |
 | Check Self Availability | | Check whether the signed-in user is free during a time slot. An event blocks if its status is busy, tentative, out of office, or working elsewhere. |
 
