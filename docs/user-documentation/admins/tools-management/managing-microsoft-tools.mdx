@@ -15,6 +15,8 @@ An OAuth modal will appear to allow you to allow Dust to access Microsoft accoun
 
 On the first connection, tick the box **Consent on behalf of your authorization**. When this checkbox does not appear, it means that an EntraID admin will need to validate your Consent Request from the Admin consent requests panel
 
+If the checkbox "Consent on behalf of your authorization" does not appear, it means you are using an account that does not have the required "Global Administrator" role.
+
 
 NB : If you're not an admin on your Microsoft workspace, will have to ask your administrator to consent Dust permissions for you. Once you clicked on "Request Admin consent", you will have to wait for the administrator to validate your request in their Azure admin panel (nb : this might take a few minutes before showing up on the Azure admin panel)Once authorised, perform step 3 again. This time around, the connection will finalize.
 
@@ -123,7 +125,7 @@ The following permissions will be requested by the app. In this case, the **Dele
 | `Mail.ReadWrite`             | Outlook MCP                                                   |
 | `Mail.ReadWrite.Shared`      | Outlook MCP                                                   |
 | `offline_access`             | All Microsoft Tools                                           |
-| `Sites.Read.All`             | Microsoft Connector, Microsoft Drive MCP, Microsoft Excel MCP |
+| `Sites.Read.All`              | Microsoft Connector, Microsoft Drive MCP, Microsoft Excel MCP |
 | `Team.ReadBasic.All`         | Microsoft Teams MCP                                           |
 | `User.Read`                  | All Microsoft Tools                                           |
 | `User.ReadBasic.All`         | Microsoft Teams MCP                                           |
