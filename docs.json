@@ -968,6 +968,10 @@
       "destination": "/docs/user-documentation/agents/frames/overview"
     },
     {
+      "source": "/docs/user-documentation/agents/frames/frames-v2",
+      "destination": "/docs/user-documentation/agents/frames/overview"
+    },
+    {
       "source": "/docs/freshservice",
       "destination": "/docs/user-documentation/agents/tools/freshservice"
     },
