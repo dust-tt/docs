@@ -1,6 +1,6 @@
 ---
 title: Overview
-description: Turn agent outputs into living, interactive content.
+description: Turn agent outputs into interactive content and small apps you can share.
 ---
 
 <Note>
@@ -15,6 +15,8 @@ Frames are interactive by design. You can hover over charts to see details, clic
 
 Frames can also evolve after they are created. Ask your agent to add a regional breakdown, change the time period, or try a different visualization. Your Frame updates while preserving the existing work.
 
+A Frame can also have a backend, with functions and databases. It then works like a small app: it can save what people enter, and use your workspace tools. See [Frames with backends](#frames-with-backends).
+
 Frames are files that you can share through links. Recipients can view the same live data and interact with the available controls. You can share them internally or externally with clients and partners using secure, token-gated links.
 
 ## Example Frames
@@ -27,6 +29,10 @@ Create polished documents with data, charts, and insights for client deliverable
 
 Build interactive views of your data. Team members can filter, explore, and drill down without asking follow-up questions.
 
+**Apps**
+
+Build task trackers, request forms, CRM views, and approval queues that remember what people enter. Apps need a [backend](#frames-with-backends).
+
 ## Add Frames to an agent
 
 When creating or editing an agent:
@@ -35,11 +41,55 @@ When creating or editing an agent:
 2. Select the **Create Frames** skill.
 3. Save the agent.
 
-You can then ask the agent to create a report, dashboard, visualization, or another interactive output.
+You can then ask the agent to create a report, dashboard, visualization, or another interactive output. The more you say about the audience and the look you want, the better the result. You can also share brand assets, such as a logo or colors, for the agent to follow.
 
 <Note>
-  All Frames created in a conversation are accessible from the folder icon. You can download or share them from there.
+  All Frames created in a conversation are accessible from the folder icon. You can download or share them from there. Frames saved to a Pod are in the Pod's **Files** tab, see [Frames in Pods](/docs/user-documentation/pods/frames).
 </Note>
+
+## Frames with backends
+
+By default, a Frame only shows what the agent put in it: anything a viewer types or changes is gone when the page reloads. A Frame with a backend can also:
+
+- **Run functions**: code that runs on Dust's servers when someone uses the Frame, for example to save a form entry or fetch fresh data.
+- **Store data in databases**: records that everyone who uses the Frame shares. A Frame can have up to 4 databases of 1 GiB each.
+- **Use your workspace tools**: functions can use the tools available in your workspace, such as Gmail, Slack, or HubSpot. Tool approvals and personal authentication work as they do in a conversation, and appear over the Frame.
+- **Reach external services**: functions follow the same network access rules and secrets as [Computer](/docs/user-documentation/agents/tools/computer).
+
+Functions also know who is using the Frame. The agent can use this for personal views, such as **My tasks**, or to reserve some actions to people who can edit the Frame.
+
+### Create a Frame with a backend
+
+Use an agent with the **Create Frames** skill, and ask for a Frame that saves data, for example: **Build a tracker for our launch tasks where the team can add, assign, and close items.** You can also ask the agent to add a backend to an existing Frame.
+
+Data belongs to the Frame. When the agent improves the Frame later, existing data is kept.
+
+### Who can create Frames with backends
+
+Admins control Frames with backends in **Admin > Governance**, **Pods & Frames** tab, **Frames** section:
+
+1. Turn on **Frames with backends** for the workspace.
+2. Choose who can **Create Frames with backends**: **Everyone**, specific **Groups**, or **Admins only**. It's **Admins only** by default.
+
+If you are not allowed to create Frames with backends, the agent tells you, and can offer a Frame without a backend instead.
+
+### Credits
+
+Running a Frame's functions uses credits. See [Frame backend credits](/docs/user-documentation/admins/usage-seats-and-credits/credits#frame-backend-credits).
+
+## Edit a Frame
+
+**Ask the agent.** Describe the change in the conversation, for example: **Add a breakdown by region** or **Use our brand colors.** The agent updates the same Frame.
+
+**Edit text yourself.** To fix a word or a number without going back to the agent, click **Edit** at the top of the Frame, then click the text and type your change. Your change is visible to everyone right away.
+
+### Work on a draft
+
+To make changes without affecting the people using the Frame, use Draft mode. This is useful for apps that people rely on.
+
+1. In the conversation, open the Frame's **...** menu, then select **Draft** > **Activate Draft mode**.
+2. Edit the Frame, or ask the agent to. Changes stay in the draft, and the share link keeps showing the live version. Use the **See Draft** toggle to switch between the draft and the live version.
+3. Click **Validate** to make the draft live for everyone, or **Delete draft** to drop your changes.
 
 ## Export a Frame
 
@@ -50,7 +100,7 @@ To save a copy of a Frame, for example to attach it to an email or add it to a s
 3. Choose a format:
    - **PDF**: pick **Portrait** or **Landscape**.
    - **PNG**: an image of the Frame.
-   - **Template**: the Frame's code file.
+   - **Source (.zip)**: all the Frame's source files. Older Frames show **Template** instead, which downloads the Frame's code file. Data saved in a Frame's databases is not included.
 
 You can also ask the agent to export the Frame as a PDF or PNG.
 
@@ -58,22 +108,37 @@ You can also ask the agent to export the Frame as a PDF or PNG.
   The **PNG** option doesn't work for Frames that display images from external websites. Choose **PDF** instead, or ask the agent to export the Frame as a PNG.
 </Note>
 
-## Revert changes to a Frame
+## Share a Frame
 
-If an agent's latest edit is not what you wanted, you can undo it.
+Click **Share** at the top of the Frame and choose who has access:
 
-When an agent has edited a Frame and a previous version exists, a **Revert the last change** button appears in the Frame panel. Reverts happen one step at a time. Click the button again to move further back through the Frame's history.
+- **Invite only**: only the people and company domains you invite.
+- **All workspace members + invites**: everyone in your workspace, plus anyone you invite.
+- **Anyone with the link**: anyone, including people outside Dust. Visitors don't need to sign in or give their email.
 
-You can also ask the agent to restore an earlier version, for example: **Restore the Frame as it was yesterday.**
+People you share with always see the latest live version. People outside your workspace that you invite by email confirm their email with a one-time code.
 
-## Manage Frame sharing
+On eligible plans, publicly shared Frames can show your company branding instead of Dust's. See [White-labeled Frames](/docs/user-documentation/agents/frames/white-labeled-frames).
+
+### Share a Frame with a backend
+
+Only signed-in members of your workspace can use a Frame's backend, with one exception for public links:
+
+- **Workspace members**: you can share a Frame with a backend with anyone in your workspace. You can't invite people outside your workspace by email.
+- **Anyone with the link**: the Frame needs at least one public function, which is a function the agent makes available to visitors. Visitors confirm their email with a one-time code before the Frame opens, and can only use its public functions.
+
+Public functions can't use your workspace tools or secrets. They can still show data that the Frame's other functions saved in its databases. Tell the agent what visitors should be able to see and do, and it decides which functions to make public.
+
+To add a backend to a Frame that you shared with people outside your workspace by email, first limit its sharing to workspace members.
+
+### Manage Frame sharing
 
 Workspace admins can control how members share Frames. These settings determine which sharing options are available to users.
 
-To configure the Frame sharing policy:
+To configure Frame sharing:
 
 1. Open the **Admin** tab.
-2. Go to **Workspace settings**.
-3. Select the preferred **Frame sharing policy**.
+2. Go to **Governance**, **Pods & Frames** tab.
+3. In the **Frames** section, set **Frame sharing** to **Workspace members only**, **Members + email invites**, or **No restrictions**.
 
-Public sharing is enabled by default, allowing members to share Frames externally with clients and partners.
+Public sharing is enabled by default, allowing members to share Frames externally with clients and partners. In the same section, admins and managers can also choose who can **Invite people by email** and **Share by public link**.
