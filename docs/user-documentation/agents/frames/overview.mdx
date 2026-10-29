@@ -114,15 +114,22 @@ Click **Share** at the top of the Frame and choose who has access:
 
 - **Invite only**: only the people and company domains you invite.
 - **All workspace members + invites**: everyone in your workspace, plus anyone you invite.
-- **Anyone with the link**: anyone, including people outside Dust.
+- **Anyone with the link**: anyone, including people outside Dust. Visitors don't need to sign in or give their email.
 
 People you share with always see the latest live version. People outside your workspace that you invite by email confirm their email with a one-time code.
 
 On eligible plans, publicly shared Frames can show your company branding instead of Dust's. See [White-labeled Frames](/docs/user-documentation/agents/frames/white-labeled-frames).
 
-<Note>
-  By default, only signed-in members of your workspace can use a Frame's backend, so a Frame with a backend can't be shared with people outside your workspace or by public link.
-</Note>
+### Share a Frame with a backend
+
+Only signed-in members of your workspace can use a Frame's backend, with one exception for public links:
+
+- **Workspace members**: you can share a Frame with a backend with anyone in your workspace. You can't invite people outside your workspace by email.
+- **Anyone with the link**: the Frame needs at least one public function, which is a function the agent makes available to visitors. Visitors confirm their email with a one-time code before the Frame opens, and can only use its public functions.
+
+Public functions can't use your workspace tools or secrets. They can still show data that the Frame's other functions saved in its databases. Tell the agent what visitors should be able to see and do, and it decides which functions to make public.
+
+To add a backend to a Frame that you shared with people outside your workspace by email, first limit its sharing to workspace members.
 
 ### Manage Frame sharing
 
