@@ -1,0 +1,37 @@
+---
+title: "Conversation sharing"
+description: "Which conversations the API can open, and how to share them."
+---
+
+When conversation sharing is on in your workspace, a conversation only opens for the people, groups, and API keys it's shared with. The API follows the same rule.
+
+## Who can open what
+
+| Caller | Opens |
+| --- | --- |
+| API key with the **Admin** scope | Same as before. |
+| Other API keys | Conversations the key created or posted in, and conversations shared with the `Workspace` group. |
+| OAuth token | Conversations the user can open in Dust. |
+
+A conversation the caller can't open returns `404` with `conversation_not_found`, as if it didn't exist.
+
+## Share a conversation
+
+- **When you create it**: pass `sharedWith` to [Create a new conversation](/api-reference/conversations/create-a-new-conversation).
+  ```json
+  "sharedWith": [{ "email": "jane@acme.com" }, { "groupName": "Engineering" }]
+  ```
+- **Later**: call [Update conversation sharing](/api-reference/conversations/update-conversation-sharing) with a `permission` of `write` or `none` for each person or group.
+- **To check**: [Get conversation sharing](/api-reference/conversations/get-conversation-sharing) lists who has access.
+
+Groups are matched by their exact name. `Workspace` is everyone in the workspace, API keys included. You can't share a conversation with a specific API key: a key gets access by creating the conversation, or through `Workspace`.
+
+## Find the integrations to update
+
+1. In your workspace admin, go to **Developers** → **API keys**. Keys with the **Admin** scope keep working as before.
+2. For each other key with a recent **Last used** date, check whether its integration opens conversations it didn't create. For example, a conversation ID copied from Dust, received from a webhook, or created with another key.
+3. For those integrations, create the conversation with the same key and add people with `sharedWith`, or switch to a key with the **Admin** scope.
+
+<Note>
+Each time a key with the **Admin** scope opens a conversation that isn't shared with it, your [audit logs](/docs/user-documentation/admins/audit-logs/audit-logs) record a `conversation.admin_access_granted` event.
+</Note>
