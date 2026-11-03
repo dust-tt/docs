@@ -24,6 +24,23 @@ You interact with agents through conversations, where you ask questions or make 
 
 A workspace is where members talk to agents and customize Dust for their team's needs. Admins invite members, assign roles (Admin, Manager, Member), and organize data access through open or restricted [spaces](/docs/user-documentation/admins/spaces-management).
 
+#### Find a space by name
+
+To look up a space by name, call [List available spaces](/api-reference/spaces/list-available-spaces) with the optional `name` query parameter:
+
+```bash
+curl "https://dust.tt/api/v1/w/$DUST_WORKSPACE_ID/spaces?name=engineering" \
+  -H "Authorization: Bearer $DUST_API_KEY"
+```
+
+- Matching is case-insensitive and works on any part of the name: `engineering` returns a space named `Product Engineering`.
+- Leading and trailing whitespace is ignored. An empty or whitespace-only value returns HTTP `400`.
+- Combine `name` with `kinds` to narrow the results, for example `?kinds=regular&name=engineering`.
+- The filter only searches spaces you can already access. Access controls are unchanged.
+- If no space matches, the response is `{"spaces": []}`.
+
+A broad value can match several spaces. Pick the `sId` of the space you need from the results instead of assuming a single match.
+
 ### Data sources
 
 Data sources make company knowledge available to agents:
