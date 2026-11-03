@@ -3,12 +3,66 @@ title: "Changelog"
 description: "New updates and improvements to Dust"
 ---
 
+<Update label="October 28th, 2026" tags={["Improved"]} rss={{ title: "Custom date range in Analytics", description: "Admins and managers can now view consumption for any period they choose, not only the current cycle or the last 7, 30, or 90 days." }}>
+## Custom date range in Analytics
+
+The period selector on the Analytics consumption page now includes a Custom range option, next to This cycle and Last 7, 30, or 90 days. Set the exact dates you want to review, such as a past month or the weeks of a campaign, instead of relying on the current cycle or a rolling window.
+
+Available to admins and managers.
+
+</Update>
+
+<Update label="October 27th, 2026" tags={["Added"]} rss={{ title: "BigQuery tool with personal authentication", description: "A new BigQuery tool lets agents query your data warehouse with each member signed in to their own Google account." }}>
+## BigQuery tool with personal authentication
+
+Your agents can now query Google BigQuery through the new BigQuery tool. An admin adds it from Spaces > Tools with the client ID and secret of a Google Cloud OAuth client. With personal credentials, each member connects their own Google account, so queries run with that person's BigQuery permissions instead of a shared service account.
+
+If your workspace uses the BigQuery connector today, this tool is its recommended replacement. See the [BigQuery tool setup guide](/docs/user-documentation/agents/tools/bigquery) for the redirect URIs and scope. Available in every workspace.
+
+</Update>
+
+<Update label="October 27th, 2026" tags={["Added"]} rss={{ title: "Draft mode for Frames", description: "Work on a shared Frame in a draft, then publish or discard your changes while everyone else keeps seeing the live version." }}>
+## Draft mode for Frames
+
+You can now edit a shared Frame in a draft and publish only when it's ready. Choose Activate Draft mode from the Draft menu in the Frame toolbar: changes you or your agent make stay in the draft, while everyone else, including share link viewers, sees the live version.
+
+Validate publishes the draft. Delete draft restores the Frame as it was, files included. You can also ask your agent to "work on this in a draft" or "make it live". Available to all Frame editors, in conversations and Pods.
+
+</Update>
+
+<Update label="October 26th, 2026" tags={["Improved"]} rss={{ title: "Redesigned Frame toolbar", description: "Frame text edits now start from a single Edit button, and the toolbar adds a View / Code switch and one menu for sharing and export." }}>
+## Redesigned Frame toolbar
+
+Text edits in Frames now start from a new Edit button. Click Edit, hover the text you want to change, click it and type. Press Enter or click OK to save, or Escape to cancel. The change saves immediately, Edit turns off, and no agent or credits are involved.
+
+The toolbar also adds a View / Code switch between the rendered Frame and its source, and groups Share, export, and other actions in one menu. Available to everyone who can edit a Frame, in the conversation side panel and in Pods.
+
+</Update>
+
+<Update label="October 26th, 2026" tags={["Added"]} rss={{ title: "Connect your agents to Claap", description: "Claap's MCP server gives your agents access to your meeting recordings and transcripts, so they can work from what was said in your calls." }}>
+## Connect your agents to Claap
+
+Agents can now use Claap's MCP server to access your Claap recordings and their transcripts. Ask an agent to summarize a call, pull out decisions and next steps, or draft a follow-up email based on what was said, directly from a conversation.
+
+To get started, an admin adds Claap from Spaces > Tools, then you connect your Claap account. Available in all workspaces.
+
+</Update>
+
 <Update label="October 22nd, 2026" tags={["Added"]} rss={{ title: "Connect your agents to GitLab", description: "GitLab's official MCP server lets your agents search GitLab.com, work with issues and merge requests, and inspect commits, pipelines, and jobs." }}>
 ## Connect your agents to GitLab
 
 Agents can now use GitLab's official MCP server to search GitLab, create and read issues and merge requests, inspect commits, diffs, pipelines, and jobs, and search code semantically. Read-only actions run without interruption, while write actions ask for your approval first.
 
 To get started, an admin adds GitLab from Spaces > Tools, then you connect your GitLab.com account through OAuth. Dust registers the app in GitLab automatically. The default integration supports GitLab.com, not self-hosted instances. Available in all workspaces.
+
+</Update>
+
+<Update label="October 22nd, 2026" tags={["Added"]} rss={{ title: "Mobbin tool for design references", description: "Agents can search Mobbin's library of app screens and user flows to find design references and benchmark product experiences." }}>
+## Mobbin tool for design references
+
+Your agents can now search Mobbin's library of real-world app screens and user flows. Use it to pull design references and benchmark how other products handle a given experience, such as onboarding or checkout, directly from a conversation.
+
+To get started, an admin adds Mobbin from Spaces > Tools, then you connect your Mobbin account, which must be on a paid plan. Available in all workspaces.
 
 </Update>
 

@@ -87,7 +87,7 @@ Dust than they can do in Outlook directly.
 | Scope | Required for |
 | --- | --- |
 | `Mail.ReadWrite` | Read and modify mail, including moving messages between folders |
-| `Mail.Send` | Send mail on behalf of the signed-in user |
+| `Mail.Send` | Send mail on behalf of the signed-in user (optional) |
 | `User.Read` | Read basic profile information |
 | `SensitivityLabel.Read` | Read sensitivity labels applied to messages |
 | `offline_access` | Maintain access without re-authentication |
@@ -97,11 +97,18 @@ Dust than they can do in Outlook directly.
 | `Contacts.ReadWrite.Shared` | Access shared contact folders (optional) |
 
 <Note>
-  There is no read-only Outlook Mail setup. `Mail.ReadWrite` and `Mail.Send` are
-  required for the tool to function, and the shared variants imply them. Control
-  what agents are allowed to do with the per-tool stake settings in the agent
-  builder rather than with scopes: leave Send Mail as high stake, or simply do
-  not add it to the agent.
+  There is no read-only Outlook Mail setup. `Mail.ReadWrite` is required for the
+  tool to function, and `Mail.ReadWrite.Shared` implies it.
+
+  `Mail.Send` is optional. To leave it out, untick it under **Customize scopes**
+  when you add the tool. Untick `Mail.Send.Shared` too, since it implies
+  `Mail.Send`. Without `Mail.Send`, agents can still read mail and create
+  drafts, but they can't send. If an agent tries to send, it's told to create a
+  draft instead, so the user can send it from Outlook.
+
+  You can also control what agents are allowed to do with the per-tool stake
+  settings in the agent builder: leave Send Mail as high stake, or simply do not
+  add it to the agent.
 </Note>
 
 ### Outlook Calendar

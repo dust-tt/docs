@@ -22,7 +22,7 @@ Leave a trigger on personal credits when its editor is also the one who reads th
 
 ## Grant access to the workspace pool
 
-Only admins can charge triggers to the workspace by default. Admins and managers change that in **Admin > Governance**, **Pods & Frames** tab, **Automations** section, under *Charge automations to the workspace*: everyone, selected groups, or admins only.
+Only admins can charge triggers to the workspace by default. Admins and managers set this under **Governance > Pods & Frames > Automations > Charge automations to the workspace**. They can choose everyone, selected groups, or admins only.
 
 Removing the access does not move existing triggers back to personal credits. Triggers already on workspace credits stay there until someone changes them.
 
@@ -53,4 +53,3 @@ Select several rows to move them to another pool in one go, which is the quickes
 ## Rate limits
 
 The pool is separate from the rate limit. A webhook trigger keeps its own cap on runs per 24 hours whichever pool it charges. See [Rate limiting](/docs/user-documentation/agents/triggers/webhooks/rate-limiting).
-

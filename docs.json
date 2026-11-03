@@ -205,6 +205,7 @@
               "docs/user-documentation/agents/tools/asana",
               "docs/user-documentation/agents/tools/ashby",
               "docs/user-documentation/agents/tools/attio",
+              "docs/user-documentation/agents/tools/bigquery",
               "docs/user-documentation/agents/tools/canva",
               "docs/user-documentation/agents/tools/confluence",
               "docs/user-documentation/agents/tools/databricks",
@@ -435,12 +436,13 @@
             "pages": [
               "docs/developer-platform/core-concepts/datasources",
               "docs/developer-platform/core-concepts/chunks-and-documents",
-              "docs/developer-platform/core-concepts/rate-limits"
+              "docs/developer-platform/core-concepts/rate-limits",
+              "docs/developer-platform/core-concepts/conversation-sharing"
             ]
           },
           {
             "group": "Dust API Documentation",
-            "openapi": "https://raw.githubusercontent.com/dust-tt/dust/refs/heads/main/front-api/public/swagger.json",
+            "openapi": "https://dust.tt/api/doc",
             "pages": [
               "docs/developer-platform/dust-api-documentation/openapi-and-postman"
             ]
