@@ -20,7 +20,7 @@ Functions also know who is using the Frame. The agent can use this for personal 
 
 ## Create an app
 
-Use an agent with the **Create Frames** skill (see [Add Frames to an agent](/docs/user-documentation/agents/frames/overview#add-frames-to-an-agent)), and ask for a Frame that saves data, for example: **Build a tracker for our launch tasks where the team can add, assign, and close items.**
+Just ask Dust, or use an agent with the **Create Frames** skill (see [Add Frames to an agent](/docs/user-documentation/agents/frames/overview#add-frames-to-an-agent)), and ask for a Frame that saves data, for example: **Build a tracker for our launch tasks where the team can add, assign, and close items.**
 
 Data belongs to the Frame. When the agent improves the Frame later, existing data is kept. Exporting the Frame doesn't include its data.
 
@@ -45,6 +45,15 @@ Admins control Frames with backends in **Admin > Governance**, **Pods & Frames**
 2. Choose who can **Create Frames with backends**: **Everyone**, specific **Groups**, or **Admins only**. It's **Admins only** by default.
 
 If you are not allowed to create Frames with backends, the agent tells you, and can offer a Frame without a backend instead.
+
+## Who can edit a Frame
+
+Editing a Frame means changing it, yourself or through the agent, and validating its drafts. Who can edit depends on where the Frame is:
+
+- **In a conversation**: anyone who has access to the conversation.
+- **In a Pod**: all Pod members, both Members and Editors. See [Members and roles](/docs/user-documentation/pods/members-and-roles).
+
+People you share the Frame with can use it, but can't edit it unless they also have access to its conversation or Pod. The Frame's functions can tell whether the person using it can edit it, so the agent can reserve some actions, such as deleting records, to them.
 
 ## Share an app
 
