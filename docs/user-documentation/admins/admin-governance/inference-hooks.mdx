@@ -1,12 +1,14 @@
 ---
 title: Inference hooks
-description: "Connect Datadog AI Guard to monitor agent activity and block runs that violate your security policies."
+description: "Connect Datadog AI Guard to monitor or block agent interactions at configurable checkpoints."
 ---
 
-Connect Datadog AI Guard to check agent activity against your security policies. An inference hook sends content to Datadog at selected points in an agent run, then records the verdict or blocks the agent.
+Inference hooks connect security evaluations to agent execution. Datadog AI Guard is the first third-party integration: it evaluates user requests, proposed tool calls, tool results, and completed answers at checkpoints you select. Dust can record findings in the background or wait for a verdict before letting the agent continue.
+
+Hooks apply across your workspace by default, with group exclusions available. You need to be a workspace admin to configure hooks and review evaluations.
 
 <Info>
-**Private beta.** Contact your Dust team to request access and arrange onboarding. You need to be a workspace admin to configure hooks and review evaluations. This guide covers the Datadog AI Guard integration.
+**Private beta.** Inference hooks are not generally available. Contact your Dust team or email [inference-hooks@dust.com](mailto:inference-hooks@dust.com) to request access. We will help you choose a configuration suited to your security requirements and expected usage.
 </Info>
 
 ## Before you start
@@ -34,30 +36,50 @@ Confirm your Datadog access and commercial terms with your Datadog team before e
 6. Click **Test connection**. This checks the keys and access to AI Guard without evaluating conversation content. A successful test does not validate your security policies.
 7. Set **Service** and **Environment** to identify the integration in Datadog. The defaults are `dust` and `production`.
 8. Keep **Enforcement** set to **Monitor** for your initial rollout.
-9. Choose the **Events** and **Evaluation context** agreed with your Dust team during onboarding. See the checkpoint descriptions below.
+9. Select one or more **Events**, then choose how much conversation history to include under **Evaluation context**. The sections below explain all four checkpoints and context options.
 10. Review **Excluded groups**, **When the hook fails or times out**, and **Timeout (ms)**, then click **Create**.
 
 Creating the hook activates it. Start with non-sensitive test conversations and review the results before expanding your rollout.
 
-## Choose the checks for your rollout
+## Choose evaluation checkpoints
 
-The initial beta rollout focuses on these checkpoints:
+Under **Events**, select when the hook should evaluate agent activity. An agent turn starts with a user request and can include several rounds of tool calls before the agent finishes answering.
 
-| Event | What it checks |
+| Event | Content checked | When it runs |
+| --- | --- | --- |
+| **Before agent loop** | The user's request as typed. | At the start of the turn, before the agent begins working on the request. |
+| **Before tool calls** | The names and arguments of the proposed tool calls, separate from any accompanying narration. | Before that batch of tool calls runs. A blocking denial prevents the batch from executing. |
+| **After tool calls** | Results returned by tools, as available to the agent. | Before the agent uses those results to continue. This can help identify injected instructions in retrieved content. |
+| **After agent loop** | The completed answer text. | When the agent finishes responding without requesting another tool call. |
+
+You can enable any combination. Tool-call and tool-result checkpoints can run multiple times in one turn. A checkpoint with no content to evaluate does not run.
+
+For example, a request to research a company can produce a user-request check, a check before a web search, a check of the search results, and a check of the completed answer. If the agent makes more tool calls, the corresponding checks run again.
+
+## Choose evaluation context
+
+Every evaluation includes the content being checked. **Evaluation context** selects which earlier messages accompany it:
+
+| Option | Additional context sent to Datadog |
 | --- | --- |
-| **Before agent loop** | The user's message as typed, before the agent starts responding. The check runs at the start of the turn, not before every model call. |
-| **Before tool calls** | The names and arguments of the tool calls the agent is about to make. In block mode, a denial prevents those calls from running. |
-| **After agent loop** | The text of the agent's answer when it finishes without requesting another tool call. This is not a check of every intermediate model output. |
+| **Full conversation** | Earlier exchanges still available in the model's conversation window. This is not an unlimited archive of the conversation. |
+| **Target only** | None. Send only the new content being checked, without surrounding conversation history. |
+| **User messages** | Up to 16 recent user-role messages from the checkpoint's context. These can include attachments and supporting context, not just text a person typed. |
+| **Current turn** | Context from the current user request and the steps taken to answer it, rather than earlier completed turns. At the initial user-request checkpoint, there may be no additional current-turn context to send. |
 
-Use your onboarding configuration rather than enabling every available event. Selecting one checkpoint does not automatically enable the others.
+The content being checked is still sent when you choose **User messages**. For example, at a tool-result checkpoint, the tool results are evaluated with user messages as context; selecting this option does not replace the tool results with user text.
 
-**Evaluation context** controls which earlier messages accompany the content being checked. More context can help Datadog interpret an action, but it also sends more data and tokens. Review this setting with your Dust team, especially for conversations that use tools or contain sensitive information.
+One context setting applies to every event selected on a hook. To use different context settings for different checkpoints, create separate hooks with the relevant events.
+
+More context can help AI Guard interpret an interaction, but it also sends more information and tokens to Datadog. Review the data-sharing and billing implications before enabling checks on sensitive workflows.
 
 ## Start in monitor mode
 
-**Monitor** records verdicts without blocking the agent. Provider failures and timeouts also let the agent continue. Use this mode to review findings and identify false positives before enforcing your policies.
+In **Monitor** mode, the agent continues working while the evaluation runs in the background. Dust records the result without interrupting the user. Provider failures and timeouts also let the agent continue.
 
-**Block** waits for the evaluation and blocks the agent when Datadog returns a denial. Blocking can add latency. Configure what happens if the provider cannot return a verdict:
+We recommend starting in monitor mode. Review findings and false positives before switching to **Block**.
+
+In **Block** mode, Dust waits for AI Guard's verdict before moving past the selected checkpoint. If AI Guard returns a denial, Dust blocks the agent interaction. Blocking can add latency. Configure what happens if the provider fails or times out:
 
 - **Let the agent continue:** the run continues, and the evaluation records an error.
 - **Block the agent:** the run is blocked, and the evaluation records an error.
@@ -79,7 +101,9 @@ Open **Admin > Security > Inference Hooks** and look at **Evaluations**. The fin
 | **Error, allowed** | The evaluation failed or timed out, and the agent was allowed to continue. |
 | **Error, blocked** | The evaluation failed or timed out, and the hook was configured to block on failure. |
 
-Open an evaluation to see its agent, user when available, checkpoint, reason, duration, and references. Use **View in Datadog** when available to investigate the associated trace. Opening the conversation still depends on your access to that conversation.
+Open an evaluation to see its agent, user when available, checkpoint, reason, duration, and references. Dust also sends an evaluation trace to Datadog after receiving an AI Guard verdict. Use **View in Datadog** when available to investigate there, or use the provider reference to correlate the records.
+
+Trace delivery is separate from the verdict: an evaluation can be recorded in Dust even if its trace is not available in Datadog. Opening the Dust conversation still depends on your access to that conversation.
 
 When a user reports a blocked run, ask for the **Dust reference** shown with the error. Search for that reference in Evaluations. Detailed provider reasons are available to admins rather than exposed in the user's error message.
 
@@ -103,6 +127,10 @@ When editing Datadog credentials, leave both key fields empty to keep the curren
 
 ## Beta limitations
 
-This integration is not a complete data-loss-prevention system or a guarantee against prompt injection. The checks described here operate on text; do not rely on them to inspect image contents. **Before agent loop** evaluates the typed message, not the full contents of its attachments.
+This integration is not a complete data-loss-prevention system or a guarantee against prompt injection. Coverage depends on the checkpoints and context you enable.
 
-Coverage depends on the checkpoints and context you enable. Share false positives, missed findings, and onboarding issues with your Dust team so they can be reviewed during the beta.
+The final-answer check runs after answer text has begun streaming. It can block completion, but it does not guarantee that no answer text has already reached the user. A later denial also cannot undo tool actions that have already completed.
+
+The current Datadog integration evaluates text, including tool-call names and arguments. Do not rely on it to inspect image contents. The **Before agent loop** target is the typed user request, not a full scan of its attachments; attachments and supporting context can be included at other checkpoints according to the selected context.
+
+Share false positives, missed findings, and onboarding issues with your Dust team or [inference-hooks@dust.com](mailto:inference-hooks@dust.com).
