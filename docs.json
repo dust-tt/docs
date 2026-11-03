@@ -30,6 +30,7 @@
         "group": "Use cases",
         "pages": [
           "docs/user-documentation/getting-started/intro-to-dust",
+          "docs/user-documentation/getting-started/homepage",
           {
             "group": "Dust Rollout Guide",
             "root": "docs/user-documentation/getting-started/dust-rollout-guide/index",
