@@ -133,6 +133,8 @@ When an agent or skill change is emitted from a suggestion, the audit event incl
 |---|---|
 | `mcp_connection.created` | An MCP server connection was established |
 | `mcp_connection.deleted` | An MCP server connection was removed |
+| `mcp_server.credentials_updated` | An MCP server's shared secret or custom headers were updated; targets: `workspace`, `mcp_server`; metadata: `server_type`, `shared_secret_updated`, `custom_headers_updated`, `actor_type` |
+| `mcp_server.oauth_settings_updated` | An MCP server's OAuth use case or scope was changed; targets: `workspace`, `mcp_server`; metadata: `server_type`, `previous_oauth_use_case`, `new_oauth_use_case`, `oauth_scope_changed`, `actor_type` |
 
 ## Credentials (BYOK)
 
