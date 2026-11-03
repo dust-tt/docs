@@ -1,0 +1,108 @@
+---
+title: Inference hooks
+description: "Connect Datadog AI Guard to monitor agent activity and block runs that violate your security policies."
+---
+
+Connect Datadog AI Guard to check agent activity against your security policies. An inference hook sends content to Datadog at selected points in an agent run, then records the verdict or blocks the agent.
+
+<Info>
+**Private beta.** Contact your Dust team to request access and arrange onboarding. You need to be a workspace admin to configure hooks and review evaluations. This guide covers the Datadog AI Guard integration.
+</Info>
+
+## Before you start
+
+You need:
+
+- Inference hooks enabled for your Dust workspace.
+- Access to Datadog AI Guard for your Datadog organization.
+- A Datadog API key and an application key with the `ai_guard_evaluate` scope.
+- Your Datadog site, such as `datadoghq.com` or `datadoghq.eu`.
+
+Confirm your Datadog access and commercial terms with your Datadog team before enabling the integration. Datadog usage is subject to your agreement with Datadog.
+
+<Warning>
+**Review what you share.** Hook evaluations send content to Datadog. Depending on the checkpoint and evaluation context, this can include user messages, agent responses, tool names and arguments, and text returned by tools. Confirm that this data sharing meets your organization's requirements.
+</Warning>
+
+## Connect Datadog AI Guard
+
+1. Go to **Admin > Security > Inference Hooks**.
+2. Click **Add your first hook**, or **Add hook** if you already have one.
+3. Enter a descriptive **Name**, such as `Datadog security monitoring`.
+4. Select **Datadog AI Guard** as the **Provider**.
+5. Select your **Datadog site**, then enter your **API key** and **Application key**.
+6. Click **Test connection**. This checks the keys and access to AI Guard without evaluating conversation content. A successful test does not validate your security policies.
+7. Set **Service** and **Environment** to identify the integration in Datadog. The defaults are `dust` and `production`.
+8. Keep **Enforcement** set to **Monitor** for your initial rollout.
+9. Choose the **Events** and **Evaluation context** agreed with your Dust team during onboarding. See the checkpoint descriptions below.
+10. Review **Excluded groups**, **When the hook fails or times out**, and **Timeout (ms)**, then click **Create**.
+
+Creating the hook activates it. Start with non-sensitive test conversations and review the results before expanding your rollout.
+
+## Choose the checks for your rollout
+
+The initial beta rollout focuses on these checkpoints:
+
+| Event | What it checks |
+| --- | --- |
+| **Before agent loop** | The user's message as typed, before the agent starts responding. The check runs at the start of the turn, not before every model call. |
+| **Before tool calls** | The names and arguments of the tool calls the agent is about to make. In block mode, a denial prevents those calls from running. |
+| **After agent loop** | The text of the agent's answer when it finishes without requesting another tool call. This is not a check of every intermediate model output. |
+
+Use your onboarding configuration rather than enabling every available event. Selecting one checkpoint does not automatically enable the others.
+
+**Evaluation context** controls which earlier messages accompany the content being checked. More context can help Datadog interpret an action, but it also sends more data and tokens. Review this setting with your Dust team, especially for conversations that use tools or contain sensitive information.
+
+## Start in monitor mode
+
+**Monitor** records verdicts without blocking the agent. Provider failures and timeouts also let the agent continue. Use this mode to review findings and identify false positives before enforcing your policies.
+
+**Block** waits for the evaluation and blocks the agent when Datadog returns a denial. Blocking can add latency. Configure what happens if the provider cannot return a verdict:
+
+- **Let the agent continue:** the run continues, and the evaluation records an error.
+- **Block the agent:** the run is blocked, and the evaluation records an error.
+
+A provider error is not the same as a security-policy denial. Choose the failure behavior deliberately before switching to block mode.
+
+<Warning>
+**Checks are not a security guarantee.** A check can miss an issue or flag legitimate work. Blocking a later checkpoint does not undo tool actions that have already completed. Continue to use appropriate permissions and tool approval controls.
+</Warning>
+
+## Review evaluations
+
+Open **Admin > Security > Inference Hooks** and look at **Evaluations**. The findings view highlights blocked activity, flagged activity, and provider errors. It is not a list of every successful check.
+
+| Outcome | Meaning |
+| --- | --- |
+| **Flagged** | Datadog denied the content, but the hook was in monitor mode, so the agent continued. |
+| **Blocked** | Datadog denied the content, and the hook was in block mode. |
+| **Error, allowed** | The evaluation failed or timed out, and the agent was allowed to continue. |
+| **Error, blocked** | The evaluation failed or timed out, and the hook was configured to block on failure. |
+
+Open an evaluation to see its agent, user when available, checkpoint, reason, duration, and references. Use **View in Datadog** when available to investigate the associated trace. Opening the conversation still depends on your access to that conversation.
+
+When a user reports a blocked run, ask for the **Dust reference** shown with the error. Search for that reference in Evaluations. Detailed provider reasons are available to admins rather than exposed in the user's error message.
+
+## Manage a hook
+
+Use the hook's menu to **Edit** its configuration or **Archive** it. Archiving stops future checks for that hook and keeps its past evaluations.
+
+When editing Datadog credentials, leave both key fields empty to keep the current keys. Changing the Datadog site requires new keys.
+
+**Excluded groups** skips the hook for runs by members of those groups. Runs without a user, such as triggers and API calls, are still checked.
+
+## Troubleshooting
+
+| Problem | What to check |
+| --- | --- |
+| You cannot see **Inference Hooks** | Confirm that you are a workspace admin and that Dust has enabled the beta for your workspace. |
+| **Test connection** rejects the keys | Confirm that both keys belong to the selected Datadog site, that the application key has `ai_guard_evaluate`, and that your organization can use AI Guard. |
+| Legitimate work is flagged or blocked | Inspect the evaluation and Datadog policy. Keep or return the hook to monitor mode while you review false positives. |
+| Evaluations show provider errors | Check the evaluation's error details for invalid credentials, rate limits, or timeouts. Review the hook's failure behavior before changing its timeout. |
+| You expect a check but do not see a finding | Confirm the hook's selected events and excluded groups. Successful checks do not appear in the findings list. |
+
+## Beta limitations
+
+This integration is not a complete data-loss-prevention system or a guarantee against prompt injection. The checks described here operate on text; do not rely on them to inspect image contents. **Before agent loop** evaluates the typed message, not the full contents of its attachments.
+
+Coverage depends on the checkpoints and context you enable. Share false positives, missed findings, and onboarding issues with your Dust team so they can be reviewed during the beta.

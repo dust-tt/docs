@@ -338,6 +338,7 @@
               "docs/user-documentation/admins/admin-governance/group-managers",
               "docs/user-documentation/admins/admin-governance/access-controls-and-permissions",
               "docs/user-documentation/admins/admin-governance/eu-hosted-models",
+              "docs/user-documentation/admins/admin-governance/inference-hooks",
               {
                 "group": "Single Sign-On (SSO)",
                 "pages": [
