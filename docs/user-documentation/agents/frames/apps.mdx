@@ -16,7 +16,7 @@ A Frame with a backend can:
 - **Use your workspace tools**: functions can use the tools available in your workspace, such as Gmail, Slack, or HubSpot. Tool approvals and personal authentication work as they do in a conversation, and appear over the Frame.
 - **Reach external services**: functions follow the same network access rules and secrets as [Computer](/docs/user-documentation/agents/tools/computer).
 
-Functions also know who is using the Frame. The agent can use this for personal views, such as **My tasks**, or to reserve some actions to people who can edit the Frame.
+Functions also know who is using the Frame. The agent can use this for personal views, such as **My tasks**, or to reserve some actions, such as deleting records, to [people who can edit the Frame](/docs/user-documentation/agents/frames/overview#who-can-edit-a-frame).
 
 ## Create an app
 
@@ -45,15 +45,6 @@ Admins control Frames with backends in **Admin > Governance**, **Pods & Frames**
 2. Choose who can **Create Frames with backends**: **Everyone**, specific **Groups**, or **Admins only**. It's **Admins only** by default.
 
 If you are not allowed to create Frames with backends, the agent tells you, and can offer a Frame without a backend instead.
-
-## Who can edit a Frame
-
-Editing a Frame means changing it, yourself or through the agent, and validating its drafts. Who can edit depends on where the Frame is:
-
-- **In a conversation**: anyone who has access to the conversation.
-- **In a Pod**: all Pod members, both Members and Editors. See [Members and roles](/docs/user-documentation/pods/members-and-roles).
-
-People you share the Frame with can use it, but can't edit it unless they also have access to its conversation or Pod. The Frame's functions can tell whether the person using it can edit it, so the agent can reserve some actions, such as deleting records, to them.
 
 ## Share an app
 
