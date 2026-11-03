@@ -3,11 +3,11 @@ title: Apps
 description: Frames with a backend that save data, run functions, and use your workspace tools.
 ---
 
-An app is a Frame with a backend. In Dust, these are called **Frames with backends**.
+A Frame can have a backend, which turns it into an full App.
 
 By default, a Frame only shows what the agent put in it: anything a viewer types or changes is gone when the page reloads. An app remembers what people enter, so you can build task trackers, request forms, CRM views, and approval queues.
 
-## What an app can do
+## What a Frame App can do
 
 A Frame with a backend can:
 
@@ -18,13 +18,13 @@ A Frame with a backend can:
 
 Functions also know who is using the Frame. The agent can use this for personal views, such as **My tasks**, or to reserve some actions to people who can edit the Frame.
 
-## Create an app
+## Create a Frame App
 
 Use an agent with the **Create Frames** skill (see [Add Frames to an agent](/docs/user-documentation/agents/frames/overview#add-frames-to-an-agent)), and ask for a Frame that saves data, for example: **Build a tracker for our launch tasks where the team can add, assign, and close items.** You can also ask the agent to add a backend to an existing Frame.
 
 Data belongs to the Frame. When the agent improves the Frame later, existing data is kept. Exporting the Frame doesn't include its data.
 
-To change an app without disrupting the people using it, work on a [draft](/docs/user-documentation/agents/frames/overview#work-on-a-draft) and validate it when it's ready.
+To change a Frame App without disrupting the people using it, work on a [draft](/docs/user-documentation/agents/frames/overview#work-on-a-draft) and validate it when it's ready.
 
 ## Who can create apps
 
@@ -35,11 +35,11 @@ Admins control Frames with backends in **Admin > Governance**, **Pods & Frames**
 
 If you are not allowed to create Frames with backends, the agent tells you, and can offer a Frame without a backend instead.
 
-## Share an app
+## Share a Frame App
 
 Only signed-in members of your workspace can use a Frame's backend, with one exception for public links:
 
-- **Workspace members**: you can share an app with anyone in your workspace. You can't invite people outside your workspace by email.
+- **Workspace members**: you can share a Frame App with anyone in your workspace. You can't invite people outside your workspace by email.
 - **Anyone with the link**: the app needs at least one public function, which is a function the agent makes available to visitors. Visitors confirm their email with a one-time code before the app opens, and can only use its public functions.
 
 Public functions can't use your workspace tools or secrets. They can still show data that the app's other functions saved in its databases. Tell the agent what visitors should be able to see and do, and it decides which functions to make public.
@@ -50,4 +50,4 @@ For the general sharing options, see [Share a Frame](/docs/user-documentation/ag
 
 ## Credits
 
-Running an app's functions uses credits. See [Frame backend credits](/docs/user-documentation/admins/usage-seats-and-credits/credits#frame-backend-credits).
+Running a Frame App's functions uses credits. See [Frame backend credits](/docs/user-documentation/admins/usage-seats-and-credits/credits#frame-backend-credits).
