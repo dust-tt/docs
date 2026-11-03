@@ -338,7 +338,6 @@
               "docs/user-documentation/admins/admin-governance/group-managers",
               "docs/user-documentation/admins/admin-governance/access-controls-and-permissions",
               "docs/user-documentation/admins/admin-governance/eu-hosted-models",
-              "docs/user-documentation/admins/admin-governance/inference-hooks",
               {
                 "group": "Single Sign-On (SSO)",
                 "pages": [
@@ -348,6 +347,13 @@
               },
               "docs/user-documentation/admins/admin-governance/users-and-groups-provisioning",
               "docs/user-documentation/admins/admin-governance/merging-user-accounts"
+            ]
+          },
+          {
+            "group": "Inference hooks",
+            "pages": [
+              "docs/user-documentation/admins/admin-governance/inference-hooks",
+              "docs/user-documentation/admins/admin-governance/inference-hooks/datadog-ai-guard"
             ]
           },
           "docs/user-documentation/admins/spaces-management",
