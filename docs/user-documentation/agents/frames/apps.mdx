@@ -1,13 +1,13 @@
 ---
-title: Build apps with Frames
-description: Give a Frame a backend so it can save data, run functions, and use your workspace tools.
+title: Apps
+description: Frames with a backend that save data, run functions, and use your workspace tools.
 ---
 
-A Frame can have a backend, with functions and databases. This lets you use Frames to build apps.
+An app is a Frame with a backend. In Dust, these are called **Frames with backends**.
 
-By default, a Frame only shows what the agent put in it: anything a viewer types or changes is gone when the page reloads. A Frame with a backend remembers what people enter, so you can build apps such as task trackers, request forms, CRM views, and approval queues.
+By default, a Frame only shows what the agent put in it: anything a viewer types or changes is gone when the page reloads. An app remembers what people enter, so you can build task trackers, request forms, CRM views, and approval queues.
 
-## What a Frame with a backend can do
+## What an app can do
 
 A Frame with a backend can:
 
@@ -16,48 +16,15 @@ A Frame with a backend can:
 - **Use your workspace tools**: functions can use the tools available in your workspace, such as Gmail, Slack, or HubSpot. Tool approvals and personal authentication work as they do in a conversation, and appear over the Frame.
 - **Reach external services**: functions follow the same network access rules and secrets as [Computer](/docs/user-documentation/agents/tools/computer).
 
-Functions also know who is using the Frame. The agent can use this for personal views, such as **My tasks**, or to reserve some actions, such as deleting records, to [people who can edit the Frame](/docs/user-documentation/agents/frames/overview#who-can-edit-a-frame).
-
-## Examples
-
-**Make everyday design requests self-service**
-
-<iframe
-  className="w-full aspect-video rounded-xl"
-  src="https://www.youtube.com/embed/P17iO78w4FE"
-  title="Make everyday design requests self-service with Frames"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-></iframe>
-
-**Turn customer data into dashboards and reports**
-
-<iframe
-  className="w-full aspect-video rounded-xl"
-  src="https://www.youtube.com/embed/sjiF9QITFm4"
-  title="Turn customer data into dashboards and reports with Frames"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen
-></iframe>
+Functions also know who is using the Frame. The agent can use this for personal views, such as **My tasks**, or to reserve some actions to people who can edit the Frame.
 
 ## Create an app
 
-Just ask Dust, or use an agent with the **Create Frames** skill (see [Add Frames to an agent](/docs/user-documentation/agents/frames/overview#add-frames-to-an-agent)), and ask for a Frame that saves data, for example: **Build a tracker for our launch tasks where the team can add, assign, and close items.**
+Use an agent with the **Create Frames** skill (see [Add Frames to an agent](/docs/user-documentation/agents/frames/overview#add-frames-to-an-agent)), and ask for a Frame that saves data, for example: **Build a tracker for our launch tasks where the team can add, assign, and close items.** You can also ask the agent to add a backend to an existing Frame.
 
 Data belongs to the Frame. When the agent improves the Frame later, existing data is kept. Exporting the Frame doesn't include its data.
 
-To change a Frame without disrupting the people using it, work on a [draft](/docs/user-documentation/agents/frames/overview#work-on-a-draft) and validate it when it's ready.
-
-## Turn an existing Frame into an app
-
-Any Frame can get a backend. Ask the agent for a change that needs one, for example: **Let the team add comments to each row, and keep them when the page reloads.** The agent adds the backend to the same Frame.
-
-The Frame keeps its link, the people you shared it with, and its place in conversations and Pods. Its look doesn't change.
-
-Before you ask:
-
-- Make sure you are allowed to create Frames with backends, see [Who can create apps](#who-can-create-apps).
-- If you shared the Frame with people outside your workspace by email, first limit its sharing to workspace members, see [Share an app](#share-an-app).
+To change an app without disrupting the people using it, work on a [draft](/docs/user-documentation/agents/frames/overview#work-on-a-draft) and validate it when it's ready.
 
 ## Who can create apps
 
@@ -72,10 +39,10 @@ If you are not allowed to create Frames with backends, the agent tells you, and 
 
 Only signed-in members of your workspace can use a Frame's backend, with one exception for public links:
 
-- **Workspace members**: you can share a Frame with a backend with anyone in your workspace. You can't invite people outside your workspace by email.
-- **Anyone with the link**: the Frame needs at least one public function, which is a function the agent makes available to visitors. Visitors confirm their email with a one-time code before the Frame opens, and can only use its public functions.
+- **Workspace members**: you can share an app with anyone in your workspace. You can't invite people outside your workspace by email.
+- **Anyone with the link**: the app needs at least one public function, which is a function the agent makes available to visitors. Visitors confirm their email with a one-time code before the app opens, and can only use its public functions.
 
-Public functions can't use your workspace tools or secrets. They can still show data that the Frame's other functions saved in its databases. Tell the agent what visitors should be able to see and do, and it decides which functions to make public.
+Public functions can't use your workspace tools or secrets. They can still show data that the app's other functions saved in its databases. Tell the agent what visitors should be able to see and do, and it decides which functions to make public.
 
 To add a backend to a Frame that you shared with people outside your workspace by email, first limit its sharing to workspace members.
 
@@ -83,4 +50,4 @@ For the general sharing options, see [Share a Frame](/docs/user-documentation/ag
 
 ## Credits
 
-Running a Frame's functions uses credits. See [Frame backend credits](/docs/user-documentation/admins/usage-seats-and-credits/credits#frame-backend-credits).
+Running an app's functions uses credits. See [Frame backend credits](/docs/user-documentation/admins/usage-seats-and-credits/credits#frame-backend-credits).

@@ -270,6 +270,7 @@
             "group": "Frames",
             "pages": [
               "docs/user-documentation/agents/frames/overview",
+              "docs/user-documentation/agents/frames/apps",
               "docs/user-documentation/agents/frames/white-labeled-frames"
             ]
           },
