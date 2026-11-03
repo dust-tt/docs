@@ -3,7 +3,9 @@ title: Inference hooks
 description: "Connect Datadog AI Guard to monitor or block agent interactions at configurable checkpoints."
 ---
 
-Inference hooks connect security evaluations to agent execution. Datadog AI Guard is the first third-party integration: it evaluates user requests, proposed tool calls, tool results, and completed answers at checkpoints you select. Dust can record findings in the background or wait for a verdict before letting the agent continue.
+AI agents work with internal data and business systems. Content they encounter, such as a web search result, can contain instructions that lead to unintended behavior. Inference hooks let you evaluate these interactions and decide whether the agent should continue.
+
+[Datadog AI Guard](https://docs.datadoghq.com/security/ai_guard/) is the first third-party integration. It checks user requests, proposed tool calls, tool results, and completed answers at checkpoints you select. Use monitor mode to review security findings without interrupting users, or block mode to stop an interaction when AI Guard returns a denial.
 
 Hooks apply across your workspace by default, with group exclusions available. You need to be a workspace admin to configure hooks and review evaluations.
 
@@ -18,7 +20,6 @@ You need:
 - Inference hooks enabled for your Dust workspace.
 - Access to Datadog AI Guard for your Datadog organization.
 - A Datadog API key and an application key with the `ai_guard_evaluate` scope.
-- Your Datadog site, such as `datadoghq.com` or `datadoghq.eu`.
 
 Confirm your Datadog access and commercial terms with your Datadog team before enabling the integration. Datadog usage is subject to your agreement with Datadog.
 
@@ -30,7 +31,7 @@ Confirm your Datadog access and commercial terms with your Datadog team before e
 
 1. Go to **Admin > Security > Inference Hooks**.
 2. Click **Add your first hook**, or **Add hook** if you already have one.
-3. Enter a descriptive **Name**, such as `Datadog security monitoring`.
+3. Enter a descriptive **Name**.
 4. Select **Datadog AI Guard** as the **Provider**.
 5. Select your **Datadog site**, then enter your **API key** and **Application key**.
 6. Click **Test connection**. This checks the keys and access to AI Guard without evaluating conversation content. A successful test does not validate your security policies.
@@ -39,7 +40,7 @@ Confirm your Datadog access and commercial terms with your Datadog team before e
 9. Select one or more **Events**, then choose how much conversation history to include under **Evaluation context**. The sections below explain all four checkpoints and context options.
 10. Review **Excluded groups**, **When the hook fails or times out**, and **Timeout (ms)**, then click **Create**.
 
-Creating the hook activates it. Start with non-sensitive test conversations and review the results before expanding your rollout.
+Creating the hook activates it across your workspace, subject to group exclusions. Monitor mode does not limit the data sent to Datadog: review the data-sharing and billing implications before creating the hook, then use monitor mode to assess findings from actual agent activity before turning on blocking.
 
 ## Choose evaluation checkpoints
 
@@ -124,13 +125,5 @@ When editing Datadog credentials, leave both key fields empty to keep the curren
 | Legitimate work is flagged or blocked | Inspect the evaluation and Datadog policy. Keep or return the hook to monitor mode while you review false positives. |
 | Evaluations show provider errors | Check the evaluation's error details for invalid credentials, rate limits, or timeouts. Review the hook's failure behavior before changing its timeout. |
 | You expect a check but do not see a finding | Confirm the hook's selected events and excluded groups. Successful checks do not appear in the findings list. |
-
-## Beta limitations
-
-This integration is not a complete data-loss-prevention system or a guarantee against prompt injection. Coverage depends on the checkpoints and context you enable.
-
-The final-answer check runs after answer text has begun streaming. It can block completion, but it does not guarantee that no answer text has already reached the user. A later denial also cannot undo tool actions that have already completed.
-
-The current Datadog integration evaluates text, including tool-call names and arguments. Do not rely on it to inspect image contents. The **Before agent loop** target is the typed user request, not a full scan of its attachments; attachments and supporting context can be included at other checkpoints according to the selected context.
 
 Share false positives, missed findings, and onboarding issues with your Dust team or [inference-hooks@dust.com](mailto:inference-hooks@dust.com).
