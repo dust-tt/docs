@@ -19,7 +19,7 @@ A conversation the caller can't open returns `404` with `conversation_not_found`
 
 - **When you create it**: pass `sharedWith` to [Create a new conversation](/api-reference/conversations/create-a-new-conversation).
   ```json
-  "sharedWith": [{ "email": "jane@acme.com" }, { "groupName": "Engineering" }]
+  "sharedWith": [{ "email": "jane@acme.com" }, { "groupName": "Design" }]
   ```
 - **Later**: call [Update conversation sharing](/api-reference/conversations/update-conversation-sharing) with a `permission` of `write` or `none` for each person or group.
 - **To check**: [Get conversation sharing](/api-reference/conversations/get-conversation-sharing) lists who has access.
