@@ -14,7 +14,7 @@ When conversation sharing is on in your workspace, a conversation only opens for
 | API key with the **Admin** scope | Same as before. |
 | Other API keys | Conversations the key created or posted in, and conversations shared with the `Workspace` group. |
 
-A conversation the caller can't open returns `404` with `conversation_not_found`, as if it didn't exist.
+A conversation that isn't shared with the caller returns `403` with `conversation_not_shared`.
 
 ## Share a conversation
 
