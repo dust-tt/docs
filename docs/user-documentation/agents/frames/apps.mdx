@@ -5,7 +5,7 @@ description: Turn Frames into interactive apps that save data, run functions, an
 
 Use Frames to turn your team's workflows into apps that people and agents build, use, and improve together. Describe what you need, and the agent builds it. Your team works from the same live data, connected to your company's knowledge and tools, while admins stay in control of who builds apps and what they can do.
 
-By default, a Frame only shows what the agent put in it: anything a viewer types or changes is gone when the page reloads. An app built with Frames remembers what people enter, so you can build task trackers, request forms, CRM views, and approval queues.
+Unlike a plain frame, apps remember what people enter, so you can build task trackers, request forms, CRM views, and approval queues.
 
 <iframe
   className="w-full aspect-video rounded-xl"
@@ -17,7 +17,7 @@ By default, a Frame only shows what the agent put in it: anything a viewer types
 
 ## What you can build
 
-- **Command centers**: one view of the data your team acts on, pulled from any source, such as a sales cockpit, an account overview, or product usage and adoption. Change it by asking the agent, without waiting on the data team.
+- **Dashboards and command centers**: one view of the data your team acts on, pulled from any source, such as a sales cockpit, an account overview, or product usage and adoption. Change it by asking the agent, without waiting on the data team.
 - **Team operating systems**: a shared hub where people and agents track initiatives and keep team knowledge up to date, such as a launch tracker or a team homepage. It follows how your team works, and is easy to change when the process does.
 - **Onboarding and self-service**: one place to find answers, assets, and next steps, such as a brand hub or a new-hire checklist. Requests and progress are saved, and the owning team updates it once for everyone.
 
@@ -47,7 +47,7 @@ By default, a Frame only shows what the agent put in it: anything a viewer types
 
 ### Create an app
 
-Just ask Dust, or use an agent with the **Create Frames** skill (see [Add Frames to an agent](/docs/user-documentation/agents/frames/overview#add-frames-to-an-agent)), and ask for a Frame that saves data, for example: **Build a tracker for our launch tasks where the team can add, assign, and close items.**
+Just ask Dust for a Frame that saves data, for example: **Build a tracker for our launch tasks where the team can add, assign, and close items.**
 
 ### Tips for your request
 
@@ -77,7 +77,7 @@ Before you ask:
 Only signed-in members of your workspace can use an app, with one exception for public links:
 
 - **Workspace members**: you can share an app with anyone in your workspace. You can't invite people outside your workspace by email.
-- **Anyone with the link**: the app needs at least one public function, which is a function the agent makes available to visitors. Visitors confirm their email with a one-time code before the app opens, and can only use its public functions.
+- **Anyone with the link**: visitors confirm their email with a one-time code before the app opens, and can only use its public functions.
 
 Public functions can't use your workspace tools or secrets. They can still show data that the app's other functions saved in its databases. Tell the agent what visitors should be able to see and do, and it decides which functions to make public.
 
@@ -112,7 +112,7 @@ Running an app's functions uses credits. See [Frame backend credits](/docs/user-
 
 Apps are on by default, and everyone in the workspace can create them. Admins can change this in **Admin > Governance**, **Pods & Frames** tab, **Frames** section, where apps are called **Frames with backends**:
 
-- **Frames with backends**: turn apps off for the whole workspace. The functions of existing apps stop running until you turn it back on.
+- **Frames with backends**: turn apps off for the whole workspace. Existing apps stop running until you turn it back on.
 - **Create Frames with backends**: limit who can create apps to specific **Groups** or **Admins only**. It's **Everyone** by default.
 
 If you are not allowed to create apps, the agent tells you, and can offer a regular Frame instead.
@@ -120,7 +120,7 @@ If you are not allowed to create apps, the agent tells you, and can offer a regu
 ### Security
 
 - **Admins decide**: admins can turn apps off for the workspace, or limit who can create them to specific groups or to admins, see [Who can create apps](#who-can-create-apps).
-- **Controlled sharing**: apps can be shared with workspace members, or with anyone through a public link. Public link visitors confirm their email with a one-time code, and can only use the functions the agent made public, which can't use your workspace tools or secrets. Apps can't be shared with people outside your workspace by email invite. Admins choose who can share Frames by public link, see [Manage Frame sharing](/docs/user-documentation/agents/frames/overview#manage-frame-sharing).
+- **Controlled sharing**: apps can be shared with workspace members, or with anyone through a public link. Public link visitors confirm their email with a one-time code, and can only use the functions the agent made public, which can't use your workspace tools or secrets. Admins choose who can share Frames by public link, see [Manage Frame sharing](/docs/user-documentation/agents/frames/overview#manage-frame-sharing).
 - **Tools work as in a conversation**: functions use your workspace tools with the same approvals and personal authentication as an agent in a conversation.
 - **Secrets stay on the server**: functions run on Dust's servers, so secrets never reach the browser. Network access follows the same rules as [Computer](/docs/user-documentation/agents/tools/computer).
 - **Editors stay in control**: only [people who can edit the Frame](/docs/user-documentation/agents/frames/overview#who-can-edit-a-frame) can change it, and functions can reserve sensitive actions, such as deleting records, to them.
