@@ -1,11 +1,11 @@
 ---
 title: Build apps with Frames
-description: Give a Frame a backend so it can save data, run functions, and use your workspace tools.
+description: Turn Frames into interactive apps that save data, run functions, and connect to your workspace tools.
 ---
 
 Use Frames to turn your team's workflows into apps that people and agents build, use, and improve together. Describe what you need, and the agent builds it. Your team works from the same live data, connected to your company's knowledge and tools, while admins stay in control of who builds apps and what they can do.
 
-By default, a Frame only shows what the agent put in it: anything a viewer types or changes is gone when the page reloads. A Frame with a backend, with functions and databases, remembers what people enter. This is what lets you build apps such as task trackers, request forms, CRM views, and approval queues.
+By default, a Frame only shows what the agent put in it: anything a viewer types or changes is gone when the page reloads. An app built with Frames remembers what people enter, so you can build task trackers, request forms, CRM views, and approval queues.
 
 <iframe
   className="w-full aspect-video rounded-xl"
@@ -21,9 +21,9 @@ By default, a Frame only shows what the agent put in it: anything a viewer types
 - **Team operating systems**: a shared hub where people and agents track initiatives and keep team knowledge up to date, such as a launch tracker or a team homepage. It follows how your team works, and is easy to change when the process does.
 - **Onboarding and self-service**: one place to find answers, assets, and next steps, such as a brand hub or a new-hire checklist. Requests and progress are saved, and the owning team updates it once for everyone.
 
-## What a Frame with a backend can do
+## What an app can do
 
-A Frame with a backend can:
+An app can:
 
 - **Run functions**: code that runs on Dust's servers when someone uses the Frame, for example to save a form entry or fetch fresh data.
 - **Store data in databases**: records that everyone who uses the Frame shares. A Frame can have up to 4 databases of 1 GiB each.
@@ -64,37 +64,37 @@ To change a Frame without disrupting the people using it, work on a [draft](/doc
 
 ## Turn an existing Frame into an app
 
-Any Frame can get a backend. Ask the agent for a change that needs one, for example: **Let the team add comments to each row, and keep them when the page reloads.** The agent adds the backend to the same Frame.
+Any Frame can become an app. Ask the agent for a change that needs to save data or run a function, for example: **Let the team add comments to each row, and keep them when the page reloads.** The agent turns the same Frame into an app.
 
 The Frame keeps its link, the people you shared it with, and its place in conversations and Pods. Its look doesn't change.
 
 Before you ask:
 
-- Make sure you are allowed to create Frames with backends, see [Who can create apps](#who-can-create-apps).
+- Make sure you are allowed to create apps, see [Who can create apps](#who-can-create-apps).
 - If you shared the Frame with people outside your workspace by email, first limit its sharing to workspace members, see [Share an app](#share-an-app).
 
 ## Who can create apps
 
-Admins control Frames with backends in **Admin > Governance**, **Pods & Frames** tab, **Frames** section:
+Admins control apps in **Admin > Governance**, **Pods & Frames** tab, **Frames** section, where they are called **Frames with backends**:
 
 1. Turn on **Frames with backends** for the workspace.
 2. Choose who can **Create Frames with backends**: **Everyone**, specific **Groups**, or **Admins only**. It's **Admins only** by default.
 
-If you are not allowed to create Frames with backends, the agent tells you, and can offer a Frame without a backend instead.
+If you are not allowed to create apps, the agent tells you, and can offer a regular Frame instead.
 
 ## Share an app
 
-Only signed-in members of your workspace can use a Frame's backend, with one exception for public links:
+Only signed-in members of your workspace can use an app, with one exception for public links:
 
-- **Workspace members**: you can share a Frame with a backend with anyone in your workspace. You can't invite people outside your workspace by email.
-- **Anyone with the link**: the Frame needs at least one public function, which is a function the agent makes available to visitors. Visitors confirm their email with a one-time code before the Frame opens, and can only use its public functions.
+- **Workspace members**: you can share an app with anyone in your workspace. You can't invite people outside your workspace by email.
+- **Anyone with the link**: the app needs at least one public function, which is a function the agent makes available to visitors. Visitors confirm their email with a one-time code before the app opens, and can only use its public functions.
 
-Public functions can't use your workspace tools or secrets. They can still show data that the Frame's other functions saved in its databases. Tell the agent what visitors should be able to see and do, and it decides which functions to make public.
+Public functions can't use your workspace tools or secrets. They can still show data that the app's other functions saved in its databases. Tell the agent what visitors should be able to see and do, and it decides which functions to make public.
 
-To add a backend to a Frame that you shared with people outside your workspace by email, first limit its sharing to workspace members.
+To turn a Frame that you shared with people outside your workspace by email into an app, first limit its sharing to workspace members.
 
 For the general sharing options, see [Share a Frame](/docs/user-documentation/agents/frames/overview#share-a-frame).
 
 ## Credits
 
-Running a Frame's functions uses credits. See [Frame backend credits](/docs/user-documentation/admins/usage-seats-and-credits/credits#frame-backend-credits).
+Running an app's functions uses credits. See [Frame backend credits](/docs/user-documentation/admins/usage-seats-and-credits/credits#frame-backend-credits).
