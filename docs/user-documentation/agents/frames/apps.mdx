@@ -110,16 +110,16 @@ Running an app's functions uses credits. See [Frame backend credits](/docs/user-
 
 ### Who can create apps
 
-Admins control apps in **Admin > Governance**, **Pods & Frames** tab, **Frames** section, where they are called **Frames with backends**:
+Apps are on by default, and everyone in the workspace can create them. Admins can change this in **Admin > Governance**, **Pods & Frames** tab, **Frames** section, where apps are called **Frames with backends**:
 
-1. Turn on **Frames with backends** for the workspace.
-2. Choose who can **Create Frames with backends**: **Everyone**, specific **Groups**, or **Admins only**. It's **Admins only** by default.
+- **Frames with backends**: turn apps off for the whole workspace. The functions of existing apps stop running until you turn it back on.
+- **Create Frames with backends**: limit who can create apps to specific **Groups** or **Admins only**. It's **Everyone** by default.
 
 If you are not allowed to create apps, the agent tells you, and can offer a regular Frame instead.
 
 ### Security
 
-- **Off by default**: apps are off until an admin turns them on, and only admins can create them until creation is opened to groups or everyone.
+- **Admins decide**: admins can turn apps off for the workspace, or limit who can create them to specific groups or to admins, see [Who can create apps](#who-can-create-apps).
 - **Workspace members only**: apps can't be shared with people outside your workspace by email. Public links reach only the functions marked as public, after visitors confirm their email, and public functions can't use your workspace tools or secrets. Admins also choose who can share Frames by public link, see [Manage Frame sharing](/docs/user-documentation/agents/frames/overview#manage-frame-sharing).
 - **Tools work as in a conversation**: functions use your workspace tools with the same approvals and personal authentication as an agent in a conversation.
 - **Secrets stay on the server**: functions run on Dust's servers, so secrets never reach the browser. Network access follows the same rules as [Computer](/docs/user-documentation/agents/tools/computer).
