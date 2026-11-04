@@ -47,10 +47,12 @@ Every evaluation includes the content being checked. **Evaluation context** sele
 
 | Option | Additional context sent to the provider |
 | --- | --- |
-| **Full conversation** | Earlier exchanges still available in the model's conversation window. This is not an unlimited archive of the conversation. |
+| **Full conversation** | Earlier user and assistant messages, tool calls and results, and summaries still retained in the agent's conversation window at this checkpoint. |
 | **Target only** | None. Send only the new content being checked, without surrounding conversation history. |
 | **User messages** | Up to 16 recent user-role messages from the checkpoint's context. These can include attachments and supporting context, not just text a person typed. |
 | **Current turn** | Context from the current user request and the steps taken to answer it, rather than earlier completed turns. At the initial user-request checkpoint, there may be no additional current-turn context to send. |
+
+Earlier content replaced by a summary or removed to fit token limits is not sent verbatim or restored for evaluation. Only the checkpoint's target is evaluated; the surrounding conversation provides context.
 
 The content being checked is still sent when you choose **User messages**. For example, at a tool-result checkpoint, the tool results are evaluated with user messages as context; selecting this option does not replace the tool results with user text.
 
