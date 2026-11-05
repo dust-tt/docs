@@ -350,6 +350,13 @@
               "docs/user-documentation/admins/admin-governance/merging-user-accounts"
             ]
           },
+          {
+            "group": "Inference hooks",
+            "pages": [
+              "docs/user-documentation/admins/admin-governance/inference-hooks",
+              "docs/user-documentation/admins/admin-governance/inference-hooks/datadog-ai-guard"
+            ]
+          },
           "docs/user-documentation/admins/spaces-management",
           "docs/user-documentation/admins/agents-management",
           {

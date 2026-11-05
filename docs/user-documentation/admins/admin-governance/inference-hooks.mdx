@@ -1,0 +1,110 @@
+---
+title: Inference hooks
+sidebarTitle: Overview
+description: "Connect security providers to monitor or block agent interactions at configurable checkpoints."
+---
+
+AI agents work with internal data and business systems. Content they encounter, such as a web search result, can contain instructions that lead to unintended behavior. Inference hooks let you evaluate these interactions and decide whether the agent should continue.
+
+Inference hooks connect security providers to agent execution. Choose when to check user requests, proposed tool calls, tool results, and completed answers, and how much conversation context to include. Use monitor mode to review findings without interrupting users, or block mode to stop an interaction when the provider returns a denial.
+
+Hooks apply across your workspace by default, with group exclusions available. You need to be a workspace admin to configure hooks and review evaluations.
+
+<Info>
+**Private beta.** Inference hooks are not generally available. Contact your Dust team or email [inference-hooks@dust.com](mailto:inference-hooks@dust.com) to request access. We will help you choose a configuration suited to your security requirements and expected usage.
+</Info>
+
+## Available providers
+
+[Datadog AI Guard](https://docs.datadoghq.com/security/ai_guard/) is the first third-party integration, available in private beta. Follow the [Datadog AI Guard setup guide](/docs/user-documentation/admins/admin-governance/inference-hooks/datadog-ai-guard) for prerequisites, credentials, and provider-specific configuration.
+
+## Get started
+
+Once access is enabled, go to **Admin > Security > Inference Hooks** and add a hook. Follow your provider's setup guide to connect it, then select the checkpoints, evaluation context, and enforcement mode described below. Start in monitor mode and review findings from actual agent activity before turning on blocking.
+
+<Warning>
+**Review what you share.** Evaluations send content to your selected provider, including in monitor mode. Depending on the checkpoint and context, this can include user messages, agent responses, tool names and arguments, and text returned by tools. Review the data-sharing and billing implications before activating a hook.
+</Warning>
+
+## Choose evaluation checkpoints
+
+Under **Events**, select when the hook should evaluate agent activity. An agent turn starts with a user request and can include several rounds of tool calls before the agent finishes answering.
+
+| Event | Content checked | When it runs |
+| --- | --- | --- |
+| **Before agent loop** | The user's request as typed. | At the start of the turn, before the agent begins working on the request. |
+| **Before tool calls** | The names and arguments of the proposed tool calls, separate from any accompanying narration. | Before that batch of tool calls runs. A blocking denial prevents the batch from executing. |
+| **After tool calls** | Results returned by tools, as available to the agent. | Before the agent uses those results to continue. This can help identify injected instructions in retrieved content. |
+| **After agent loop** | The completed answer text. | When the agent finishes responding without requesting another tool call. |
+
+You can enable any combination. Tool-call and tool-result checkpoints can run multiple times in one turn. A checkpoint with no content to evaluate does not run.
+
+For example, a request to research a company can produce a user-request check, a check before a web search, a check of the search results, and a check of the completed answer. If the agent makes more tool calls, the corresponding checks run again.
+
+## Choose evaluation context
+
+Every evaluation includes the content being checked. **Evaluation context** selects which earlier messages accompany it:
+
+| Option | Additional context sent to the provider |
+| --- | --- |
+| **Full conversation** | Earlier user and assistant messages, tool calls and results, and summaries still retained in the agent's conversation window at this checkpoint. |
+| **Target only** | None. Send only the new content being checked, without surrounding conversation history. |
+| **User messages** | Up to 16 recent user-role messages from the checkpoint's context. These can include attachments and supporting context, not just text a person typed. |
+| **Current turn** | Context from the current user request and the steps taken to answer it, rather than earlier completed turns. At the initial user-request checkpoint, there may be no additional current-turn context to send. |
+
+Earlier content replaced by a summary or removed to fit token limits is not sent verbatim or restored for evaluation. Only the checkpoint's target is evaluated; the surrounding conversation provides context.
+
+The content being checked is still sent when you choose **User messages**. For example, at a tool-result checkpoint, the tool results are evaluated with user messages as context; selecting this option does not replace the tool results with user text.
+
+One context setting applies to every event selected on a hook. To use different context settings for different checkpoints, create separate hooks with the relevant events.
+
+More context can help the provider interpret an interaction, but it also sends more information and tokens for evaluation. Review the data-sharing and billing implications before enabling checks on sensitive workflows.
+
+## Start in monitor mode
+
+In **Monitor** mode, the agent continues working while the evaluation runs in the background. Dust records the result without interrupting the user. Provider failures and timeouts also let the agent continue.
+
+We recommend starting in monitor mode. Review findings and false positives before switching to **Block**.
+
+In **Block** mode, Dust waits for the provider's verdict before moving past the selected checkpoint. If the provider returns a denial, Dust blocks the agent interaction. Blocking can add latency. Configure what happens if the provider fails or times out:
+
+- **Let the agent continue:** the run continues, and the evaluation records an error.
+- **Block the agent:** the run is blocked, and the evaluation records an error.
+
+A provider error is not the same as a security-policy denial. Choose the failure behavior deliberately before switching to block mode.
+
+<Warning>
+**Checks are not a security guarantee.** A check can miss an issue or flag legitimate work. Blocking a later checkpoint does not undo tool actions that have already completed. Continue to use appropriate permissions and tool approval controls.
+</Warning>
+
+## Review evaluations
+
+Open **Admin > Security > Inference Hooks** and look at **Evaluations**. The findings view highlights blocked activity, flagged activity, and provider errors. It is not a list of every successful check.
+
+| Outcome | Meaning |
+| --- | --- |
+| **Flagged** | The provider denied the content, but the hook was in monitor mode, so the agent continued. |
+| **Blocked** | The provider denied the content, and the hook was in block mode. |
+| **Error, allowed** | The evaluation failed or timed out, and the agent was allowed to continue. |
+| **Error, blocked** | The evaluation failed or timed out, and the hook was configured to block on failure. |
+
+Open an evaluation to see its agent, user when available, checkpoint, reason, duration, and references. Opening the conversation still depends on your access to that conversation. See your provider’s setup guide for any provider-specific investigation tools.
+
+When a user reports a blocked run, ask for the **Dust reference** shown with the error. Search for that reference in Evaluations. Detailed provider reasons are available to admins rather than exposed in the user's error message.
+
+## Manage a hook
+
+Use the hook's menu to **Edit** its configuration or **Archive** it. Archiving stops future checks for that hook and keeps its past evaluations.
+
+**Excluded groups** skips the hook for runs by members of those groups. Runs without a user, such as triggers and API calls, are still checked.
+
+## Troubleshooting
+
+| Problem | What to check |
+| --- | --- |
+| You cannot see **Inference Hooks** | Confirm that you are a workspace admin and that Dust has enabled the beta for your workspace. |
+| Legitimate work is flagged or blocked | Inspect the evaluation and provider's policy. Keep or return the hook to monitor mode while you review false positives. |
+| Evaluations show provider errors | Check the evaluation's error details for invalid credentials, rate limits, or timeouts. Review the hook's failure behavior before changing its timeout. |
+| You expect a check but do not see a finding | Confirm the hook's selected events and excluded groups. Successful checks do not appear in the findings list. |
+
+Share false positives, missed findings, and onboarding issues with your Dust team or [inference-hooks@dust.com](mailto:inference-hooks@dust.com).
