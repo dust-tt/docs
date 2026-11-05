@@ -1,10 +1,126 @@
 ---
 title: Build apps with Frames
-description: Give a Frame a backend so it can save data, run functions, and use your workspace tools.
+description: Turn Frames into interactive apps that save data, run functions, and connect to your workspace tools.
 ---
 
-<Note>
-  This page is coming soon.
-</Note>
+Use Frames to turn your team's workflows into apps that people and agents build, use, and improve together. Describe what you need, and the agent builds it. Your team works from the same live data, connected to your company's knowledge and tools, while admins stay in control of who builds apps and what they can do.
 
-In the meantime, see the [Frames overview](/docs/user-documentation/agents/frames/overview).
+Unlike a plain frame, apps remember what people enter, so you can build task trackers, request forms, CRM views, and approval queues.
+
+<iframe
+  className="w-full aspect-video rounded-xl"
+  src="https://www.youtube.com/embed/17k1Wnu_Ntk"
+  title="Build dashboards and team tools with Frames"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+></iframe>
+
+## What you can build
+
+- **Dashboards and command centers**: one view of the data your team acts on, pulled from any source, such as a sales cockpit, an account overview, or product usage and adoption. Change it by asking the agent, without waiting on the data team.
+- **Team operating systems**: a shared hub where people and agents track initiatives and keep team knowledge up to date, such as a launch tracker or a team homepage. It follows how your team works, and is easy to change when the process does.
+- **Onboarding and self-service**: one place to find answers, assets, and next steps, such as a brand hub or a new-hire checklist. Requests and progress are saved, and the owning team updates it once for everyone.
+
+## Examples
+
+**Make everyday design requests self-service**
+
+<iframe
+  className="w-full aspect-video rounded-xl"
+  src="https://www.youtube.com/embed/P17iO78w4FE"
+  title="Make everyday design requests self-service with Frames"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+></iframe>
+
+**Turn customer data into dashboards and reports**
+
+<iframe
+  className="w-full aspect-video rounded-xl"
+  src="https://www.youtube.com/embed/sjiF9QITFm4"
+  title="Turn customer data into dashboards and reports with Frames"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+></iframe>
+
+## Build and share apps
+
+### Create an app
+
+Just ask Dust for a Frame that saves data, for example: **Build a tracker for our launch tasks where the team can add, assign, and close items.**
+
+### Tips for your request
+
+The agent builds what you describe without asking questions first, so the more you say up front, the closer the first version gets:
+
+- **Who uses it, and for what**: for example, **The marketing team submits design requests, and the design team picks them up and marks them done.**
+- **What to save**: the information each entry holds, for example **title, requester, due date, status, and a link to the final file.**
+- **Where the data comes from**: the tools or knowledge to use, for example **Pull open deals from HubSpot, and refresh them when I click a button.**
+- **Who can do what**: for example, **Everyone can add requests, but only editors can delete them.**
+- **How it should look**: views, filters, and branding, for example **A board grouped by status, with a My requests filter, in our brand colors.**
+
+Start with a simple version, use it, then ask for one change at a time. Once people rely on the app, make changes in a [draft](/docs/user-documentation/agents/frames/overview#work-on-a-draft) and validate it when it's ready.
+
+### Turn an existing Frame into an app
+
+Any Frame can become an app. Ask the agent for a change that needs to save data or run a function, for example: **Let the team add comments to each row, and keep them when the page reloads.** The agent turns the same Frame into an app.
+
+The Frame keeps its link, the people you shared it with, and its place in conversations and Pods. Its look doesn't change.
+
+Before you ask:
+
+- Make sure you are allowed to create apps, see [Who can create apps](#who-can-create-apps).
+- If you shared the Frame with people outside your workspace by email, first limit its sharing to workspace members, see [Share an app](#share-an-app).
+
+### Share an app
+
+Only signed-in members of your workspace can use an app, with one exception for public links:
+
+- **Workspace members**: you can share an app with anyone in your workspace. You can't invite people outside your workspace by email.
+- **Anyone with the link**: visitors confirm their email with a one-time code before the app opens, and can only use its public functions.
+
+Public functions can't use your workspace tools or secrets. They can still show data that the app's other functions saved in its databases. Tell the agent what visitors should be able to see and do, and it decides which functions to make public.
+
+To turn a Frame that you shared with people outside your workspace by email into an app, first limit its sharing to workspace members.
+
+For the general sharing options, see [Share a Frame](/docs/user-documentation/agents/frames/overview#share-a-frame).
+
+## How apps work
+
+### What an app can do
+
+An app can:
+
+- **Run functions**: code that runs on Dust's servers when someone uses the Frame, for example to save a form entry or fetch fresh data.
+- **Store data in databases**: records that everyone who uses the Frame shares. A Frame can have up to 4 databases of 1 GiB each.
+- **Use your workspace tools**: functions can use the tools available in your workspace, such as Gmail, Slack, or HubSpot. Tool approvals and personal authentication work as they do in a conversation, and appear over the Frame.
+- **Reach external services**: functions follow the same network access rules and secrets as [Computer](/docs/user-documentation/agents/tools/computer).
+
+Functions also know who is using the Frame. The agent can use this for personal views, such as **My tasks**, or to reserve some actions, such as deleting records, to [people who can edit the Frame](/docs/user-documentation/agents/frames/overview#who-can-edit-a-frame).
+
+### Data
+
+Data belongs to the Frame. When the agent improves the Frame later, existing data is kept. Exporting the Frame doesn't include its data.
+
+### Credits
+
+Running an app's functions uses credits. See [Frame backend credits](/docs/user-documentation/admins/usage-seats-and-credits/credits#frame-backend-credits).
+
+## For admins
+
+### Who can create apps
+
+Apps are on by default, and everyone in the workspace can create them. Admins can change this in **Admin > Governance**, **Pods & Frames** tab, **Frames** section, where apps are called **Frames with backends**:
+
+- **Frames with backends**: turn apps off for the whole workspace. Existing apps stop running until you turn it back on.
+- **Create Frames with backends**: limit who can create apps to specific **Groups** or **Admins only**. It's **Everyone** by default.
+
+If you are not allowed to create apps, the agent tells you, and can offer a regular Frame instead.
+
+### Security
+
+- **Admins decide**: admins can turn apps off for the workspace, or limit who can create them to specific groups or to admins, see [Who can create apps](#who-can-create-apps).
+- **Controlled sharing**: apps can be shared with workspace members, or with anyone through a public link. Public link visitors confirm their email with a one-time code, and can only use the functions the agent made public, which can't use your workspace tools or secrets. Admins choose who can share Frames by public link, see [Manage Frame sharing](/docs/user-documentation/agents/frames/overview#manage-frame-sharing).
+- **Tools work as in a conversation**: functions use your workspace tools with the same approvals and personal authentication as an agent in a conversation.
+- **Secrets stay on the server**: functions run on Dust's servers, so secrets never reach the browser. Network access follows the same rules as [Computer](/docs/user-documentation/agents/tools/computer).
+- **Editors stay in control**: only [people who can edit the Frame](/docs/user-documentation/agents/frames/overview#who-can-edit-a-frame) can change it, and functions can reserve sensitive actions, such as deleting records, to them.
