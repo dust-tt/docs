@@ -3,6 +3,15 @@ title: "Changelog"
 description: "New updates and improvements to Dust"
 ---
 
+<Update label="November 6th, 2026" tags={["Added"]} rss={{ title: "Inference hooks with Datadog AI Guard", description: "Workspace admins can connect Datadog AI Guard to agent execution to monitor or block risky interactions at the checkpoints they choose." }}>
+## Inference hooks with Datadog AI Guard
+
+Workspace admins can now connect Datadog AI Guard to agent execution and evaluate interactions for prompt injection, jailbreaking, and sensitive data exfiltration. You pick which checkpoints run (the user's request, proposed tool calls, tool results, or the completed answer) and how much conversation context to send.
+
+Add a hook in Admin > Security > Inference Hooks using the [Datadog AI Guard setup guide](/docs/user-documentation/admins/admin-governance/inference-hooks/datadog-ai-guard). Monitor mode records findings without interrupting users; block mode stops the interaction when Datadog returns a denial. In private beta: email [inference-hooks@dust.com](mailto:inference-hooks@dust.com) or contact your Dust team for access.
+
+</Update>
+
 <Update label="November 6th, 2026" tags={["Added"]} rss={{ title: "Translate and edit content with DeepL", description: "DeepL's remote MCP server lets your agents translate text, documents, and images and refine writing with your glossaries and style rules." }}>
 ## Translate and edit content with DeepL
 
