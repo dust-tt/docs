@@ -31,6 +31,16 @@ Action credits are a fixed amount charged per tool action, regardless of respons
 | **Basic** | 1 credit | **Orchestration:** run agent, create plan, schedule wakeup, create schedule<br />**Web Search:** browse a list of websites, google web search from query<br />**Frames:** editing, exporting, publishing, retrieving, reverting a Frame<br />**Pods:** create pod, semantic search, retrieve recent documents, start task agent<br />**Analytics:** usage, credits, top agents/users/skills/tools |
 | **Advanced** | 3 credits | **Knowledge & Retrieval:** Search, Query Tables, Data Warehouses, Include Data, Extract Data, Files, HTTP Client<br />**Frame Creation**<br />**Output Generation:** Image Generation, Sound Studio, Speech Generator, Interactive Content (Frames), Slideshow<br />**3rd party MCP integration:** Gmail, Slack, GitHub, Notion, Google Drive, Jira, HubSpot, Salesforce, Zendesk, Fathom, Gong, Monday, Confluence, Ashby, and more<br />**All external MCP Servers** |
 
+### Frame backend credits
+
+Some frames have a backend with functions. Running these functions consumes credits:
+
+| Usage | Credits |
+| --- | --- |
+| **Backend start-up** | 2 credits when a function runs after the backend has been idle for over 5 minutes |
+| **Function runtime** | 1 credit per second of function runtime |
+| **Tool calls from functions** | Same as in a conversation, see [Action credits](#action-credits) |
+
 ### Sub-agent costs
 
 When an agent runs sub-agents in the background, each sub-agent's credit cost is added to the total. Costs accumulate across the full agent chain and are displayed alongside the main agent cost.
