@@ -67,6 +67,7 @@ When an agent or skill change is emitted from a suggestion, the audit event incl
 |---|---|
 | `space.created` | A space was created |
 | `space.deleted` | A space was deleted |
+| `space.name_updated` | A space or Pod was renamed; emitted only when the name actually changes; targets: `workspace`, `space`; metadata: `previous_name`, `new_name`, `space_kind`, `actor_type` |
 | `space.accessed` | A space was accessed |
 | `space.permissions_updated` | A space's permissions were modified |
 
@@ -91,6 +92,9 @@ When an agent or skill change is emitted from a suggestion, the audit event incl
 | `membership.revoked` | A workspace membership was revoked |
 | `membership.role_updated` | A member's role was changed |
 | `membership.origin_updated` | The origin of a membership was updated (e.g. manual  SCIM) |
+| `group.created` | A manually managed group was created; targets: `workspace`, `group`; metadata: `group_name`, `member_count`, `manager_count`, `actor_type` |
+| `group.name_updated` | A manually managed group was renamed; emitted only when the name actually changes; targets: `workspace`, `group`; metadata: `previous_name`, `new_name`, `actor_type` |
+| `group.deleted` | A manually managed group was deleted; targets: `workspace`, `group`; metadata: `group_name`, `member_count`, `actor_type` |
 | `group.member_added` | A user was added to a manually managed group; targets: `workspace`, `group`, `user`; metadata: `group_name`, `user_email`, `actor_type` |
 | `group.member_removed` | A user was removed from a manually managed group; targets: `workspace`, `group`, `user`; metadata: `group_name`, `user_email`, `actor_type` |
 
