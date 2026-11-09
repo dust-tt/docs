@@ -133,6 +133,9 @@ When an agent or skill change is emitted from a suggestion, the audit event incl
 |---|---|
 | `mcp_connection.created` | An MCP server connection was established |
 | `mcp_connection.deleted` | An MCP server connection was removed |
+| `mcp_server.created` | An MCP server was added to the workspace; targets: `workspace`, `mcp_server`; metadata: `server_type`, `server_name`, `internal_name` (internal servers only), `actor_type` |
+| `mcp_server.updated` | An MCP server's settings were changed; targets: `workspace`, `mcp_server`; metadata: `server_type`, `server_name`, `internal_name` (internal servers only), `change_kind` (`display`, `credentials`, `oauth`, `restriction`, or `meta`), `changed_fields`, `actor_type`, plus the key for the change made: `previous_name`, `oauth_use_case`, `is_restricted_to_skills`, `meta_cleared`, `shared_secret_change`, or `custom_headers_change`. `shared_secret_change` and `custom_headers_change` are `set` or `cleared`, never the secret value |
+| `mcp_server.deleted` | An MCP server was removed from the workspace; targets: `workspace`, `mcp_server`; metadata: `server_type`, `server_name`, `internal_name` (internal servers only), `space_count` (number of non-system spaces the server was in), `actor_type` |
 | `mcp_server.credentials_updated` | An MCP server's shared secret or custom headers were updated; targets: `workspace`, `mcp_server`; metadata: `server_type`, `shared_secret_updated`, `custom_headers_updated`, `actor_type` |
 | `mcp_server.oauth_settings_updated` | An MCP server's OAuth use case or scope was changed; targets: `workspace`, `mcp_server`; metadata: `server_type`, `previous_oauth_use_case`, `new_oauth_use_case`, `oauth_scope_changed`, `actor_type` |
 
