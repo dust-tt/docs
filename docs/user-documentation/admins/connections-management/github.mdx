@@ -82,7 +82,7 @@ If the app was already uninstalled, contact `support@dust.tt` to remove the old 
 ## Refresh and Sync Details
 
 * **Issues, Discussions, and Pull Requests**: Updated in response to GitHub webhook events. This is event-driven, not a fixed polling schedule.
-* **Code**: For ongoing updates, a merged pull request triggers a sync for that repository. Code syncs are throttled to at most once every 8 hours per repository, so this is not a scheduled refresh every 8 hours. Direct pushes do not trigger a code sync. Dust can enable daily syncs for specific repositories that do not use pull requests. For a time-sensitive or targeted refresh, contact `support@dust.tt`.
+* **Code**: A merged pull request triggers a code sync for its repository. Syncs are throttled to at most once every 8 hours per repository, so this is not a scheduled refresh every 8 hours. If a pull request is merged while the repository is still within the 8-hour window, that event does not trigger another code sync. A later merged pull request after the window can trigger the next sync. Direct pushes do not trigger code sync.
 
 Dust syncs the custom labels set on GitHub issues and Pull Requests, and include them in the document above the content itself.
 
