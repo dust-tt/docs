@@ -69,10 +69,11 @@ from the agent builder. They require no additional configuration.
 | --- | --- | --- |
 | Get User Timezone | | Get the user's timezone from their mailbox settings. Called before other calendar operations for correct timezone handling. |
 | List Calendars | | List all calendars accessible by the user. |
+| List Categories | | List the user's Outlook categories (name and color) that can be applied to events. |
 | List Events | | List or search events. Supports filtering and searching. |
 | Get Event | | Get a single event by ID. |
-| Create Event | ✓ | Create a new event, with attendees, location, and online meeting options. |
-| Update Event | ✓ | Update an existing event. |
+| Create Event | ✓ | Create a new event, with attendees, location, and online meeting options. Can make it a recurring series (daily, weekly, monthly, or yearly, ending on a date, after a number of occurrences, or never) and tag it with categories. |
+| Update Event | ✓ | Update an existing event. Can update a whole recurring series or a single occurrence, change a series' recurrence, and replace the event's categories. |
 | Delete Event | ✓ | Delete an event. |
 | Check Availability | | Compute combined free/busy availability across several participants over a date range. |
 | Check Self Availability | | Check whether the signed-in user is free during a time slot. An event blocks if its status is busy, tentative, out of office, or working elsewhere. |
@@ -119,7 +120,7 @@ Dust than they can do in Outlook directly.
 | `User.Read` | Read basic profile information |
 | `offline_access` | Maintain access without re-authentication |
 | `Calendars.ReadWrite.Shared` | Access shared and delegated calendars (optional) |
-| `MailboxSettings.Read` | Read timezone and working hours (optional) |
+| `MailboxSettings.Read` | Read timezone and working hours, and list Outlook categories (optional) |
 
 ### Permissions needed
 
