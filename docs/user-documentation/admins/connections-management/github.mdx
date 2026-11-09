@@ -81,7 +81,8 @@ If the app was already uninstalled, contact `support@dust.tt` to remove the old 
 
 ## Refresh and Sync Details
 
-* **Refresh Rate**: Issues, Discussions and Pull-requests are maintained up to date in real-time. Code is synchronized every 8 hours.
+* **Issues, Discussions, and Pull Requests**: Updated in response to GitHub webhook events. This is event-driven, not a fixed polling schedule.
+* **Code**: For ongoing updates, a merged pull request triggers a sync for that repository. Code syncs are throttled to at most once every 8 hours per repository, so this is not a scheduled refresh every 8 hours. Direct pushes do not trigger a code sync. Dust can enable daily syncs for specific repositories that do not use pull requests. For a time-sensitive or targeted refresh, contact `support@dust.tt`.
 
 Dust syncs the custom labels set on GitHub issues and Pull Requests, and include them in the document above the content itself.
 
