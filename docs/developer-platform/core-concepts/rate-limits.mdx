@@ -8,6 +8,21 @@ API calls are rate limited. Here are our current rate limits.
 Rate limits are considered on a sliding window (minute, hour, day, etc.).
 </Info>
 
+## Conversations
+
+- `100 messages` per minute
+- `3,000 messages` per hour
+
+These limits are the same on every plan. They apply per API key: every app or script that calls Dust with the same key shares one allowance. When a request is authenticated as a user rather than with an API key, the limits apply per user, and the messages that user sends in the Dust app count toward the same allowance.
+
+Only requests that post a message count: posting a message (including the first message sent when creating a conversation), editing a message, and retrying an agent message. Reading conversations or streaming events doesn't count.
+
+When you go over either limit, the API returns HTTP `403` with the error type `rate_limit_error` and the message "Rate limit exceeded. Please retry later."
+
+<Note>
+A `rate_limit_error` doesn't always mean you reached these message limits. API requests also get this error type when your workspace is low on credits, when it reaches its [shared automation cap](/docs/user-documentation/admins/usage-seats-and-credits/credit-management#programmatic-usage), or when an API key is near or at its [monthly cap](/docs/user-documentation/admins/api-keys#cap-what-a-key-can-consume). Those thresholds depend on your remaining credits and caps, not on a fixed number of messages.
+</Note>
+
 ## Datasources
 
 - `120 document upserts` per minute per workspace
