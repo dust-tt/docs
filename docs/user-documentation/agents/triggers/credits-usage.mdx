@@ -31,7 +31,7 @@ Removing the access does not move existing triggers back to personal credits. Tr
 On credit-priced plans:
 
 - **My credits** uses the editor's seat credits first, then the workspace credit pool if their seat has access and their personal spend limit allows it. [Credit management](/docs/user-documentation/admins/usage-seats-and-credits/credit-management) covers that order in detail.
-- **Workspace credits** uses the workspace credit pool, then Pay As You Go on Enterprise plans. It counts against the monthly programmatic cap in **Admin > Credits**, **Settings** tab and has no free credit baseline.
+- **Workspace credits** uses the workspace credit pool, then Pay As You Go on Enterprise plans. It counts against the **Shared automation cap** in **Admin > Credits**, **Settings** tab and has no free credit baseline.
 
 On legacy plans, which still use message quotas instead of credits:
 
@@ -39,12 +39,12 @@ On legacy plans, which still use message quotas instead of credits:
 - **Workspace credits** uses programmatic usage credits, the balance shown in **Admin > Credits**, **Programmatic usage** tab, and counts against the monthly programmatic limit.
 
 <Note>
-A trigger stops running once the pool it charges is out: its editor's credits or personal spend limit on **My credits**, the workspace pool or the monthly programmatic cap on **Workspace credits**. Admins can add credits from **Admin > Credits** and raise the monthly cap under **Admin > Credits**, **Settings** tab. The trigger starts running again once the limit resets or the balance goes back up, and runs missed in the meantime are not replayed.
+A trigger stops running once the pool it charges is out: its editor's credits or personal spend limit on **My credits**, the workspace pool or the monthly cap on **Workspace credits**. Admins can add credits from **Admin > Credits** and raise the monthly cap under **Admin > Credits**, **Settings** tab. The trigger starts running again once the limit resets or the balance goes back up, and runs missed in the meantime are not replayed.
 </Note>
 
 ## Review your triggers
 
-Admins and managers see every trigger in the workspace under **Admin > Automations**, with its agent, its credit consumption over the selected period, and a **Pool** column showing *Member* or *Workspace*.
+Admins and managers see every trigger in the workspace under **Admin > Automations**, with its agent, its credit consumption over the selected period, and a **Billing** column showing *Member* or *Shared*. On legacy plans, this column is called **Pool** and shows *Member* or *Workspace*.
 
 Members can review their own automations from the **Automations** entry under **Tools** in the user menu. This view lists the automations they edit, with filters, an expandable per-trigger credit breakdown for the current billing cycle, and controls to enable, disable, or delete an automation.
 
