@@ -12,6 +12,7 @@ Dust routes outbound traffic through static egress IPs in these cases:
 - **Snowflake connections**, unconditionally, regardless of domain verification.
 - **BigQuery connections**, the same way as Snowflake.
 - **The official BigQuery MCP server** (`bigquery.googleapis.com`), even without a verified domain.
+- **Snowflake-managed MCP servers** (Snowflake's hosted MCP endpoint on your Snowflake account host, `https://<account>.snowflakecomputing.com/api/v2/databases/<database>/schemas/<schema>/mcp-servers/<name>`), including their OAuth token requests, even without a verified domain.
 
 All other outbound traffic, including other data warehouse connections, web search, browsing, and other tools and connections, uses dynamic cloud IPs that can change at any time. Do not whitelist those.
 
