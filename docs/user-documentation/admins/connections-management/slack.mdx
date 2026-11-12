@@ -3,9 +3,20 @@ title: "Slack"
 ---
 
 <Info>
+**This page is about syncing Slack as a data source**
+
+The **Slack connection** (this page) syncs channel messages into Dust as a data source that your agents can search. You do not need it to:
+
+- Call agents from Slack with `@Dust`. See [Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/index).
+- Let an agent search, read, or post in Slack with your own Slack account. See [Slack tools](/docs/user-documentation/agents/tools/slack-tools).
+
+These are separate integrations. Neither one needs the Slack connection.
+</Info>
+
+<Info>
 **Feature availability**
 
-The self-created Slack app connection is not available on all plans. If you do not see the Slack connection option in your workspace, contact [support@dust.tt](mailto:support@dust.tt) to check availability for your plan. Private channel indexing requires separate enablement; mention it in the same request.
+The self-created Slack app connection is not available on all plans. If you need Slack as a synchronized data source and do not see the Slack connection option in your workspace, contact [support@dust.tt](mailto:support@dust.tt) to check availability for your plan. Private channel indexing requires separate enablement; mention it in the same request.
 </Info>
 
 <Warning>
@@ -15,12 +26,6 @@ Slack updated its API and Terms of Service in May 2025. Bulk data indexing via a
 </Warning>
 
 Dust synchronizes with Slack to bring your workspace conversations into Dust, enabling agents to search and retrieve messages from selected channels.
-
-<Info>
-**Two separate Slack integrations**
-
-The **Slack connection** (this page) syncs channel messages as a data source for your agents. The **Dust in Slack** integration lets your team call Dust agents directly inside Slack. See [Dust in Slack](https://dust.tt/home/slack/slack-integration) for the interactive bot setup.
-</Info>
 
 ## Prerequisites
 
@@ -299,5 +304,5 @@ If one of your secrets is compromised and you must rotate it, update the new val
 ## Related
 
 - [Slack Troubleshooting](/docs/user-documentation/admins/admin-troubleshooting/slack-troubleshooting)
-- [Dust in Slack](https://dust.tt/home/slack/slack-integration)
+- [Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/index)
 - [Slack Tools](/docs/user-documentation/agents/tools/slack-tools)
