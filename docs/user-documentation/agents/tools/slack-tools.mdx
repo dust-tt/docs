@@ -76,6 +76,25 @@ Schedule a message to be posted to a channel at a future time.
 
 **Parameters**: Recipient, message content, scheduled time (Unix timestamp), optional thread timestamp
 **Limitations**: Messages can be scheduled up to 120 days in advance. Maximum of 30 scheduled messages per 5 minutes per channel. File attachments are not supported for scheduled messages due to Slack API constraints. Use Post Message to send messages with files.
+**Returns**: The scheduled message ID, the channel ID, and the post time in UTC
+
+### List Scheduled Messages
+
+List the pending messages scheduled through your Dust Slack connection. These messages don't appear in Slack's **Scheduled messages** view, so this tool is the only way to see them. Messages scheduled directly in Slack aren't listed.
+
+**Parameters**: Optional channel (name, ID, or user ID for DMs). Omit it to list across all channels.
+**Returns**: For each message, the scheduled message ID, channel ID, post time in UTC, and a text preview
+
+### Delete Scheduled Message
+
+Cancel a pending message scheduled through your Dust Slack connection. The agent asks for your approval before deleting it.
+
+**Parameters**: Channel ID (as returned by List Scheduled Messages; a channel name also works), scheduled message ID
+**Limitations**: If Slack refuses the deletion, for example because the message was already sent or deleted, the agent receives Slack's error.
+
+<Tip>
+Slack doesn't support editing a scheduled message. To change one, ask your agent to schedule the updated version first, then delete the original.
+</Tip>
 
 ### List Users
 
