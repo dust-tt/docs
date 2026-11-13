@@ -67,6 +67,7 @@ When an agent or skill change is emitted from a suggestion, the audit event incl
 |---|---|
 | `space.created` | A space was created |
 | `space.deleted` | A space was deleted |
+| `space.name_updated` | A space or Pod was renamed; emitted only when the name actually changes; targets: `workspace`, `space`; metadata: `previous_name`, `new_name`, `space_kind`, `actor_type` |
 | `space.accessed` | A space was accessed |
 | `space.permissions_updated` | A space's permissions were modified |
 
@@ -91,6 +92,9 @@ When an agent or skill change is emitted from a suggestion, the audit event incl
 | `membership.revoked` | A workspace membership was revoked |
 | `membership.role_updated` | A member's role was changed |
 | `membership.origin_updated` | The origin of a membership was updated (e.g. manual  SCIM) |
+| `group.created` | A manually managed group was created; targets: `workspace`, `group`; metadata: `group_name`, `member_count`, `manager_count`, `actor_type` |
+| `group.name_updated` | A manually managed group was renamed; emitted only when the name actually changes; targets: `workspace`, `group`; metadata: `previous_name`, `new_name`, `actor_type` |
+| `group.deleted` | A manually managed group was deleted; targets: `workspace`, `group`; metadata: `group_name`, `member_count`, `actor_type` |
 | `group.member_added` | A user was added to a manually managed group; targets: `workspace`, `group`, `user`; metadata: `group_name`, `user_email`, `actor_type` |
 | `group.member_removed` | A user was removed from a manually managed group; targets: `workspace`, `group`, `user`; metadata: `group_name`, `user_email`, `actor_type` |
 
@@ -133,6 +137,9 @@ When an agent or skill change is emitted from a suggestion, the audit event incl
 |---|---|
 | `mcp_connection.created` | An MCP server connection was established |
 | `mcp_connection.deleted` | An MCP server connection was removed |
+| `mcp_server.created` | An MCP server was added to the workspace; targets: `workspace`, `mcp_server`; metadata: `server_type`, `server_name`, `internal_name` (internal servers only), `actor_type` |
+| `mcp_server.updated` | An MCP server's settings were changed; targets: `workspace`, `mcp_server`; metadata: `server_type`, `server_name`, `internal_name` (internal servers only), `change_kind` (`display`, `credentials`, `oauth`, `restriction`, or `meta`), `changed_fields`, `actor_type`, plus the key for the change made: `previous_name`, `oauth_use_case`, `is_restricted_to_skills`, `meta_cleared`, `shared_secret_change`, or `custom_headers_change`. `shared_secret_change` and `custom_headers_change` are `set` or `cleared`, never the secret value |
+| `mcp_server.deleted` | An MCP server was removed from the workspace; targets: `workspace`, `mcp_server`; metadata: `server_type`, `server_name`, `internal_name` (internal servers only), `space_count` (number of non-system spaces the server was in), `actor_type` |
 | `mcp_server.credentials_updated` | An MCP server's shared secret or custom headers were updated; targets: `workspace`, `mcp_server`; metadata: `server_type`, `shared_secret_updated`, `custom_headers_updated`, `actor_type` |
 | `mcp_server.oauth_settings_updated` | An MCP server's OAuth use case or scope was changed; targets: `workspace`, `mcp_server`; metadata: `server_type`, `previous_oauth_use_case`, `new_oauth_use_case`, `oauth_scope_changed`, `actor_type` |
 
