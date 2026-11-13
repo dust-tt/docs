@@ -296,6 +296,7 @@
               "docs/user-documentation/agents/integrations/power-automate",
               "docs/user-documentation/agents/integrations/meeting-transcripts",
               "docs/user-documentation/agents/integrations/google-sheets-add-on",
+              "docs/user-documentation/agents/integrations/microsoft-office-add-in",
               "docs/user-documentation/agents/integrations/dust-in-zendesk",
               "docs/user-documentation/agents/integrations/browser-extension",
               "docs/user-documentation/agents/integrations/raycast-extension",
