@@ -3,12 +3,39 @@ title: "Changelog"
 description: "New updates and improvements to Dust"
 ---
 
-<Update label="November 10th, 2026" tags={["Improved"]} rss={{ title: "Redesigned Pod settings and member management", description: "Manage Pod members, roles, and access from one panel in the Pod header, with settings grouped in an editor-only dialog." }}>
-## Redesigned Pod settings and member management
+<Update label="November 12th, 2026" tags={["Added"]} rss={{ title: "GPT-6.1 Terra now available", description: "OpenAI's GPT-6.1 Terra can now power your agents, with stronger coding and visual reasoning than GPT-5.6 Terra at lower token costs." }}>
+## GPT-6.1 Terra now available
 
-The Pod header now includes a members panel, reached from its avatar stack and gear menu, where anyone in the Pod can see and search members. Pod editors can change member roles and switch the Pod between open and restricted access from the same panel.
+You can now select GPT-6.1 Terra in the model picker when configuring an agent. Compared to GPT-5.6 Terra, it is stronger at coding and visual reasoning, makes fewer factual errors, and has lower token costs.
 
-Pod settings moved out of hidden tabs into an editor-only dialog with General, Customization, and Advanced sections, laid out like your Personal settings.
+Available in all workspaces. Existing agents keep their current model until you switch them.
+
+</Update>
+
+<Update label="November 12th, 2026" tags={["Added"]} rss={{ title: "Export agent and skill lists as CSV", description: "Workspace admins can download CSV files of their agents and skills, with instructions, editors, tools, spaces, and last edit for each." }}>
+## Export agent and skill lists as CSV
+
+Workspace admins can now download the lists of agents and skills in their workspace as CSV files from the Export tab in Analytics. Each file includes instructions, editors, tools, spaces, and last edit for every entry, so audits and clean-ups no longer mean opening each agent or skill in the builder.
+
+Exports only include what the downloading admin can open. Agents and skills in restricted spaces they are not a member of, and unpublished ones they do not edit, are left out.
+
+</Update>
+
+<Update label="November 10th, 2026" tags={["Added"]} rss={{ title: "Build apps with Frames", description: "Frames can now include server-side functions, stored databases, and public sharing, so your agent can build a working app from a description." }}>
+## Build apps with Frames
+
+A Frame can now be a [working app](/docs/user-documentation/agents/frames/apps), not just a page. Ask your agent to build one, and it can add server-side functions that call tools or run on a schedule, databases stored with the Frame, and public access for people outside your workspace who verify their email.
+
+On by default on credit-based pricing plans. Admins can turn it off, limit it by group, and see each Frame's cost on the Frames admin page. Functions cost 1 credit per second of runtime, plus tool calls at conversation rates.
+
+</Update>
+
+<Update label="November 9th, 2026" tags={["Improved"]} rss={{ title: "Upload files and ZIP archives from the file explorer", description: "Conversations now accept drag-and-drop and ZIP uploads up to 50 MB, and the file explorer stays responsive with thousands of files." }}>
+## Upload files and ZIP archives from the file explorer
+
+The conversation file explorer now has an upload button and accepts drag-and-drop, routing files to the conversation or to the Pod depending on where you drop them.
+
+You can also upload .zip files in conversations, up to 50 MB compressed (up from about 5 MB). When you drop an archive in the file explorer, you choose "Keep as archive" or "Extract into your files," and Pods now ask too instead of extracting automatically. File explorer list and grid views also stay responsive with thousands of files.
 
 </Update>
 
@@ -45,6 +72,15 @@ API keys count against that cap too. If your workspace has no cap set, API keys 
 DeepSeek V4.1 Flash is now available to workspaces that have disabled models served outside the EU. Mistral serves it in the EU, so you can select it from the model picker for your agents while keeping that restriction in place.
 
 In the global region, Mistral now also serves DeepSeek V4.1 Flash in place of Fireworks, for faster responses. Both changes are live now.
+
+</Update>
+
+<Update label="November 4th, 2026" tags={["Added"]} rss={{ title: "Manage SharePoint pages with your agents", description: "A new SharePoint Pages tool lets agents find, read, create, edit, and publish modern SharePoint pages through a dedicated Microsoft connection." }}>
+## Manage SharePoint pages with your agents
+
+Your agents can now find, read, create, edit, and publish modern SharePoint pages, including their text blocks and sections, through the new SharePoint Pages tool. Keep intranet content up to date from a Dust conversation instead of switching to SharePoint.
+
+The tool uses its own Microsoft connection, so its permissions stay separate from your existing Microsoft Drive and Excel connections. To get started, connect your Microsoft account to the SharePoint Pages tool. Editing and publishing require write permissions on the target SharePoint site.
 
 </Update>
 
