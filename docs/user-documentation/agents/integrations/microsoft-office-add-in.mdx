@@ -1,0 +1,201 @@
+---
+title: "Microsoft Office Add-in (Excel, PowerPoint & Word)"
+description: "Install the Dust add-in to use your agents in Excel, PowerPoint, and Word."
+---
+
+<Tip>
+  **Dust suite for Office is available on Microsoft Marketplace.** One add-in
+  works in Excel, PowerPoint, and Word, on desktop and on the web:
+  [View on Marketplace](https://marketplace.microsoft.com/en-us/product/WA200013110)
+</Tip>
+
+## About the add-in
+
+The Dust add-in lets you talk to your Dust agents from a side panel in Excel, PowerPoint, and Word, without leaving your file.
+
+<Note>You need an active Dust account to use the add-in.</Note>
+
+## Choose an installation method
+
+| Method | Who it's for | Time |
+| --- | --- | --- |
+| [Admin deployment from Marketplace](#admin-deployment-from-marketplace) (recommended) | Microsoft 365 admins deploying Dust to a team or the whole organization | About 5 min, then 24 to 72 hours to reach everyone |
+| [Install it for yourself](#install-it-for-yourself) | Any user, if your organization allows Store add-ins | About 2 min |
+| [Manual install from the manifest](#manual-install-from-the-manifest) | Organizations where Microsoft Marketplace isn't available | 2 to 10 min |
+
+## Admin deployment from Marketplace
+
+**Required role:** Global admin, or Exchange admin with the Application Administrator role.
+
+<Steps>
+  <Step title="Open the Microsoft 365 admin center">
+    Go to [admin.microsoft.com](https://admin.microsoft.com).
+  </Step>
+  <Step title="Find the add-in">
+    Go to **Settings > Integrated apps**, then click **Get apps**. Search for **Dust suite for Office** and click **Get it now**.
+  </Step>
+  <Step title="Choose who gets it">
+    Select **Just me** to test first, then widen to your pilot group or the whole organization. Accept the permissions and finish the deployment.
+  </Step>
+  <Step title="Open Office">
+    Dust appears automatically in the ribbon of Excel, PowerPoint, and Word. Updates are deployed automatically.
+  </Step>
+</Steps>
+
+<Info>
+  Users need an active Exchange Online mailbox. Start with **Just me**, check that everything works, then deploy more widely.
+</Info>
+
+## Install it for yourself
+
+<Steps>
+  <Step title="Open an Office app">
+    Open a file in Excel, PowerPoint, or Word, on desktop or on the web.
+  </Step>
+  <Step title="Open the add-ins store">
+    Go to **Home > Add-ins**.
+  </Step>
+  <Step title="Add Dust">
+    Search for **Dust suite for Office** and click **Add**.
+  </Step>
+  <Step title="Sign in">
+    Click the **Dust** button in the ribbon and sign in with your Dust account.
+  </Step>
+</Steps>
+
+If Dust doesn't show up in the search results, your organization may block Store add-ins. Ask your Microsoft 365 admin to [deploy it from the admin center](#admin-deployment-from-marketplace).
+
+## Manual install from the manifest
+
+If Microsoft Marketplace isn't available in your organization, install the add-in from its manifest file. Download it from [https://addins.dust.tt/office/manifest.xml](https://addins.dust.tt/office/manifest.xml), then follow the method that fits your setup.
+
+<Tabs>
+  <Tab title="Admin (all platforms)">
+    **For:** a Global admin, or Exchange admin with the Application Administrator role. This deploys the add-in on Windows, Mac, and the web at once, and users have nothing to install.
+
+    <Steps>
+      <Step title="Open the Microsoft 365 admin center">
+        Go to [admin.microsoft.com](https://admin.microsoft.com).
+      </Step>
+      <Step title="Start a deployment">
+        Go to **Settings > Integrated apps**. Click the **Add-ins** link at the top of the page, then **Deploy Add-in > Next**.
+      </Step>
+      <Step title="Upload the manifest">
+        Choose **Upload custom apps** and upload the manifest file from your device.
+      </Step>
+      <Step title="Choose who gets it">
+        Select **Just me** to test, then **Specific users/groups** for a pilot group, or **Everyone**.
+      </Step>
+      <Step title="Confirm">
+        Confirm the deployment. The add-in appears automatically in Excel, PowerPoint, and Word. It can take up to 24 hours to reach everyone.
+      </Step>
+    </Steps>
+
+    <Info>
+      Users need an active Exchange Online mailbox and a recent version of Office (Windows Version 1704 or later, Mac 15.34 or later).
+    </Info>
+  </Tab>
+  <Tab title="Office on the web">
+    **For:** any user, no admin rights needed. This is the fastest way to try the add-in, including with a web-only license.
+
+    <Steps>
+      <Step title="Open an Office app on the web">
+        Open a file in Excel, PowerPoint, or Word at [office.com](https://www.office.com).
+      </Step>
+      <Step title="Upload the add-in">
+        Go to **Home > Add-ins**, then **More Settings > Upload My Add-in**.
+      </Step>
+      <Step title="Select the manifest">
+        Select the manifest file and confirm. The **Dust** button appears in the ribbon.
+      </Step>
+    </Steps>
+
+    This upload only installs the add-in for you. If your organization has disabled it, ask your Microsoft 365 admin to deploy the add-in.
+  </Tab>
+  <Tab title="Windows (desktop)">
+    **For:** a user or local IT team, without the admin center. Microsoft intends this method for testing. For a whole team, use admin deployment instead.
+
+    <Steps>
+      <Step title="Share a folder">
+        Share a folder (right-click > **Properties > Sharing**), note its network path (for example `\\server\addins`), and put the manifest file in it.
+      </Step>
+      <Step title="Open the Trust Center">
+        In Excel, PowerPoint, or Word, go to **File > Options > Trust Center > Trust Center Settings**.
+      </Step>
+      <Step title="Add the catalog">
+        In **Trusted Add-in Catalogs**, paste the folder path in **Catalog Url**, click **Add catalog**, check **Show in Menu**, then click **OK**.
+      </Step>
+      <Step title="Restart the app">
+        Close and reopen the Office app.
+      </Step>
+      <Step title="Add Dust">
+        Go to **Home > Add-ins > Advanced**, select **SHARED FOLDER** at the top of the dialog, then select **Dust**.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Mac (desktop)">
+    **For:** a Mac user without Microsoft 365 admin rights.
+
+    <Steps>
+      <Step title="Quit Office">
+        Quit Excel, PowerPoint, and Word.
+      </Step>
+      <Step title="Open the add-in folder">
+        In Finder, go to **Go > Go to Folder** and open the folder of each app you want. Create the `wef` folder if it doesn't exist.
+
+        ```
+        ~/Library/Containers/com.microsoft.Excel/Data/Documents/wef
+        ~/Library/Containers/com.microsoft.Powerpoint/Data/Documents/wef
+        ~/Library/Containers/com.microsoft.Word/Data/Documents/wef
+        ```
+      </Step>
+      <Step title="Copy the manifest">
+        Copy the manifest file into the `wef` folder of each app.
+      </Step>
+      <Step title="Add Dust">
+        Reopen the app and a document, go to **Home > Add-ins**, and select **Dust**.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## Which Microsoft license do you have?
+
+What's possible depends on your Microsoft subscription.
+
+| License | Admin deployment | Desktop Office | Office on the web | Notes |
+| --- | --- | --- | --- | --- |
+| Microsoft 365 Business Standard / Premium | Yes | Yes | Yes | The ideal case: admin deployment for everyone. |
+| Microsoft 365 / Office 365 E3, E5 | Yes | Yes | Yes | Admin deployment recommended. |
+| Microsoft 365 Business Basic, Office 365 E1, F3 | Yes | No | Yes | No desktop apps: Dust works in Office on the web. |
+| Education A1/A3/A5, Government G3/G5 | Yes | Partial | Yes | A1 is web only. |
+| Microsoft 365 Apps for business / enterprise | No | Yes | Yes | No Exchange Online included, so no admin deployment: each user adds the add-in themselves. |
+| Microsoft 365 Personal / Family | No | Yes | Yes | No admin center: add it yourself from Office. |
+| Office 2019 / 2021 / 2024 (perpetual license) | Partial | Yes | No | Individual install. Admin deployment only works if users also have Exchange Online. Some recent features may be missing. |
+
+## Using the add-in
+
+1. Open Excel, PowerPoint, or Word.
+2. Click **Dust** in the **Home** tab (or in **Add-ins**).
+3. Sign in with your Dust account.
+4. Pick an agent and send your first request.
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="The add-in doesn't show up after admin deployment">
+    Deployment can take 24 to 72 hours. Fully quit Office, reopen it, and check that you're signed in with your work account, which needs an Exchange Online mailbox.
+  </Accordion>
+  <Accordion title="I can't sign in to Dust">
+    Use the same account you use on Dust. If your company uses SSO, the sign-in window opens in your browser.
+  </Accordion>
+  <Accordion title="Dust doesn't show up in the add-in search">
+    Your organization may block Store add-ins. Ask your Microsoft 365 admin to deploy it from **Settings > Integrated apps**.
+  </Accordion>
+  <Accordion title="There's no Upload My Add-in button">
+    Your organization may block custom add-ins. Ask your Microsoft 365 admin to deploy the add-in.
+  </Accordion>
+  <Accordion title="Dust doesn't show up on Mac after copying the manifest">
+    Check that the `wef` folder is in the right location for each app, then restart the app.
+  </Accordion>
+</AccordionGroup>
