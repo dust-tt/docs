@@ -3,12 +3,75 @@ title: "Changelog"
 description: "New updates and improvements to Dust"
 ---
 
-<Update label="November 4th, 2026" tags={["Added"]} rss={{ title: "Manage SharePoint pages with your agents", description: "A new SharePoint Pages tool lets agents find, read, create, edit, and publish modern SharePoint pages through a dedicated Microsoft connection." }}>
-## Manage SharePoint pages with your agents
+<Update label="November 12th, 2026" tags={["Added"]} rss={{ title: "GPT-6.1 Terra now available", description: "OpenAI's GPT-6.1 Terra can now power your agents, with stronger coding and visual reasoning than GPT-5.6 Terra at lower token costs." }}>
+## GPT-6.1 Terra now available
 
-Your agents can now find, read, create, edit, and publish modern SharePoint pages, including their text blocks and sections, through the new SharePoint Pages tool. Keep intranet content up to date from a Dust conversation instead of switching to SharePoint.
+You can now select GPT-6.1 Terra in the model picker when configuring an agent. Compared to GPT-5.6 Terra, it is stronger at coding and visual reasoning, makes fewer factual errors, and has lower token costs.
 
-The tool uses its own Microsoft connection, so its permissions stay separate from your existing Microsoft Drive and Excel connections. To get started, connect your Microsoft account to the SharePoint Pages tool. Editing and publishing require write permissions on the target SharePoint site.
+Available in all workspaces. Existing agents keep their current model until you switch them.
+
+</Update>
+
+<Update label="November 12th, 2026" tags={["Added"]} rss={{ title: "Export agent and skill lists as CSV", description: "Workspace admins can download CSV files of their agents and skills, with instructions, editors, tools, spaces, and last edit for each." }}>
+## Export agent and skill lists as CSV
+
+Workspace admins can now download the lists of agents and skills in their workspace as CSV files from the Export tab in Analytics. Each file includes instructions, editors, tools, spaces, and last edit for every entry, so audits and clean-ups no longer mean opening each agent or skill in the builder.
+
+Exports only include what the downloading admin can open. Agents and skills in restricted spaces they are not a member of, and unpublished ones they do not edit, are left out.
+
+</Update>
+
+<Update label="November 10th, 2026" tags={["Added"]} rss={{ title: "Build apps with Frames", description: "Frames can now include server-side functions, stored databases, and public sharing, so your agent can build a working app from a description." }}>
+## Build apps with Frames
+
+A Frame can now be a [working app](/docs/user-documentation/agents/frames/apps), not just a page. Ask your agent to build one, and it can add server-side functions that call tools or run on a schedule, databases stored with the Frame, and public access for people outside your workspace who verify their email.
+
+On by default on credit-based pricing plans. Admins can turn it off, limit it by group, and see each Frame's cost on the Frames admin page. Functions cost 1 credit per second of runtime, plus tool calls at conversation rates.
+
+</Update>
+
+<Update label="November 6th, 2026" tags={["Added"]} rss={{ title: "Inference hooks with Datadog AI Guard", description: "Workspace admins can connect Datadog AI Guard to agent execution to monitor or block risky interactions at the checkpoints they choose." }}>
+## Inference hooks with Datadog AI Guard
+
+Workspace admins can now connect Datadog AI Guard to agent execution and evaluate interactions for prompt injection, jailbreaking, and sensitive data exfiltration. You pick which checkpoints run (the user's request, proposed tool calls, tool results, or the completed answer) and how much conversation context to send.
+
+Add a hook in Admin > Security > Inference Hooks using the [Datadog AI Guard setup guide](/docs/user-documentation/admins/admin-governance/inference-hooks/datadog-ai-guard). Monitor mode records findings without interrupting users; block mode stops the interaction when Datadog returns a denial. In private beta: email [inference-hooks@dust.com](mailto:inference-hooks@dust.com) or contact your Dust team for access.
+
+</Update>
+
+<Update label="November 6th, 2026" tags={["Added"]} rss={{ title: "Translate and edit content with DeepL", description: "DeepL's remote MCP server lets your agents translate text, documents, and images and refine writing with your glossaries and style rules." }}>
+## Translate and edit content with DeepL
+
+DeepL is now available as a remote MCP server in the Dust MCP catalog. Your agents can translate text, documents, and images, rephrase or correct writing, and apply your glossaries and style rules, so multilingual work happens in the conversation instead of a separate tool.
+
+To get started, an admin adds DeepL from Spaces > Tools, then you connect your DeepL account through OAuth. Agents only use the features your DeepL plan and permissions allow. Available in all workspaces.
+
+</Update>
+
+<Update label="November 6th, 2026" tags={["Improved"]} rss={{ title: "Member and shared automations on credit-priced plans", description: "Automations are now billed either to their owner's credits or to the workspace, with shared usage and API keys stopped at one monthly cap." }}>
+## Member and shared automations on credit-priced plans
+
+Every automation on a credit-priced plan now runs either on its owner's credits or on the workspace's. Member automations use "My credits" and stop at the owner's personal limits. Shared automations use "Workspace credits," like API calls and integrations, and stop at one monthly shared automation cap, the new name for the programmatic cap.
+
+API keys count against that cap too. If your workspace has no cap set, API keys and shared automations are blocked until an admin sets one in Credits > Settings > Shared automations.
+
+</Update>
+
+<Update label="November 5th, 2026" tags={["Added"]} rss={{ title: "DeepSeek V4.1 Flash for EU-only workspaces", description: "Workspaces that disable models served outside the EU can now use DeepSeek V4.1 Flash, served by Mistral in the EU." }}>
+## DeepSeek V4.1 Flash for EU-only workspaces
+
+DeepSeek V4.1 Flash is now available to workspaces that have disabled models served outside the EU. Mistral serves it in the EU, so you can select it from the model picker for your agents while keeping that restriction in place.
+
+In the global region, Mistral now also serves DeepSeek V4.1 Flash in place of Fireworks, for faster responses. Both changes are live now.
+
+</Update>
+
+<Update label="November 3rd, 2026" tags={["Added"]} rss={{ title: "Connect your agents to Carta", description: "Carta's MCP server lets your agents fetch data from your Carta accounts, chart cap tables, and run cap table health checks." }}>
+## Connect your agents to Carta
+
+Agents can now use Carta's MCP server to list your Carta accounts and contexts, fetch data, chart a cap table, and run a cap table health check, directly from a conversation. All tools run without interruption, except switching the active Carta context, which asks for your approval first.
+
+To get started, an admin adds Carta from Spaces > Tools, then you sign in with your Carta account. Agents only reach the data your Carta permissions allow. Available in all workspaces.
 
 </Update>
 
