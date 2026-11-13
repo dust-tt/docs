@@ -41,3 +41,13 @@ Controls whether members can manually add files or linked data to a Pod's Files 
 </Info>
 
 Both settings default to the permissive option, so existing Pods and member workflows are unaffected unless an admin explicitly changes them.
+
+***
+
+## Access a Restricted Pod as admin
+
+When a workspace admin opens a Restricted Pod they're not a member of, Dust shows a blocked page that hides the Pod's name and content. To open the Pod, click **Access as admin** on that page.
+
+You join the Pod as a **Member**, not an Editor. On plans with [audit logs](/docs/user-documentation/admins/audit-logs/audit-logs), the join is recorded as a `project.admin_access_granted` event.
+
+Only workspace admins see the **Access as admin** button.

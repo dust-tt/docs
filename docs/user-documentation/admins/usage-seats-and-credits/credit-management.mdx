@@ -85,7 +85,7 @@ Admins and group managers with access can view members’ personal spend limits 
 A **group budget** is one credit amount per billing cycle that all members of a group share. Everything the members spend together counts against it.
 
 <Info>
-  Group budgets are in beta and available on the Enterprise Pooled plan. To enable them on your workspace, contact us at [support@dust.tt](mailto:support@dust.tt). They don't appear on seat-based plans (Business and Enterprise Seat-based).
+  Group budgets are available on the Enterprise Pooled plan. A workspace admin turns them on from **Admin > Credits**: see [Turn group budgets on or off](#turn-group-budgets-on-or-off). They aren't available on seat-based plans (Business and Enterprise Seat-based).
 </Info>
 
 A group budget works alongside the group's **Limit per member**, and both apply:
@@ -119,11 +119,31 @@ The **Group budget** column of the **Members** table shows which budget each mem
 
 ### Who can manage group budgets
 
-| Role | Group budget | Limit per member | Order |
-| --- | --- | --- | --- |
-| Workspace admin or manager | Set, change, and remove | Set, change, and remove | Change |
-| [Group manager](/docs/user-documentation/admins/admin-governance/group-managers) | View, for the groups they manage | Set, change, and remove, for the groups they manage | No access |
-| Other members | No access | No access | No access |
+| Role | Turn group budgets on or off | Group budget | Limit per member | Order |
+| --- | --- | --- | --- | --- |
+| Workspace admin | Yes | Set, change, and remove | Set, change, and remove | Change |
+| Workspace manager | No access | Set, change, and remove | Set, change, and remove | Change |
+| [Group manager](/docs/user-documentation/admins/admin-governance/group-managers) | No access | View, for the groups they manage | Set, change, and remove, for the groups they manage | No access |
+| Other members | No access | No access | No access | No access |
+
+### Turn group budgets on or off
+
+Group budgets are off until a workspace admin turns them on.
+
+1. Go to **Admin > Credits** and open the **Settings** tab.
+2. Under **Spending policies**, turn on **Group budgets**.
+
+On seat-based plans, the setting is locked.
+
+When you turn group budgets off:
+
+* Each group keeps its budget and its place in the order, but no budget is enforced. Members blocked by a group budget can send messages again.
+* What members spend while group budgets are off doesn't count toward any budget.
+* The **Group budget** columns and the group budget settings of each group are hidden until you turn group budgets back on.
+
+If you turn group budgets back on during the same billing cycle, each budget resumes from what its members had spent before you turned them off.
+
+Turning group budgets on or off is recorded in the [audit logs](/docs/user-documentation/admins/audit-logs/audit-logs).
 
 ### Set a group budget
 
@@ -158,9 +178,9 @@ Programmatic usage is not tied to any individual user. It draws exclusively from
 
 There is no free credit baseline for programmatic usage.
 
-**Monthly programmatic cap:**
+**Shared automation cap:**
 
-Admins can configure a monthly cap on programmatic credit consumption from **Admin > Credits**, **Settings** tab. An email notification is sent when 80% of the cap is reached.
+Admins can set a monthly cap, the **Shared automation cap**, from **Admin > Credits**, **Settings** tab. It covers automations charged to workspace credits, API calls, and integrations such as Zapier, Make, n8n, or Google Sheets. An email notification is sent when 80% of the cap is reached.
 
 ## Tracking usage
 
@@ -179,10 +199,17 @@ Each top-up is at least 100 credits, and there is a maximum per billing cycle. T
 ### Spending policies
 
 * **Default workspace credit pool limit**: sets the default amount of workspace pool credits each member can consume. This is added on top of each seat's built-in allowance and can be overridden per member in the Members table. Set to 0 to remove pool access for all members by default.
+* **Group budgets**: when enabled, workspace admins and managers can set a credit budget that a group's members share each billing cycle. Turning it off keeps the budgets but stops enforcing them. Available on the Enterprise Pooled plan. See [Group budgets](#group-budgets).
 * **Upgrade request**: when enabled, members who reach their credit limit can request an upgrade instead of being immediately blocked. Workspace admins and managers can review and act on those requests from the Requests tab in the Members section.
 * **Auto-upgrade seats**: when enabled, members who reach their credit limit are automatically moved to the next seat tier (Free  Pro, Pro  Max) instead of being blocked. This may increase subscription costs.
 
 ### Programmatic usage
+
+On credit-priced plans, this section is called **Shared automations**:
+
+* **Shared automation cap**: sets the maximum credits per month for shared automations, meaning automations charged to workspace credits, API calls, and integrations such as Zapier, Make, n8n, or Google Sheets. Set to 0 to block all shared automations.
+
+On non-credit-priced plans, the section keeps the **Programmatic usage** name:
 
 * **Programmatic monthly limit**: sets the maximum credits allowed for programmatic usage per month. Set to 0 to block all programmatic access.
 

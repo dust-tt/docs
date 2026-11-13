@@ -30,6 +30,7 @@
         "group": "Use cases",
         "pages": [
           "docs/user-documentation/getting-started/intro-to-dust",
+          "docs/user-documentation/getting-started/homepage",
           {
             "group": "Dust Rollout Guide",
             "root": "docs/user-documentation/getting-started/dust-rollout-guide/index",
@@ -270,6 +271,7 @@
             "group": "Frames",
             "pages": [
               "docs/user-documentation/agents/frames/overview",
+              "docs/user-documentation/agents/frames/apps",
               "docs/user-documentation/agents/frames/white-labeled-frames"
             ]
           },
@@ -347,6 +349,13 @@
               },
               "docs/user-documentation/admins/admin-governance/users-and-groups-provisioning",
               "docs/user-documentation/admins/admin-governance/merging-user-accounts"
+            ]
+          },
+          {
+            "group": "Inference hooks",
+            "pages": [
+              "docs/user-documentation/admins/admin-governance/inference-hooks",
+              "docs/user-documentation/admins/admin-governance/inference-hooks/datadog-ai-guard"
             ]
           },
           "docs/user-documentation/admins/spaces-management",
