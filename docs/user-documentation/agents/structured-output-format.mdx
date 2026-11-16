@@ -5,10 +5,10 @@ title: "Structured output format"
 
 ## How to configure
 
-* Open the agent builder
-* Click Advanced > Structured Response Format
-* Paste a valid JSON schema
-* Click Save
+1. Open the agent in Agent Builder.
+2. In the **Instructions** section, use the model picker to choose a specific model that supports structured output.
+3. Click **JSON response**.
+4. Paste a valid JSON schema, then save.
 
 ## Schema format
 
@@ -61,10 +61,11 @@ A schema to extract city information:
 
 ## Supported models
 
-Not all models support structured output. The option only appears in the Advanced menu when the selected model supports it.
+Not all models support structured output. The **JSON response** button is only enabled when the agent uses a specific model that supports it.
 
-Model supporting it:
+All specific models currently offered in the model picker support structured output, except:
 
-* Chat GPT 5 and following versions
-* Sonnet and Haiku starting with version 4.5
-* Gemini 3.0 and following versions
+* Mistral Small
+* Mistral Codestral
+
+Auto models (**Basic**, **Standard**, and **Premium**) don't support structured output. Pick a specific model to use it.

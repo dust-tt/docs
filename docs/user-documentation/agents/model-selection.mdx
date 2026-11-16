@@ -26,9 +26,9 @@ Basic is the lower-cost option for well-defined, repetitive, and high-volume wor
 
 | Order | Model | Reasoning effort |
 | --- | --- | --- |
-| 1 | GPT 5.6 Luna | Light |
-| 2 | Claude Sonnet 5.5 | Light |
-| 3 | Gemini 3.8 Flash | Light |
+| 1 | GPT 5.6 Luna | Low |
+| 2 | Claude Sonnet 5.5 | Low |
+| 3 | Gemini 3.8 Flash | Low |
 | 4 | Gemini 3.5 Flash Lite | Medium |
 | 5 | Mistral Small | None |
 
@@ -40,10 +40,13 @@ Standard is the default for most everyday work.
 | --- | --- | --- |
 | 1 | GPT 5.6 Luna | High |
 | 2 | Claude Sonnet 5.5 | Medium |
-| 3 | Gemini 3.1 Pro | Light |
-| 4 | Gemini 3.5 Flash Lite | Light |
-| 5 | Mistral Large 4 (Preview) | None |
+| 3 | Gemini 3.1 Pro (Preview) | Low |
+| 4 | Gemini 3.5 Flash Lite | Low |
+| 5 | Mistral Large 4 | Low |
 | 6 | Mistral Small | None |
+| 7 | Grok 4.7 | Medium |
+| 8 | Grok 3 Mini | None |
+| 9 | Claude Sonnet 5.5 | Low |
 
 ### Premium
 
@@ -53,8 +56,11 @@ Premium is for demanding work that benefits from stronger reasoning or more capa
 | --- | --- | --- |
 | 1 | Claude Opus 5.5 | Medium |
 | 2 | GPT 6.1 Sol | xHigh |
-| 3 | Gemini 3.1 Pro | Medium |
-| 4 | Mistral Large 4 (Preview) | None |
+| 3 | Gemini 3.1 Pro (Preview) | Medium |
+| 4 | Mistral Large 4 | Low |
+| 5 | Claude Sonnet 5.5 | Low |
+
+The last entry of Standard and Premium is a Basic-tier fallback, so members whose [model access tier](/docs/user-documentation/admins/usage-seats-and-credits/model-access-tiers) is capped below the other candidates can still use these auto models.
 
 The lists and their order can change as Dust benchmarks models, providers change their pricing or reliability, and new models become available. If a candidate is unavailable because of your region, plan, provider access, or administrator settings, Dust continues to the next available candidate on that list.
 
@@ -161,7 +167,7 @@ The `/m` menu shows the model's reasoning effort as a chip. It shows a **none** 
 
 Only the levels a model supports are selectable. Reasoning effort also affects credit consumption and the [model access tier](/docs/user-documentation/admins/usage-seats-and-credits/model-access-tiers) for that model. The same model can appear in different tiers at different reasoning efforts.
 
-Reasoning effort is part of each auto model entry, so the reasoning-effort control does not apply to **Basic**, **Standard**, or **Premium**. For example, GPT 5.6 Luna appears in Basic at Light effort and in Standard at High effort.
+Reasoning effort is part of each auto model entry, so the reasoning-effort control does not apply to **Basic**, **Standard**, or **Premium**. For example, GPT 5.6 Luna appears in Basic at Low effort and in Standard at High effort.
 
 ## Availability
 
@@ -214,7 +220,7 @@ Yes, if your workspace runs in the EU region (`https://eu.dust.tt`) on a credit-
 {
   "modelSelection": {
     "providerId": "anthropic",
-    "modelId": "claude-sonnet-4-20250514",
+    "modelId": "claude-sonnet-5-5",
     "reasoningEffort": "medium"
   }
 }
