@@ -42,6 +42,8 @@ The Gmail tool provides the following capabilities:
 
 ** Note:**`send_mail` is disabled by default on existing workspaces. Admins must manually enable it in **Spaces > Tools > Gmail**. It is enabled by default on new Gmail tool installations.
 
+**Gmail signature:** `create_draft` and `send_mail` can add your Gmail signature at the end of the email. Ask the agent to include your signature. The agent uses the signature of the address the email is sent from: a send-as alias if the agent uses one, or your default Gmail address otherwise. The approval preview shows the email without the signature, because Dust adds it after you approve.
+
 Gmail tools use specific approval levels ("stakes") to control automation:
 
 - **High stake** (e.g., `send_mail`, `delete_draft`): Requires explicit user approval every time the tool is used
