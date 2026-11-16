@@ -3,6 +3,15 @@ title: "Changelog"
 description: "New updates and improvements to Dust"
 ---
 
+<Update label="November 16th, 2026" tags={["Added"]} rss={{ title: "Download a Frame's database", description: "Each database row in a Frame's Code view now has a download button that saves a SQLite snapshot you can open in any SQLite tool." }}>
+## Download a Frame's database
+
+A Frame's Code view now has a download button on each database row. It saves the database as a standard SQLite file (.db), a consistent snapshot of that moment, so it opens in any SQLite tool (DB Browser for SQLite, sqlite3, DuckDB) even while the Frame keeps running.
+
+Use it to back up your data, analyze it in your own tools, or share it with a teammate. Available to anyone who can edit a Frame's source in workspaces with Frames enabled. Downloads are recorded in your workspace's audit logs.
+
+</Update>
+
 <Update label="November 13th, 2026" tags={["Added"]} rss={{ title: "Gemini 4 Carbon and Hydrogen now available", description: "Google's newest Gemini 4 models can now power your agents in every workspace, in both US and EU regions." }}>
 ## Gemini 4 Carbon and Hydrogen now available
 
