@@ -93,12 +93,14 @@ Connectivity to the custom MCP server can be tested using the official [MCP insp
 
 If you operate a third-party MCP server and want to support Dust users connecting to it, whitelist the following Dust callback URLs in your OAuth authorization server. This enables the OAuth authentication flow when customers add your server in Dust, and is recommended over Bearer token authentication for a better user experience. It may also be required to get your server listed on the Dust integrations page or in the Dust app.
 
-Register the following callback URI for every Dust workspace, including EU workspaces. Workspaces that previously registered a region-specific `eu.dust.tt` callback must add the `app.dust.tt` callback because the old URI no longer matches.
+Register all of the following callback URIs for every Dust workspace, including EU workspaces. This includes workspaces that previously registered a region-specific `eu.dust.tt` callback.
 
 **OAuth (with Dynamic Client Registration):**
 
 | URL |
 | --- |
+| `https://dust.tt/oauth/mcp/finalize` |
+| `https://eu.dust.tt/oauth/mcp/finalize` |
 | `https://app.dust.tt/oauth/mcp/finalize` |
 
 **Static OAuth:**
