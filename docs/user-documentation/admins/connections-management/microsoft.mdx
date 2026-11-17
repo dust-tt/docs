@@ -63,14 +63,23 @@ You can also use a [Service Principal ](https://learn.microsoft.com/en-us/entra/
 
 Step 1 : Create an App Registration in Entra with the following **Application** permissions on the **Microsoft Graph API**
 
+<Warning>
+  A Service Principal connection signs in as the app itself (OAuth client credentials), not as a user. It only uses **Application** permissions with admin consent. **Delegated** permissions are ignored.
+</Warning>
+
 Use the following URL as redirect URI : [https://app.dust.tt/oauth/microsoft/finalize](https://app.dust.tt/oauth/microsoft/finalize) 
 
 | **API name** | **Claim value** | **Permission** | **Type** | **Granted through** | **Granted by** | Comment |
 | --- | --- | --- | --- | --- | --- | :-- |
-| Microsoft Graph | Files.Read.All | Read all files that user can a... | **Delegated** | Admin consent | An administrator | For the connector to access files to ingest |
+| Microsoft Graph | Files.Read.All | Read files in all site collecti... | **Application** | Admin consent | An administrator | For the connector to access files to ingest. Skip it if you use `Sites.Selected` |
 | Microsoft Graph | Sites.Read.All <br />or<br />Sites.Selected | Read items in all site collecti... | **Application** | Admin consent | An administrator | For the connector to access Sharepoint sites to ingest |
-| Microsoft Graph | User.Read | Sign in and read user profile | **Delegated** | Admin consent | An administrator | For the connector to log in as the service account |
-| Microsoft Graph | offline\_access | Maintain access to data you... | **Delegated** | Admin consent | An administrator | For the refresh of the connection after timing out |
+| Microsoft Graph | User.Read | Sign in and read user profile | **Delegated** | Admin consent | An administrator | Not needed for a Service Principal connection, which has no user sign-in. Only used when you connect with a Microsoft account instead (method above), where Dust requests it at sign-in |
+| Microsoft Graph | offline\_access | Maintain access to data you... | **Delegated** | Admin consent | An administrator | Not needed for a Service Principal connection: Dust gets a new token with the client secret when the old one expires. Only used when you connect with a Microsoft account instead, to refresh the connection |
+
+Choose one of these two setups:
+
+- **All sites**: `Files.Read.All` and `Sites.Read.All`.
+- **Selected sites only**: `Sites.Selected` alone, without `Files.Read.All`, which would give the app access to files in every site. Then grant the app access to each site (see the NB below).
 
 And Grant admin consent for these permissions
 
