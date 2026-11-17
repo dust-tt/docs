@@ -7,6 +7,27 @@ Open **Manage Skills** to browse skills, review their usage, and manage the skil
 
 **From existing** lets you import skills from a GitHub repository or upload a `.zip` or `.skill` file. Select the detected skills you want to add, then click **Import**. Creating and importing skills requires permission to create skills.
 
+## Skill archive format
+
+When you import skills from a GitHub repository, upload a `.zip` or `.skill` file in **Manage Skills**, or call the [Import skills API](/api-reference/skills/import-skills-from-uploaded-files) (`POST /api/v1/w/{wId}/skills`), Dust detects skills using the [Agent Skills specification](https://agentskills.io/specification).
+
+Each skill lives in its own directory (or at the archive root for a single-skill archive) and must contain a `SKILL.md` file with YAML frontmatter and a Markdown body:
+
+```markdown
+---
+name: My Skill Name
+description: When and why an agent should enable this skill.
+---
+
+Instructions and guidelines for the skill go here.
+```
+
+- **`name`** *(required, up to 256 characters)*: The skill name. When importing with `onConflict=override`, Dust matches existing skills by name.
+- **`description`** *(required)*: Populates both `agentFacingDescription` and `userFacingDescription` when the skill is created or updated via import. Other YAML frontmatter keys are ignored.
+- **Markdown body** *(required)*: The content after the closing `---` line becomes the skill's `instructions`.
+- **Attachment files** *(optional)*: Other files inside the skill directory are attached to the skill if their file extension matches a supported format (images, PDFs, Office documents, CSV/TSV/Excel spreadsheets, plain text/Markdown, common code and script files including `.py`, `.js`, `.mjs`, `.cjs`, `.jsx`, `.ts`, `.mts`, `.cts`, `.tsx`, `.sh`, `.sql`, `.json`, `.yaml`, `.html`, `.css`, `.xml`, and web fonts). Unrecognized file extensions are skipped during detection; on the API, compare the returned `fileAttachments` array on each skill object against your archive entries to verify which files were attached.
+- **Archive limits**: Uploaded ZIP archives can be up to 50 MB compressed, 100 MB uncompressed, and 1,000 entries.
+
 ## Search and browse skills
 
 Use the search bar to find skills by name or description. Choose a tab to browse:
