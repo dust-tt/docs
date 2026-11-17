@@ -1,0 +1,87 @@
+---
+title: "Fuse"
+---
+
+
+## Overview
+
+Fuse MCP is a hosted Model Context Protocol server by [Fuse](https://fuseai.com), a B2B sales platform. It lets agents find people and companies, enrich contacts with work emails and phone numbers, build lists, track buying signals, research accounts, and draft email and LinkedIn campaigns in your Fuse workspace. Authentication is handled via OAuth, so actions are performed as the connected user.
+
+## Connection Setup (Admin)
+
+Set up Fuse as a Remote MCP Server in Dust.
+
+1. In Dust, go to **Spaces > Tools** and click **Add Tool**.
+2. Click **Add MCP Server**.
+3. In the **MCP server URL** field, enter: `https://mcp.fuseai.com`
+4. For **Authentication**, choose **Automatic (OAuth)** and sign in with your Fuse account to complete the OAuth authorization flow.
+5. After the sync finishes, the Fuse toolset will appear and can be added to spaces and agents.
+
+You need a Fuse account to connect. A free plan is available at [fuseai.com](https://fuseai.com).
+
+## Available Tools
+
+The Fuse MCP exposes several hundred tools grouped by area. The tables below list a selection. For the full, up-to-date tool list, see [Fuse's MCP tool reference](https://docs.fuseai.com/mcp/tool-reference).
+
+### Prospect search & lists
+
+| Tool | Description |
+| --- | --- |
+| `create_prospect_search_filters_tool` | Turn a natural-language description into people or company search filters. |
+| `search_people` | Search the Fuse people database and return matching people. |
+| `search_companies` | Search the Fuse company database and return matching companies. |
+| `save_people_to_list` | Save people found by a search, or named in the conversation, to a list. |
+| `list_prospect_lists_tool` | List your prospect lists, including system lists such as website visitors. |
+| `get_prospect_list_rows_tool` | Read the rows of a list. |
+
+### Enrichment
+
+| Tool | Description |
+| --- | --- |
+| `bulk_enrichment_tool` | Enrich the contacts on a list with work emails and phone numbers. |
+
+### Signals
+
+| Tool | Description |
+| --- | --- |
+| `create_funding_announcement_monitor` | Create a signal agent that tracks companies announcing funding rounds. |
+| `create_person_starting_new_job_monitor` | Create a signal agent that detects people who recently changed jobs. |
+| `list_signal_monitors` | List your signal agents. |
+
+### Research
+
+| Tool | Description |
+| --- | --- |
+| `lead_researcher_tool` | Research contacts and companies on the web and save them to a list. |
+| `deep_research_start` | Start a Deep Research run, which produces a report over several minutes. |
+| `deep_research_status` | Check a Deep Research run and return the report when it completes. |
+
+### Campaigns & CRM
+
+| Tool | Description |
+| --- | --- |
+| `initialize_campaign_tool` | Create a draft outreach campaign. |
+| `update_sequence_tool` | Edit the steps of a draft campaign sequence. |
+| `push_crm_contacts` | Push contacts from Fuse to your connected CRM. |
+
+### Workspace
+
+| Tool | Description |
+| --- | --- |
+| `get_user_info` | Return information about the connected user and their Fuse workspace. |
+| `get_credits_balance` | Return your remaining Fuse credits. |
+
+## Security & Approvals
+
+Configure tool stakes in **Tools Management** to match your workspace policy:
+
+- **Read operations** (search, list, get) are typically low-risk and can be set to **Low stake** or **Never ask**. Note that searches, enrichment, and research spend Fuse credits. See [Fuse's tools and limits](https://docs.fuseai.com/mcp/tools) for costs.
+- **Write operations** (saving to lists, creating signal agents, editing campaigns, pushing to your CRM, sending email or LinkedIn messages) change data in Fuse or your CRM and should be set to **High stake** so users approve calls before they execute.
+
+Campaigns created through Fuse MCP are drafts. Nothing is sent until a campaign is launched.
+
+## Troubleshooting
+
+- If the OAuth flow fails or the Fuse tools don't appear after setup, re-run the **Add MCP Server** flow from **Spaces > Tools > Add Tool > Add MCP Server**.
+- If tool calls return an insufficient credits error, add credits in your Fuse workspace. Every tool call needs a balance of at least 100 credits.
+- For help connecting, see [Fuse's MCP documentation](https://docs.fuseai.com/mcp/connect) or contact dev@tryfuse.ai.
