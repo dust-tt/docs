@@ -10,7 +10,7 @@ In Dust, users and AI agents work together in shared conversations through menti
 | Use Case                                     | Mission                                                                                                                     |
 | -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | Mention colleagues in conversations          | Bring team members into a conversation by `@mentioning` them, automatically adding them as participants and notifying them. |
-| Share conversations with your team           | Share a conversation with colleagues so they can join, contribute, and work alongside you and the agents.                   |
+| Share conversations with your team           | Share a conversation with colleagues, groups, or your whole workspace so they can read it and work alongside you.           |
 | Agent escalation to users                    | Configure agents to identify when human input is needed and mention the right person to handle it.                          |
 | Track conversations requiring your attention | Use your inbox to see unread conversations and those requiring your action, so nothing falls through the cracks.            |
 
@@ -29,13 +29,22 @@ Bring team members into a conversation by `@mentioning` them. When you mention s
 
 ## 2. Share Conversations with Your Team
 
-Share a conversation so colleagues can join and collaborate with you and the agents. Shared conversations allow multiple people to interact with the same agents and see the full conversation history.
+Share a conversation so colleagues can read it and collaborate with you and the agents. People you share it with see the full conversation history and can reply.
 
 **How to share:**
 
 1. Go to the conversation you want to share
-2. Click **'Copy the link'** at the top right
-3. Share the link with your colleagues, to let them access the conversation and participate
+2. Click **Share** at the top right
+3. Under **Add people**, search for colleagues or groups, or pick **Everyone at** your workspace
+4. Optionally, click **Copy link** to copy the conversation's URL and paste it wherever you want to point people to it
+
+The link only opens the conversation for people it's shared with. Anyone else sees "This conversation hasn't been shared with you yet" and needs to ask for access.
+
+**Managing access:**
+
+- **People with access** lists everyone the conversation is shared with. Use the remove button next to a person or group to take their access away.
+- **Leaving** a conversation removes your own access, unless it's still shared with a group you belong to or with everyone.
+- Conversations in a Pod are shared with the Pod's members. Their access is managed from the Pod, not from the conversation.
 
 **Tip:** Combine sharing with mentions to notify specific people that a conversation needs their attention.
 
@@ -85,26 +94,27 @@ Understanding who can see your conversations helps you work confidently and shar
 | Scenario                  | Who Can Access                                                                                                         |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | **Standard conversation** | Only you, unless you share it or mention someone                                                                       |
-| **Shared conversation**   | You + anyone you've shared the link with who joins (they must also have access to the agents used in the conversation) |
+| **Shared conversation**   | You, plus the people and groups you shared it with (or everyone in the workspace)                                      |
 | **Mentioned colleagues**  | You are asked to confirm before they are added. Once confirmed, they see the full history and can reply               |
+| **Pod conversation**      | The Pod's members                                                                                                     |
 
 ### Key Points
 
 - **Your conversations are private by default.** When you start a conversation, only you can see it.
-- **Sharing requires agent access.** When you share a conversation link, colleagues can only join if they have access to the agents used in the conversation.
-- **Mentions require your approval.** When an agent mentions a colleague, you'll see a prompt asking "Do you want to invite them?". They are only added once you approve.
-- **Participants list.** You can see who has access to a conversation by viewing the participants.
-
-  **Tip:** When sharing a conversation that uses agents from restricted Spaces, make sure the person you're sharing with has access to those Spaces; otherwise they won't be able to join.
+- **Sharing a link isn't enough.** A colleague can only open the conversation once it's shared with them, directly, through a group, or with everyone.
+- **Sharing gives access to the whole conversation.** People you share it with see everything in it.
+- **Mentions require your approval.** When an agent mentions a colleague, you'll see a prompt asking "Do you want to invite them?". They are only added once you approve, and get access to the conversation.
+- **See who has access.** Open **Share** to see everyone the conversation is shared with.
 
 ### What Admins Can See
 
-Workspace administrators can view aggregate usage analytics (like message counts and active users) but **cannot read the content of your conversations**. Your conversation content remains private.
+Workspace administrators can view aggregate usage analytics (like message counts and active users). They can't open a conversation that isn't shared with them, unless they use **Access as admin**, which gives them access and is recorded in the workspace's audit log.
 
 ## Best Practices
 
 **For users:**
 
+- Share with the smallest group that needs the conversation
 - Use mentions sparingly to avoid notification fatigue
 - Mention specific people when their expertise is genuinely needed
 - Check your inbox regularly for conversations requiring your attention
