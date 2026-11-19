@@ -13,6 +13,8 @@ The connection between Dust and Google Drive is subject to the initial user's pe
 
 You can sync Dust with Shared Google Drive to enable access to documents, spreadsheets, and presentations within your workspace. Only the content within the scope of the admin's Drive permissions will be available in Dust. The admin can granularly select the exact data they want to make available to Dust.
 
+Google Drive connections sync files through the folders selected in the connection settings. Supported files in those folders and their subfolders are synced, but individual files cannot be selected separately. If a file is directly in My Drive or otherwise outside a selected folder, move it into a selected folder or edit the connection's permissions to add the relevant folder. After changing the selected folders, allow a few minutes for the next sync.
+
 Dust doesn't take into account files with more than 2MB of extracted text. Supported files include GDocs, GSlides, docx, pptx, .txt and .md files and PDFs that contain text.
 
 You can activate the PDF text indexing at Spaces > Connected data > Manage Google Drive
