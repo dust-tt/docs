@@ -5,16 +5,16 @@ hidden: true
 ---
 
 <Tip>
-  **Dust suite for Office is available on Microsoft Marketplace.** One add-in
-  works in Excel, PowerPoint, and Word, on desktop and on the web:
-  [View on Marketplace](https://marketplace.microsoft.com/en-us/product/WA200013110)
+  **Dust suite for Office is available on Microsoft Marketplace.** One add-in works in Excel, PowerPoint, and Word, on desktop and on the web: [View on Marketplace](https://marketplace.microsoft.com/en-us/product/WA200013110)
 </Tip>
 
 ## About the add-in
 
 The Dust add-in lets you talk to your Dust agents from a side panel in Excel, PowerPoint, and Word, without leaving your file.
 
-<Note>You need an active Dust account to use the add-in.</Note>
+<Note>
+  You need an active Dust account to use the add-in.
+</Note>
 
 ## Choose an installation method
 
@@ -54,7 +54,15 @@ The Dust add-in lets you talk to your Dust agents from a side panel in Excel, Po
     Open a file in Excel, PowerPoint, or Word, on desktop or on the web.
   </Step>
   <Step title="Open the add-ins store">
-    Go to **Home > Add-ins**.
+    In the top ribbon, to **Home > Add-ins**.
+
+    _(See screenshots below of the Word, Powerpoint, and Excel Home tabs respectively)_
+
+    ![Image](/images/image-4.png "Image")
+
+    ![Image](/images/image-3.png "Image")
+
+    ![Image](/images/image-2.png "Image")
   </Step>
   <Step title="Add Dust">
     Search for **Dust suite for Office** and click **Add**.
@@ -144,7 +152,7 @@ If Microsoft Marketplace isn't available in your organization, install the add-i
       <Step title="Open the add-in folder">
         In Finder, go to **Go > Go to Folder** and open the folder of each app you want. Create the `wef` folder if it doesn't exist.
 
-        ```
+        ```text
         ~/Library/Containers/com.microsoft.Excel/Data/Documents/wef
         ~/Library/Containers/com.microsoft.Powerpoint/Data/Documents/wef
         ~/Library/Containers/com.microsoft.Word/Data/Documents/wef
@@ -187,15 +195,19 @@ What's possible depends on your Microsoft subscription.
   <Accordion title="The add-in doesn't show up after admin deployment">
     Deployment can take 24 to 72 hours. Fully quit Office, reopen it, and check that you're signed in with your work account, which needs an Exchange Online mailbox.
   </Accordion>
+
   <Accordion title="I can't sign in to Dust">
     Use the same account you use on Dust. If your company uses SSO, the sign-in window opens in your browser.
   </Accordion>
+
   <Accordion title="Dust doesn't show up in the add-in search">
     Your organization may block Store add-ins. Ask your Microsoft 365 admin to deploy it from **Settings > Integrated apps**.
   </Accordion>
+
   <Accordion title="There's no Upload My Add-in button">
     Your organization may block custom add-ins. Ask your Microsoft 365 admin to deploy the add-in.
   </Accordion>
+
   <Accordion title="Dust doesn't show up on Mac after copying the manifest">
     Check that the `wef` folder is in the right location for each app, then restart the app.
   </Accordion>
