@@ -39,7 +39,7 @@ Dust modal to select the data you want to sync with your Dust workspace.
 
 * Admins should either designate a single individual to manage Drive permissions for Dust or utilize a virtual user (e.g., [dust@workspace.com](mailto:dust@workspace.com)) for consistent access management. This approach avoids unintentional permission resets and data disconnections.
 
-*  **The email address used to manage permissions should have edition & download rights** on the desired documents to allow them to be read by Dust.
+*  **The email address used to manage permissions should have edition & download rights** on the desired documents to allow them to be read by Dust.
 
 * Sometimes, downloads are blocked for specific documents. **If you don’t see a document in your Gdrive Data Source tree**, you can check that it is **downloadable** by following the path described in this toggle.
 
@@ -87,7 +87,19 @@ Google Drive's deletion runs during the data sync process, which can take a few 
 
 There's a file size limit of 128 MB for Google Spreadsheets and PDFs.
 
-Dust supports up to 50,000 rows per Google sheet. If your spreadsheet has multiple sheets, each sheet is processed individually, so you can have up to 50,000 rows per sheet.
+Dust syncs each tab of a spreadsheet as a separate table, with these limits:
+
+- Up to 50,000 rows per tab.
+- Up to 512 columns per tab.
+- Up to 50 tabs per spreadsheet. A spreadsheet with more tabs isn't synced.
+
+A tab over the row or column limit isn't synced, while the other tabs of the same spreadsheet keep syncing. No error is shown. To sync the tab again, reduce its size: for example, list periods as rows instead of columns, or move older data to a separate tab.
+
+### Tabs that aren't synced
+
+Dust only syncs regular tabs. Connected Sheets tabs (linked live to BigQuery) and tabs that only contain a chart aren't synced, and a new sync doesn't change this. To use Connected Sheets data in Dust, copy the results into a regular tab, or set up a [BigQuery connection](/docs/user-documentation/admins/connections-management/bigquery).
+
+If one tab is out of date while the other tabs of the spreadsheet sync, first check its number of rows and columns, then check whether it's a Connected Sheets tab.
 
 
 ## OCR
