@@ -56,6 +56,14 @@ Click on **Create**.
 
 Go to **Spaces** > **Tools** in your Dust workspace, click **Add Tools**, and select Salesforce. Fill in your Salesforce Instance URL and the Client ID & Secret generated from your External App.
 
+For the **Instance URL**, use your org's My Domain URL, for example `https://acme.my.salesforce.com`. You can find it in Salesforce Setup, under **My Domain**. The URL must:
+
+- Start with `https://` and end with `.salesforce.com`.
+- Have nothing after the domain: no path, and no `/` at the end.
+- Be in lowercase, with no spaces before or after it.
+
+Don't use the address in your browser bar when you're in Salesforce (it ends with `.lightning.force.com`), or a link to a Setup page. If you can't save the form, type the URL again by hand.
+
 Then choose the **Credentials Type**:
 
 - **Personal** means that each user using the Salesforce tool will be required to log in to Salesforce first. We will use the user credential to execute the queries, meaning permissions defined on Salesforce are respected.
