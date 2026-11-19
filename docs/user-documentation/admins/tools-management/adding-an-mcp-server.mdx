@@ -50,6 +50,18 @@ The **Static OAuth** option is used in the most secure scenarios where a custom 
 
 The process is slightly different from platform to platform, please refer to the vendor's documentation
 
+### If automatic setup fails
+
+**Automatic** setup only works if the MCP server lets Dust register itself as an OAuth app. When it doesn't, Dust shows one of these errors:
+
+- **Failed to register client, this server might require a pre-approval process.** The server supports automatic setup but hasn't approved Dust.
+- **This server does not support automatic OAuth setup (no dynamic client registration endpoint).** The server doesn't support automatic setup at all.
+
+The restriction comes from the provider, not from Dust. To connect the server, do one of the following:
+
+- **Use Static OAuth.** Create an OAuth app with the provider, or ask them for one, then enter its client ID and client secret in Dust. When you create the app, register the Static OAuth callback URLs listed in [Whitelisting Dust as an MCP Provider](#whitelisting-dust-as-an-mcp-provider).
+- **Ask the provider to approve Dust.** Some providers handle this through their developer or partner program. Share the callback URLs listed in [Whitelisting Dust as an MCP Provider](#whitelisting-dust-as-an-mcp-provider) with them.
+
 
 ### Example : Setup the official Github MCP with a Static OAuth connection in Dust
 
@@ -110,3 +122,4 @@ Register all of the following callback URIs for every Dust workspace, including 
 | `https://dust.tt/oauth/mcp_static/finalize` |
 | `https://eu.dust.tt/oauth/mcp_static/finalize` |
 | `https://app.dust.tt/oauth/mcp_static/finalize` |
+
