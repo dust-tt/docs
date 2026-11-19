@@ -158,6 +158,10 @@ Add the domain to **Allowed domains**, or enable **Agent-requested domains** so 
 
 This usually means the external service rejected the credentials or permissions. It does not usually mean Dust blocked the domain. Check the credentials, scopes, and permissions for the external service.
 
+### The service only accepts requests from known IP addresses
+
+Dust doesn't publish fixed IP addresses for Computer traffic, so allowlisting Dust by IP on the service won't work. Authenticate with an API key or token stored as an [HTTPS secret](#add-https-secrets) instead. [Static egress IP addresses](/docs/user-documentation/admins/tools-management/static-egress-ips) only apply to the connections listed on that page.
+
 ### A newly added domain still fails
 
 Wait around 60 seconds and retry. Domain allowlist changes may take a short time to apply.
