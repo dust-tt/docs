@@ -78,6 +78,13 @@ Editing a Frame means changing it, yourself or through the agent, and validating
 
 People you share the Frame with can use it, but can't edit it unless they also have access to its conversation or Pod.
 
+### Keep the same Frame and link
+
+A Frame belongs to the conversation or Pod where it was created:
+
+- To change a Frame and keep its share link, edit it from that conversation or Pod. If you ask for the same Frame in another conversation, the agent creates a new Frame with a new link. The old link keeps showing the old Frame.
+- If the conversation is deleted, for example by your workspace's retention policy, nobody can edit the Frame anymore. For a Frame you'll keep updating, ask the agent to save it to a Pod. See [Frames in Pods](/docs/user-documentation/pods/frames).
+
 ## Export a Frame
 
 To save a copy of a Frame, for example to attach it to an email or add it to a slide deck:
@@ -109,6 +116,20 @@ On eligible plans, publicly shared Frames can show your company branding instead
 
 Frames with a backend have their own sharing rules. See [Share an app](/docs/user-documentation/agents/frames/apps#share-an-app).
 
+### If someone can't open a Frame
+
+People who don't see the Frame right away get one of these pages:
+
+- **People you invited by email**: a screen asking for the one-time code sent to their email. The Frame opens once they enter it.
+- **Other people who aren't signed in**: a **Sign in to open this Frame** page. They need to sign in with an account that has access.
+- **People signed in without access**: a "not found" page, the same as for a link that doesn't exist.
+
+If some people can open a Frame and others can't, check the Frame's share option and the people you invited first.
+
+<Note>
+  People who can open a shared Frame also see the data it reads from files, even if they can't access those files in Dust.
+</Note>
+
 ### Manage Frame sharing
 
 Workspace admins can control how members share Frames. These settings determine which sharing options are available to users.
@@ -120,3 +141,4 @@ To configure Frame sharing:
 3. In the **Frames** section, set **Frame sharing** to **Workspace members only**, **Members + email invites**, or **No restrictions**.
 
 Public sharing is enabled by default, allowing members to share Frames externally with clients and partners. In the same section, admins and managers can also choose who can **Invite people by email** and **Share by public link**.
+
