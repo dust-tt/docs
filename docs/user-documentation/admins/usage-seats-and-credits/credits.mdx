@@ -21,6 +21,8 @@ Each interaction consumes credits based on two components that are added togethe
 
 Token credits are proportional to the amount of AI processing involved in generating a response. More complex queries, longer contexts, and more capable models consume more token credits.
 
+Reasoning also counts as token credits. With a higher reasoning effort, the model writes more reasoning tokens before it answers, and they're billed like the rest of its output. There's no fixed multiplier: the extra cost depends on how much the model reasons on each request. Any tools the agent uses add [action credits](#action-credits) on top.
+
 ### Action credits
 
 Action credits are a fixed amount charged per tool action, regardless of response length. Tools are grouped into 3 tiers:
@@ -63,6 +65,9 @@ The checkpoint is on by default for every workspace. Admins can turn it off enti
 Some interactions are exempt from credit consumption:
 
 - **Sidekick**: all Sidekick interactions (Tokens and Actions) are free and do not consume credits.
+- **Failed messages**: an agent message that ends with an error doesn't consume credits, however long it ran before failing.
+
+Stopping a message doesn't make it free. When you stop an agent, the credits it used before you stopped it are consumed. Tool calls that you deny, or whose sign-in you decline, aren't charged, but the model work that led to them is.
 
 ## Credit cost display
 
