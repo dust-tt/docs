@@ -13,6 +13,17 @@ Clicking this Add Tool button will open a list of Dust-built MCP Servers, and an
 
 When configuring an MCP server in Spaces > Tools, enable the **Restrict this tool to skills** checkbox to make its tools available only through skills that reference them. Restricted tools are hidden from direct selection in the agent builder and input bar, cannot be added directly to conversations or agents, and are excluded from just-in-time tool discovery.
 
+To use a restricted tool, add it to a skill: in the skill editor, type `/` in the instructions and select the tool. See [Creating a skill](/docs/user-documentation/agents/skills/skills-overview#creating-a-skill). Agents get the tool when they use that skill.
+
+Who can use the tool through a skill depends on the spaces involved:
+
+- If the tool is in a space that everyone in the workspace can access, such as Company Data, any builder can add it to a skill, and every member can use that skill.
+- If the tool is in a restricted space, or the skill also uses knowledge or tools from other spaces, only people with access to all of those spaces can use the skill.
+
+<Warning>
+**Restrict this tool to skills** controls how a tool is used, not who can use it. To limit who can use a tool, add it to a restricted space.
+</Warning>
+
 
 ## Publicly available MCP servers
 
