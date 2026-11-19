@@ -140,3 +140,30 @@ Try this other process:
 2. Click on "All (preview)"
 3. Click on the "Dust - Tools" app
 4. Click "Review permissions and consent" (or equivalent in your language) in the right panel
+
+## Troubleshooting
+
+### Outlook tools fail while the tool shows Active
+
+In **Spaces → Tools**, **Active** means the tool is set up with a Microsoft
+connection. It doesn't check each user's own connection. In the same way,
+**Connected** in a user's **Tools** list only means they connected once. A
+user's connection can stop working while both still show.
+
+The most common cause is a Microsoft Entra ID **Conditional Access** policy,
+such as one that requires a compliant device or a trusted location. Conditional
+Access applies each time Dust renews a user's access in the background, not only
+when they first connect. If a policy blocks Dust, the renewal fails with error
+`AADSTS53003` and Outlook tool calls fail.
+
+To fix it, a Microsoft Entra ID admin should:
+
+1. In Entra ID, open **Sign-in logs**, then the **Non-interactive user
+   sign-ins** tab. Filter on the **Dust - Tools** application and look for
+   error `AADSTS53003`. The sign-in details show which Conditional Access
+   policy blocked it.
+2. Update that policy so it allows **Dust - Tools**, or exclude the app from
+   it.
+3. Ask the affected users to reconnect: in Dust, open **Tools** from their user
+   menu, click **…** next to Outlook, select **Disconnect**, then click
+   **Connect**.
