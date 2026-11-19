@@ -3,6 +3,15 @@ title: "Changelog"
 description: "New updates and improvements to Dust"
 ---
 
+<Update label="November 20th, 2026" tags={["Added"]} rss={{ title: "Delete conversations and Pods from the Dust MCP server", description: "Two new Dust MCP server tools let clients like Claude remove conversations and Pods, with permission checks and confirmation prompts." }}>
+## Delete conversations and Pods from the Dust MCP server
+
+Two new Dust MCP server tools, `delete_conversation` and `delete_pod`, let clients like Claude clean up your workspace on demand or on a schedule. `delete_conversation` deletes a conversation for everyone if you created it or are its last participant, and otherwise removes you from it. `delete_pod` is limited to Pod editors and workspace admins, is refused while agents or skills use the Pod's data, and can't be undone.
+
+Both tools are flagged as destructive, so clients that support confirmation prompts ask you before running them. Reconnect your MCP client to see them.
+
+</Update>
+
 <Update label="November 18th, 2026" tags={["Added"]} rss={{ title: "GPT-6.2 Sol, GPT-6.2 Astra, and Kimi K3.1 Pro now available", description: "Two new OpenAI models and Moonshot AI's latest Kimi model can now power your agents, with stronger coding and agentic performance." }}>
 ## GPT-6.2 Sol, GPT-6.2 Astra, and Kimi K3.1 Pro now available
 
