@@ -35,7 +35,11 @@ What is the best car to buy if I live in NYC ?
 
 When creating or editing an agent, in the `Action & Data sources` section select `Add a tool` with the `Query Tables` method.
 
-Select one or more tables that you would like your agent to use.
+Select one or more tables that you would like your agent to use. You can select a whole spreadsheet to add all of its tabs.
+
+<Note>
+The agent uses the tables selected when you save it. If you select a whole spreadsheet, Dust adds the tabs it has at that moment. Tabs added to the spreadsheet later aren't included automatically: edit the agent, select the new tab, and save.
+</Note>
 
 ### Joining tables together (advanced)
 
@@ -91,6 +95,8 @@ You can create Tables from API on existing Folders Data Sources. Please refer to
 Dust automatically creates a table for every Google Sheet and Notion Database that we find in your connections.
 
 Make sure the Notion and Google Sheet connections are setup, and that the Dust integration has access to the Google Sheets or Notion Databases that you want to use.
+
+Each tab of a Google spreadsheet becomes its own table. A table can have up to 512 columns. See the Google Drive [size limitations](/docs/user-documentation/admins/connections-management/google-drive#size-limitations) for the other limits and for tabs that aren't synced.
 
 ### Tables from BigQuery
 
