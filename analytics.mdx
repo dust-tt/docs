@@ -179,7 +179,7 @@ Analytics and raw-data exports do not include message content.
 
 ## Export analytics through the API
 
-For programmatic reporting, use `GET /api/v1/w/{wId}/analytics/export` with a workspace admin API key. This API export is separate from the raw-data export generated in the Analytics page. See the [Dust API documentation](/docs/developer-platform/dust-api-documentation/openapi-and-postman) for authentication and endpoint details.
+For programmatic reporting, use `GET /api/v1/w/{wId}/analytics/export` with a workspace admin API key. It replaces the older workspace usage endpoints (`GET /api/v1/w/{wId}/workspace-usage` and `GET /api/v1/w/{wId}/usage`), which are deprecated. This API export is separate from the raw-data export generated in the Analytics page. See the [Dust API documentation](/docs/developer-platform/dust-api-documentation/openapi-and-postman) for authentication and endpoint details.
 
 To export per-call consumption records, use [`POST /api/v1/w/{wId}/analytics/consumption/export`](/api-reference/analytics/export-consumption-analytics). What the export can cover depends on the API key:
 
@@ -191,4 +191,15 @@ To give a user API key analytics access, select its groups in the **Analytics** 
 <Note>
 The consumption export endpoint is enabled per workspace. When it is not enabled for your workspace, requests return a 403 error.
 </Note>
+
+### Historical data coverage
+
+Some fields in the API exports only have data from a certain date. Before that date, zeros or empty values mean the data wasn't recorded yet, not that there was no usage:
+
+- **Credits in the `messages` table**: from around March 18, 2026.
+- **Model IDs**: from June 2026.
+- **`parentMessageId`**: from June 18, 2026.
+
+For periods before June 2026, the credit totals in the `users` and `agents` tables can differ from the `messages` table, because they use a different credit source. Use the `messages` table for credit totals over those periods.
+
 
