@@ -11,7 +11,7 @@ API keys let your scripts and integrations call the [Dust API](/docs/developer-p
 2. Enter a name for the key.
 3. Choose an **Access scope**:
    * **Read-only**: can create conversations, read agents and data sources.
-   * **Admin**: can also create and modify resources and administer the workspace (members, analytics export).
+   * **Admin**: can also manage agents, triggers, and data source views, and export workspace analytics. See [API scopes and permissions](/docs/developer-platform/core-concepts/api-scopes-and-permissions) for the calls that need it.
 4. Under **Spaces and Pods**, add the Spaces and the Pods where the key needs to write, for example to upload files. Spaces and Pods have separate pickers: **Add spaces** and **Add Pods**. Every key can already read what all workspace members can read, including open Spaces, open Pods, and Company Data.
 5. Under **Analytics**, add the groups whose members' analytics the key can read. An Admin key can access all analytics.
 6. Optionally, set a monthly cap. Leave it empty for no cap. See [Cap what a key can consume](#cap-what-a-key-can-consume).
@@ -21,7 +21,9 @@ After creation, you can only change a key's monthly cap. To change its access sc
 
 ## Review your keys
 
-The table lists each key with its scope, the Spaces and Pods it can write to, when it was last used, and its status:
+The table lists each key with its scope, the Spaces and Pods it can write to, when it was last used, and its status. Older keys can show the **Read & write** scope, which you can't choose for new keys.
+
+Each key has one of these statuses:
 
 * **Active**: the key works.
 * **Capped**: the key reached its monthly cap. Its API calls are refused until an admin raises the cap or the key's usage over the counted period drops back under it.

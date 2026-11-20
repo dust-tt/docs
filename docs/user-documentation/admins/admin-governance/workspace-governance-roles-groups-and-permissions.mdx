@@ -102,6 +102,10 @@ Most of the following permissions are managed in **Admin > Governance**. **Acces
 
 In a new workspace, **Create agents**, **Publish agents**, **Invite people by email**, and **Share by public link** are set to **Everyone**. **Create skills**, **Manage skill availability**, **Make skills discoverable to agents**, and **Charge automations to the workspace** are **Admin only** until an Admin or Manager changes them. **Access billing features** and **Access security features** can only be granted to groups, by an Admin.
 
+<Note>
+This matrix covers people using Dust. API keys don't have a role: what a key can call depends on its access scope. For example, Managers can view Analytics in Dust, but exporting analytics through the API needs a key with the **Admin** scope, or a key limited to specific groups. See [API scopes and permissions](/docs/developer-platform/core-concepts/api-scopes-and-permissions).
+</Note>
+
 **Charge automations to the workspace** lets people run their triggers on the workspace credit pool instead of their own credits. See [Credits usage](/docs/user-documentation/agents/triggers/credits-usage).
 
 Making a skill discoverable to agents, or changing the availability of an already discoverable skill, requires the **Make skills discoverable to agents** permission (**Admin > Governance**, **Agents & Skills** tab). It's Admin only by default; users without it cannot enable or change auto-discoverability. Granting it without also granting **Manage skill availability** has no effect: a group needs both to act on it.
