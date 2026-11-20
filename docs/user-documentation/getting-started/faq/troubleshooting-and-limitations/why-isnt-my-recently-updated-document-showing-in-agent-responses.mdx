@@ -8,7 +8,7 @@ If you updated a document but the agent isn't using the new information, here's 
 ## Check sync timing
 
 1. Verify when the document was last updated
-2. Check how long ago the connection last synced (admins only: `Spaces` > `Connection Admin`)
+2. Check the connection's sync status (admins only: `Spaces` > `Connection Admin`). See [What the sync status tells you](#what-the-sync-status-tells-you).
 3. Wait for the appropriate sync interval:
    - **Notion**: 15-30 minutes
    - **Google Drive**: 30-60 minutes
@@ -29,12 +29,36 @@ If you updated a document but the agent isn't using the new information, here's 
 - Look for your document in the list
 - If not visible, ask your admin to add it
 
+## What the sync status tells you
+
+In `Spaces` > `Connection Admin`, each connection shows a sync status:
+
+- **A time, such as "2 hours ago"**: the last time Dust finished a sync for this connection.
+- **Synchronizing**: a sync is running.
+- **Pending**: Dust hasn't finished a sync for this connection yet.
+- **Paused**: syncing is paused. New content isn't synced until it's resumed.
+- **Re-authorization required**, **Synchronization delayed**, **Synchronization failed** or **Quota exceeded**: Dust can't sync right now. Hover over the status to see why.
+
+The status covers the connection as a whole, not each folder, channel or repository. One part of a connection can fall behind while the status still shows a recent time. For example, on GitHub, the time updates each time Dust syncs an issue or pull request, even if a repository's code hasn't synced. Files that Dust skips, such as files over the size limit, don't show as errors either.
+
+To check whether a specific part of a connection is up to date:
+
+1. Go to `Spaces` > `Connection Admin` and open the connection.
+2. Open the folder, channel or repository you want to check.
+3. Sort by **Last updated** so the most recent items are at the top.
+4. Compare the most recent date with your latest changes in the source tool. If it's much older, Dust hasn't picked up those changes yet.
+
+<Warning>
+Don't uninstall the Dust app or revoke Dust's access in the source tool to force a new sync. It doesn't fix a stalled sync, and it can cut Dust's access to your data. For GitHub, see [Updating the Connection and Managing Permissions](/docs/user-documentation/admins/connections-management/github#updating-the-connection-and-managing-permissions).
+</Warning>
+
+If part of a connection is behind, contact `support@dust.tt`. Include the connection, the folder or repository, and an example of a document that's missing or out of date.
+
 ## Force a conversation refresh
 
 After data has synced:
 
-- **Start a new conversation** - agents don't automatically refresh data mid-conversation
-- Old conversations use a snapshot of data from when they started
+- **Start a new conversation**. In an existing conversation, the agent can reuse results it retrieved in earlier messages instead of searching again.
 
 ## Check document format
 
