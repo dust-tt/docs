@@ -446,7 +446,8 @@
               "docs/developer-platform/core-concepts/datasources",
               "docs/developer-platform/core-concepts/chunks-and-documents",
               "docs/developer-platform/core-concepts/rate-limits",
-              "docs/developer-platform/core-concepts/conversation-sharing"
+              "docs/developer-platform/core-concepts/conversation-sharing",
+              "docs/developer-platform/core-concepts/api-scopes-and-permissions"
             ]
           },
           {
