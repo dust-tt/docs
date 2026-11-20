@@ -70,3 +70,20 @@ If you need the content of a page that's too large, split it into smaller pages 
 **A page is missing from my website connection**
 
 If an agent can't find content from a page you expected to be indexed, check the page size first: pages over the size limit are skipped without an error. Then check that the page is public, isn't on a blocked website, and is covered by your Page Limit and Depth of Search settings.
+
+## Custom headers
+
+Under **Advanced settings**, you can add custom request headers. Dust sends them with every request the crawler makes to the website. After you save the connection, Dust hides header values. To change a value, remove the header and add it again.
+
+## Websites behind bot protection
+
+Dust doesn't fetch web pages from your browser. Requests come from servers in data centers, so bot protection services such as Cloudflare, Akamai or DataDome can block them or return a challenge page instead of the content. This affects website connections and agents that browse the web. Dust doesn't try to get around these protections.
+
+If you control the website, you can let the Dust crawler through with a secret header:
+
+1. Choose a header name and a long, random value that only you know, for example `X-Dust-Crawler` with a generated secret.
+2. In your bot protection settings, add a rule that lets requests with that header and value through. In Cloudflare, use a WAF custom rule that matches the header and uses the **Skip** action. If Super Bot Fight Mode is on, make sure the rule skips it too.
+3. Create a website connection for the pages your agents need and add the header under **Advanced settings**.
+4. Add the connection to your agents' knowledge. Agents then read the synced pages instead of browsing them live.
+
+The header is only sent by the website connection. Agents that browse the web with **Web Search & Browse** don't send it. Dust has no supported workaround for websites you don't control.

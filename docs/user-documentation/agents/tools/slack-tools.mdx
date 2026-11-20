@@ -41,6 +41,34 @@ The setup process requires **personal Slack authentication** and uses OAuth to c
 2. Select **Slack** from the available MCP servers
 3. Complete OAuth authorization with your personal Slack credentials.
 
+## Permissions requested
+
+Slack tools connect through the **Dust Slack Tools** app. Dust only requests user permissions (scopes), so agents can never access more than the connected user can see in Slack.
+
+| Used for | Scopes |
+| --- | --- |
+| Posting messages and files | `chat:write`, `im:write`, `mpim:write`, `files:write` |
+| Reading channels, DMs, and threads | `channels:read`, `groups:read`, `im:read`, `mpim:read`, `channels:history`, `groups:history`, `im:history`, `mpim:history` |
+| Searching | `search:read.public`, `search:read.private`, `search:read.im`, `search:read.mpim`, `search:read.files`, `search:read.users` |
+| Users, user groups, and status | `users:read`, `users:read.email`, `usergroups:read`, `users.profile:write` |
+| Canvases | `canvases:read`, `canvases:write` |
+| Reactions | `reactions:read`, `reactions:write` |
+| Creating channels, inviting members, and archiving channels | `channels:write`, `groups:write` |
+
+### Slack Enterprise Grid
+
+If your Slack organization requires app approval, a Slack org admin must approve the **Dust Slack Tools** app before users can connect it.
+
+When Dust adds new tools, the app sometimes needs new permissions, as it did for reactions. Slack then asks for approval again. Until the org admin approves the new permissions, users can't connect, and Dust keeps asking them to connect Slack.
+
+To fix it:
+
+1. A Slack org admin approves the updated **Dust Slack Tools** app and its new permissions in Slack's app management settings.
+2. A Dust admin goes to **Spaces** > **Tools**, opens **Slack**, and clicks **Refresh** under **Authentication**.
+3. Each user connects Slack again when Dust asks them.
+
+If Dust shows "You must select *workspace* as the team to connect", pick that Slack workspace in the Slack sign-in screen. It's the workspace the tool was set up with.
+
 
 ## :ok_person: Adding Tools to Agents
 

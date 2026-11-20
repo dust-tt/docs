@@ -55,7 +55,7 @@ Premium is for demanding work that benefits from stronger reasoning or more capa
 | Order | Model | Reasoning effort |
 | --- | --- | --- |
 | 1 | Claude Opus 5.5 | Medium |
-| 2 | GPT 6.1 Sol | xHigh |
+| 2 | GPT 6.2 Sol | xHigh |
 | 3 | Gemini 3.1 Pro (Preview) | Medium |
 | 4 | Mistral Large 4 | Low |
 | 5 | Claude Sonnet 5.5 | Low |
@@ -112,7 +112,7 @@ No. The models that powered the global model agents are still available through 
 
 ## How to use a specific model now
 
-- **For one conversation:** Click the model icon in the composer, choose **More models**, and select the model you want. You can also type `/` in the composer and select **Pick model**.
+- **For your next message:** Click the model icon in the composer, choose **More models**, and select the model you want. You can also type `/` in the composer and select **Pick model**.
 - **For a persistent setup:** Open Agent Builder, then select a specific model in the agent's settings. That agent will keep using that model until you change it.
 
 For most queries, we recommend **Standard**. Dust maintains and periodically reviews the candidate lists, but the selected auto model does not change based on the content of an individual request.
@@ -189,6 +189,10 @@ Dust maintains one ordered candidate list for each auto model. The lists reflect
 ### Can I pin an agent to one exact model?
 
 Yes. In Agent Builder, on the Instructions \> "Standard" or the specific model name. That agent then uses that model for every member and run, subject to plan and administrator access rules.
+
+### Can I still mention a model with @, like @gpt or @claude?
+
+No. Model mentions such as `@gpt` or `@claude` were removed from the composer when the model picker was released. Use the model picker instead: click the model icon in the composer and choose **More models**, or type `/` in the composer and select **Pick model**. Your choice applies to your next message only. To always use the same model, set it on the agent in Agent Builder.
 
 ### What happened to the global model agents?
 

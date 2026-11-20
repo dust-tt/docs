@@ -15,6 +15,15 @@ SCIM provisioning can be enabled for enterprise users. You'll need administrativ
   Check your IdP documentation along the way The setup experience may vary depending on the selected IdP. We recommend checking the documentation of your IdP (specifically the sections about SSO, SAML and SCIM) as each might have specificities. (_For example, [Okta (OIDC)](https://help.okta.com/en-us/content/topics/apps/apps_app_integration_wizard_scim.htm) might require you to create 2 applications - one for SSO, one for SCIM_)
 </Info>
 
+## How groups are synced
+
+Dust syncs the groups your IdP sends as SCIM groups, with their members. It doesn't read group membership from user attributes. If your IdP only sends group names as a user attribute, users are provisioned but aren't added to any group, and Dust shows no error.
+
+- **Okta**: in your SCIM app, use **Push Groups** to send each group you need in Dust.
+- **Other IdPs**: check how your IdP sends groups over SCIM. Usually, you assign the groups (not only the users) to the SCIM app.
+
+If a user is missing from a group in Dust, check that the group is pushed to Dust and that the user is a member of it in your IdP. Then push the group again.
+
 ## Assign roles from groups
 
 You can automatically grant the **Admin** or **Manager** role to your users based on their group membership. In Dust, go to **Admin > Members**, **Roles** tab (admin only) and map any workspace group to a role:

@@ -71,7 +71,8 @@
                   "docs/user-documentation/getting-started/faq/general-questions/what-ai-models-are-available-in-dust",
                   "docs/user-documentation/getting-started/faq/general-questions/what-tools-are-available-in-dust",
                   "docs/user-documentation/getting-started/faq/general-questions/what-are-the-pricing-plans-for-dust",
-                  "docs/user-documentation/getting-started/faq/general-questions/how-does-dust-handle-user-data"
+                  "docs/user-documentation/getting-started/faq/general-questions/how-does-dust-handle-user-data",
+                  "docs/user-documentation/getting-started/faq/general-questions/can-i-move-my-workspace-to-another-region"
                 ]
               },
               {
@@ -446,7 +447,8 @@
               "docs/developer-platform/core-concepts/datasources",
               "docs/developer-platform/core-concepts/chunks-and-documents",
               "docs/developer-platform/core-concepts/rate-limits",
-              "docs/developer-platform/core-concepts/conversation-sharing"
+              "docs/developer-platform/core-concepts/conversation-sharing",
+              "docs/developer-platform/core-concepts/api-scopes-and-permissions"
             ]
           },
           {

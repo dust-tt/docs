@@ -25,6 +25,25 @@ When you're creating custom agents with Dust, understanding context windows help
 
 3. **Conversation management**: We recommend starting new conversations for distinct topics or tasks. This practice helps avoid extended conversations that can overflow the context window of the models, ensuring optimal performance and preventing potential errors or inconsistencies in responses.
 
+## The "Context limit reached" chip
+
+You may see a **Context limit reached** chip on an agent's answer. It's not an error, and it has nothing to do with your credits or message quota.
+
+It means that Dust had to trim part of the tool output used for that answer so the conversation would fit in the model's context window.
+
+**Why a short conversation can hit the limit:** the context holds more than the messages you see. Attached files, documents the agent retrieved, search results and other tool output all count toward it, and they are usually much larger than the visible text. A conversation with only a few messages can still fill the context window.
+
+**What it means for answers:** the model no longer sees the trimmed output, so the answer can miss details from it. Later answers in the same conversation can be less accurate too.
+
+**What to do:**
+
+- Use `/compact`, or click the context indicator in the composer and choose **Compact now**, to summarize the conversation and free up context. See [Context compaction](/docs/user-documentation/agents/context-compaction).
+- When you move on to a new task, start a new conversation and attach only the files you still need.
+- Narrow your request so that tools return less data, for example by asking about one document or folder instead of a whole connection.
+- If you build agents, choose a model with a larger context window.
+
+**When to contact Support:** if the chip appears in a new conversation where you attached no large files and the agent used few or no tools, contact `support@dust.tt` with a link to the conversation.
+
 ## Context Windows in Popular LLMs
 
 Dust gives you access to various LLMs, each with different context window sizes. Among the popular ones, here are the ones with the largest context windows:

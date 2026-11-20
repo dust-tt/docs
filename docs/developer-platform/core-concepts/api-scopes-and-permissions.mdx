@@ -1,0 +1,62 @@
+---
+title: "API scopes and permissions"
+description: "Which calls need an Admin API key, write access to a Space or Pod, or a signed-in user."
+---
+
+You can call the Dust API in two ways:
+
+- **With an API key.** The key acts on its own, not as a person. What it can do depends on its access scope and on the Spaces and Pods added to it. Admins create keys in **Admin > Developers**: see [API keys](/docs/user-documentation/admins/api-keys).
+- **As a signed-in user**, for example after `dust login` in the [Dust CLI](/docs/developer-platform/dust-cli/dust-cli). The request can do what that person can do in Dust, based on their [role and permissions](/docs/user-documentation/admins/admin-governance/workspace-governance-roles-groups-and-permissions).
+
+Most calls work with any API key. This page lists the ones that don't.
+
+## API key scopes
+
+| Scope | What the key can do |
+| --- | --- |
+| **Read-only** | Create conversations, post messages, and read agents, skills, and data sources. It can read what every workspace member can read, and write in the Spaces and Pods added to it. |
+| **Admin** | Everything a Read-only key can do, plus the calls in [Calls that need the Admin scope](#calls-that-need-the-admin-scope). |
+
+Older keys can show the **Read & write** scope, which you can't choose for new keys.
+
+## Calls that need the Admin scope
+
+With another scope, these calls return `403`. Unless the details say otherwise, a signed-in user needs the **Admin** role.
+
+| Call | Details |
+| --- | --- |
+| [Update agent configuration](/api-reference/agents/update-agent-configuration) | Applies to every field. `userFavorite` also needs a signed-in user. |
+| [Archive agent configuration](/api-reference/agents/archive-agent-configuration) | |
+| [Get agent configuration](/api-reference/agents/get-agent-configuration) | Needed for unpublished agents, and for agents the key can't read otherwise. |
+| [List agents](/api-reference/agents/list-agents) | Only with `view=all_unrestricted`. |
+| [Import agent configuration](/api-reference/agents/import-agent-configuration) | Other keys can import when **Create agents** is set to **Everyone** in **Admin > Governance**, the default. A signed-in user needs the **Create agents** permission. |
+| [Export workspace analytics](/api-reference/analytics/export-workspace-analytics) | Managers can view Analytics in Dust, but this export needs the Admin scope or role. |
+| [Export consumption analytics](/api-reference/analytics/export-consumption-analytics) | Other keys need groups under **Analytics**, and the export only covers those groups. Only works with an API key: signed-in users get `403`. |
+| [List triggers](/api-reference/triggers/list-triggers), [Get a trigger](/api-reference/triggers/get-a-trigger) | |
+| [List skills](/api-reference/skills/list-skills) | Only with `bypassEditorVisibility=true`. |
+| [Archive a skill](/api-reference/skills/archive-a-skill) | A signed-in user can also archive a skill they edit. |
+| [Update a data source view](/api-reference/datasourceviews/update-a-data-source-view) | |
+| [Delete a table](/api-reference/datasources/delete-a-table) | Older **Read & write** keys also work. |
+
+## Calls that write to a Space or a Pod
+
+These calls need write access to the Space or the Pod. Add it under **Spaces and Pods** when you create the key.
+
+- Upsert or delete documents, tables, and table rows in a folder, for example [Upsert a document in a data source](/api-reference/datasources/upsert-a-document-in-a-data-source), [Upsert a table](/api-reference/datasources/upsert-a-table), or [Upsert rows](/api-reference/datasources/upsert-rows).
+- [Upload a file into a Pod](/api-reference/spaces/upload-a-file-into-a-pod), and list the files already in it.
+
+You can't write to a [connection](/docs/user-documentation/data-sources/connections) through the API: Dust syncs its content from the source.
+
+## Calls that need a signed-in user
+
+API keys can't make these calls, whatever their scope. They return `400`, `401`, or `403`.
+
+- [Get feedbacks for a conversation](/api-reference/feedbacks/get-feedbacks-for-a-conversation), [Submit feedback](/api-reference/feedbacks/submit-feedback-for-a-specific-message-in-a-conversation), and [Delete feedback](/api-reference/feedbacks/delete-feedback-for-a-specific-message).
+- [List agents](/api-reference/agents/list-agents) with `view=list` or `view=favorites`.
+- [Update agent configuration](/api-reference/agents/update-agent-configuration) with `userFavorite`.
+- [Create a new conversation](/api-reference/conversations/create-a-new-conversation) or [Create a message](/api-reference/conversations/create-a-message) with `clientSideMCPServerIds` or `selectedMCPServerViewIds` in the message context.
+- [Register a client-side MCP server](/api-reference/mcp/register-a-client-side-mcp-server).
+
+## Conversations
+
+Which conversations a key can open depends on who they're shared with. See [Conversation sharing](/docs/developer-platform/core-concepts/conversation-sharing).

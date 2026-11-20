@@ -76,6 +76,8 @@ When you connect HubSpot, Dust asks HubSpot for the permissions (OAuth scopes) b
 
 With **Personal** authentication, each user's connection can only get the permissions the **Workspace** connection was granted.
 
+If a HubSpot action fails with a `403` error for one user but works for others on the same agent, that user needs to reconnect: open **Tools** from the user menu, click **…** next to HubSpot, select **Disconnect**, then click **Connect**. See [Personal vs Shared Credentials](/docs/user-documentation/admins/tools-management/personal-vs-shared-credentials#managing-your-personal-credentials-for-users).
+
 <Note>
 Marketing campaigns and campaign revenue reporting aren't covered: Dust doesn't request `marketing.campaigns.read` or `marketing.campaigns.revenue.read`. Requests to the HubSpot `campaigns` object or revenue attribution fail with a `403 MISSING_SCOPES` error, and reconnecting HubSpot won't add these permissions. Reconnecting can only add scopes from the list above.
 </Note>
