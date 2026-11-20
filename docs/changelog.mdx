@@ -3,6 +3,15 @@ title: "Changelog"
 description: "New updates and improvements to Dust"
 ---
 
+<Update label="November 20th, 2026" tags={["Added"]} rss={{ title: "Delete conversations and Pods from the Dust MCP server", description: "Two new Dust MCP server tools let clients like Claude remove conversations and Pods, with permission checks and confirmation prompts." }}>
+## Delete conversations and Pods from the Dust MCP server
+
+Two new Dust MCP server tools, `delete_conversation` and `delete_pod`, let clients like Claude clean up your workspace on demand or on a schedule. `delete_conversation` deletes a conversation for everyone if you created it or are its last participant, and otherwise removes you from it. `delete_pod` is limited to Pod editors and workspace admins, is refused while agents or skills use the Pod's data, and can't be undone.
+
+Both tools are flagged as destructive, so clients that support confirmation prompts ask you before running them. Reconnect your MCP client to see them.
+
+</Update>
+
 <Update label="November 20th, 2026" tags={["Added"]} rss={{ title: "Gemini 4 Neon now available", description: "Google's new mid-range Gemini 4 model can now power your agents, with near-Carbon reasoning quality at lower latency and cost and a 1M token context window." }}>
 ## Gemini 4 Neon now available
 
