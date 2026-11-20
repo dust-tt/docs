@@ -110,14 +110,15 @@ Installing the **Dust** app in Slack and inviting `@Dust` to a channel isn't eno
 
 ### Slack workflow doesn't trigger the agent
 
-**Why this happens:** A Slack workflow posts as a bot, not as a person. Dust ignores these messages until an admin allows the workflow in Dust.
+**Why this happens:** A Slack workflow posts as a bot, not as a person. Dust ignores these messages until the workflow is allowed in Dust.
 
 **How to fix it:**
 
-1. Check that the workflow is allowed. On credit-priced plans, admins do this themselves in the **Slack workflows** tab of the **Automations** admin page. On legacy plans, email `support@dust.tt`. See [Slack workflows](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows).
+1. Check that the workflow is allowed. On credit-priced plans, admins allow workflows in **Admin > Automations > Slack workflows**, and Dust Support can also do it for you. On legacy plans, there's no **Slack workflows** tab: email `support@dust.tt`. See [Who can allow a workflow](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows#who-can-allow-a-workflow).
 2. Check that the allowed name matches the sender name on the workflow's Slack messages exactly, including capitalization and emojis. If the workflow was renamed in Slack, allow it again under its new name.
-3. Check that the workflow can reach every Space the agent uses data from. Company Data is always included. Otherwise, the agent stays silent.
+3. Check that the workflow can reach every Space or Pod the agent uses data from. Company Data is always included. Otherwise, the agent stays silent. The **Slack workflows** tab only lists Spaces: to grant a Pod, email `support@dust.tt`.
 4. Check that the workflow's message mentions `@dust` followed by the agent, as in `@dust +agentName`.
+5. Check that `@Dust` is invited to the channel, the agent is published, and the agent uses the **Slack Bot** tool rather than personal Slack tools.
 
 <Tip>
 To open the **Slack workflows** tab directly, press **⌘K** (Mac) or **Ctrl+K** (Windows and Linux) and search for "Slack workflows".
@@ -162,7 +163,7 @@ You cannot set a default agent for private channels. In private channels, always
 <Warning>
 **Workflows must be allowed in Dust**
 
-Dust ignores messages posted by a Slack workflow until the workflow is allowed. On credit-priced plans, admins allow workflows themselves in the **Slack workflows** tab of the **Automations** admin page. On legacy plans, email [support@dust.tt](mailto:support@dust.tt). Either way, include every Space the agent uses data from, in addition to Company Data. See [Slack Workflows](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows).
+Dust ignores messages posted by a Slack workflow until the workflow is allowed. On credit-priced plans, admins allow workflows themselves in **Admin > Automations > Slack workflows**, and Dust Support can also do it for you. On legacy plans, email [support@dust.tt](mailto:support@dust.tt). Either way, include every Space or Pod the agent uses data from, in addition to Company Data. See [Slack Workflows](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows).
 </Warning>
 
 ## Slack Tools Issues
