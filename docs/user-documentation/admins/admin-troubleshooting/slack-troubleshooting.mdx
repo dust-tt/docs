@@ -20,7 +20,7 @@ A Slack app is the foundation. When you install a Slack app, it creates a bot us
 <Info>
 **Why three Slack Apps?**
 
-Each app has a distinct job. **Dust Data Sync** reads and indexes your messages so agents can search them later (see [Slack Connection](/docs/user-documentation/data-sources/connections)). **Dust** is the interactive bot that responds when you mention it (see [Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows)). Separating these keeps permissions clear and lets you control each independently.
+Each app has a distinct job. **Dust Data Sync** reads and indexes your messages so agents can search them later (see [Slack Connection](/docs/user-documentation/data-sources/connections)). **Dust** is the interactive bot that responds when you mention it (see [Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/index)). Separating these keeps permissions clear and lets you control each independently.
 </Info>
 
 ### Understanding the Features
@@ -84,7 +84,7 @@ Inviting the bot makes the channel visible in Dust's connection manager. But mes
 
 * Verify you're a Dust workspace admin
 * If your connection was set up before December 2024, follow the [Slack Connection setup guide](/docs/user-documentation/data-sources/connections) to create your own Slack App.
-* To enable the interactive bot, go to **Admin > Integrations**, open the **Messaging** tab, and turn on **Slack bot** ([Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows)).
+* To enable the interactive bot, go to **Admin > Integrations**, open the **Messaging** tab, and turn on **Slack bot** ([Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/index)).
 
 ## @Dust Bot Issues
 
@@ -96,7 +96,7 @@ Installing the **Dust** app in Slack and inviting `@Dust` to a channel isn't eno
 
 **How to fix it:**
 
-1. In Dust, go to **Admin > Integrations**, open the **Messaging** tab, and check that **Slack bot** is turned on ([Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows)).
+1. In Dust, go to **Admin > Integrations**, open the **Messaging** tab, and check that **Slack bot** is turned on ([Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/index)).
 2. In the Slack channel, type `/invite @Dust` and press **Enter**
 3. Mention the bot: `@Dust your question here`
 
@@ -105,8 +105,23 @@ Installing the **Dust** app in Slack and inviting `@Dust` to a channel isn't eno
 <Info>
 **DMs are not supported**
 
-`@Dust` works in public and private channels only. It does not respond in direct messages ([Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows)). This is by design: channels provide shared context that makes agent responses more useful to everyone.
+`@Dust` works in public and private channels only. It does not respond in direct messages ([Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/index)). This is by design: channels provide shared context that makes agent responses more useful to everyone.
 </Info>
+
+### Slack workflow doesn't trigger the agent
+
+**Why this happens:** A Slack workflow posts as a bot, not as a person. Dust ignores these messages until an admin allows the workflow in Dust.
+
+**How to fix it:**
+
+1. Check that the workflow is allowed. On credit-priced plans, admins do this themselves in the **Slack workflows** tab of the **Automations** admin page. On legacy plans, email `support@dust.tt`. See [Slack workflows](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows).
+2. Check that the allowed name matches the sender name on the workflow's Slack messages exactly, including capitalization and emojis. If the workflow was renamed in Slack, allow it again under its new name.
+3. Check that the workflow can reach every Space the agent uses data from. Company Data is always included. Otherwise, the agent stays silent.
+4. Check that the workflow's message mentions `@dust` followed by the agent, as in `@dust +agentName`.
+
+<Tip>
+To open the **Slack workflows** tab directly, press **⌘K** (Mac) or **Ctrl+K** (Windows and Linux) and search for "Slack workflows".
+</Tip>
 
 ### Bot doesn't see full conversation
 
@@ -127,7 +142,7 @@ Installing the **Dust** app in Slack and inviting `@Dust` to a channel isn't eno
 @Dust ~hr-helper What's the PTO policy?
 ```
 
-**For public channels:** You can set a default agent in the agent's settings (the agent must be published). When anyone mentions `@Dust` in that channel, your chosen agent responds automatically ([Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows)).
+**For public channels:** You can set a default agent in the agent's settings (the agent must be published). When anyone mentions `@Dust` in that channel, your chosen agent responds automatically ([Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/index)).
 
 <Warning>
 **Private channel limitation**
@@ -145,9 +160,9 @@ You cannot set a default agent for private channels. In private channels, always
 2. **Slack Workflows:** Use [Slack Workflows](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows) to trigger agents based on events like emoji reactions or schedules.
 
 <Warning>
-**Workflows require whitelisting**
+**Workflows must be allowed in Dust**
 
-Slack workflows must be enabled for your workspace by Dust. Contact [support@dust.tt](mailto:support@dust.tt) with your workspace URL and workflow name to request access (see [Slack Workflows](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows)). When you contact support, include the exact name(s) of any Restricted Space used by the agent (in addition to Company Data). This is indicated by the yellow Restricted Space heads‑up in the Agent Builder.
+Dust ignores messages posted by a Slack workflow until the workflow is allowed. On credit-priced plans, admins allow workflows themselves in the **Slack workflows** tab of the **Automations** admin page. On legacy plans, email [support@dust.tt](mailto:support@dust.tt). Either way, include every Space the agent uses data from, in addition to Company Data. See [Slack Workflows](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows).
 </Warning>
 
 ## Slack Tools Issues
