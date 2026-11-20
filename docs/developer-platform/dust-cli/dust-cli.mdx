@@ -86,7 +86,10 @@ dust chat -a "My Agent" -m "Add a bullet for next steps" -c <conversationId>
 ```
 
 <Info>
-**Billing note:** Interactive CLI chat (typing in the terminal UI) counts as regular human usage. Non-interactive messages (`--message`) count as [programmatic usage](/docs/user-documentation/admins/usage-seats-and-credits/credit-management#programmatic-usage) and consume credits.
+**Billing note:** Interactive CLI chat (typing in the terminal UI) counts as regular human usage. How non-interactive messages (`--message`) are billed depends on your plan:
+
+- **Credit-priced plans**: they also count as your own usage. They use the same [credit sources and limits](/docs/user-documentation/admins/usage-seats-and-credits/credit-management) as your other messages, and they don't count toward the **Shared automation cap**.
+- **Non-credit-priced plans**: they count as [programmatic usage](/docs/user-documentation/admins/usage-seats-and-credits/credit-management#programmatic-usage) and consume credits.
 </Info>
 
 ### `skill:init`
