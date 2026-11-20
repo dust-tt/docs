@@ -82,3 +82,23 @@ BigQuery prevents cross-location queries. A single query cannot reference tables
 
 5. Select the datasets and tables you want to make available in Dust
 6. You can enable the "Use BigQuery descriptions" option to allow agents to use table and column descriptions that are set in BigQuery. This can help agents better understand your data structure without requiring additional documentation.
+
+## Adding tables after setup
+
+Dust syncs your BigQuery connection once a day. Changes to your selection, and new tables created in BigQuery, are applied at the next daily sync. New tables can take up to 24 hours to appear in Dust.
+
+To add tables:
+
+1. Go to **Spaces** > **Connections**, open your BigQuery connection and click **Manage BigQuery**.
+2. Select the new tables, or the dataset that contains them, and save your selection.
+3. After the next sync, the tables appear under **Connection Admin**. Add them to the Spaces where agents need them.
+
+<Info>
+If you select a whole dataset or project, tables created in it later are included automatically at the next daily sync. If you selected individual tables, select the new ones as well.
+
+Spaces work the same way. If a Space includes the whole dataset, new tables appear in it automatically. If it includes individual tables, add the new ones to the Space.
+</Info>
+
+<Note>
+Dust skips datasets that contain more than 1,500 tables. None of their tables are synced.
+</Note>
