@@ -50,7 +50,7 @@ Now that the basics are clear, let's dive into the troubleshooting usual suspect
 <Info>
 **Inviting is not the same as syncing**
 
-Inviting the bot makes the channel visible in Dust's connection manager. But messages only sync after you explicitly select that channel in **Spaces  Connections  Slack  Add / Remove data** ([Connections](/docs/user-documentation/data-sources/connections)). This gives you control over exactly what data enters Dust.
+Inviting the bot makes the channel visible in Dust's connection manager. But messages only sync after you explicitly select that channel in **Spaces > Connections > Slack > Add / Remove data** ([Connections](/docs/user-documentation/data-sources/connections)). This gives you control over exactly what data enters Dust.
 </Info>
 
 ### Channel not syncing
@@ -60,7 +60,7 @@ Inviting the bot makes the channel visible in Dust's connection manager. But mes
 **How to fix it:**
 
 1. In Slack, type `/invite @Dust Data Sync` and press **Enter**
-2. In Dust, go to **Spaces  Connections  Slack  Add / Remove data** (see [Slack Connection](/docs/user-documentation/data-sources/connections))
+2. In Dust, go to **Spaces > Connections > Slack > Add / Remove data** (see [Slack Connection](/docs/user-documentation/data-sources/connections))
 3. Verify the channel appears and is selected
 4. If already selected but not syncing, unselect it, save, then re‑select it
 
@@ -84,17 +84,19 @@ Inviting the bot makes the channel visible in Dust's connection manager. But mes
 
 * Verify you're a Dust workspace admin
 * If your connection was set up before December 2024, follow the [Slack Connection setup guide](/docs/user-documentation/data-sources/connections) to create your own Slack App.
-* To enable the interactive bot, go to **Workspace Management  Workspace Settings  Integrations** and toggle Slack on ([Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows)).
+* To enable the interactive bot, go to **Admin > Integrations**, open the **Messaging** tab, and turn on **Slack bot** ([Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows)).
 
 ## @Dust Bot Issues
 
 ### @Dust not responding
 
-**Why this happens:** The bot isn't in the channel, the Slack integration is disabled in Dust, or you're trying to use it in a DM.
+**Why this happens:** The Slack bot isn't turned on in Dust, the bot isn't in the channel, or you're trying to use it in a DM.
+
+Installing the **Dust** app in Slack and inviting `@Dust` to a channel isn't enough: the Slack bot must also be turned on in Dust. Otherwise, `@Dust` can join channels but never answers.
 
 **How to fix it:**
 
-1. In Dust, go to **Workspace Management  Workspace Settings  Integrations** and verify Slack is toggled on ([Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows)).
+1. In Dust, go to **Admin > Integrations**, open the **Messaging** tab, and check that **Slack bot** is turned on ([Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows)).
 2. In the Slack channel, type `/invite @Dust` and press **Enter**
 3. Mention the bot: `@Dust your question here`
 
@@ -177,10 +179,16 @@ Slack workflows must be enabled for your workspace by Dust. Contact [support@dus
 
 **How to fix it:**
 
-1. Go to **Spaces  Tools  Add Tools**
+1. Go to **Spaces > Tools > Add Tools**
 2. Select **Slack** from the list
 3. Complete the OAuth flow with your Slack account
 4. The Slack tools now appear when building agents ([Slack Tools](/docs/user-documentation/agents/tools/slack-tools)).
+
+### Dust keeps asking me to connect Slack
+
+**Why this happens:** On Slack Enterprise Grid with app approval, the **Dust Slack Tools** app needs a new approval when Dust adds permissions. Until a Slack org admin approves them, users can't connect.
+
+**How to fix it:** See [Slack Enterprise Grid](/docs/user-documentation/agents/tools/slack-tools#slack-enterprise-grid) in Slack tools for the approval steps and the scopes Dust requests.
 
 ## Setup and Migration Issues
 
@@ -197,7 +205,7 @@ Slack workflows must be enabled for your workspace by Dust. Contact [support@dus
 **How to check your Slack role:**
 
 1. Click your workspace name in Slack (top‑left corner)
-2. Go to **Settings & administration  Manage members**
+2. Go to **Settings & administration > Manage members**
 3. Search for your name; your role appears next to it
 
 ### Connection broke after editing app
@@ -210,7 +218,7 @@ Slack workflows must be enabled for your workspace by Dust. Contact [support@dus
 * Redirect URLs
 * Credentials (Client ID, Client Secret, Signing Secret)
 
-**If you rotated credentials for security reasons:** Update them immediately in **Spaces  Connections  Slack  Manage  Edit** ([Connections](/docs/user-documentation/data-sources/connections)). Enter the new credentials from your Slack app's Basic Information page. The connection should resume automatically.
+**If you rotated credentials for security reasons:** Update them immediately in **Spaces > Connections > Slack > Manage > Edit** ([Connections](/docs/user-documentation/data-sources/connections)). Enter the new credentials from your Slack app's Basic Information page. The connection should resume automatically.
 
 ### Legacy connection migration
 
@@ -224,13 +232,13 @@ Slack workflows must be enabled for your workspace by Dust. Contact [support@dus
 
 **Why this happens:** Your Slack workspace has an app approval workflow enabled. New apps require admin approval before they can be used.
 
-**How to fix it:** Ask your Slack admin to approve the app in **Slack Admin  Manage Apps  App Requests**.
+**How to fix it:** Ask your Slack admin to approve the app in **Slack Admin > Manage Apps > App Requests**.
 
 ### Can't see all channels
 
 **Why this happens:** Dust has its own permission layer that controls who can select which channels for syncing.
 
-**How to fix it:** Check **Spaces  Connections  Slack** to see access restrictions and which spaces receive which data ([Connections](/docs/user-documentation/data-sources/connections)).
+**How to fix it:** Check **Spaces > Connections > Slack** to see access restrictions and which spaces receive which data ([Connections](/docs/user-documentation/data-sources/connections)).
 
 ### "You don't have permission" error
 
