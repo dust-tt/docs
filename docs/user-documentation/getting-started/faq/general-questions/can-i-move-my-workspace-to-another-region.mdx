@@ -1,0 +1,24 @@
+---
+title: "Can I move my workspace to another region?"
+description: "You choose your workspace's region, US or EU, when you create it. Moving it later depends on your plan."
+---
+
+Dust hosts each workspace in one region: **US** (`dust.tt`) or **EU** (`eu.dust.tt`). You choose the region when you create the workspace. To check your region, look at the address you use to open Dust.
+
+## Moving an existing workspace
+
+Moving a workspace to another region isn't self-serve.
+
+- **Enterprise plan:** contact your account team. They plan the move with you and Dust's engineering team. Before the move, they ask which SSO provider you use, which of your systems call the Dust API, and which downtime windows work for you.
+- **Other plans:** the standard option is to create a new workspace in the region you want.
+
+## What doesn't carry over to a new workspace
+
+A new workspace starts empty. These items stay in the old workspace:
+
+- Conversation history.
+- Agents and their setup.
+- Connections and tools: connect them again in the new workspace.
+- Spaces and members: create the Spaces again and invite your members.
+
+Some setup steps depend on the region, for example the [Slack app manifest](/docs/user-documentation/admins/connections-management/slack), the [Dust MCP server URL](/docs/user-documentation/agents/integrations/dust-mcp-server), and the [static egress IP](/docs/user-documentation/admins/tools-management/static-egress-ips). Use the values for the new workspace's region.
