@@ -1,0 +1,88 @@
+---
+title: "Default skills"
+description: "The skills Dust provides in every workspace: what each one does, when it's on, and which ones @dust and @analyst use."
+---
+
+Dust provides a set of skills in every workspace, so you don't have to write them yourself. Some are always on in [**@dust**](/docs/user-documentation/agents/default-agents/dust), some turn on by themselves when a task needs them, and you can add the others to your own agents.
+
+To browse them, open **Discover** on your [homepage](/docs/user-documentation/getting-started/homepage), open **Manage skills**, and go to the **Dust** tab.
+
+## How to use a default skill
+
+- **In your agents:** add the skill in the Agent Builder, like any other skill. See [How agents use skills](/docs/user-documentation/agents/skills/skills-overview#how-agents-use-skills).
+- **In one conversation:** type `/` in the message bar and select the skill.
+- **Automatically:** agents with [Discover Skills](/docs/user-documentation/agents/discover-skills), like **@dust**, can turn on a default skill when a task needs it.
+
+## Skills in @dust
+
+**@dust** always has these skills: Discover Knowledge, Discover Skills, Discover Tools, Go Deep, Create Frames, Mention Users, Dust Support, Computer, and Schedules. In a Pod conversation, it also uses the Pods skill.
+
+## Find information
+
+| Skill | What it does | Good to know |
+| :--- | :--- | :--- |
+| [Discover Knowledge](/docs/user-documentation/agents/discover-knowledge) | Searches all your company documents and data warehouses to find the information you need. | In **@dust**. |
+| [Go Deep](/docs/user-documentation/agents/go-deep) | Runs a thorough analysis across your company data, databases, and the web. It can take several minutes. | In **@dust**. Not available if an admin turns off **@deep-dive**. |
+| [Discover Tools](/docs/user-documentation/agents/discover-tools) | Finds and turns on the specialized tools a task needs. | In **@dust**. |
+| [Discover Skills](/docs/user-documentation/agents/discover-skills) | Finds and turns on the workspace skills a task needs. | In **@dust**. |
+
+## Work with files
+
+These skills work in the Computer, a sandboxed Linux environment attached to the conversation.
+
+| Skill | What it does | Good to know |
+| :--- | :--- | :--- |
+| [Computer](/docs/user-documentation/agents/tools/computer) | Runs code, scripts, and shell commands in the conversation's Computer. | Always on in **@dust**. Other agents turn it on when a task needs it. |
+| Spreadsheets | Reads, edits, and creates spreadsheets (.xlsx, .csv). | Uses the Computer. |
+| Slide decks | Reads, edits, and creates slide presentations. | Uses the Computer. |
+| Word documents | Reads, edits, and creates Microsoft Word files (.docx). | Uses the Computer. |
+| PDFs | Reads PDFs, runs OCR on scans, extracts text and tables, and creates and edits PDFs. | Uses the Computer. |
+
+## Create and share
+
+| Skill | What it does | Good to know |
+| :--- | :--- | :--- |
+| [Create Frames](/docs/user-documentation/agents/frames/overview) | Turns insights into interactive dashboards and presentations your team can explore, customize, and share. | In **@dust**. |
+| Sheet to Frame | Turns a data-entry spreadsheet into an app: a form that fills in the obvious, formulas that become fields nobody types, and your existing rows carried over. | Only when [Frame apps](/docs/user-documentation/agents/frames/apps) are available in your workspace. |
+| Mention Users | Lets agents mention and notify people from your workspace in conversations. | In **@dust**. |
+
+## Automate and track
+
+| Skill | What it does | Good to know |
+| :--- | :--- | :--- |
+| [Schedules](/docs/user-documentation/agents/triggers/schedules) | Creates schedules and event triggers to automate recurring and event-driven tasks. | Always on in **@dust**. |
+| [Pods](/docs/user-documentation/pods/agent-tools) | Lets agents create conversations and messages in Pods, and use a Pod's knowledge. | On in Pod conversations. Available to all agents. |
+| Workspace Analytics | Analyzes how your workspace is used: who and what uses credits and drives activity, headline figures, and trends over time. | Admins and managers only. Always on in [**@analyst**](/docs/user-documentation/agents/default-agents/analyst). |
+
+## Build agents and get help
+
+| Skill | What it does | Good to know |
+| :--- | :--- | :--- |
+| [Build Agents and Skills](/docs/user-documentation/agents/conversational-building) | Creates, updates, and archives agents and skills from a conversation. | Each change shows up as a suggestion you accept or decline. |
+| [Dust Support](/docs/user-documentation/agents/dust-support) | Answers questions about Dust using the public docs, open-source issues, and community knowledge. | In **@dust**. |
+| Dust Learning | Recommends the next best action to get more value from Dust. | Used in Pods. |
+
+<Note>
+  **Author Skills** is deprecated. Use **Build Agents and Skills** instead.
+</Note>
+
+## Microsoft Office add-ins
+
+When you use Dust in the [Microsoft Office add-in](/docs/user-documentation/agents/integrations/microsoft-office-add-in), the matching skill turns on by itself:
+
+| Skill | What it does |
+| :--- | :--- |
+| Excel add-in | Builds and edits tables and charts in the workbook open in Excel. |
+| PowerPoint add-in | Builds and edits slides in the presentation open in PowerPoint. |
+| Word add-in | Writes and edits the document open in Word. |
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Skills overview" href="/docs/user-documentation/agents/skills/skills-overview">
+    What skills are and how to create your own.
+  </Card>
+  <Card title="Skill examples" href="/docs/user-documentation/agents/skills/skill-examples">
+    Ideas for custom skills you can build for your team.
+  </Card>
+</CardGroup>
