@@ -45,6 +45,11 @@ Depending on the nature of the tool to connect in Dust, the authentication flow 
 
 In most scenarios, the **Automatic** option will discover all required configurations from the URL provided, trigger an OAuth login flow and finish the configuration automatically. This is the recommended, most secure way to authenticate to MCP servers.
 
+To identify itself to the server's OAuth authorization server, **Automatic** uses the first method the server supports:
+
+1. **Client ID Metadata Document (CIMD)**: if the authorization server advertises `client_id_metadata_document_supported: true`, Dust uses the URL of its published client metadata document as its `client_id`. No client registration or client secret is needed. See [Client ID Metadata Document (CIMD)](#client-id-metadata-document-cimd).
+2. **Dynamic Client Registration (DCR)**: otherwise, Dust registers itself as an OAuth client with the server.
+
 Alternatively, you can use a **Bearer token** while setting up the connection to the MCP Server. This token will be sent as an Authorization header in the calls made to that server later.
 
 <Info>
@@ -64,7 +69,7 @@ The process is slightly different from platform to platform, please refer to the
 
 ### If automatic setup fails
 
-**Automatic** setup only works if the MCP server lets Dust register itself as an OAuth app. When it doesn't, Dust shows one of these errors:
+**Automatic** setup only works if the MCP server supports CIMD or lets Dust register itself as an OAuth app. When it supports neither, Dust shows one of these errors:
 
 - **Failed to register client, this server might require a pre-approval process.** The server supports automatic setup but hasn't approved Dust.
 - **This server does not support automatic OAuth setup (no dynamic client registration endpoint).** The server doesn't support automatic setup at all.
@@ -138,4 +143,17 @@ Register all of the following callback URIs for every Dust workspace, including 
 | `https://dust.tt/oauth/mcp_static/finalize` |
 | `https://eu.dust.tt/oauth/mcp_static/finalize` |
 | `https://app.dust.tt/oauth/mcp_static/finalize` |
+
+#### Client ID Metadata Document (CIMD)
+
+If your authorization server supports [Client ID Metadata Documents](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization), advertise `client_id_metadata_document_supported: true` in its OAuth metadata. Dust then connects without client registration or a client secret.
+
+Dust publishes one client metadata document per region. All agents, users and connections in a region share the same `client_id`, so you only need to allow it once per region:
+
+| Region | `client_id` | `client_uri` | Redirect URI |
+| - | - | - | - |
+| US | `https://dust.tt/.well-known/oauth-client.json` | `https://dust.tt` | `https://dust.tt/oauth/mcp/finalize` |
+| EU | `https://eu.dust.tt/.well-known/oauth-client.json` | `https://eu.dust.tt` | `https://eu.dust.tt/oauth/mcp/finalize` |
+
+Dust connects as a public client: it uses the `authorization_code` and `refresh_token` grants, and no client secret (`token_endpoint_auth_method: none`). In each region, the `client_id`, `client_uri` and redirect URI share the same origin, so authorization servers that restrict clients by domain only need to allow that region's domain.
 
