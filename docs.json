@@ -357,6 +357,8 @@
             "group": "Inference hooks",
             "pages": [
               "docs/user-documentation/admins/admin-governance/inference-hooks",
+              "docs/user-documentation/admins/admin-governance/inference-hooks/dust-checks",
+              "docs/user-documentation/admins/admin-governance/inference-hooks/custom-webhook",
               "docs/user-documentation/admins/admin-governance/inference-hooks/datadog-ai-guard"
             ]
           },

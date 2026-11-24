@@ -1,0 +1,330 @@
+---
+title: Custom webhook
+description: "Send signed agent events to your own HTTPS endpoint and verify each delivery."
+---
+
+Dust sends a signed HTTPS `POST` to your endpoint each time the agent reaches a step you selected. The agent keeps working while your endpoint handles the event.
+
+## Connect your endpoint
+
+If this is your first hook, open **Admin > Security > Inference Hooks** and select **Add your first hook**.
+
+1. Set up a public HTTPS endpoint that accepts JSON. Use the final URL. Dust won’t follow redirects. Have the endpoint reject requests it can’t verify, even during setup.
+2. Choose **Custom webhook** and enter the **Endpoint URL**. If your gateway needs a credential in addition to Dust’s signature, enter its header name and value under **Auth header** and **Auth header value**.
+3. Choose the events, conversation history, and group exclusions. By default, Dust sends all four event types with **This step only**. Check the URL before you select **Create**. Live delivery starts immediately.
+4. Copy the **signing secret** to your receiver’s secret store before closing the dialog. Dust shows it only once. Then select **Send test event**. Dust sends signed examples of the event types you chose, with `test: true` and no real conversation data. You can also test a paused hook.
+
+Dust sends messages, tool arguments, and tool results as written. If someone pastes a password or API key into a message, your endpoint can receive it in full. Limit who can read your logs and make sure your receiver can handle large request bodies, especially with **Full conversation**. Dust leaves out hidden model reasoning. For images, it sends a placeholder or a count instead of the image data or URL.
+
+## Verify requests and handle retries
+
+Pass the **raw request body**, signing secret, and three headers (`webhook-id`, `webhook-timestamp`, `webhook-signature`) to a Standard Webhooks library. Verify the signature and timestamp before parsing the JSON. Reformatting the JSON can change the bytes Dust signed.
+
+The `webhook-id` header matches the event’s `id`. The `webhook-timestamp` header tells you when Dust made this delivery attempt, in Unix seconds. The `timestamp` in the JSON tells you when the event happened.
+
+If you verify signatures yourself, sign `webhook-id.webhook-timestamp.raw-body` with HMAC-SHA256. Use the header values and exact body bytes. For the key, remove `whsec_` from the secret and Base64-decode the rest. The `webhook-signature` header contains `v1,` followed by the Base64-encoded digest.
+
+Return `204 No Content` or another `2xx` status once you accept the event. Dust ignores the response body. On a network failure or an HTTP `408`, `429`, or `5xx` response, Dust may try again, up to six attempts in total. Retries have the same event ID and body. If you’ve already handled that ID, return `2xx` without processing it again.
+
+## Event format: version `"1"`
+
+Each request contains one JSON object. `data.messages` holds the content for this step. `context` holds any earlier messages you chose to include. In this test event, the agent is about to look up record 42. The hook uses **This step only**, so `context` is empty:
+
+````json
+{
+  "version": "1",
+  "id": "evt_example_2",
+  "type": "tool_inputs",
+  "timestamp": "2026-01-01T00:00:00.000Z",
+  "test": true,
+  "mode": "monitor",
+  "workspace_id": "example_workspace",
+  "hook_id": "ihk_example",
+  "conversation_id": "example_conversation",
+  "turn_id": "example_message.0",
+  "step": 0,
+  "run_id": "example_run_1",
+  "agent": { "id": "example_agent", "name": "Example agent" },
+  "user_id": "example_user",
+  "data": {
+    "messages": [{
+      "role": "assistant",
+      "content": [{ "type": "tool_use", "id": "call_example_1", "tool_name": "example__lookup", "input": { "id": 42 } }]
+    }]
+  },
+  "context_scope": "target_only",
+  "context": []
+}
+````
+
+Use `conversation_id` and `turn_id` to group events from the same answer. Each turn starts at `step: 0`. If the user retries the answer, Dust starts a new turn. `run_id` identifies the model run for `tool_inputs` and `final_answer`. For the other two event types, it’s `null`. A run without a user can have `user_id: null`. Live events have `test: false`.
+
+Each message in `data.messages` or `context` has a `role` (`user` or `assistant`) and a `content` array. Read every block in the array. One event can contain several tool calls or results.
+
+| Block `type` | How to read it |
+| --- | --- |
+| `text` | Read `text` for the message itself, such as the user’s request or the final answer. |
+| `image` | An image placeholder with no other fields. |
+| `tool_use` | `id` identifies the call. `tool_name` names the tool. `input` contains its arguments as JSON, or the original string if the arguments weren’t valid JSON. |
+| `tool_result` | Match `tool_use_id` to the call’s `id`. `tool_name` names the tool, `content` holds the result as a string, and `image_count` counts any images. Dust puts tool results in a `user`-role message even though the tool produced them. |
+
+`context_scope` matches the setting you chose: `target_only` for **This step only**, `since_last_agent_message` for **Current turn**, or `full_context` for **Full conversation**. Dust may add fields, event types, modes, or block types to version `"1"`. Have your receiver ignore any it doesn’t recognize.
+
+## Sample events
+
+These four sample payloads show a single test turn with **Full conversation** selected. Dust sends each as a separate request.
+
+<AccordionGroup>
+  <Accordion title="user_request">
+
+````json
+{
+  "version": "1",
+  "id": "evt_example_1",
+  "type": "user_request",
+  "timestamp": "2026-01-01T00:00:00.000Z",
+  "test": true,
+  "mode": "monitor",
+  "workspace_id": "example_workspace",
+  "hook_id": "ihk_example",
+  "conversation_id": "example_conversation",
+  "turn_id": "example_message.0",
+  "step": 0,
+  "run_id": null,
+  "agent": {
+    "id": "example_agent",
+    "name": "Example agent"
+  },
+  "user_id": "example_user",
+  "data": {
+    "messages": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "Look up record 42."
+          }
+        ]
+      }
+    ]
+  },
+  "context_scope": "full_context",
+  "context": []
+}
+````
+
+  </Accordion>
+  <Accordion title="tool_inputs">
+
+````json
+{
+  "version": "1",
+  "id": "evt_example_2",
+  "type": "tool_inputs",
+  "timestamp": "2026-01-01T00:00:00.000Z",
+  "test": true,
+  "mode": "monitor",
+  "workspace_id": "example_workspace",
+  "hook_id": "ihk_example",
+  "conversation_id": "example_conversation",
+  "turn_id": "example_message.0",
+  "step": 0,
+  "run_id": "example_run_1",
+  "agent": {
+    "id": "example_agent",
+    "name": "Example agent"
+  },
+  "user_id": "example_user",
+  "data": {
+    "messages": [
+      {
+        "role": "assistant",
+        "content": [
+          {
+            "type": "tool_use",
+            "id": "call_example_1",
+            "tool_name": "example__lookup",
+            "input": {
+              "id": 42
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "context_scope": "full_context",
+  "context": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Look up record 42."
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "Looking up record 42."
+        }
+      ]
+    }
+  ]
+}
+````
+
+  </Accordion>
+  <Accordion title="tool_outputs">
+
+````json
+{
+  "version": "1",
+  "id": "evt_example_3",
+  "type": "tool_outputs",
+  "timestamp": "2026-01-01T00:00:00.000Z",
+  "test": true,
+  "mode": "monitor",
+  "workspace_id": "example_workspace",
+  "hook_id": "ihk_example",
+  "conversation_id": "example_conversation",
+  "turn_id": "example_message.0",
+  "step": 1,
+  "run_id": null,
+  "agent": {
+    "id": "example_agent",
+    "name": "Example agent"
+  },
+  "user_id": "example_user",
+  "data": {
+    "messages": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "tool_result",
+            "tool_use_id": "call_example_1",
+            "tool_name": "example__lookup",
+            "content": "{\"id\":42,\"status\":\"active\"}",
+            "image_count": 0
+          }
+        ]
+      }
+    ]
+  },
+  "context_scope": "full_context",
+  "context": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Look up record 42."
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "Looking up record 42."
+        },
+        {
+          "type": "tool_use",
+          "id": "call_example_1",
+          "tool_name": "example__lookup",
+          "input": {
+            "id": 42
+          }
+        }
+      ]
+    }
+  ]
+}
+````
+
+  </Accordion>
+  <Accordion title="final_answer">
+
+````json
+{
+  "version": "1",
+  "id": "evt_example_4",
+  "type": "final_answer",
+  "timestamp": "2026-01-01T00:00:00.000Z",
+  "test": true,
+  "mode": "monitor",
+  "workspace_id": "example_workspace",
+  "hook_id": "ihk_example",
+  "conversation_id": "example_conversation",
+  "turn_id": "example_message.0",
+  "step": 1,
+  "run_id": "example_run_2",
+  "agent": {
+    "id": "example_agent",
+    "name": "Example agent"
+  },
+  "user_id": "example_user",
+  "data": {
+    "messages": [
+      {
+        "role": "assistant",
+        "content": [
+          {
+            "type": "text",
+            "text": "Record 42 is active."
+          }
+        ]
+      }
+    ]
+  },
+  "context_scope": "full_context",
+  "context": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Look up record 42."
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": [
+        {
+          "type": "text",
+          "text": "Looking up record 42."
+        },
+        {
+          "type": "tool_use",
+          "id": "call_example_1",
+          "tool_name": "example__lookup",
+          "input": {
+            "id": 42
+          }
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "tool_result",
+          "tool_use_id": "call_example_1",
+          "tool_name": "example__lookup",
+          "content": "{\"id\":42,\"status\":\"active\"}",
+          "image_count": 0
+        }
+      ]
+    }
+  ]
+}
+````
+
+  </Accordion>
+</AccordionGroup>
