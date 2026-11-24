@@ -11,7 +11,7 @@ To find a setting quickly, press **⌘K** (Mac) or **Ctrl+K** (Windows and Linux
 
 ## 1. Invite your team
 
-Go to **Admin** > **Members** and invite the people who will use Dust. Give each person one of three roles: **Admin**, **Manager**, or **Member**. Managers can invite and remove members and see usage, which helps when several teams roll out Dust. See [Workspace governance](/docs/user-documentation/admins/admin-governance/workspace-governance-roles-groups-and-permissions) for what each role can do.
+Go to **Admin** > **Members** and invite the people who will use Dust. Give each person one of three roles: **Admin**, **Manager**, or **Member**. Managers can manage members, groups and roles, and see workspace analytics, which helps when several teams roll out Dust. See [Workspace governance](/docs/user-documentation/admins/admin-governance/workspace-governance-roles-groups-and-permissions) for what each role can do.
 
 To let people sign in with your identity provider and keep members in sync automatically, set up [Single Sign-On](/docs/user-documentation/admins/admin-governance/single-sign-on-sso/single-sign-on-sso) and [user provisioning](/docs/user-documentation/admins/admin-governance/users-and-groups-provisioning) on plans that include them.
 
@@ -25,9 +25,9 @@ Agents give better answers when they can read your company's knowledge. You can 
 
 To add your first connection:
 
-1. Go to **Spaces** > **Connections** and select a tool.
-2. Click **Connect** > **Authenticate your account**.
-3. Select exactly which channels, folders, or pages Dust can sync.
+1. Go to **Spaces** > **Connections**, click **Add connections**, and pick a tool.
+2. Click **Connect** (**Acknowledge and connect** for Google Drive) and sign in to your account.
+3. Select which channels, folders, or pages Dust can sync.
 
 See [Connections](/docs/user-documentation/data-sources/connections) for setup details on each tool.
 
@@ -40,8 +40,8 @@ Synced data isn't available to anyone yet. To let people and agents use it, add 
 Spaces control which people and agents can use which data and tools.
 
 - **Company Data** is the default Space. Every member can use the data in it, and so can **@dust**.
-- **Open Spaces** are available to all members.
-- **Restricted Spaces** are limited to the people and groups you add, for example HR or Finance.
+- **Open spaces** are available to all members.
+- **Restricted spaces** are limited to the people and groups you add, for example HR or Finance.
 
 Start by adding the data everyone needs to Company Data, then create restricted Spaces for sensitive data. See [Spaces management](/docs/user-documentation/admins/spaces-management).
 
@@ -58,11 +58,11 @@ See [Tools](/docs/user-documentation/agents/tools/index) for the full list and e
 
 Your team can call agents from Slack: mention **@Dust** in a channel or thread, or send the app a direct message. The agent can use the Slack conversation as context, and everyone in the channel sees the answer.
 
-1. Go to **Admin** > **Integrations** and turn on **Slack Bot**.
+1. Go to **Admin** > **Integrations** and turn on **Slack bot**.
 2. Follow the Slack authorization flow to install the Dust app in your Slack workspace.
 3. Add the Dust app to the Slack channels where your team wants to use it.
 
-The Slack Bot is separate from the [Slack connection](/docs/user-documentation/admins/connections-management/slack), which syncs Slack messages into Dust as company data. You can set up one without the other.
+The Slack bot is separate from the [Slack connection](/docs/user-documentation/admins/connections-management/slack), which syncs Slack messages into Dust as company data. You can set up one without the other.
 
 To let a Slack workflow call an agent, for example on a schedule or when someone adds an emoji reaction, you must first allow the workflow in Dust. See [Slack workflows](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows). For everything else, see [Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/index).
 
