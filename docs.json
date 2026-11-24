@@ -150,6 +150,7 @@
         "group": "Skills",
         "pages": [
           "docs/user-documentation/agents/skills/skills-overview",
+          "docs/user-documentation/agents/skills/default-skills",
           "docs/user-documentation/agents/skills/skills-management",
           "docs/user-documentation/agents/skills/skill-examples",
           "docs/user-documentation/agents/skill-availability",
