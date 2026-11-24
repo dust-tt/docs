@@ -1,66 +1,110 @@
 ---
-title: "Quickstart"
+title: "Admin quickstart"
+description: "Set up your Dust workspace as an admin: invite your team, connect company data, decide who sees what, and bring Dust into Slack."
 ---
 
-
-Welcome to Dust! If you are here, it's because you are an Admin of your workspace. As an Admin, you have full admin rights. See more about [Memberships & Roles](/docs/user-documentation/getting-started/dust-rollout-guide/admin-guide-set-up-your-dust-workspace).
-
-You can set-up multiple parameters for your workspace by going to the Admin Panel.
+As a workspace admin, you decide who uses Dust, which data and tools their agents can reach, and how your team gets started. Follow these steps in order to get your workspace ready.
 
 <Tip>
 To find a setting quickly, press **⌘K** (Mac) or **Ctrl+K** (Windows and Linux) and pick the **Settings** category, or click **Search** at the top of the admin sidebar. Type what you're looking for, such as "Slack workflows", to jump straight to the right page. See [Search with Command K](/docs/user-documentation/getting-started/intro-to-dust#search-with-command-k).
 </Tip>
 
-In order to make the most out of Dust, here are the steps we recommend.
+## 1. Invite your team
 
-You can use Dust without data sources, but Dust is most useful when connected to your knowledge bases. As an admin, you have the ability to manage data sources and make them available for all members of your workspace.
+Go to **Admin** > **Members** and invite the people who will use Dust. Give each person one of three roles: **Admin**, **Manager**, or **Member**. Managers can invite and remove members and see usage, which helps when several teams roll out Dust. See [Workspace governance](/docs/user-documentation/admins/admin-governance/workspace-governance-roles-groups-and-permissions) for what each role can do.
 
-There are various types of Data Sources:
+To let people sign in with your identity provider and keep members in sync automatically, set up [Single Sign-On](/docs/user-documentation/admins/admin-governance/single-sign-on-sso/single-sign-on-sso) and [user provisioning](/docs/user-documentation/admins/admin-governance/users-and-groups-provisioning) on plans that include them.
 
-* **Managed Connections:** your main communication and knowledge tools, they get synchronized automatically, so Dust can always have access to recent information
-* **Public Websites:** ingest data from public websites with our web crawler, which you can refresh at the cadence you want
-* **Folders:** store static information in a folder, just like you would on your computer.
+## 2. Connect your company data
 
-<Danger>
-**About sharing data and permissions**
+Agents give better answers when they can read your company's knowledge. You can bring in three kinds of data:
 
-* Even once synchronized, your data is not yet shared nor usable with your workspace members. You can make the connected data available to other people in your workspace by adding it to a [space](/docs/user-documentation/data-sources/overview).
-* When adding a connection, you can select exactly which channels or folders you want Dust to have access to.
-</Danger>
+- **Connections**: tools like Slack, Notion, Google Drive, or Confluence. They sync automatically, so agents always see recent information.
+- **Websites**: public websites that Dust crawls on the schedule you choose.
+- **Folders**: files you upload yourself, like a folder on your computer.
 
-**How to add my first connection**
+To add your first connection:
 
-Go to **Spaces** > **Connections**, select the desired Connection, click **Connect > Authenticate your account**, and select the data you wish to synchronize with Dust.
+1. Go to **Spaces** > **Connections** and select a tool.
+2. Click **Connect** > **Authenticate your account**.
+3. Select exactly which channels, folders, or pages Dust can sync.
 
+See [Connections](/docs/user-documentation/data-sources/connections) for setup details on each tool.
 
-To get help on how to set-up the various connections, you can refer directly to [Connections](/docs/user-documentation/data-sources/connections).
+<Warning>
+Synced data isn't available to anyone yet. To let people and agents use it, add it to a Space (next step).
+</Warning>
 
-Now that you have built the first steps of your connections, you can start putting Dust to work. A very useful agent in your journey is the **@dust** agent.
+## 3. Decide who sees what with Spaces
 
-**@dust** is created to help you **answer questions by looking into your company data**. Think about it as your company data researcher, or "Perplexity for internal data". It works using [Retrieval Augmented Generation](/docs/user-documentation/agents/llm-best-practices/understanding-rag).
+Spaces control which people and agents can use which data and tools.
 
-**What @dust can access**
+- **Company Data** is the default Space. Every member can use the data in it, and so can **@dust**.
+- **Open Spaces** are available to all members.
+- **Restricted Spaces** are limited to the people and groups you add, for example HR or Finance.
 
-* **@dust** uses the data in **Company Data**, the default Space of your workspace. To make data available to **@dust**, add it to Company Data.
-* **@dust** doesn't search other [Spaces](/docs/user-documentation/admins/spaces-management) on its own, whether they're open or restricted. To use that data:
-  * **In one conversation:** type `/` in the message bar, choose **Attach**, and pick a document or folder from any Space you have access to. If it comes from a restricted Space, only members of that Space can access the conversation.
-  * **For repeated use:** build an agent that has that data as [knowledge](/docs/user-documentation/agents/knowledge/index). Only members of the Spaces the agent uses can see and use it.
-* In a Pod, **@dust** also uses the Pod's [files and linked data](/docs/user-documentation/pods/files).
-* There's no setting to choose which data sources **@dust** uses. Admins can only enable or disable it.
+Start by adding the data everyone needs to Company Data, then create restricted Spaces for sensitive data. See [Spaces management](/docs/user-documentation/admins/spaces-management).
 
+## 4. Turn on tools
 
-One great use of Dust is to call the agents directly in Slack. The agent can use the ongoing conversation as context, and anybody in the Slack channel will be able to see the answer.
+Tools let agents act in other apps, like creating a deal in HubSpot or posting in Slack. Some tools, like web search, are ready to use. Others need an admin to add them first:
 
-1. [Install and authorize the Dust app in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/index#set-up-the-dust-app-admins).
-2. Add the Dust app to your Slack channels.
-3. You're all set! All workspace members can interact with @dust directly in Slack.
+1. Go to **Spaces** > **Tools**, click **Add tools**, and pick a tool.
+2. Choose whether each person connects their own account or everyone shares one account. See [Personal vs. shared credentials](/docs/user-documentation/admins/tools-management/personal-vs-shared-credentials).
 
-To let a Slack workflow call an agent, for example on a schedule or when someone adds an emoji reaction, you must first allow the workflow in Dust. See [Slack workflows](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows).
+See [Tools](/docs/user-documentation/agents/tools/index) for the full list and each tool's setup steps.
 
-<Danger>
-**About Slack Settings**
+## 5. Bring Dust into Slack
 
-* To export your @dust conversation history in Slack, remember that it's like exporting direct messages. You can only do this if you're an Owner or admin of a Slack Business+ or Enterprise Grid account.
-</Danger>
+Your team can call agents from Slack: mention **@Dust** in a channel or thread, or send the app a direct message. The agent can use the Slack conversation as context, and everyone in the channel sees the answer.
 
-That's it! You're all set to make the most out of Dust!
+1. Go to **Admin** > **Integrations** and turn on **Slack Bot**.
+2. Follow the Slack authorization flow to install the Dust app in your Slack workspace.
+3. Add the Dust app to the Slack channels where your team wants to use it.
+
+The Slack Bot is separate from the [Slack connection](/docs/user-documentation/admins/connections-management/slack), which syncs Slack messages into Dust as company data. You can set up one without the other.
+
+To let a Slack workflow call an agent, for example on a schedule or when someone adds an emoji reaction, you must first allow the workflow in Dust. See [Slack workflows](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows). For everything else, see [Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/index).
+
+<Info>
+Exporting **@Dust** conversations from Slack works like exporting direct messages: only Owners and admins of a Slack Business+ or Enterprise Grid account can do it.
+</Info>
+
+## 6. Know what @dust can answer
+
+[**@dust**](/docs/user-documentation/agents/default-agents/dust) is the general-purpose agent in every workspace. It answers questions from your company data, and includes skills like [Go Deep](/docs/user-documentation/agents/go-deep) and [Discover Knowledge](/docs/user-documentation/agents/discover-knowledge) by default.
+
+What **@dust** can access:
+
+- **@dust** uses the data in **Company Data**, the default Space of your workspace. To make data available to **@dust**, add it to Company Data.
+- **@dust** doesn't search other [Spaces](/docs/user-documentation/admins/spaces-management) on its own, whether they're open or restricted. To use that data:
+  - **In one conversation:** type `/` in the message bar, choose **Attach**, and pick a document or folder from any Space you have access to. If it comes from a restricted Space, only members of that Space can access the conversation.
+  - **For repeated use:** build an agent that has that data as [knowledge](/docs/user-documentation/agents/knowledge/index). Only members of the Spaces the agent uses can see and use it.
+- In a Pod, **@dust** also uses the Pod's [files and linked data](/docs/user-documentation/pods/files).
+- There's no setting to choose which data sources **@dust** uses. Admins can only enable or disable it.
+
+## 7. Feature agents and skills for your team
+
+Help people find the right agents and skills from day one. Featured items appear as shortcuts under the message bar on the homepage, and in **Discover**.
+
+1. On the homepage, open **Discover** and stay on the **Featured** tab.
+2. Next to **Curated by** your workspace, click **Manage**.
+3. Choose **Everyone** or a group, add up to 3 agents or skills, and click **Save**.
+
+See [Feature agents and skills on the homepage](/docs/user-documentation/admins/agents-management#feature-agents-and-skills-on-the-homepage).
+
+## 8. Keep an eye on usage
+
+- **Admin** > **Credits** shows your workspace's credits and how they're used. See [Credits](/docs/user-documentation/admins/usage-seats-and-credits/credits).
+- **Admin** > **Analytics** shows how your team uses Dust.
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Dust Rollout Guide" href="/docs/user-documentation/getting-started/dust-rollout-guide/index">
+    Plan your launch and onboard your teams.
+  </Card>
+  <Card title="Create your first agent" href="/docs/user-documentation/agents/create-your-first-agent">
+    Build an agent for your team's work.
+  </Card>
+</CardGroup>
