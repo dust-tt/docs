@@ -1,48 +1,85 @@
 ---
 title: "Go Deep"
+description: "Have your agent research a question for several minutes across company data, data warehouses, and the web before it answers."
 ---
 
+Go Deep lets an agent research a question for several minutes across your company data, data warehouses, and the web before it answers. **@dust** can use it, and you can add it to your own agents.
 
-Go Deep is a skill that enables your agents to perform in-depth analysis across company data, databases, and web sources. When enabled, it gives your agent the same research capabilities as @deep-dive: thorough investigation that may span over several minutes.
+## What your agent can do with Go Deep
 
-<Info>
-Go Deep used to perform a handoff to @deep-dive. This is not the case anymore, instead, it directly equips your agent with deep dive's capabilities and instructions, allowing it to conduct thorough research by itself.
-</Info>
+| Capability | What it does |
+| :--- | :--- |
+| Plan the research | Writes a research plan and has a planning agent review it before starting. |
+| Split the work | Hands parts of the question to sub-agents, so it can cover more ground without losing track. |
+| Search company data | Searches and browses your company data, using the same data sources as the agent it runs in. |
+| Query data warehouses | Runs SQL queries on your connected data warehouses, like Snowflake or BigQuery. |
+| Search the web | Searches the web and reads pages for outside information. |
 
-This skill gives access to your agent to the same capabilities as the [`@deep-dive`](/docs/user-documentation/agents/default-agents/deep-dive-agent) global agent.
+<Note>
+Go Deep used to hand your question off to [**@deep-dive**](/docs/user-documentation/agents/default-agents/deep-dive-agent). It no longer does: your agent does the research itself, with the same capabilities as **@deep-dive**.
+</Note>
 
-## How to add It?
+## When to use Go Deep
 
-The `Go Deep` skill is already included by default to the `@dust` agent, meaning that if the situation called for it, `@dust` can enable the skill and conduct thorough researches.
+Agents only use Go Deep when you ask for it. Say "use Go Deep" or "do a deep dive", or ask for deep research or a full investigation across several sources. A long or complex question doesn't turn it on by itself.
 
-To add `Go Deep` to a custom agent, select the `Go Deep` skill to your agent from the Capabilities section.
+Ask for Go Deep when you need:
 
+- Research across several sources, like comparing what your docs, your CRM, and the web say about a competitor.
+- Analysis over a lot of data, like finding patterns across hundreds of support tickets.
+- A report that combines internal and external information, like market research.
+- A thorough answer, and you can wait several minutes for it.
 
-## What does it do?
+For a quick question, ask without Go Deep: the agent answers directly, even when the answer needs SQL or a web search.
 
-When the Go Deep skill is enabled, your agent gains access to:
+## Add Go Deep to an agent
 
-| Capability               | Description                                                                                       |
-| :----------------------- | :------------------------------------------------------------------------------------------------ |
-| Sub-agents               | Planning and task execution agents for orchestrating complex research and optimize context usage. |
-| Company data exploration | Full filesystem access to search and browse your connected data sources.                          |
-| Data warehouses          | Ability to query SQL databases (Snowflake, BigQuery, etc.)                                        |
-| Web search & browse      | Search the internet and browse web pages for external information                                 |
+**@dust** already has Go Deep: ask it to go deep, and it turns the skill on.
 
-Your agent can use these tools to handle complex, multi-faceted questions requiring research across multiple data sources.
+To add Go Deep to your own agent:
 
-## When to Use?
+<Steps>
+  <Step title="Open your agent in the Agent Builder">
+    Create an agent, or open one you can edit.
+  </Step>
+  <Step title="Add the skill">
+    In **Capabilities and knowledge**, click **Add capabilities** and select **Go Deep**.
+  </Step>
+  <Step title="Save your agent">
+    People using the agent can now ask it to go deep.
+  </Step>
+</Steps>
 
-Your agent should use `Go Deep` for:
+To use Go Deep in one conversation without changing an agent, type `/` in the message bar and select **Go Deep**.
 
-* Complex research requiring multiple data sources.
-* Questions needing deep investigation (several minutes of work).
-* Tasks requiring SQL queries, web research, and company data exploration.
-* In-depth analysis like market research or competitive intelligence.
+## Example instructions
 
+```text
+When the user asks for a competitor deep dive, use Go Deep. Cover pricing, positioning, and recent news, and cite every source.
+```
 
-## Admin Control
+## Limits and credits
 
-Workspace admins can deactivate `@deep-dive`, which removes the `Go Deep` skill from all agents. Otherwise, it's available to add to any agent with one click.
+- A Go Deep run usually takes several minutes.
+- It makes many more model and tool calls than a regular answer, so it uses more credits. See [Credits](/docs/user-documentation/admins/usage-seats-and-credits/credits).
 
-***
+## For admins
+
+Go Deep isn't available when an admin turns off the **@deep-dive** agent. Turning **@deep-dive** back on makes Go Deep available again, in **@dust** and in every agent that has it.
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Default skills" href="/docs/user-documentation/agents/skills/default-skills">
+    All the skills Dust provides, and when each one is on.
+  </Card>
+  <Card title="@deep-dive" href="/docs/user-documentation/agents/default-agents/deep-dive-agent">
+    The default agent built for long research.
+  </Card>
+  <Card title="Discover Knowledge" href="/docs/user-documentation/agents/discover-knowledge">
+    Search your company data without a long research run.
+  </Card>
+  <Card title="Skills overview" href="/docs/user-documentation/agents/skills/skills-overview">
+    What skills are and how to create your own.
+  </Card>
+</CardGroup>
