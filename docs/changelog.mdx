@@ -3,6 +3,15 @@ title: "Changelog"
 description: "New updates and improvements to Dust"
 ---
 
+<Update label="November 25th, 2026" tags={["Added"]} rss={{ title: "Inference hooks with custom webhooks", description: "Workspace admins can send signed agent events, from user requests to final answers, to their own HTTPS endpoint for security monitoring or tracing." }}>
+## Inference hooks with custom webhooks
+
+You can now send signed agent events to your own HTTPS endpoint and verify each delivery. Pick which events to receive (user requests, proposed tool calls, tool results, or final answers) and route them to the security or tracing system your team already uses.
+
+Custom webhooks are monitor-only: your agents keep running without waiting for your endpoint, and nothing it returns can block a run. Workspace admins can [set up a custom webhook](/docs/user-documentation/admins/admin-governance/inference-hooks/custom-webhook) in Admin > Security > Inference Hooks > Custom webhook. Custom webhooks use no Dust credits.
+
+</Update>
+
 <Update label="November 25th, 2026" tags={["Added"]} rss={{ title: "Collaborate on documents in real time", description: "Teammates and agents can now write, comment on, and suggest edits to the same document together in a shared live editor." }}>
 ## Collaborate on documents in real time
 
