@@ -1,22 +1,92 @@
 ---
 title: "Voice and sound generation"
+description: "Let your agents turn text into speech or dialogue, transcribe audio and video files, and create sound effects."
 ---
 
-## Speech Generation
+Two built-in tools let your agents work with audio. **Speech Generator** turns text into spoken audio or a dialogue between several speakers, and transcribes audio and video files. **Sound Studio** creates short sound effects from a description. Speech Generator is ready to use, and an admin adds Sound Studio once.
 
-| Name             | What the agent will do                                                                                                                                                                                                           | How to configure it when building an agent               |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| Speech Generator | Convert written text into natural-sounding audio with configurable voices, languages, and speaking styles. Generate single-voice narrations or multi-speaker dialogues for podcasts, training content, and audio communications. | No configuration required; simply enable this capability |
+## What your agent can do with these tools
 
-**Key capabilities:**
+| Tool | Action | What it does | Changes data |
+| --- | --- | --- | --- |
+| Speech Generator | Generate speech | Turns text into an audio file read by one voice. | No |
+| Speech Generator | Generate dialogue | Turns several lines into one audio file, with a voice for each speaker. | No |
+| Speech Generator | Transcribe audio | Turns the speech in an audio or video file into text. The language is detected automatically. | No |
+| Sound Studio | Generate sound effect | Creates a sound effect from a description, and can make it loop. | No |
 
-* **Single voice audio:** Generate up to 10,000 characters of speech with customizable gender, language (21 languages supported), and use case (conversational, narrative, educational, etc.)
-* **Multi-speaker dialogue:** Create natural conversations between multiple speakers, supporting up to 5,000 dialogue lines for podcast-style content
-* **High-quality output:** All audio generated in MP3 format at 44.1kHz, 128kbps for professional-grade results
+Each voice has a gender (female or male) and a language or accent: English (American), English (British), French, German, Dutch, Italian, Japanese, Hindi, Chinese, Spanish, Portuguese, Korean, Arabic, Turkish, Polish, Swedish, Russian, Indonesian, Filipino, Thai, or Vietnamese. The language sets the accent. It doesn't translate the text.
 
-**Common use cases:**
+The list in Dust is the source of truth: it can change before this page does.
 
-* Transform research from `@deep-dive` into podcast episodes
-* Create audio versions of written content for accessibility
-* Generate training materials and onboarding content in audio format
-* Produce multilingual voice content for global teams
+## Before you start
+
+- Speech Generator is available in every workspace, with no setup.
+- An admin needs to add Sound Studio once (see below).
+- Neither tool is available on workspaces that use their own model provider keys (BYOK).
+
+## Add Sound Studio to your workspace (admins)
+
+<Steps>
+  <Step title="Add the tool">
+    Go to **Spaces** > **Tools**, click **Add tools**, and select **Sound Studio**.
+  </Step>
+</Steps>
+
+See [Managing Tools](/docs/user-documentation/admins/tools-management/adding-an-mcp-server) for more on tool setup.
+
+## Add the tools to an agent
+
+<Steps>
+  <Step title="Open your agent in the Agent Builder">
+    Create an agent, or open one you can edit.
+  </Step>
+  <Step title="Add the tools">
+    In **Capabilities and knowledge**, click **Add capabilities** and select **Speech Generator**, **Sound Studio**, or both. They need no configuration.
+  </Step>
+  <Step title="Say what audio to create">
+    In the instructions, describe the voices, the length, and when the agent should create audio.
+  </Step>
+</Steps>
+
+By default, every action of both tools is set to **Low**. Admins can change the level of each action in **Spaces** > **Tools** > the tool > **Tools & stakes**:
+
+- **High:** needs explicit user approval.
+- **Medium:** users can save confirmations for specific tool inputs, or skip them for the rest of a conversation session.
+- **Low:** users can completely disable confirmations.
+- **Never ask:** runs automatically.
+
+These actions only create new audio files or read the file you give them, so **Low** is usually enough.
+
+## Example instructions
+
+```text
+When I share a meeting recording, transcribe it, then write a summary with the decisions and the next steps.
+```
+
+```text
+Turn the research summary into a podcast dialogue between a female host and a male guest, both in American English. Keep it under three minutes.
+```
+
+## Limits
+
+- **Generate speech:** up to 5,000 characters of text per audio file.
+- **Generate sound effect:** from 0.5 to 30 seconds long.
+- **Transcribe audio:** links only work from known video platforms, like YouTube, Vimeo, and Loom. For other files, add the file to the conversation.
+- **Credits:** each action costs 3 credits. See [Action credits](/docs/user-documentation/admins/usage-seats-and-credits/credits#action-credits).
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Tools" href="/docs/user-documentation/agents/tools">
+    All the tools you can give your agents.
+  </Card>
+  <Card title="Managing Tools" href="/docs/user-documentation/admins/tools-management/adding-an-mcp-server">
+    How admins add tools and set approval levels.
+  </Card>
+  <Card title="Credits" href="/docs/user-documentation/admins/usage-seats-and-credits/credits">
+    How tools and models use credits.
+  </Card>
+  <Card title="Go Deep" href="/docs/user-documentation/agents/go-deep">
+    Research a question in depth, then turn the result into audio.
+  </Card>
+</CardGroup>
