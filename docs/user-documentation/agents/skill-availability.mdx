@@ -1,29 +1,49 @@
 ---
-title: "Skill Availability"
+title: "Skill availability"
+description: "Choose who can find and use a skill: its editors, every member, or members and agents."
 ---
 
-### Controlling skill availability
+Availability controls who can find a skill in the message bar and the Agent Builder, and whether agents can turn it on by themselves. You set it in the skill builder, in **Skill settings** > **Availability**. New skills start as **Editors only**.
 
-Skills have three availability settings:
+## Availability options
 
-**Editors only**
+| Availability | Who can find and use the skill | Permission needed |
+| :--- | :--- | :--- |
+| **Editors only** | Only the skill's editors. Use it while you build a skill, or for a skill you keep for yourself. | None |
+| **Members** | Everyone in the workspace, from the message bar and the Agent Builder. | **Manage skill availability** |
+| **Members and agents** | Everyone in the workspace, plus any agent with [Discover Skills](/docs/user-documentation/agents/discover-skills), including **@dust**. | **Manage skill availability** and **Make skills discoverable to agents** |
 
-Only editors can find the skill via the composer and agent builder. Use this setting while developing a skill or when it is intended for personal use. A skill set to **Editors only** can still be used by non-editors if it has been added to an agent or a skill they can access.
+A skill set to **Editors only** still works for other members when it's part of an agent or another skill they can use.
 
-**All members**
+Admins grant both permissions in **Admin** > **Governance** > **Agents & Skills**. In a new workspace, they're limited to admins. See [Roles, groups, and permissions](/docs/user-documentation/admins/admin-governance/workspace-governance-roles-groups-and-permissions).
 
-Everyone in your workspace can find and use the skill via the composer and agent builder. Use this setting when the skill is ready to share broadly with workspace members.
+## Before you choose Members and agents
 
-To use this setting, you need the **Manage skill availability** permission.
+With **Members and agents**, any agent with Discover Skills can turn the skill on by itself when a request matches it. The skill builder reminds you that the skill then has workspace-wide effects: many members can end up using it without choosing it.
 
-**Members and agents**
+Before you share a skill this way, check its **When to use this skill** text and its instructions. To see which skills agents can already use, open **Manage skills** and filter by **Members and agents**.
 
-The skill is available to all workspace members and to agents that have [Discover Skills](/docs/user-documentation/agents/discover-skills) enabled (including @Dust). These agents can automatically enable the skill when they determine that it is relevant to a task.
+## Limit a skill to some members
 
-Use this setting carefully. The skill may be enabled automatically by many agents, which can affect other workspace members' experience without their explicit action.
+Availability doesn't make a skill private. To limit who can use it, add a restricted Space or Pod in **Data and access**. Only people who are members of all the Spaces and Pods listed can use the skill, and that includes its editors.
 
-To use this setting, you need both the **Manage skill availability** permission and the **Make skills discoverable to agents** permission.
+## Change availability for several skills
 
-### How can I create a private skill?
+In **Manage skills**, select several skills and use **Set availability**. See [Skills management](/docs/user-documentation/agents/skills/skills-management#update-several-skills).
 
-Skills are not private by default. To restrict access, add a restricted Pod to the skill. Only people and agents with access to that Pod can view or use the skill. Note that editors also need access to the restricted Pod to find and use the skill.
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Skills overview" href="/docs/user-documentation/agents/skills/skills-overview">
+    What skills are and how to create your own.
+  </Card>
+  <Card title="Discover Skills" href="/docs/user-documentation/agents/discover-skills">
+    Let agents find and turn on shared skills.
+  </Card>
+  <Card title="Skills management" href="/docs/user-documentation/agents/skills/skills-management">
+    Find, filter, and update skills in bulk.
+  </Card>
+  <Card title="Roles, groups, and permissions" href="/docs/user-documentation/admins/admin-governance/workspace-governance-roles-groups-and-permissions">
+    Who can create skills and change their availability.
+  </Card>
+</CardGroup>
