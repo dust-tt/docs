@@ -67,6 +67,15 @@ The **Static OAuth** option is used in the most secure scenarios where a custom 
 
 The process is slightly different from platform to platform, please refer to the vendor's documentation
 
+#### OAuth parameters and token refresh
+
+If you run your own OAuth server for an MCP server, here's what Dust sends to it and how Dust keeps the connection active.
+
+- **PKCE**: Dust always uses Proof Key for Code Exchange (PKCE) with the `S256` method, with both **Automatic** and **Static OAuth**.
+- **`resource`**: with **Automatic**, when your MCP server publishes OAuth protected resource metadata, Dust sends its `resource` value as the `resource` parameter (RFC 8707). With **Static OAuth**, enter it in **OAuth Resource / Audience** if your server issues audience-scoped tokens.
+- **`offline_access`**: with **Automatic**, Dust requests `offline_access` when your protected resource metadata or authorization server metadata lists it in `scopes_supported`. With **Static OAuth**, add `offline_access` to **OAuth Scope(s)** if your server needs it to issue refresh tokens.
+- **Token refresh**: when your server returns a refresh token, Dust stores it and uses it to get a new access token before the current one expires, so users don't have to reconnect. Without a refresh token, Dust can't renew the access token once it expires.
+
 ### If automatic setup fails
 
 **Automatic** setup only works if the MCP server supports CIMD or lets Dust register itself as an OAuth app. When it supports neither, Dust shows one of these errors:
