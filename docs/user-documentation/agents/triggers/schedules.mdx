@@ -22,6 +22,12 @@ You just have to Save the **agent** for the **schedule** to be registered.
 By default, each run's conversation appears only in your own conversation history. To share runs with your team, pick a Pod under **Where to create this conversation?**: the conversation is then created in that Pod, where all its members can see it.
 </Info>
 
+## How often a schedule can run
+
+A schedule can run at most once per hour. Schedules such as every hour, every weekday at 8 AM, or the first day of each month work. Anything more frequent, such as every 15 or 30 minutes, is refused with the error "Unable to generate a schedule: it can't be more frequent than hourly. Please try rephrasing."
+
+The same limit applies when an agent creates a schedule for you from a conversation.
+
 ## Who can add a trigger
 
 You can add a trigger to an agent only if you can use that agent:
