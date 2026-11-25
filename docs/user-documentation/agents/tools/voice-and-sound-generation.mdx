@@ -18,6 +18,8 @@ Each voice has a gender (female or male) and a language or accent: English (Amer
 
 The list in Dust is the source of truth: it can change before this page does.
 
+Generated speech, dialogue, and sound effects are saved as MP3 files. When you upload an audio file (MP3, M4A, WAV, OGG, or WebM) to a conversation, Dust transcribes it automatically, so any agent can read it without this tool.
+
 ## Before you start
 
 - Speech generator is available in every workspace, with no setup.
@@ -48,12 +50,10 @@ See [Managing Tools](/docs/user-documentation/admins/tools-management/adding-an-
   </Step>
 </Steps>
 
-By default, every action of both tools is set to **Low**. Admins can change the level of each action in **Spaces** > **Tools** > the tool > **Tools & stakes**:
+Every action of both tools is set to **Low** by default: users can completely disable confirmations.
 
-- **High:** needs explicit user approval.
-- **Medium:** users can save confirmations for specific tool inputs, or skip them for the rest of a conversation session.
-- **Low:** users can completely disable confirmations.
-- **Never ask:** runs automatically.
+- **Speech generator** isn't listed in **Spaces** > **Tools**, so its actions always stay at **Low**.
+- For **Sound studio**, admins can change the level in **Spaces** > **Tools** > **Sound studio** > **Tools & stakes**. The levels are **High** (needs explicit user approval), **Medium** (users can save confirmations for specific tool inputs, or skip them for the rest of a conversation session), **Low**, and **Never ask** (runs automatically).
 
 These actions only create new audio files or read the file you give them, so **Low** is usually enough.
 
@@ -71,7 +71,7 @@ Turn the research summary into a podcast dialogue between a female host and a ma
 
 - **Generate speech:** up to 5,000 characters of text per audio file.
 - **Generate sound effect:** from 0.5 to 30 seconds long.
-- **Transcribe audio:** links only work from known video platforms, like YouTube, Vimeo, and Loom. For other files, add the file to the conversation.
+- **Transcribe audio:** links only work from supported platforms, like YouTube, Vimeo, Loom, Zoom, Gong, or Google Drive. For other files, add the file to the conversation.
 - **Credits:** each action costs 3 credits. See [Action credits](/docs/user-documentation/admins/usage-seats-and-credits/credits#action-credits).
 
 ## Related
