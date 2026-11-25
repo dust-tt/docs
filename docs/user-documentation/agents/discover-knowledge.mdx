@@ -1,42 +1,73 @@
 ---
 title: "Discover Knowledge"
-description: "Give agents access to company documents and data warehouse analysis."
+description: "Let your agent search, browse, and read your company data, and query your data warehouses with SQL."
 ---
 
-Discover Knowledge lets your agent search and analyze the company documents and data warehouse tables available to it. The agent can move from broad discovery to source reading or SQL analysis without requiring you to configure each source as a separate tool.
+Discover Knowledge lets an agent find information in your company data. It searches and reads documents from your connected sources, and queries your data warehouses with SQL. **@dust** already has it, and you can add it to your own agents.
 
-<Info>
-The `@dust` agent includes Discover Knowledge by default.
-</Info>
+## What your agent can do with Discover Knowledge
 
-## How to add it
-
-In the Agent Builder, open your custom agent and select **Discover Knowledge** from the **Capabilities** section. Then save the agent.
-
-## What it does
-
-When Discover Knowledge is enabled, your agent gains access to:
-
-| Capability | Description |
+| Capability | What it does |
 | :--- | :--- |
-| Semantic search | Finds relevant content across connected company data, even when the source uses different wording from your question. |
-| Browse and find | Explores source hierarchies and locates folders, documents, pages, schemas, and tables by name. |
-| Source reading | Reads the contents of a known document or page and identifies its location in the source hierarchy. |
-| Warehouse exploration | Lists databases, schemas, and tables, then inspects columns, types, and sample values. |
-| SQL analysis | Queries known warehouse tables to calculate counts, trends, rankings, joins, and other structured results. |
+| Search company data | Finds relevant content across your connected sources, even when a document uses different words than your question. |
+| Browse sources | Explores folders and finds documents, pages, and tables by name. |
+| Read documents | Reads a document or page it found, and sees where it sits in the source. |
+| Explore data warehouses | Lists databases, schemas, and tables, and looks at columns and sample values. |
+| Query data warehouses | Runs SQL on your warehouse tables to count, rank, compare, or find trends. |
 
-The agent usually starts with semantic search for document-based questions. It can switch to browsing when it needs to understand a folder or inspect a complete collection.
+For a question about numbers, the agent can also read your documents first, like a metric's definition, before it queries the warehouse.
 
-For warehouse questions, the agent can combine SQL results with company documents. This helps it find metric definitions, table documentation, or other business context before interpreting the data.
-
-## When to use it
+## When to use Discover Knowledge
 
 Add Discover Knowledge when your agent needs to:
 
-- Answer questions from company documents across multiple connected sources.
-- Explore a known folder, document collection, or data source hierarchy.
-- Find and read a document when you do not know its exact title or location.
-- Discover warehouse tables and query them with SQL.
-- Combine qualitative context from documents with quantitative warehouse data.
+- Answer questions from documents spread across several connected sources.
+- Find a document when you don't know its title or where it is.
+- Look through a whole folder or collection.
+- Answer questions with numbers from your data warehouse, and explain them with context from your documents.
 
-Discover Knowledge follows the user's permissions and the spaces available to the agent. It does not provide write actions in third-party applications. For those tasks, use [Discover Tools](/docs/user-documentation/agents/discover-tools).
+## Add Discover Knowledge to an agent
+
+**@dust** already has Discover Knowledge.
+
+To add Discover Knowledge to your own agent:
+
+<Steps>
+  <Step title="Open your agent in the Agent Builder">
+    Create an agent, or open one you can edit.
+  </Step>
+  <Step title="Add the skill">
+    In **Capabilities and knowledge**, click **Add capabilities** and select **Discover Knowledge**.
+  </Step>
+  <Step title="Save your agent">
+    The agent can now search your company data when a question needs it.
+  </Step>
+</Steps>
+
+## Example instructions
+
+```text
+When a question is about our internal processes, search company data with Discover Knowledge first, and link to the documents you used.
+```
+
+## Limits
+
+- Discover Knowledge searches the data in **Company Data** and in the other Spaces the agent uses.
+- It only reads data. To create or update records in other apps, use [Discover Tools](/docs/user-documentation/agents/discover-tools) or add the tool to your agent.
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Default skills" href="/docs/user-documentation/agents/skills/default-skills">
+    All the skills Dust provides, and when each one is on.
+  </Card>
+  <Card title="Go Deep" href="/docs/user-documentation/agents/go-deep">
+    Research a question for several minutes across company data and the web.
+  </Card>
+  <Card title="Discover Tools" href="/docs/user-documentation/agents/discover-tools">
+    Let your agent turn on tools from your workspace when it needs them.
+  </Card>
+  <Card title="Skills overview" href="/docs/user-documentation/agents/skills/skills-overview">
+    What skills are and how to create your own.
+  </Card>
+</CardGroup>

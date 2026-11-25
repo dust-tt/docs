@@ -1,50 +1,70 @@
 ---
 title: "Dust Support"
-description: "Get help with Dust using public docs, open-source issues, and community knowledge."
+description: "Let your agent answer questions about Dust using the Dust documentation, the community Q&A, and the web."
 ---
 
-Dust Support is a Dust-provided skill that turns your agent into a first line of support for Dust itself. When enabled, the agent answers questions about how to use Dust, its capabilities and limits, or unexpected behavior, and grounds every answer in public Dust sources rather than answering from memory.
+Dust Support lets an agent answer questions about Dust itself: how to use a feature, what Dust can and can't do, or why something doesn't work as expected. **@dust** uses it when you ask about Dust, and you can add it to your own agents.
 
-<Info>
-The `@dust` agent includes Dust Support by default. When you ask `@dust` a clear support question about the Dust platform, it enables the skill automatically before answering.
-</Info>
+## What your agent can do with Dust Support
 
-## How to add it
+| Capability | What it does |
+| :--- | :--- |
+| Check the docs | Reads the Dust documentation before it answers. |
+| Check the community | Looks at questions and answers on the [Dust community page](https://community.dust.tt). |
+| Search the web | Searches the web and reads pages when the docs don't cover the question. |
+| Help you troubleshoot | Asks questions that help you narrow down what's going on. |
 
-Dust Support is already available on `@dust`: simply mention `@dust` and ask your support question.
+Dust Support only uses public sources. If it can't find an answer, it says so instead of guessing.
 
-To add it to a custom agent, select the `Dust Support` skill from the **Capabilities** section in the Agent Builder. Agents with [Discover Skills](/docs/user-documentation/agents/discover-skills) can also find and enable it on their own when a support question comes up.
+## When to use Dust Support
 
-## What it does
+Ask questions like:
 
-When the Dust Support skill is enabled, your agent:
+- "How do I connect Snowflake?"
+- "What's the file size limit for uploads?"
+- "Why isn't my agent finding the latest documents from Notion?"
 
-| Capability               | Description                                                                                                                                                                                                                            |
-| :----------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Grounded answers         | Searches and browses public Dust sources before answering: the [documentation](https://docs.dust.tt), the [open-source code and public issues](https://github.com/dust-tt/dust), and the [Dust community](https://community.dust.tt). |
-| Request classification   | Distinguishes how-to questions, suspected product bugs, and private matters (billing, security, account recovery), and handles each appropriately.                                                                                     |
-| Bug report qualification | Checks public GitHub issues for an existing match, then helps you structure a report: reproduction steps, expected vs. actual behavior, visible errors, and environment details.                                                       |
-| Escalation guidance      | Points you to the right channel: documentation and [Community support on Slack](https://dust-community.tightknit.community/join) for how-to questions, the [public issue tracker](https://github.com/dust-tt/dust/issues) for bugs, and your official Dust support or customer-success channel for private matters. |
+Dust Support can't see your workspace settings, your account, or your billing. For those questions, contact Dust support.
 
-The skill uses the Web Search & Browse tool to verify answers against these sources at response time.
+## Add Dust Support to an agent
 
-## What it doesn't do
+**@dust** already has Dust Support: ask it a question about Dust, and it turns the skill on.
 
-Dust Support is deliberately conservative:
+To add Dust Support to your own agent:
 
-* It only relies on public information. It does not inspect your workspace, account, billing state, logs, or any internal Dust system.
-* It never invents features, limits, policies, or timelines, and never promises fixes, SLAs, credits, or refunds.
-* It does not file GitHub issues on your behalf. Instead, it prepares a report outline you can review and submit yourself.
-* If public sources do not answer the question, it says so and tells you which surfaces it checked.
+<Steps>
+  <Step title="Open your agent in the Agent Builder">
+    Create an agent, or open one you can edit.
+  </Step>
+  <Step title="Add the skill">
+    In **Capabilities and knowledge**, click **Add capabilities** and select **Dust Support**.
+  </Step>
+  <Step title="Save your agent">
+    People using the agent can now ask it questions about Dust.
+  </Step>
+</Steps>
 
-## When to use it
+Agents with [Discover Skills](/docs/user-documentation/agents/discover-skills) can also find Dust Support and turn it on when someone asks about Dust. To use it in one conversation without changing an agent, type `/` in the message bar and select **Dust Support**.
 
-Ask your agent Dust Support questions like:
+## Example instructions
 
-* "How do I connect Snowflake as a data source?"
-* "What is the file size limit for uploads?"
-* "Why is my agent not picking up the latest documents from my connected data source?"
-* "Is there a reported problem with PDF parsing right now?"
-* "Help me prepare a bug report for this error."
+```text
+When someone asks how to do something in Dust, use Dust Support, and link to the docs page you used.
+```
 
-For billing, security, or account-specific issues, the skill will direct you to your official Dust support or customer-success channel, since those require access to private account state.
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Default skills" href="/docs/user-documentation/agents/skills/default-skills">
+    All the skills Dust provides, and when each one is on.
+  </Card>
+  <Card title="Discover Skills" href="/docs/user-documentation/agents/discover-skills">
+    Let your agent turn on skills from your workspace when they match a request.
+  </Card>
+  <Card title="Skills overview" href="/docs/user-documentation/agents/skills/skills-overview">
+    What skills are and how to create your own.
+  </Card>
+  <Card title="Dust community" href="https://community.dust.tt">
+    Questions and answers from other Dust users.
+  </Card>
+</CardGroup>
