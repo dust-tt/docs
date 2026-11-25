@@ -1,40 +1,70 @@
 ---
 title: "Discover Tools"
-description: "Let agents find and enable specialized tools when a task requires them."
+description: "Let your agent find and turn on tools from your workspace when a task needs them."
 ---
 
-Discover Tools lets your agent find specialized toolsets available in your workspace and enable them when needed. This gives a custom agent access to a broad range of actions without loading every tool into its initial configuration.
+Discover Tools lets an agent find the tools your workspace has set up and turn one on when a task needs it, like reading a Jira ticket or updating a HubSpot deal. You don't need to add every tool to the agent ahead of time. **@dust** already does this, and you can add it to your own agents.
 
-<Info>
-The `@dust` agent already includes dynamic tool discovery. Add Discover Tools to give a custom agent the same on-demand access pattern.
-</Info>
+## What your agent can do with Discover Tools
 
-## How to add it
-
-In the Agent Builder, open your custom agent and select **Discover Tools** from the **Capabilities** section. Then save the agent.
-
-## What it does
-
-When Discover Tools is enabled, your agent can:
-
-| Capability | Description |
+| Capability | What it does |
 | :--- | :--- |
-| Toolset discovery | Reviews the names and descriptions of specialized toolsets available to the agent. |
-| Relevance matching | Selects a toolset that fits the current request. |
-| In-conversation activation | Enables the selected toolset for the current conversation. |
-| Tool use | Calls the enabled toolset's actions to read live data or perform changes in an external application. |
+| List available tools | Sees the tools in **Company Data** and in the other Spaces the agent uses, if they can be added during a conversation. |
+| Turn on a tool | Turns on the tool it needs, for the current conversation. |
+| Use the tool | Calls the tool's actions to read live data or make changes in another app. |
 
-Once enabled, a toolset remains available to the same agent for subsequent messages in the conversation.
+Once the agent turns on a tool, the tool stays on for that agent for the rest of the conversation. To learn which tools can be added during a conversation, see [JIT tools](/docs/user-documentation/agents/tools/jit-tools).
 
-Discover Tools only lists tools configured for on-demand availability. The tools still follow their existing space permissions and authentication settings.
+## When to use Discover Tools
 
-## When to use it
+Add Discover Tools when your agent:
 
-Add Discover Tools when your agent may need to:
+- Handles requests that could need many different apps, like a general assistant for your team.
+- Needs a tool only now and then, and you'd rather not add it ahead of time.
 
-- Perform actions such as posting a message, creating a page, or updating an issue.
-- Retrieve live or private data that is not indexed in company data.
-- Work across several applications without loading every integration upfront.
-- Adapt to new workspace tools without updating its configuration each time.
+If your agent uses the same tool for every request, add that tool to the agent directly.
 
-For retrieving information that is already indexed in your company's connected data sources, use [Discover Knowledge](/docs/user-documentation/agents/discover-knowledge). Use Discover Tools for write actions, live data, or sources that are not indexed.
+## Add Discover Tools to an agent
+
+**@dust** already discovers tools on its own.
+
+To add Discover Tools to your own agent:
+
+<Steps>
+  <Step title="Open your agent in the Agent Builder">
+    Create an agent, or open one you can edit.
+  </Step>
+  <Step title="Add the skill">
+    In **Capabilities and knowledge**, click **Add capabilities** and select **Discover Tools**.
+  </Step>
+  <Step title="Save your agent">
+    The agent can now turn on tools from your workspace when a task needs them.
+  </Step>
+</Steps>
+
+## Example instructions
+
+```text
+When a request needs data from another app, like a Jira ticket or a HubSpot deal, use Discover Tools to turn on the right tool before you answer.
+```
+
+## Limits
+
+- Discover Tools only finds tools that were already added in **Spaces** > **Tools**. It can't connect a new app.
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="JIT tools" href="/docs/user-documentation/agents/tools/jit-tools">
+    Tools that agents can add during a conversation.
+  </Card>
+  <Card title="Tools" href="/docs/user-documentation/agents/tools">
+    All the tools you can give your agents.
+  </Card>
+  <Card title="Discover Skills" href="/docs/user-documentation/agents/discover-skills">
+    Let your agent turn on skills from your workspace when they match a request.
+  </Card>
+  <Card title="Default skills" href="/docs/user-documentation/agents/skills/default-skills">
+    All the skills Dust provides, and when each one is on.
+  </Card>
+</CardGroup>

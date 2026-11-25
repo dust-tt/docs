@@ -1,46 +1,76 @@
 ---
 title: "Discover Skills"
-description: "Let agents find and enable relevant workspace skills during a conversation."
+description: "Let your agent find and turn on skills from your workspace when a request matches them."
 ---
 
-Discover Skills lets your agent find relevant workspace and Dust-provided skills while it works. The agent can enable a skill when a request matches its description, without requiring you to add every possible skill to the agent beforehand.
+Discover Skills lets an agent find skills shared with your workspace and turn one on when a request matches it. You don't need to add every skill to the agent ahead of time. **@dust** already has it, and you can add it to your own agents.
 
-<Info>
-The `@dust` agent includes Discover Skills by default.
-</Info>
+## What your agent can do with Discover Skills
 
-## How to add it
-
-In the Agent Builder, open your custom agent and select **Discover Skills** from the **Capabilities** section. Then save the agent.
-
-### Make workspace skills discoverable
-
-Discover Skills only sees workspace skills marked as discoverable. Mark a skill as discoverable if you want agents with this capability to find and enable it. Skills that are not discoverable do not appear in the available skill list.
-
-New skill versions default to `editors` availability. They are therefore hidden from the input bar and Agent Builder for non-editors until an administrator or a user with the required permission broadens their availability. To let members or agents discover a skill, choose a broader availability.
-
-## What it does
-
-When Discover Skills is enabled, your agent can:
-
-| Capability | Description |
+| Capability | What it does |
 | :--- | :--- |
-| Skill discovery | Reviews active workspace skills marked as discoverable, along with Dust-provided global skills. |
-| Relevance matching | Uses each skill's name and description to decide whether it applies to the current request. |
-| In-conversation activation | Enables the selected skill for the current conversation. |
-| Capability loading | Gains access to the enabled skill's instructions, tools, and knowledge. |
+| List available skills | Sees the skills it can use: workspace skills set to **Members and agents**, the skills Dust provides, and your favorite skills. |
+| Turn on a skill | Turns on the skill that matches the request, for the current conversation. |
+| Use the skill | Follows the skill's instructions and uses its tools and knowledge. |
 
-Discover Skills does not load every available skill into the agent at once. It keeps the agent's initial configuration focused, then adds specialized guidance and capabilities when they become relevant.
+Once the agent turns on a skill, the skill stays on for that agent for the rest of the conversation.
 
-Once the agent enables a skill, that skill remains available to the same agent for subsequent messages in the conversation.
-
-## When to use it
+## When to use Discover Skills
 
 Add Discover Skills when:
 
-- You are building a general-purpose agent that handles varied requests.
-- Your workspace has reusable skills for different teams or workflows.
-- You want agents to benefit from newly published discoverable skills without updating every agent configuration.
-- Loading all specialized instructions and tools upfront would add unnecessary context.
+- Your workspace has many skills, and you don't want to add each one to the agent.
+- You want the agent to pick up new skills as your team shares them, without editing the agent.
 
-The agent only sees active, discoverable skills that are available to it. Enabling Discover Skills does not bypass workspace or space permissions.
+## Make a skill available to agents
+
+Agents with Discover Skills only see workspace skills set to **Members and agents**. In the skill builder, **Availability** has three options:
+
+| Availability | Who can use the skill |
+| :--- | :--- |
+| **Editors only** | Only the skill's editors. |
+| **Members** | Everyone in the workspace, from the message bar and the Agent Builder. |
+| **Members and agents** | Everyone in the workspace, plus any agent with Discover Skills, including **@dust**. |
+
+Not everyone can set a skill to **Members and agents**. If you can't, ask an admin.
+
+## Add Discover Skills to an agent
+
+**@dust** already has Discover Skills.
+
+To add Discover Skills to your own agent:
+
+<Steps>
+  <Step title="Open your agent in the Agent Builder">
+    Create an agent, or open one you can edit.
+  </Step>
+  <Step title="Add the skill">
+    In **Capabilities and knowledge**, click **Add capabilities** and select **Discover Skills**.
+  </Step>
+  <Step title="Save your agent">
+    The agent can now turn on matching skills during a conversation.
+  </Step>
+</Steps>
+
+## Example instructions
+
+```text
+Before answering, check whether a workspace skill matches the request, like our brand guidelines or the sales playbook, and use it.
+```
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Skills overview" href="/docs/user-documentation/agents/skills/skills-overview">
+    What skills are and how to create your own.
+  </Card>
+  <Card title="Manage skills" href="/docs/user-documentation/agents/skills/skills-management">
+    Edit, share, and organize your workspace skills.
+  </Card>
+  <Card title="Default skills" href="/docs/user-documentation/agents/skills/default-skills">
+    All the skills Dust provides, and when each one is on.
+  </Card>
+  <Card title="Discover Tools" href="/docs/user-documentation/agents/discover-tools">
+    Let your agent turn on tools from your workspace when it needs them.
+  </Card>
+</CardGroup>
