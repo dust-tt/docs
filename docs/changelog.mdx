@@ -12,6 +12,15 @@ Custom webhooks are monitor-only: your agents keep running without waiting for y
 
 </Update>
 
+<Update label="November 25th, 2026" tags={["Added"]} rss={{ title: "Built-in prompt injection and sensitive data checks", description: "Workspace admins can turn on Dust-provided checks that flag or block prompt injection and sensitive data leaks in agent runs, with no third-party service to connect." }}>
+## Built-in prompt injection and sensitive data checks
+
+Dust now provides two built-in inference hooks for your agents: a prompt injection check, which catches instructions hidden in documents an agent reads, and a sensitive data check, which stops agents from sending API keys or payment card numbers to tools. Run each in Monitor mode to review findings without interrupting users, or Block mode to stop flagged runs.
+
+Admins opt in under **Admin > Security > Inference Hooks > Dust** ([setup guide](/docs/user-documentation/admins/admin-governance/inference-hooks/dust-checks)). Sensitive data checks use no credits. Prompt injection checks require a credit-based plan, and setup shows the estimated cost first.
+
+</Update>
+
 <Update label="November 25th, 2026" tags={["Added"]} rss={{ title: "Collaborate on documents in real time", description: "Teammates and agents can now write, comment on, and suggest edits to the same document together in a shared live editor." }}>
 ## Collaborate on documents in real time
 
