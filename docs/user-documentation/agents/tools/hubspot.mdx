@@ -48,28 +48,6 @@ The list in Dust is the source of truth, and it can change before this page does
 
 See [Personal vs Shared Credentials](/docs/user-documentation/admins/tools-management/personal-vs-shared-credentials) and [Managing Tools](/docs/user-documentation/admins/tools-management/adding-an-mcp-server) for more on tool setup.
 
-## HubSpot permissions
-
-When you connect HubSpot, Dust asks HubSpot for the permissions (OAuth scopes) below. Only `oauth` is required. The others are optional: if your HubSpot account can't grant one, the connection still works, but agents can't reach the matching objects.
-
-| HubSpot feature | Scopes |
-| --- | --- |
-| Contacts | `crm.objects.contacts.read`, `crm.objects.contacts.write`, `crm.schemas.contacts.read` |
-| Companies | `crm.objects.companies.read`, `crm.objects.companies.write`, `crm.schemas.companies.read` |
-| Deals | `crm.objects.deals.read`, `crm.objects.deals.write`, `crm.schemas.deals.read` |
-| Leads | `crm.objects.leads.read`, `crm.objects.leads.write` |
-| Owners | `crm.objects.owners.read` |
-| Custom objects | `crm.schemas.custom.read`, `crm.objects.custom.read`, `crm.objects.custom.write` |
-| Quotes and line items | `crm.objects.quotes.read`, `crm.objects.line_items.read` |
-| Products | `crm.objects.products.read` |
-| Lists | `crm.lists.read`, `crm.lists.write` |
-| Tickets | `crm.objects.tickets.read`, `crm.objects.tickets.write`, `crm.schemas.tickets.read`, `crm.schemas.tickets.write` |
-| Files | `files` |
-| Sales emails | `sales-email-read` |
-| Timeline events | `timeline` |
-| Marketing emails | `marketing-email` |
-| CMS content | `content` |
-
 ## Add HubSpot to an agent
 
 <Steps>
@@ -95,11 +73,33 @@ By default, tools that read data run without asking (**Never ask**), and tools t
 Keep every tool that changes data in your CRM at **High**, so a person approves each change before it happens.
 </Warning>
 
-Example instructions:
+## Example instructions
 
 ```text
-From the transcripts you are receiving, create a contact if you can't find any existing contact with the interlocutor's name or email, and if a deal has been set create a deal to attach to the current account.
+After each sales call transcript, look for a HubSpot contact with the person's name or email, and create one if there's none. If the call set up a deal, create the deal and link it to the company.
 ```
+
+## HubSpot permissions
+
+When you connect HubSpot, Dust asks HubSpot for the permissions (OAuth scopes) below. Only `oauth` is required. The others are optional: if your HubSpot account can't grant one, the connection still works, but agents can't reach the matching objects.
+
+| HubSpot feature | Scopes |
+| --- | --- |
+| Contacts | `crm.objects.contacts.read`, `crm.objects.contacts.write`, `crm.schemas.contacts.read` |
+| Companies | `crm.objects.companies.read`, `crm.objects.companies.write`, `crm.schemas.companies.read` |
+| Deals | `crm.objects.deals.read`, `crm.objects.deals.write`, `crm.schemas.deals.read` |
+| Leads | `crm.objects.leads.read`, `crm.objects.leads.write` |
+| Owners | `crm.objects.owners.read` |
+| Custom objects | `crm.schemas.custom.read`, `crm.objects.custom.read`, `crm.objects.custom.write` |
+| Quotes and line items | `crm.objects.quotes.read`, `crm.objects.line_items.read` |
+| Products | `crm.objects.products.read` |
+| Lists | `crm.lists.read`, `crm.lists.write` |
+| Tickets | `crm.objects.tickets.read`, `crm.objects.tickets.write`, `crm.schemas.tickets.read`, `crm.schemas.tickets.write` |
+| Files | `files` |
+| Sales emails | `sales-email-read` |
+| Timeline events | `timeline` |
+| Marketing emails | `marketing-email` |
+| CMS content | `content` |
 
 ## Limits
 
