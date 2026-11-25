@@ -42,6 +42,19 @@ Some frames have a backend with functions. Running these functions consumes cred
 | **Function runtime** | 1 credit per second of function runtime |
 | **Tool calls from functions** | Same as in a conversation, see [Action credits](#action-credits) |
 
+### Inference hook credits
+
+Dust bills hooks separately from the agent run. Hook charges come from your workspace credit pool rather than a member’s credits.
+
+| Hook | Dust credits |
+| --- | --- |
+| Dust: Prompt injection | 5 credits per 1 million agent tokens the hook protects. Available on credit-based plans. |
+| Dust: Sensitive data | 0 credits |
+| Custom webhook | 0 credits. You may still pay to run your endpoint or process events. |
+| Datadog AI Guard (private beta) | 0 credits during the beta. Datadog bills for AI Guard separately. |
+
+For each prompt injection hook, Dust counts the agent’s input and output tokens. That includes cached input and excludes reasoning tokens. Monitor and Block cost the same.
+
 ### Sub-agent costs
 
 When an agent runs sub-agents in the background, each sub-agent's credit cost is added to the total. Costs accumulate across the full agent chain and are displayed alongside the main agent cost.

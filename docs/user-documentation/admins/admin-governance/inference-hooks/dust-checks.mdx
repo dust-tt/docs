@@ -1,0 +1,14 @@
+---
+title: Dust-provided checks
+description: "Check for prompt injection and sensitive data without connecting another service."
+---
+
+To [create an inference hook](/docs/user-documentation/admins/admin-governance/inference-hooks#create-a-hook), open **Admin > Security > Inference Hooks**. Choose **Dust** as the provider. You don’t need an endpoint or credentials. Under **Coverage > Checks**, you can turn on either check or both.
+
+**Prompt injection** looks for instructions in tool results that steer the agent away from the user’s request. For example, a document the agent reads might tell it to email a file to an address the user never mentioned. Dust checks the tool calls the agent proposes and the final answer it writes. It doesn’t screen each incoming user prompt.
+
+**Sensitive data** looks for **Payment card numbers**, **API keys and secrets**, or both. It scans new content at each of the four steps, so it can catch a key in a user’s message, a tool argument, a tool result, or the final answer. It can flag or block a match. It doesn’t redact the value.
+
+Before you select **Create**, review **Estimated cost**. Dust bases the estimate on your last 30 days of billed agent usage. To check actual usage later, open **Admin > Analytics** and choose **Sources** under **Attribution**.
+
+For rates, see [Inference hook credits](/docs/user-documentation/admins/usage-seats-and-credits/credits#inference-hook-credits).

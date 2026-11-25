@@ -1,55 +1,28 @@
 ---
 title: Datadog AI Guard
-description: "Connect Datadog AI Guard to inference hooks, manage credentials, and investigate evaluations in Datadog."
+description: "Connect Datadog AI Guard, test your credentials, and investigate findings in Datadog."
 ---
 
-Connect [Datadog AI Guard](https://docs.datadoghq.com/security/ai_guard/) as a provider for Dust inference hooks. This guide covers Datadog access, connection settings, credentials, and investigation in Datadog. For checkpoints, evaluation context, enforcement, and workspace-wide controls, see the [Inference hooks overview](/docs/user-documentation/admins/admin-governance/inference-hooks).
+<a id="before-you-start" />
 
-<Info>
-**Private beta.** Contact your Dust team or [inference-hooks@dust.com](mailto:inference-hooks@dust.com) to request access and arrange onboarding.
-</Info>
-
-## Before you start
-
-You need:
-
-- Inference hooks enabled for your Dust workspace.
-- Access to Datadog AI Guard for your Datadog organization.
-- A Datadog API key and an application key with the `ai_guard_evaluate` scope.
-
-Confirm your Datadog access and commercial terms with your Datadog team before enabling the integration. Datadog usage is subject to your agreement with Datadog.
-
-You must be a workspace admin to create or edit hooks. Enabling this integration sends the selected content to Datadog for evaluation, including when the hook is in monitor mode.
+Datadog AI Guard is in private beta. Ask your Dust team for access or email [inference-hooks@dust.com](mailto:inference-hooks@dust.com). You’ll need [AI Guard](https://docs.datadoghq.com/security/ai_guard/) enabled in your Datadog organization, an API key, and an application key with the `ai_guard_evaluate` scope.
 
 ## Connect Datadog AI Guard
 
-1. Go to **Admin > Security > Inference Hooks**.
-2. Click **Add your first hook**, or **Add hook** if you already have one.
-3. Enter a descriptive **Name**.
-4. Select **Datadog AI Guard** as the **Provider**.
-5. Select your **Datadog site**, then enter your **API key** and **Application key**.
-6. Click **Test connection**. This checks the keys and access to AI Guard without evaluating conversation content. A successful test does not validate your security policies.
-7. Set **Service** and **Environment** to identify the integration in Datadog. The defaults are `dust` and `production`.
-8. Keep **Enforcement** set to **Monitor** for your initial rollout.
-9. Select one or more **Events**, then choose how much conversation history to include under **Evaluation context**. See [Choose evaluation checkpoints](/docs/user-documentation/admins/admin-governance/inference-hooks#choose-evaluation-checkpoints) and [Choose evaluation context](/docs/user-documentation/admins/admin-governance/inference-hooks#choose-evaluation-context) in the overview.
-10. Review **Excluded groups**, **When the hook fails or times out**, and **Timeout (ms)**, then click **Create**.
+Open **Admin > Security > Inference Hooks** and add a hook.
 
-Creating the hook activates it across your workspace, subject to group exclusions. Monitor mode does not limit the data sent to Datadog: review the data-sharing and billing implications before creating the hook, then use monitor mode to assess findings from actual agent activity before turning on blocking.
+1. Choose **Datadog AI Guard**, select your **Datadog site**, and enter both keys. Select **Test connection** to check your credentials and AI Guard access. This test doesn’t send conversation content or evaluate your policies.
+2. Start in **Monitor**. Choose your events, conversation history, and any groups to exclude. Sending more events or more history can increase your Datadog bill, even in Monitor mode.
+3. If you want different Datadog tags, change **Service** and **Environment** under **Advanced settings**. The defaults are `dust` and `production`. Select **Create** to start checking live activity.
 
 ## Investigate in Datadog
 
-Dust sends an evaluation trace to Datadog after receiving an AI Guard verdict. In Dust, open **Admin > Security > Inference Hooks**, select an evaluation, and use **View in Datadog** when available to investigate there. You can also use the provider reference to correlate the records.
-
-Trace delivery is separate from the verdict: an evaluation can be recorded in Dust even if its trace is not available in Datadog. The shared [Review evaluations](/docs/user-documentation/admins/admin-governance/inference-hooks#review-evaluations) section explains Dust outcomes and how to investigate a user's Dust reference.
+To investigate a finding, open it in Dust and select **View in Datadog** if the link is available. A missing trace doesn’t mean the check failed. Dust can still show the finding.
 
 ## Update credentials
 
-Edit the hook to update its Datadog connection settings. Leave both key fields empty to keep the current keys. Changing the Datadog site requires new keys.
+When you edit a hook, leave both key fields empty to keep your current keys. If you switch Datadog sites, enter new keys.
 
 ## Troubleshoot the connection
 
-If **Test connection** rejects the keys, confirm that both keys belong to the selected Datadog site, that the application key has `ai_guard_evaluate`, and that your organization can use AI Guard.
-
-If evaluations report a provider error, check their error details for invalid credentials, rate limits, or timeouts. Review the hook's failure behavior before changing its timeout. For other issues, see [Troubleshooting](/docs/user-documentation/admins/admin-governance/inference-hooks#troubleshooting) in the overview.
-
-Share Datadog integration issues with your Dust team or [inference-hooks@dust.com](mailto:inference-hooks@dust.com).
+If **Test connection** fails, check that both keys belong to the selected site and the application key has the `ai_guard_evaluate` scope. For errors on live runs, see [Troubleshooting](/docs/user-documentation/admins/admin-governance/inference-hooks#troubleshooting).
