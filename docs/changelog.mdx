@@ -3,6 +3,15 @@ title: "Changelog"
 description: "New updates and improvements to Dust"
 ---
 
+<Update label="November 26th, 2026" tags={["Improved"]} rss={{ title: "Detect paused agents in the Dust MCP server", description: "The get_conversation_messages tool now lists the approvals, sign-ins, and questions blocking an agent, so polling clients can tell a paused agent from a working one." }}>
+## Detect paused agents in the Dust MCP server
+
+The Dust MCP server's `get_conversation_messages` tool now returns `blockedActions`: the tool calls an agent is waiting on, such as an approval, a sign-in, or an answer to a question. The agent stays paused until the user handles each one in Dust, then the list empties.
+
+Previously, a paused agent returned only an empty message, the same as an agent still working. Clients that poll a conversation can now tell the two apart and send the user to Dust. Available to everyone using agents through the [Dust MCP server](/docs/user-documentation/agents/integrations/dust-mcp-server).
+
+</Update>
+
 <Update label="November 25th, 2026" tags={["Added"]} rss={{ title: "Inference hooks with custom webhooks", description: "Workspace admins can send signed agent events, from user requests to final answers, to their own HTTPS endpoint for security monitoring or tracing." }}>
 ## Inference hooks with custom webhooks
 
