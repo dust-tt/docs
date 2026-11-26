@@ -1,32 +1,34 @@
 ---
 title: "Conversational building"
-description: "Create, update, and delete agents and skills by talking with an agent in a conversation."
+description: "Create, update, and archive agents and skills by describing what you want in a conversation."
 ---
 
-## What is conversational building
+Conversational building lets you create, update, and archive agents and skills from a conversation. Instead of opening the Agent Builder or the skill builder, you describe what you want, and the agent prepares the changes for you to review.
 
-Conversational building lets you create, update, and archive agents and skills directly from a conversation. Instead of opening the Agent Builder or the Skill Builder, you describe what you want and the agent prepares the changes for you.
+Most of what you can do by hand in the builders, you can also do in a conversation: write instructions, add tools, knowledge, and skills, change the model, rename, or archive. One exception: to add knowledge, or a tool that needs settings, to an agent, use the Agent Builder.
 
-It relies on the **Build Agents and Skills** skill. Type `/` in the conversation input and select **Build Agents and Skills** to give the agent this capability.
+## Start conversational building
 
-Everything you can do by hand in the builders, you can also do through a conversation: write instructions, add tools, knowledge, and skills, change the model, rename, or delete.
+Conversational building opens on its own when you:
+
+- Click **Create agent** or **Create skill**.
+- Click **Edit** on an agent in **Manage agents** or on a skill in **Manage skills**, or **Edit agent** or **Edit skill** in the details panel.
+
+The conversation shows **Prefer to build manually?** with options to open the builder instead.
+
+In any other conversation, type `/` in the message bar and select the **Build Agents and Skills** skill.
 
 ## How it works
 
 ### The agent suggests, you decide
 
-The agent never changes an agent or a skill on its own.
-Each change it wants to make shows up in the conversation as a suggestion card.
-Nothing happens until you accept the card.
+The agent never changes an agent or a skill on its own. Each change it wants to make shows up in the conversation as a suggestion card, and nothing happens until you accept the card.
 
 ### One card can hold several changes
 
-A card groups changes that belong together.
-For example, a single card can add a skill to an agent and update the agent's instructions to explain when to use that skill.
-You accept or decline the whole set at once.
+A card groups changes that belong together. For example, a single card can add a skill to an agent and update the agent's instructions to explain when to use that skill. You accept or decline the whole set at once.
 
-When a request involves separate changes, the agent suggests several cards.
-They pile up in the conversation, and you review them one by one.
+When a request involves separate changes, the agent suggests several cards, and you review them one by one.
 
 ### Review the changes
 
@@ -46,9 +48,9 @@ When you accept a card, the changes are applied right away:
 
 The agent acts on your behalf and can only do what you can do yourself. Depending on the change, you need:
 
-- The permission to create agents
-- The permission to create skills
-- To be an editor of the agent or skill, to update or delete it.
+- The **Create agents** permission, to create an agent.
+- The **Create skills** permission, to create a skill.
+- To be an editor of the agent or skill, to update or archive it.
 
 If you don't have the required permission, the change can't be suggested or applied.
 
@@ -59,12 +61,26 @@ If you don't have the required permission, the change can't be suggested or appl
 - "Create an agent that reads my calendar and prepares a summary of my meetings for the week."
 - "Create a skill that writes customer-facing release notes following our tone of voice."
 - "Add the web search tool to @research and explain in its instructions when to use it."
-- "Delete my old test-agent."
+- "Archive my old test-agent."
 
 ### Advanced use cases
 
-Builders and admins can use conversational building to manage agents and skills across the workspace:
+You can also change many agents and skills at once. The agent only changes the ones you can edit:
 
 - "Rename all agents to follow our naming convention: team name first, then purpose."
 - "Find all agents that use the GitHub tool, extract how they use it into a shared skill, then add that skill to each of these agents in place of the tool."
 - "Find all agents still using an older model and switch them to the latest one."
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Create your first agent" href="/docs/user-documentation/agents/create-your-first-agent">
+    Build an agent step by step in the Agent Builder.
+  </Card>
+  <Card title="Skills overview" href="/docs/user-documentation/agents/skills/skills-overview">
+    What skills are and how to create your own.
+  </Card>
+  <Card title="Skills management" href="/docs/user-documentation/agents/skills/skills-management">
+    Find, filter, import, and update skills in bulk.
+  </Card>
+</CardGroup>

@@ -1,14 +1,24 @@
 ---
 title: "Structured output format"
+description: "Make an agent answer in a fixed JSON format, so other tools and workflows can read its output."
 ---
 
+Structured output makes an agent answer in a fixed JSON format that you define with a schema. Use it when another system reads the agent's answers, like a Zapier workflow or an API integration, and needs the same fields every time.
 
-## How to configure
 
-1. Open the agent in Agent Builder.
-2. In the **Instructions** section, use the model picker to choose a specific model that supports structured output.
-3. Click **JSON response**.
-4. Paste a valid JSON schema, then save.
+## Set up structured output
+
+<Steps>
+  <Step title="Open the agent">
+    Open the agent in the Agent Builder.
+  </Step>
+  <Step title="Pick a specific model">
+    In the **Instructions** section, open the model picker and click **More models** to choose a specific model that supports structured output. Auto models don't support it.
+  </Step>
+  <Step title="Add the schema">
+    Click **JSON response**. In **Structured response format**, paste a valid JSON schema and click **Save**, then save the agent.
+  </Step>
+</Steps>
 
 ## Schema format
 
@@ -61,11 +71,15 @@ A schema to extract city information:
 
 ## Supported models
 
-Not all models support structured output. The **JSON response** button is only enabled when the agent uses a specific model that supports it.
+Not all models support structured output. The **JSON response** button is only enabled when the agent uses a specific model that supports it. Auto models (**Basic**, **Standard**, and **Premium**) don't support structured output, so pick a specific model to use it.
 
-All specific models currently offered in the model picker support structured output, except:
+## Related
 
-* Mistral Small
-* Mistral Codestral
-
-Auto models (**Basic**, **Standard**, and **Premium**) don't support structured output. Pick a specific model to use it.
+<CardGroup cols={2}>
+  <Card title="Auto models and the model picker" href="/docs/user-documentation/agents/model-selection">
+    Choose the model your agent uses.
+  </Card>
+  <Card title="Create your first agent" href="/docs/user-documentation/agents/create-your-first-agent">
+    Build an agent step by step in the Agent Builder.
+  </Card>
+</CardGroup>

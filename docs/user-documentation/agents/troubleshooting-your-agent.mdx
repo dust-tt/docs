@@ -1,39 +1,45 @@
 ---
 title: "Troubleshooting your agent"
+description: "Fix the most common problems with agent answers: wrong sources, made-up facts, and inconsistent formats."
 ---
 
+Most agent problems come from instructions that leave room for interpretation, or from knowledge that's too broad. Start with the symptom that matches what you see, change one thing at a time, and test the result in the preview of the Agent Builder.
 
-Think of your agent as an intern who improves as you provide more specific and clear instructions. Here’s a guide on how to diagnose issues and adjust settings to improve your agent's performance.
+## The agent doesn't find the right source
 
-## Common Issues
+- **Limit the knowledge.** Give the agent only the sources it needs. For example, a process support agent only needs your process pages, not your whole Notion workspace.
+- **Say where to look.** Add hints to the instructions, like "look for documents titled X or that mention Y."
+- **Describe each source.** When you add knowledge, describe what the data contains. The agent uses the description to decide when to search it.
+- **Organize your documents.** Sometimes the fix is on the data side: group related pages in one folder, or keep a dedicated Slack channel for a topic.
 
-Below are some key types of issues you may encounter with your Dust agent.
+## The agent makes things up
 
-### "It is not finding the right source"
+- **Allow it to not know.** Models try to answer even when they don't have the information. Add an instruction like "If you don't find the answer in the documents, say you don't know."
+- **Say what to avoid.** For example: "Don't speculate. Only use facts from the documents you found."
+- **Ask for steps.** Tell the agent to work step by step, like "First search the documents, then summarize what you found, then answer."
+- **Try another model.** For complex tasks, open the model picker, click **More models**, and choose a more capable model. Some models also show a **Reasoning effort** slider: raise it for tasks that need deeper reasoning. See [Auto models and the model picker](/docs/user-documentation/agents/model-selection).
+- **Start a new conversation.** Very long conversations make it harder for the model to keep track of everything. When answers drift, start fresh.
 
-- **Focus on Specific Sources**: Limit the agent's access to the most relevant sources. For example, if you have a ProcessSupport agent, ensure it only has access to the “Process” pages.
-- **Prompting**: Provide hints in your prompts, such as “look for documents titled X or that refer to Y.”
-- **Knowledge Base Hygiene**: You may sometimes decide to organize your documents or create dedicated channels for specific topics to make information easier to find.
+## The output format isn't consistent
 
-### "It's making things up" ("hallucinating)
+- **Describe the format.** State exactly how you want the answer presented, like "Present the data in a table with columns A, B, and C."
+- **Give an example.** Paste an example of the output you expect in the instructions.
+- **Use structured output.** If another system reads the answers, set a JSON schema. See [Structured output format](/docs/user-documentation/agents/structured-output-format).
 
-- **Select the Right Model**: If your tasks involve complex information, choose a model that is better suited for intricate queries. Check our [blog post on this](https://blog.dust.tt/comparing-ai-models-claude-gpt4-gemini-mistral/)!
-- **Adjust Reasoning Effort**: In Advanced settings, set Reasoning effort to Medium or High to encourage more deliberate reasoning. High is slower; Light is faster but can be more superficial.
-- **Long Conversations**: Long conversations tend to overflow the model. When you see your agent hallucinating a bit too much, start a new conversation.
-- **Use ‘Chain of Thought’ Prompting**: Direct the agent to approach tasks step-by-step (“first do this, then do that”) to ensure clarity in reasoning.
-- **Specific Prompting**:
-  - Include instructions on what to avoid, such as “do not speculate” or “steer clear of assumptions.”
-  - Tell the model it’s okay not to know: models are designed to try and provide an answer even if they don’t have it. Adding, “if you don’t have the answer, just say “I don’t know””
+## Get help from Sidekick
 
-### It's not getting consistent output formats
+In the Agent Builder, [Sidekick](/docs/user-documentation/agents/default-agents/agent-builder-sidekick) can review your instructions, explain why the agent behaves a certain way, and suggest targeted changes. Accept the ones that make sense, then test again in the preview.
 
-- **Prompt the Format**: Clearly state how you want the information presented, e.g., “present the data in a table with columns A, B, C.”
-- **Provide Examples**: Share examples of the desired outputs to guide the agent's responses.
+## Related
 
-## How Dust can help you
-
-Make sure you check what we have built for you!
-
-- Use Sidekick to iterate on instructions and troubleshoot behavior with targeted suggestions
-- Start from a template to quickly explore a use case; Sidekick will tailor it to your needs
-- Test changes in the preview area and iterate until outputs are consistent
+<CardGroup cols={2}>
+  <Card title="How to write effective instructions" href="/docs/user-documentation/agents/llm-best-practices/how-to-write-effective-instructions">
+    Write instructions that get consistent results.
+  </Card>
+  <Card title="Agent Builder Sidekick" href="/docs/user-documentation/agents/default-agents/agent-builder-sidekick">
+    Get help with instructions, tools, and knowledge.
+  </Card>
+  <Card title="Auto models and the model picker" href="/docs/user-documentation/agents/model-selection">
+    Choose the model your agent uses.
+  </Card>
+</CardGroup>
