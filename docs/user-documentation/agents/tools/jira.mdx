@@ -16,6 +16,38 @@ Jira tools let your agents manage Jira projects and issues from Dust. Agents can
 | `Advanced Search` | Search issues with multiple filter criteria including custom fields or JQL syntax |
 | `User Management` | Retrieve and work with Jira users |
 
+## Available Tools
+
+### Read
+
+| Tool | Description |
+| --- | --- |
+| **Get Issue** | Read an issue by its key (for example PROJ-123). |
+| **Get Issues** | Find issues by status, priority, labels, assignee, fix version, or dates. |
+| **Get Issues Using JQL** | Search issues with a JQL query. |
+| **Get Issue Read Fields** | List the fields that can be requested when reading an issue. |
+| **Get Projects** / **Get Project** | List projects, or read one project by its key. |
+| **Get Project Versions** | List the versions (releases) of a project. |
+| **Get Issue Types** | List the issue types of a project. |
+| **Get Issue Create Fields** | List the fields available for a project and issue type, before creating or updating an issue. |
+| **Get Transitions** | List the status changes an issue can make. |
+| **Get Issue Link Types** | List the link types that can be used between issues. |
+| **Get Users** | Find users by email or display name. |
+| **Get Attachments** | List the attachments of an issue. |
+| **Read Attachment** | Read the text of an attachment (PDF, Word, Excel, CSV, plain text, with OCR for scans). |
+| **Get Connection Info** | Get the connected user and Jira site. |
+
+### Create and update
+
+| Tool | Description |
+| --- | --- |
+| **Create Issue** | Create an issue in a project. |
+| **Update Issue** | Change an issue's fields, such as summary, description, priority, or assignee. |
+| **Transition Issue** | Move an issue to another status, such as In Progress or Done. |
+| **Create Comment** | Comment on an issue. |
+| **Create Issue Link** / **Delete Issue Link** | Link two issues (blocks, relates to, duplicates), or remove a link. |
+| **Upload Attachment** | Attach a file from the Dust conversation to an issue. |
+
 ## Use case examples
 
 <Cards columns={3}>

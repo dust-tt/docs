@@ -1,0 +1,78 @@
+---
+title: "Luma"
+description: "Let your agents create and update Luma events, manage guests, and report on registrations."
+---
+
+With the Luma tool, your agents can create and update events on your Luma calendar, add and invite guests, approve registrations, and report on attendance. An admin connects it once with a Luma API key.
+
+## What your agent can do in Luma
+
+| Action | What it does | Changes data |
+| --- | --- | --- |
+| **List Events** / **Get Event** | Lists the events on your calendar, with an optional date range, or reads one event in full. | No |
+| **Create Event** | Creates an event on the calendar linked to the API key. | Yes |
+| **Update Event** | Changes an event's name, start time, capacity, or visibility, with the option to not notify guests. | Yes |
+| **List Guests** / **Get Guest** / **Search Guests** | Lists an event's guests by approval status, reads one registration, or finds a guest by name or email. | No |
+| **Add Guests** | Adds guests to an event by email. | Yes |
+| **Send Invites** | Emails an event invitation to a list of addresses. | Yes |
+| **Update Guest Status** | Approves or declines a guest, with an optional refund for paid registrations. | Yes |
+| **Get Event Insights** | Returns registration totals, approval breakdown, check-in rate, registration timeline, and ticket types. | No |
+| **Get Authenticated User** | Shows which Luma account the API key belongs to. | No |
+
+The list in Dust is the source of truth, and it can change before this page does.
+
+## Before you start
+
+- **In Dust:** you need to be an admin to add Luma.
+- **In Luma:** you need an API key for the calendar your agents should work on. Every action uses the account and calendar that own the key.
+
+## Connect Luma (admins)
+
+<Steps>
+  <Step title="Add the tool">
+    Go to **Spaces** > **Tools**, click **Add tools**, and select **Luma**.
+  </Step>
+  <Step title="Add your API key">
+    Paste your Luma API key and save.
+  </Step>
+</Steps>
+
+Everyone who uses Luma in Dust shares this API key, so agents act as the Luma account that owns it.
+
+## Add Luma to an agent
+
+<Steps>
+  <Step title="Open your agent in the Agent Builder">
+    Create an agent, or open one you can edit.
+  </Step>
+  <Step title="Add the tool">
+    In **Capabilities and knowledge**, click **Add capabilities** and select **Luma**.
+  </Step>
+  <Step title="Say what the agent should handle">
+    In the instructions, say which events the agent works on, and whether it can approve guests or send invites.
+  </Step>
+</Steps>
+
+By default, tools that read data run without asking (**Never ask**). **Create Event** asks for approval every time (**High**), and the other tools that change data use the **Low** level. Admins can change the level of each tool in **Spaces** > **Tools** > **Luma** > **Tools & stakes**:
+
+- **High:** needs explicit user approval.
+- **Medium:** users can save confirmations for specific tool inputs, or skip them for the rest of a conversation session.
+- **Low:** users can completely disable confirmations.
+- **Never ask:** runs automatically.
+
+## Example instructions
+
+```text
+When I ask for an event recap, find the Luma event by name, get its insights, and give me the number of registrations, the check-in rate, and the five companies with the most attendees.
+```
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Managing Tools" href="/docs/user-documentation/admins/tools-management/adding-an-mcp-server">
+    Add tools to your workspace and choose who can use them.
+  </Card>
+  <Card title="Tools" href="/docs/user-documentation/agents/tools/index">
+    All the tools your agents can use.
+  </Card>
+</CardGroup>

@@ -1,0 +1,74 @@
+---
+title: "Clari Copilot"
+description: "Let your agents find Clari Copilot sales calls and read their summaries, action items, and transcripts."
+---
+
+With the Clari Copilot tool, your agents can find your recorded sales calls and read their AI summary, topics, action items, competitor mentions, and transcript. An admin connects it once with Clari Copilot API credentials.
+
+## What your agent can do in Clari Copilot
+
+| Action | What it does | Changes data |
+| --- | --- | --- |
+| **Search Calls** | Finds calls by account or company name, participant email, or date range. Only returns calls with a transcript ready. | No |
+| **Get Call Details** | Reads one call: AI summary, topics, action items, competitor mentions, and the full transcript. The agent can leave out the transcript when it only needs the summary. | No |
+
+The list in Dust is the source of truth, and it can change before this page does.
+
+## Before you start
+
+- **In Dust:** you need to be an admin to add Clari Copilot.
+- **In Clari Copilot:** you need an API key and an API password.
+
+## Connect Clari Copilot (admins)
+
+<Steps>
+  <Step title="Add the tool">
+    Go to **Spaces** > **Tools**, click **Add tools**, and select **Clari Copilot**.
+  </Step>
+  <Step title="Add your credentials as custom headers">
+    Add two custom headers: `X-Api-Key` with your API key, and `X-Api-Password` with your API password. Save.
+  </Step>
+</Steps>
+
+Everyone who uses Clari Copilot in Dust shares these credentials, so agents can read every call those credentials can access.
+
+## Add Clari Copilot to an agent
+
+<Steps>
+  <Step title="Open your agent in the Agent Builder">
+    Create an agent, or open one you can edit.
+  </Step>
+  <Step title="Add the tool">
+    In **Capabilities and knowledge**, click **Add capabilities** and select **Clari Copilot**.
+  </Step>
+  <Step title="Say which calls to look at">
+    In the instructions, say how the agent should find calls, for example by account name or date range.
+  </Step>
+</Steps>
+
+Both tools only read data and run without asking (**Never ask**). Admins can change the level of each tool in **Spaces** > **Tools** > **Clari Copilot** > **Tools & stakes**:
+
+- **High:** needs explicit user approval.
+- **Medium:** users can save confirmations for specific tool inputs, or skip them for the rest of a conversation session.
+- **Low:** users can completely disable confirmations.
+- **Never ask:** runs automatically.
+
+## Example instructions
+
+```text
+Before a customer meeting, find the last three Clari Copilot calls with this account. Summarize the open action items, any competitor mentions, and the questions the customer asked.
+```
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Managing Tools" href="/docs/user-documentation/admins/tools-management/adding-an-mcp-server">
+    Add tools to your workspace and choose who can use them.
+  </Card>
+  <Card title="Gong" href="/docs/user-documentation/agents/tools/gong">
+    Another call recording tool your agents can use.
+  </Card>
+  <Card title="Tools" href="/docs/user-documentation/agents/tools/index">
+    All the tools your agents can use.
+  </Card>
+</CardGroup>

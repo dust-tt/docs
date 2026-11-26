@@ -1,0 +1,89 @@
+---
+title: "Microsoft SharePoint Pages"
+description: "Let your agents find, read, create, edit, and publish SharePoint site pages."
+---
+
+With the Microsoft SharePoint Pages tool, your agents can search your SharePoint intranet, news, and wiki pages, then create or edit them block by block. An admin connects it once, then each person signs in with their own Microsoft account.
+
+## What your agent can do in SharePoint Pages
+
+| Action | What it does | Changes data |
+| --- | --- | --- |
+| **List SharePoint Pages** | Lists the pages of a site, with their title, URL, and publication state (draft or published). | No |
+| **Search Site Pages** | Searches pages by keyword across all the sites you can access, or in one site. | No |
+| **Get SharePoint Page** | Reads a page: sections, columns, blocks (web parts), text, publication state, and custom columns. | No |
+| **Create SharePoint Page** | Creates a page in a site as an unpublished draft. | Yes |
+| **Update Page Properties** | Changes the title, description, header layout, comments setting, and custom columns. | Yes |
+| **Add Page Section** / **Update Page Section** / **Delete Page Section** | Adds, changes, or removes a section of the page layout. | Yes |
+| **Add Page Blocks** / **Update Page Block** / **Delete Page Block** | Adds, edits, or removes text, buttons, dividers, and spacers. | Yes |
+| **Publish SharePoint Page** | Publishes the current draft. If the site requires approval, it submits the page for approval instead. | Yes |
+| **Delete Site Page** | Deletes a page. The page goes to the site's recycle bin, where it can be restored. | Yes |
+
+Edits stay in draft until the agent publishes the page. The list in Dust is the source of truth, and it can change before this page does.
+
+## Before you start
+
+- **In Dust:** you need to be an admin to connect SharePoint Pages.
+- **In Microsoft:** the first connection needs a Microsoft Entra admin to consent for your organization. See [Managing Microsoft tools](/docs/user-documentation/admins/tools-management/managing-microsoft-tools).
+
+## Connect SharePoint Pages (admins)
+
+<Steps>
+  <Step title="Add the tool">
+    Go to **Spaces** > **Tools**, click **Add tools**, and select **Microsoft SharePoint Pages**.
+  </Step>
+  <Step title="Sign in to Microsoft">
+    Sign in with your Microsoft account and approve the permissions Dust asks for.
+  </Step>
+</Steps>
+
+SharePoint Pages uses **Personal accounts**: each person connects their own Microsoft account the first time an agent uses the tool. Agents can only read and edit the pages that person can read and edit in SharePoint.
+
+## Add SharePoint Pages to an agent
+
+<Steps>
+  <Step title="Open your agent in the Agent Builder">
+    Create an agent, or open one you can edit.
+  </Step>
+  <Step title="Add the tool">
+    In **Capabilities and knowledge**, click **Add capabilities** and select **Microsoft SharePoint Pages**.
+  </Step>
+  <Step title="Say which pages to work with">
+    In the instructions, name the SharePoint site the agent should use, and say whether it can publish or only prepare drafts.
+  </Step>
+</Steps>
+
+By default, tools that read pages run without asking (**Never ask**), and tools that change pages ask for approval every time (**High**). Admins can change the level of each tool in **Spaces** > **Tools** > **Microsoft SharePoint Pages** > **Tools & stakes**:
+
+- **High:** needs explicit user approval.
+- **Medium:** users can save confirmations for specific tool inputs, or skip them for the rest of a conversation session.
+- **Low:** users can completely disable confirmations.
+- **Never ask:** runs automatically.
+
+## Example instructions
+
+```text
+When I share release notes, create a draft news page on the "Product" SharePoint site with a title, a short intro, and one section per feature. Don't publish it: send me the page link so I can review it.
+```
+
+## SharePoint Pages permissions
+
+| Feature | Scopes |
+| --- | --- |
+| Read pages | `Sites.Read.All` |
+| Create, edit, publish, and delete pages | `Sites.ReadWrite.All` |
+| Sign in | `User.Read`, `offline_access` |
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Managing Microsoft tools" href="/docs/user-documentation/admins/tools-management/managing-microsoft-tools">
+    Set up Microsoft tools and admin consent.
+  </Card>
+  <Card title="Microsoft SharePoint and OneDrive" href="/docs/user-documentation/agents/tools/microsoft-sharepoint-and-onedrive">
+    Search, read, and upload files.
+  </Card>
+  <Card title="Tools" href="/docs/user-documentation/agents/tools/index">
+    All the tools your agents can use.
+  </Card>
+</CardGroup>
