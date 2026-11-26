@@ -124,7 +124,9 @@ Connectivity to the custom MCP server can be tested using the official [MCP insp
 
 ### Whitelisting Dust as an MCP Provider
 
-If you operate a third-party MCP server and want to support Dust users connecting to it, whitelist the following Dust callback URLs in your OAuth authorization server. This enables the OAuth authentication flow when customers add your server in Dust, and is recommended over Bearer token authentication for a better user experience. It may also be required to get your server listed on the Dust integrations page or in the Dust app.
+If you operate a third-party MCP server and want to support Dust users connecting to it, whitelist the following Dust callback URLs in your OAuth authorization server. This enables the OAuth authentication flow when customers add your server in Dust, and is recommended over Bearer token authentication for a better user experience.
+
+Registering the callback URLs below doesn't list your server on the [Dust integrations page](https://dust.tt/integrations) or in the **Add tools** list in Dust. Dust curates both lists. Customers don't need a listing to use your server: their admins connect it with **Add MCP server**, as described in [Remote MCP Servers and how to add them](#remote-mcp-servers-and-how-to-add-them).
 
 Register all of the following callback URIs for every Dust workspace, including EU workspaces. This includes workspaces that previously registered a region-specific `eu.dust.tt` callback.
 
