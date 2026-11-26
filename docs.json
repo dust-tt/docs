@@ -202,6 +202,7 @@
           {
             "group": "Tools",
             "root": "docs/user-documentation/agents/tools/index",
+            "root": "docs/user-documentation/agents/tools/preconfigured-mcp-servers",
             "pages": [
               "docs/user-documentation/agents/tools/airtable",
               "docs/user-documentation/agents/tools/agent-memory",

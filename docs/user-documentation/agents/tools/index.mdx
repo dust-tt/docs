@@ -13,29 +13,58 @@ title: "Tools"
 
 Default tools are already available in your Dust workspace, they do not require any Data Source to run, and will augment your agents:
 
-| Tool name           | What the agent will do                                                                                                 |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Data visualization  | Become able to build graphs using the data it gathered                                                                 |
-| Web search & Browse | Perform web searches to gather information and use it to generate responses                                            |
-| Computer            | Run code, process data, and create or convert files such as Word, Excel, PowerPoint, and PDF ( [Learn more →](/docs/user-documentation/agents/tools/computer)) |
-| Create Images       | Generate images from a text prompt ( [Learn more →](/docs/user-documentation/agents/tools/image-generation))           |
-| Agent Memory        | Remember past conversations from the user to improve itself                                                            |
-| Run an agent        | Call another specialised agent to delegate a part of the execution                                                     |
+| Tool name                 | What the agent will do |
+| ------------------------- | ---------------------- |
+| Frames                    | Build interactive charts, dashboards, and presentations from the data it gathered |
+| Web search & Browse       | Perform web searches to gather information and use it to generate responses |
+| Computer                  | Run code, process data, and create or convert files such as Word, Excel, PowerPoint, and PDF ([Learn more →](/docs/user-documentation/agents/tools/computer)) |
+| Create Images             | Generate images from a text prompt ([Learn more →](/docs/user-documentation/agents/tools/image-generation)) |
+| Agent Memory              | Remember past conversations from the user to improve itself |
+| Run an agent              | Call another specialised agent to delegate a part of the execution ([Learn more →](/docs/user-documentation/agents/tools/run-agent)) |
+| Wake-ups                  | Resume a conversation later, for reminders and follow-ups ([Learn more →](/docs/user-documentation/agents/tools/wake-ups)) |
+| Voice & sound generation  | Turn text into speech, and create music and sound effects ([Learn more →](/docs/user-documentation/agents/tools/voice-and-sound-generation)) |
 
 Tools can also perform actions in third-party platforms, based on Personal or Workspace credentials. These tools must be configured at the Admin level.
 
-| Tool name       | What the agent will be able to do                                                                         | Type of credentials   |
-| --------------- | --------------------------------------------------------------------------------------------------------- | --------------------- |
-| Notion          | Ability to search info, update and create pages in Notion.                                                | Workspace             |
-| Slack           | Ability to search info and post messages in Slack.                                                        | Personal              |
-| GitHub          | Ability to search, update, comment, and create pull requests and issues in GitHub.                        | Workspace             |
-| Confluence      | Ability to search, create, and update pages in Confluence.                                                | Personal or Workspace |
-| HubSpot         | Ability to search, update and create info in Hubspot.                                                     | Personal              |
-| Salesforce      | Ability to search, update and create info in Salesforce.                                                  | Personal              |
-| Gmail           | Ability to search emails in Gmail and create drafts.                                                      | Personal              |
-| Google Calendar | Ability to search, update and create events in Google Calendar.                                           | Personal              |
-| Outlook         | Ability to search emails in Outlook and create drafts.                                                    | Personal              |
-| Zendesk         | Ability to search and retrieve support tickets, view ticket metrics and conversations, and draft replies. | Workspace             |
+| Tool name | What the agent will be able to do | Type of credentials |
+| --- | --- | --- |
+| [Ashby](/docs/user-documentation/agents/tools/ashby) | Search candidates, read interview feedback and notes, and manage job postings. | Workspace (API key) |
+| [Clari Copilot](/docs/user-documentation/agents/tools/clari-copilot) | Search sales calls and read their summaries, action items, and transcripts. | Workspace (API key) |
+| [Confluence](/docs/user-documentation/agents/tools/confluence) | Search, create, and update pages in Confluence. | Personal or Workspace |
+| [Cursor Cloud Agents](/docs/user-documentation/agents/tools/cursor-cloud-agents) | Launch Cursor Cloud Agents on GitHub repositories and follow their runs. | Workspace (API key) |
+| [Fathom](/docs/user-documentation/agents/tools/fathom) | Search meeting recordings, transcripts, and summaries. | Personal or Workspace |
+| [Freshservice](/docs/user-documentation/agents/tools/freshservice) | Manage service desk tickets, tasks, and service requests. | Personal or Workspace |
+| [Front](/docs/user-documentation/agents/tools/front) | Search and manage support conversations, and draft replies. | Workspace (API key) |
+| [GitHub](/docs/user-documentation/agents/tools/github) | Manage issues, pull requests, projects, and discussions. | Personal or Workspace |
+| [Gmail](/docs/user-documentation/agents/tools/gmail) | Search emails, create drafts, and send emails. | Personal or Workspace |
+| [Gong](/docs/user-documentation/agents/tools/gong) | Search sales calls, transcripts, and call analytics. | Personal or Workspace |
+| [Google Calendar](/docs/user-documentation/agents/tools/google-calendar) | Search, update, and create events, and check availability. | Personal or Workspace |
+| [Google Drive](/docs/user-documentation/agents/tools/google-drive) | Search, read, create, edit, and share Docs, Sheets, and Slides. | Personal or Workspace |
+| [HubSpot](/docs/user-documentation/agents/tools/hubspot) | Search, update, and create records in HubSpot. | Personal or Workspace |
+| [Jira](/docs/user-documentation/agents/tools/jira) | Search, create, update, and transition issues. | Personal or Workspace |
+| [Luma](/docs/user-documentation/agents/tools/luma) | Create and update events, manage guests, and report on registrations. | Workspace (API key) |
+| [Microsoft Excel](/docs/user-documentation/agents/tools/microsoft-excel) | Read and write Excel workbooks in OneDrive and SharePoint. | Personal |
+| [Microsoft Outlook](/docs/user-documentation/agents/tools/microsoft-outlook) | Search, draft, and send emails, and manage calendar events. | Personal |
+| [Microsoft SharePoint and OneDrive](/docs/user-documentation/agents/tools/microsoft-sharepoint-and-onedrive) | Search, read, upload, and organize files. | Personal |
+| [Microsoft SharePoint Pages](/docs/user-documentation/agents/tools/microsoft-sharepoint-pages) | Find, create, edit, and publish SharePoint site pages. | Personal |
+| [Microsoft Teams](/docs/user-documentation/agents/tools/microsoft-teams) | Search and post messages, and read meeting transcripts. | Personal |
+| [Monday.com](/docs/user-documentation/agents/tools/monday-com) | Manage boards, items, and updates. | Personal or Workspace |
+| [Notion](/docs/user-documentation/agents/tools/notion) | Search, create, and update pages and databases. | Personal or Workspace |
+| [Productboard](/docs/user-documentation/agents/tools/productboard) | Query and manage notes, features, and other entities. | Personal or Workspace |
+| [Salesforce](/docs/user-documentation/admins/tools-management/salesforce/salesforce) | Query and read records and attachments in Salesforce. | Personal or Workspace |
+| [Salesloft](/docs/user-documentation/agents/tools/salesloft) | Read the due actions of your sales cadences. | Workspace (API key) |
+| [ServiceNow](/docs/user-documentation/agents/tools/servicenow) | Search, create, and update records and incidents. | Personal or Workspace |
+| [Slab](/docs/user-documentation/agents/tools/slab) | Search and read posts and topics. | Workspace (API key) |
+| [Slack](/docs/user-documentation/agents/tools/slack-tools) | Search info, post messages, and manage channels and canvases as yourself. | Personal |
+| [Slack Bot](/docs/user-documentation/agents/tools/slack-bot) | Post, edit, and read messages as the Dust bot. | Workspace |
+| [Snowflake](/docs/user-documentation/agents/tools/snowflake) | Browse schemas and run read-only SQL queries. | Personal or Workspace |
+| [Statuspage](/docs/user-documentation/agents/tools/statuspage) | Read and manage Statuspage incidents. | Workspace (API key) |
+| [UKG Ready](/docs/user-documentation/agents/tools/ukg-ready) | Manage time-off requests, schedules, and accrual balances. | Personal |
+| [Val Town](/docs/user-documentation/agents/tools/val-town) | Create and run Val Town functions. | Workspace (API key) |
+| [Vanta](/docs/user-documentation/agents/tools/vanta) | Read policies, controls, risks, and audits. | Workspace |
+| [Zendesk](/docs/user-documentation/agents/tools/zendesk) | Search tickets, draft and post replies, and update tickets. | Personal or Workspace |
+
+Dust also offers dozens of preconfigured remote MCP servers, such as Linear, Stripe, Intercom, and Granola. See [Preconfigured MCP servers](/docs/user-documentation/agents/tools/preconfigured-mcp-servers).
 
 <Tip>
   Define the tools and let the agent decide which are relevant to your specific
@@ -116,7 +145,7 @@ Tools extend your agents' capabilities by connecting them to external services. 
 
 ### Overview
 
-Tools in Dust let your agents interact with services like GitHub, GitLab, and many more to come. Tool management is available to workspace administrators through the Spaces > Tools menu.
+Tools in Dust let your agents interact with services like GitHub, Slack, Notion, and many more. Tool management is available to workspace administrators through the Spaces > Tools menu.
 
 ### Adding and configuring Tools
 
