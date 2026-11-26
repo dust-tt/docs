@@ -11,7 +11,7 @@ You need the **Create agents** permission. By default, every member has it. If y
 
 <Steps>
   <Step title="Click Create agent">
-    Open the agent picker in the message bar and click **Create agent**. A conversation opens where an agent can build yours from a description. See [Conversational building](/docs/user-documentation/agents/conversational-building).
+    Click **Agents** in the left sidebar to open **Manage agents**, then click **Create agent**. You can also click **Create agent** at the bottom of the agent picker in the message bar. A conversation opens where an agent can build yours from a description. See [Conversational building](/docs/user-documentation/agents/conversational-building).
   </Step>
   <Step title="Choose how to start">
     To build the agent yourself, look under **Prefer to build manually?**:
@@ -40,9 +40,15 @@ In **Suggested prompts**, click **Add prompt** and write a question people could
 In **Capabilities and knowledge**:
 
 - Click **Add capabilities** to give the agent [tools](/docs/user-documentation/agents/tools/index) and [skills](/docs/user-documentation/agents/skills/skills-overview), like web search or a CRM integration. The agent decides which ones to use for each request.
-- Click **Add knowledge** to let the agent search your company data. Pick a Space, select the folders or pages the agent needs, like a Notion folder called "Sales Corner", and describe what the data contains. The description helps the agent know when to search it.
+- Click **Add knowledge** to let the agent use your company data. In **Select data sources**, pick a Space, select the folders or pages the agent needs, like a Notion folder called "Sales Corner", and click **Next**. Then choose the **Knowledge lookup method**, like **Content search** for documents or **Analytics (tables, spreadsheets...)** for tables, and describe the data in **What's the data?**. The description helps the agent know when to use it.
 
 Give the agent only the data it needs. The more data an agent can search, the harder it gets to find the right document.
+
+**Data and access** lists the Spaces and Pods the agent uses data from. Only members of all of them can use the agent.
+
+## Run the agent automatically
+
+In **Triggers**, click **Add triggers** to run the agent on a schedule or when a webhook fires. See [Triggers](/docs/user-documentation/agents/triggers/index).
 
 ## Test your agent
 
@@ -52,13 +58,13 @@ Use the preview next to the builder to try your agent while you build it. Most a
 
 In **Settings**:
 
-- **Name**: people call the agent by typing `@` and its name, so pick a short name that says what it does.
+- **Name**: people call the agent by typing `@` and its name, so pick a short name that says what it does. You can also change its **Avatar**.
 - **Description**: explain what the agent does and when to use it. It helps members pick the right agent, and helps **@dust** point people to it.
-- **Tags**: tags group agents so members can find them. When you add tags, Dust shows **Suggested tags** based on the agent. Only admins can create new tags.
+- **Tags**: tags group agents so members can find them. Click **Add** under **Tags**. Once the instructions are written, the list shows **Suggested tags** picked from the tags that already exist. Only admins can create new tags.
 
 ## Publish the agent and choose editors
 
-In **Editors & access**, choose who can use the agent:
+In **Settings** > **Editors & access**, choose who can use the agent:
 
 - **Published**: visible and usable by all members of the workspace. Members still need access to the data and tools the agent uses.
 - **Unpublished**: visible and usable by editors only.
@@ -68,12 +74,12 @@ Publishing needs the **Publish agents** permission, which every member has by de
 ## Use your agent
 
 - **In Dust**: type `@` followed by the agent's name at the start of your message.
-- **In Slack**: type `@dust +agentname` before your message. To make the agent answer every time someone mentions **@dust** in a channel, set the channel in **Settings** > **Slack preferences**.
+- **In Slack**: type `@dust +agentname` before your message. Admins can also choose Slack channels where a published agent answers by default: in **Settings** > **Editors & access**, click **Slack preferences**.
 - **In Zapier**: see [Using your agent in Zapier](/docs/user-documentation/agents/integrations/zapier).
 
 ## Create an agent from a YAML file
 
-The easiest way to get a file in the right format is to start from an existing agent: open its details and click **Export to YAML**. Then click **Create agent**, choose **Upload YAML**, and pick your `.yaml` or `.yml` file. Dust creates the agent right away and opens it in the Agent Builder.
+The easiest way to get a file in the right format is to start from an existing agent: open its details, then click **Export to YAML** in the **...** menu. Then click **Create agent**, choose **Upload YAML**, and pick your `.yaml` or `.yml` file. Dust creates the agent right away and opens it in the Agent Builder.
 
 Before you import, check these fields:
 
