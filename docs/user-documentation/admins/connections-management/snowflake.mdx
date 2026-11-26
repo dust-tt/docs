@@ -197,8 +197,9 @@ Keep your private key file (`rsa_key.p8`) secure. You'll need to provide it to D
 
 #### **Grant`USAGE` on databases and schemas to the role**
 
-*:bulb:Granting USAGE for databases and schemas does not mean granting access to the tables inside.\
-It only means that the Dust role on Snowflake will be aware of the existence of these databases & schemas, which is a pre-requisite if you wish to query some of the tables they contain.*
+<Tip>
+Granting `USAGE` for databases and schemas does not mean granting access to the tables inside. It only means that the Dust role on Snowflake will be aware of the existence of these databases and schemas, which is a prerequisite if you wish to query some of the tables they contain.
+</Tip>
 
 For each Snowflake database that you wish to use through Dust, you will need to grant `USAGE` to the role:
 
@@ -212,7 +213,9 @@ For each Snowflake schema that you wish to use through Dust, you will need to gr
 GRANT USAGE ON SCHEMA MY_DATABASE.MY_SCHEMA TO ROLE dust_role;
 ```
 
-*:warning:If you want to use Table`T` which is in schema `S` which is itself in database `D`, you will need to grant `USAGE` on both database `D` and schema`S`*
+<Warning>
+If you want to use table `T` which is in schema `S`, itself in database `D`, you need to grant `USAGE` on both database `D` and schema `S`.
+</Warning>
 
 Alternatively, you may decide to grant `USAGE` on all schemas inside of a database:
 
@@ -222,8 +225,9 @@ GRANT USAGE ON ALL SCHEMAS IN DATABASE MY_DATABASE TO ROLE dust_role;
 
 #### Grant `SELECT` on tables to the role
 
-:bulb: *Granting`SELECT` on tables is what enables the Dust Snowflake role to execute `SELECT` SQL queries on the tables.\
-Our Snowflake integration will reject any role that has grants other than `SELECT` grants (it is very important that the Snowflake connection remains read-only, in order to fully prevent Dust agents from mutating your data)*
+<Tip>
+Granting `SELECT` on tables is what enables the Dust Snowflake role to execute `SELECT` SQL queries on the tables. Our Snowflake integration rejects any role that has grants other than `SELECT` grants: the Snowflake connection must stay read-only, so Dust agents can never change your data.
+</Tip>
 
 You have the flexibility to grant access at two different levels: whole schemas, or individual tables. Choose the appropriate level based on your security requirements and Dust's needs.
 

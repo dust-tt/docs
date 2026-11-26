@@ -98,7 +98,7 @@ Which translates to the following setup process.
       ```
       https://app.dust.tt/oauth/mcp_static/finalize
       ```
-2. In Dust : Navigate to Spaces > Tools > Add tools > Add MCP server and use the following settings
+2. In Dust : Navigate to Spaces > Tools > **Add Tool** > Add MCP server and use the following settings
    1. Static Oauth URL : [https://api.githubcopilot.com/mcp](https://api.githubcopilot.com/mcp)
    2. OAuth token endpoint : [https://github.com/login/oauth/access_token](https://github.com/login/oauth/access_token)
    3. OAuth Authorization Endpoint : [https://github.com/login/oauth/authorize](https://github.com/login/oauth/authorize)
@@ -126,7 +126,7 @@ Connectivity to the custom MCP server can be tested using the official [MCP insp
 
 If you operate a third-party MCP server and want to support Dust users connecting to it, whitelist the following Dust callback URLs in your OAuth authorization server. This enables the OAuth authentication flow when customers add your server in Dust, and is recommended over Bearer token authentication for a better user experience.
 
-Registering the callback URLs below doesn't list your server on the [Dust integrations page](https://dust.tt/integrations) or in the **Add tools** list in Dust. Dust curates both lists. Customers don't need a listing to use your server: their admins connect it with **Add MCP server**, as described in [Remote MCP Servers and how to add them](#remote-mcp-servers-and-how-to-add-them).
+Registering the callback URLs below doesn't list your server on the [Dust integrations page](https://dust.tt/integrations) or in the **Add Tool** list in Dust. Dust curates both lists. Customers don't need a listing to use your server: their admins connect it with **Add MCP server**, as described in [Remote MCP Servers and how to add them](#remote-mcp-servers-and-how-to-add-them).
 
 Register all of the following callback URIs for every Dust workspace, including EU workspaces. This includes workspaces that previously registered a region-specific `eu.dust.tt` callback.
 

@@ -33,11 +33,11 @@ Since this uses personal credentials, all actions performed by agents will appea
 If you are looking to call Dust directly from Slack, please check [Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/slack-workflows#/)
 </Info>
 
-## :gear: Connection Setup
+## Connection Setup
 
 The setup process requires **personal Slack authentication** and uses OAuth to connect your individual Slack account to Dust. This ensures that agents only have access to the channels and content that you can personally access.
 
-1. Under **Spaces** -> **Tools**, select **Add Tools**
+1. Under **Spaces** -> **Tools**, select **Add Tool**
 2. Select **Slack** from the available MCP servers
 3. Complete OAuth authorization with your personal Slack credentials.
 
@@ -70,7 +70,7 @@ To fix it:
 If Dust shows "You must select *workspace* as the team to connect", pick that Slack workspace in the Slack sign-in screen. It's the workspace the tool was set up with.
 
 
-## :ok_person: Adding Tools to Agents
+## Adding Tools to Agents
 
 Admins can provide workspace users access to these tools by adding it to a Dust space. Users can then add the tools to an agent by selecting Slack in the agent builder.
 
@@ -124,25 +124,21 @@ Cancel a pending message scheduled through your Dust Slack connection. The agent
 Slack doesn't support editing a scheduled message. To change one, ask your agent to schedule the updated version first, then delete the original.
 </Tip>
 
-### List Users
+### Search User
 
-Retrieve all users in the workspace with optional name filtering.
+Find a Slack user by user ID or email address. The agent can search all workspace users by name when you ask it to, but this is slow on large workspaces.
 
-### Get User
-
-Get user information given a Slack user ID.
-
-**Parameters**: User ID
+**Parameters**: User ID or email address
 
 ### Search Channels
 
 Search for channels the user can access (public, private, DMs and group DMs are resolved by ID/name). Supports free‑text filtering and returns relevant channel metadata for targeting other tools.
 
-### List Threads
+### List Messages
 
-List threads for a given channel, private channel, or DM. Returns thread headers with timestamps.
+List the recent messages in a channel, private channel, or DM. Returns message headers with their timestamps.
 
-**Parameters**: Channel (name, ID, or user ID), optional oldest timestamp
+**Parameters**: Channel (name, ID, or user ID), time frame
 
 ### Read Thread Messages
 

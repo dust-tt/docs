@@ -1,39 +1,78 @@
 ---
 title: "Notion"
+description: "Let your agents search, read, create, and update Notion pages, databases, and comments."
 ---
 
-## Overview
+With the Notion tool, your agents can search your Notion workspace, read pages and databases, and create or update content. Dust connects to Notion's official MCP server, so the tools and their behavior come from Notion.
 
-Connect Notion to Dust agents to read documents, search your workspace, and write new content.
+## What your agent can do in Notion
 
-This document provides general information about our Notion tools (available tools, setup, and authentication).
+| Action | What it does | Changes data |
+| --- | --- | --- |
+| **Search and read** | Search your Notion workspace and connected sources, then read pages, databases, and their content. | No |
+| **Query databases** | Query database views and data sources, including meeting notes. | No |
+| **Read comments and people** | Read the comments on a page, and find users and teamspaces. | No |
+| **Create and update pages** | Create pages, update their content and properties, move them, or duplicate them. | Yes |
+| **Create and update databases** | Create databases and views, and change a database's properties. | Yes |
+| **Comment** | Add a comment to a page or reply in a discussion. | Yes |
 
-## Setting up the Connection
+For the full and current list of tools, see [Notion's MCP documentation](https://developers.notion.com/docs/mcp-supported-tools).
 
-The setup process **requires a Notion Admin** who is also a Dust Admin. This ensures full access to the necessary pages and databases that need to be shared with Dust. Follow these steps:
+## Before you start
 
-1. Under **Spaces** > **Tools**, select **Add Tools**. Then select **Notion**.
-2. A modal will show to allow you to select the data you want Dust to have access to.
+- **In Dust:** you need to be an admin to add Notion.
+- **In Notion:** agents can only reach the pages and databases that the connected Notion account can access.
 
-**Managing Permissions**
+## Connect Notion (admins)
 
-- Use Notion's **Top Page selection** to share entire sections that are 100% sharable.
-- Apply a more **granular approach** for sensitive pages.
-- Selecting a page will give Dust the permission to read and write to the page.
+<Steps>
+  <Step title="Add the tool">
+    Go to **Spaces** > **Tools**, click **Add Tool**, and select **Notion**.
+  </Step>
+  <Step title="Choose how people connect">
+    Pick a **Shared account**, used by everyone, or **Personal accounts**, where each person connects their own Notion account the first time an agent uses the tool.
+  </Step>
+  <Step title="Sign in to Notion">
+    Sign in to Notion and approve access to your workspace.
+  </Step>
+</Steps>
 
-<Warning>
-  **Permissions:** Each connection reflects the permissions of the last user to
-  set it up. To prevent disruptions, avoid changing the designated admin or
-  their permissions in Notion without reviewing the impact on Dust.
-</Warning>
+With personal accounts, each person only sees what they can see in Notion. With a shared account, everyone uses the access of the account that connected Notion.
 
-## Adding Notion Tools to Agents
+## Add Notion to an agent
 
-After admin set-up, Notion tools can be added to an agent by selecting them in the agent builder. They require no configuration. Note that when connecting a tool, you can define the provided tools as high stake or low stake.
+<Steps>
+  <Step title="Open your agent in the Agent Builder">
+    Create an agent, or open one you can edit.
+  </Step>
+  <Step title="Add the tool">
+    In **Capabilities and knowledge**, click **Add capabilities** and select **Notion**.
+  </Step>
+  <Step title="Say where to look and write">
+    In the instructions, name the pages or databases the agent should use, and what it can change.
+  </Step>
+</Steps>
 
-## Available Tools
+By default, tools that read data run without asking (**Never ask**), and tools that create or change content use the **Low** level. Admins can change the level of each tool in **Spaces** > **Tools** > **Notion** > **Tools & stakes**:
 
-### Page Operations
+- **High:** needs explicit user approval.
+- **Medium:** users can save confirmations for specific tool inputs, or skip them for the rest of a conversation session.
+- **Low:** users can completely disable confirmations.
+- **Never ask:** runs automatically.
+
+## Example instructions
+
+```text
+After each customer call, add a page to the "Customer calls" database in Notion with the customer name, the date, a summary of the call, and the next steps.
+```
+
+## Legacy Notion tool
+
+Workspaces that set up Notion before Dust moved to Notion's official MCP server may still use the older Notion tool. It connects through a Notion integration: during setup, a Notion admin who is also a Dust admin selects the pages Dust can read and write, and the connection reflects the permissions of the last person who set it up.
+
+<Accordion title="Tools of the legacy Notion tool">
+
+#### Page Operations
 
 | Tool                 | Description                                                                                                                                                                                                 |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -42,7 +81,7 @@ After admin set-up, Notion tools can be added to an agent by selecting them in t
 | **Update Page**      | Update a Notion page's properties.                                                                                                                                                                          |
 | **Add Page Content** | Add a single content block to a Notion page. For multiple blocks, call this action multiple times. Supports child-containing blocks: page, toggle, to-do, bulleted list, numbered list, callout, and quote. |
 
-### Database Operations
+#### Database Operations
 
 | Tool                          | Description                                                                                                                                                                  |
 | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -54,7 +93,7 @@ After admin set-up, Notion tools can be added to an agent by selecting them in t
 | **Update Row Database**       | Update a specific property value in a row (page) of a Notion database. Value formats depend on the property type (text, number, select, date, people, URL, files, checkbox). |
 | **Update Schema Database**    | Update the schema (columns/properties) of an existing Notion database.                                                                                                       |
 
-### Block Management
+#### Block Management
 
 | Tool                        | Description                                                                                                           |
 | --------------------------- | --------------------------------------------------------------------------------------------------------------------- |
@@ -62,22 +101,38 @@ After admin set-up, Notion tools can be added to an agent by selecting them in t
 | **Retrieve Block Children** | Retrieve the children of a Notion block or page by its ID.                                                            |
 | **Delete Block**            | Archive (delete) a block, page, or database in Notion. Moves the block to 'trash' where it can be restored if needed. |
 
-### Search & Discovery
+#### Search & Discovery
 
 | Tool       | Description                                       |
 | ---------- | ------------------------------------------------- |
 | **Search** | Search for pages, databases, or blocks in Notion. |
 
-### Comments & Collaboration
+#### Comments & Collaboration
 
 | Tool               | Description                                                                                                      |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------- |
 | **Create Comment** | Create a comment on a Notion page or in an existing discussion thread. Requires parent page ID or discussion ID. |
 | **Fetch Comments** | Retrieve a list of unresolved comment objects from a specified page or block in Notion.                          |
 
-### User Management
+#### User Management
 
 | Tool               | Description                                      |
 | ------------------ | ------------------------------------------------ |
 | **List Users**     | List all users in the Notion workspace.          |
 | **Get About User** | Get information about a specific user by userId. |
+
+</Accordion>
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Notion connection" href="/docs/user-documentation/admins/connections-management/notion">
+    Sync Notion content as knowledge for your agents.
+  </Card>
+  <Card title="Personal vs Shared Credentials" href="/docs/user-documentation/admins/tools-management/personal-vs-shared-credentials">
+    How each connection type works for tools.
+  </Card>
+  <Card title="Tools" href="/docs/user-documentation/agents/tools/index">
+    All the tools your agents can use.
+  </Card>
+</CardGroup>

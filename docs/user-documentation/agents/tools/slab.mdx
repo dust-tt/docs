@@ -9,11 +9,11 @@ The Slab MCP provides agents with read access to your Slab workspace. Agents can
 
 ## Connection Setup (Admin)
 
-1. In Dust, go to **Spaces  Tools** and click **Add Tools**.
+1. In Dust, go to **Spaces** > **Tools** and click **Add Tool**.
 2. Select **Slab** from the list of available tools.
 3. Paste your **Slab API access token** into the field provided and save.
 
-You can find your API access token in Slab under **Team settings  Developer**. See the [Slab Developer Tools documentation](https://help.slab.com/en/articles/6545629-developer-tools-api-webhooks) for instructions.
+You can find your API access token in Slab under **Team settings** > **Developer**. See the [Slab Developer Tools documentation](https://help.slab.com/en/articles/6545629-developer-tools-api-webhooks) for instructions.
 
 Once connected, the Slab toolset will be available to add to agents in the spaces you grant access to.
 
@@ -45,8 +45,7 @@ Review and update the Bot user's membership in Slab's team settings to ensure th
 
 | Tool | Description |
 | :--- | :---------- |
-| **Get Post** | Retrieve the full content of a Slab post by ID. |
-| **List Posts** | List posts in the workspace, optionally filtered by topic. |
-| **Get Topic** | Retrieve details of a Slab topic, including its posts. |
-| **List Topics** | List all topics the Bot user has access to. |
-| **Search** | Search posts and topics by keyword across the workspace. |
+| **Search Posts** | Search posts across the Slab workspace. |
+| **Get Post Contents** | Read posts by their IDs or URLs, with full content and metadata. |
+| **Get Post Metadata** | Read a post's metadata without its full content. Faster for long posts. |
+| **Get Topics** | List all Slab topics, to understand how content is organized. |
