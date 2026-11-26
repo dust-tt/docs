@@ -1,153 +1,89 @@
 ---
 title: Overview
-description: Reusable packages of instructions, knowledge, and tools you can share across multiple agents.
+description: "Package instructions, knowledge, and tools into a skill once, then reuse it across your agents."
 ---
 
-## What are Skills
+A skill is a reusable package of instructions, knowledge, and tools for a specific task, like logging a deal in your CRM or writing in your company's tone of voice. You write it once and add it to as many agents as you need. When you update a skill, every agent that uses it gets the change.
 
-Skills are reusable packages of instructions, knowledge and tools that you can share across multiple agents. Think of them as specialized toolboxes that contain the knowledge and capabilities needed for specific tasks or domains.
-
-Dust comes with [default skills](/docs/user-documentation/agents/skills/default-skills), like Discover Knowledge, Go Deep, and Create Frames, but you can also create your own. Check out our [examples](/docs/user-documentation/agents/skills/skill-examples).
+Dust provides [default skills](/docs/user-documentation/agents/skills/default-skills), like Discover Knowledge, Go Deep, and Create Frames. You can also create your own. For ideas, see [Skill examples](/docs/user-documentation/agents/skills/skill-examples).
 
 ## When to create a skill
 
-- Create a skill to share instructions and tools across multiple agents.
-- Create a skill when your agent instructions are getting overly long and/or you want to move specialized knowledge into a reusable package to share with your team.
-- Create a skill to define standard ways of doing things in your organization.
+Create a skill when:
 
-Skills are shareable: when you update a skill's instructions, every agent using that skill automatically gets the improvement. It's a way to create a single source of truth for how certain things should be done.
+- Several agents need the same instructions or tools.
+- An agent's instructions are getting long, and part of them covers a task you could reuse elsewhere.
+- You want one standard way of doing something across your team, like formatting a CRM entry.
 
-## Creating a skill
+To share instructions across agents, a skill is usually a better choice than a sub-agent. Use a sub-agent when a task needs its own separate context, like a long independent research run.
 
-<Note>
-  Skill creation and editing is reserved to Builders and Admins. Any user can leverage existing skills. Builders are therefore responsible for making great skills to share with the company!
-</Note>
+## Create a skill
 
-<Tip>
-  You can also create and update skills directly from a conversation. See [Conversational building](/docs/user-documentation/agents/conversational-building).
-</Tip>
+You need the **Create skills** permission. Admins and managers manage it in **Admin** > **Governance** > **Agents & Skills**. If you don't see **Create skill**, ask an admin.
 
-**Name and description:** A clear name and description that helps users understand what the skill does and what it can be used for.
+<Steps>
+  <Step title="Open Manage skills">
+    Click **Skills** in the left sidebar, then click **Create skill**.
+  </Step>
+  <Step title="Choose how to build the skill">
+    A conversation opens where an agent helps you write the skill. See [Conversational building](/docs/user-documentation/agents/conversational-building). To fill in the skill yourself, click **Open manual builder**. To import skills from a GitHub repository or a file, click **Start from existing**.
+  </Step>
+  <Step title="Fill in the skill builder">
+    Complete the sections below, then save the skill.
+  </Step>
+</Steps>
 
-**What will this skill be used for:** Indications that will be used by the agent to determine when to enable the skill.
+## What goes into a skill
 
-**What guidelines should it provide:** Actual content of the skill — instructions that explain how to perform specific tasks, which tools or skills to use and how to use them, and document any company-specific processes or conventions.
+| Section | What to add |
+| :--- | :--- |
+| **When to use this skill** | When an agent should use the skill. Agents read this to decide whether the skill matches a request. |
+| **Instructions** | The steps and guidelines to follow when the skill runs. |
+| **Data and access** | The Spaces and Pods the skill can use data from. |
+| **Files** | Files the skill can use when it runs, like templates, schemas, scripts, or reference material. |
+| **Skill settings** | The skill's name and description, its editors, its [availability](/docs/user-documentation/agents/skill-availability), and [self-improvement](/docs/user-documentation/agents/self-improving-skills). |
 
-<Tip>
-  You can reference MCP tools directly inside a skill's instructions. This gives the agent access to specific tools when the skill is active, and allows you to give context on how and when to use them.
+### Add tools, knowledge, and other skills
 
-  **How to add a tool inline:**
+Type `/` anywhere in **Instructions**, or click **Insert** at the top right of the section, then pick what to add. It appears as a chip in the text.
 
-  Type `/` anywhere in the instructions editor. A dropdown will appear letting you search for a tool by name. Select the one you want to reference, and it will be inserted as a chip at the cursor position. Alternatively, click the **Add capabilities** button to open the same dropdown.
+- **Tools**: the agent gets the tool while the skill is on. Say in the instructions when and how to use it.
+- **Knowledge**: select **Attach** to search for a document by title, like a Notion page or a Google Drive file. You can also paste a page URL, and it turns into a knowledge chip. A URL that doesn't match a page stays a regular link. Agents that use the skill can search and read that knowledge.
+- **Skills**: the agent can turn on the referenced skill when it needs it. Say in the instructions when to use it, for example: "Before writing the account brief, use the Sales validation skill to confirm the deal context."
 
-  A summary of all referenced items is displayed in a read-only section at the bottom of the skill editor.
-</Tip>
+Referencing skills lets you split a long skill into smaller ones and reuse each part in several skills. A summary of everything you referenced appears below the instructions.
 
-<Tip>
-  Skills can reference other skills inside their instructions. This lets you build modular workflows: a high-level skill delegates specific steps to lower-level ones, and the agent knows when to activate each of them.
+## Use a skill
 
-  **How to add a skill inline:**
+To add a skill to an agent, open the agent in the Agent Builder, click **Add capabilities** in **Capabilities and knowledge**, and select the skill. Members can also add a skill to a conversation by typing `/` or clicking **+** in the message bar, depending on the skill's [availability](/docs/user-documentation/agents/skill-availability).
 
-  Type `/` or click **Add capabilities**, then select an existing skill from the dropdown. It will appear as a chip in the instructions.
+An agent turns on a skill only when the request needs it. Skills that don't apply stay off, which keeps the agent's context focused.
 
-  **How it works at runtime:**
+## Data and access
 
-  When a skill references sub-skills, those sub-skills are automatically surfaced to the agent as available capabilities. The agent then decides when to enable them based on context and your instructions. Be explicit in your instructions about when the sub-skill should be invoked. For example:
+A skill can rely on data from specific Spaces or Pods, like a Notion page in the Product Space. In **Data and access**, list the Spaces and Pods the skill needs. Only members of all of them can use the skill, and an agent can only use the skill if it has access to all of them. Changes to this list apply right away to every agent that uses the skill.
 
-  > "Before generating the account brief, use the [Sales Validation] skill to confirm the deal context."
+**Editors** can change the skill's instructions, files, and settings. You choose the editors in **Skill settings**. Admins can open any skill in view-only mode, and click **Become an editor** to make changes.
 
-  **Why this is useful:**
+## Track changes to a skill
 
-  - Break complex skills into smaller, reusable units instead of one long monolithic instruction set.
-  - Avoid duplicating instructions across skills: define a primitive once and reference it from multiple parent skills.
-  - Keep each skill focused and easier to maintain.
-  - Allow for progressive discovery: break a large skill into coherent units so each situation only loads what it needs.
-</Tip>
+Skills keep a version history. Once a skill has been saved more than once, **History** appears at the top of the skill builder. It's hidden while the skill has pending [self-improvement suggestions](/docs/user-documentation/agents/self-improving-skills).
 
-<Note>
-  You can reference knowledge such as Notion pages, Google Drive documents, or Confluence pages naturally in your instructions. Type `/` or click **Insert**, then select **Attach** to search content by title. You can also paste a page URL anywhere in the instructions: it turns into a knowledge chip. A URL that doesn't match a page stays a regular link.
+Click **History** and choose a version to compare with the current one. To go back to that version, click **Restore all fields from this version**, then click **Save**. To return to the current version without changes, click **Leave comparison mode** (the **×** next to the version menu).
 
-  When you add knowledge to a skill, agents using that skill automatically get the ability to search and browse that knowledge.
-</Note>
+## Related
 
-### Find and manage skills
-
-To find a skill to use, open **Discover** on your [homepage](/docs/user-documentation/getting-started/homepage), go to **Catalog**, and filter by **Skills**. To search your workspace's skills or browse Dust-provided skills, click **Skills** in the left sidebar to open **Manage skills**, then use the **Dust** tab. To create your own skill, click **Create skill** and choose **From scratch**. Choose **From existing** to import skills from a repository or file.
-
-See [Skills management](/docs/user-documentation/agents/skills/skills-management) for filters, usage, and bulk updates.
-
-<Note>
-  To share a direct link to a skill, open **Manage skills**, select the skill, and click **Copy link**. The link opens the **Manage skills** page, focused on that skill.
-</Note>
-
-## How agents use skills
-
-You can add skills to your agents in the Agent Builder. Select specific skills to add to your agent. The agent will rely on those skills to perform complex tasks and achieve the goal defined in the agent's instructions or in your questions.
-
-<Note>
-  The agent will decide to enable a skill by analyzing the current situation. Skills that are not relevant will not be loaded, optimizing the context exposed to the agent at a given time.
-</Note>
-
-## Managing access to skills
-
-Both data access (what data the skill can use) and user access (who can use the skill) are handled through [Spaces](/docs/user-documentation/admins/spaces-management).
-
-When you create a skill, the skill may rely on resources from specific spaces — e.g. a Notion page in the Product space, Zendesk tickets in the Customer Success space. To ensure data is only accessible to those who have access to the same spaces, the skill is scoped to a set of spaces required to use it. An agent can only use a skill if it has access to every space required by that skill.
-
-This relationship is live: any update to a skill's space requirements is immediately reflected in the agents that use it.
-
-**Editors:** You designate who can edit the skill. Editors can modify the skill's instructions, tools, and settings.
-
-Workspace admins can open any skill in the Skill Builder even if they are not editors — the builder opens in view-only mode. To make changes, admins can click **Become an editor** to add themselves to the editors list.
-
-## Keeping track of a skill's evolution
-
-Skills are versioned. In the Skill Builder, the **history** button in the Guidelines section lets you list all past versions with their date and author. Clicking on a version shows the changes made since then, making it easy to track additions and deletions.
-
-## Getting started
-
-Identify a few processes that could be turned into Skills. Good candidates are recurring processes that need to be documented, or sets of guidelines often required for agents to work well. Turn them into a skill, add the skill to your agents, and tweak it as needed — you only need to change it once to keep all linked agents up-to-date.
-
-Over time, you'll build a library of skills that will make creating new agents faster and more consistent.
-
----
-
-## FAQ
-
-**Who can create and edit skills?**
-
-Builders can create and edit skills. Ask an admin to bump your role if you want to get creative and unlock value for your co-workers.
-
-**Who can view and use skills?**
-
-Anyone in your workspace can view and use skills, provided they have access to every underlying resource (tools and knowledge).
-
-**How do I add knowledge to a skill?**
-
-In the Skill Builder, add knowledge references inline in the guidelines. Type `/` or click **Insert**, then select **Attach** to search for content by title. You can also paste a page URL directly into the instructions to add it as knowledge.
-
-**What does this change for Frame sharing and Go deep?**
-
-Frame sharing and Go deep are now available as skills instead of tools. This change is retro-compatible for existing agents. The main benefit is that you can now customize them — for instance, add your own branding guidelines to the Frame sharing skill.
-
-A more subtle change: the skill loads dynamically, keeping the context lighter for the agent when not needed, making it more focused and less prone to hallucinations.
-
-<Warning>
-  This change will cause existing agents to be less prone to create Frames. Agents used to have a strong tendency to create Frames as long as the tool was added, even when it was not called for. You may need to update agent instructions accordingly.
-</Warning>
-
-**Do I need to rewrite all my agent instructions?**
-
-No. Existing agents will continue to work exactly as before. Build Skills and replace redundant agent instructions gradually, as you iterate and standardize your agent library.
-
-**What is the relationship between Dust Skills and Anthropic/Claude Skills?**
-
-They are a similar concept applied in different products: both represent a reusable bundle of instructions and best practices to perform a task. We recommend checking out [Anthropic skills](https://github.com/anthropics/skills) for inspiration.
-
-**When should I use a Skill or a sub-agent?**
-
-Use Skills to share reusable expertise (instructions + tools) across multiple agents — they compose seamlessly and update everywhere when changed. Use sub-agents only when you need true context isolation (e.g. heavy independent research). Skills is the default choice for sharing sets of guidelines across multiple agents, as sub-agents introduce prompting coordination overhead.
-
-**How do I know whether a skill was used for a message?**
-
-In your conversation, click the "Completed in N sec" message to open the details panel. At the bottom you will find a summary and a list of the skills that were loaded and exposed to the agent for that message.
+<CardGroup cols={2}>
+  <Card title="Skills management" href="/docs/user-documentation/agents/skills/skills-management">
+    Find, filter, import, and update skills in bulk.
+  </Card>
+  <Card title="Skill availability" href="/docs/user-documentation/agents/skill-availability">
+    Choose who can find and use a skill.
+  </Card>
+  <Card title="Skill examples" href="/docs/user-documentation/agents/skills/skill-examples">
+    Three skills you can copy and adapt.
+  </Card>
+  <Card title="Default skills" href="/docs/user-documentation/agents/skills/default-skills">
+    The skills Dust provides, and when each one is on.
+  </Card>
+</CardGroup>

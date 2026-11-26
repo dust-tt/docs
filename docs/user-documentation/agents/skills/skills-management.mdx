@@ -1,32 +1,9 @@
 ---
 title: "Skills management"
-description: "Find, filter, and manage reusable skills in your workspace."
+description: "Find, filter, create, import, and update the skills in your workspace."
 ---
 
-Open **Manage Skills** to browse skills, review their usage, and manage the skills you can edit. To create a skill, click **Create skill** and choose **From scratch** or **From existing**. See the [Skills overview](/docs/user-documentation/agents/skills/skills-overview) for guidance on building skills.
-
-**From existing** lets you import skills from a GitHub repository or upload a `.zip` or `.skill` file. Select the detected skills you want to add, then click **Import**. Creating and importing skills requires permission to create skills.
-
-## Skill archive format
-
-When you import skills from a GitHub repository, upload a `.zip` or `.skill` file in **Manage Skills**, or call the [Import skills API](/api-reference/skills/import-skills-from-uploaded-files) (`POST /api/v1/w/{wId}/skills`), Dust detects skills using the [Agent Skills specification](https://agentskills.io/specification).
-
-Each skill lives in its own directory (or at the archive root for a single-skill archive) and must contain a `SKILL.md` file with YAML frontmatter and a Markdown body:
-
-```markdown
----
-name: My Skill Name
-description: When and why an agent should enable this skill.
----
-
-Instructions and guidelines for the skill go here.
-```
-
-- **`name`** *(required, up to 256 characters)*: The skill name. When importing with `onConflict=override`, Dust matches existing skills by name.
-- **`description`** *(required)*: Populates both `agentFacingDescription` and `userFacingDescription` when a skill is created via import. When an import updates an existing skill, `description` replaces `agentFacingDescription`, but a customized `userFacingDescription` (one that differs from the agent-facing description) is kept. If the two descriptions were identical, `userFacingDescription` follows the new `description`. Other YAML frontmatter keys are ignored.
-- **Markdown body** *(required)*: The content after the closing `---` line becomes the skill's `instructions`.
-- **Attachment files** *(optional)*: Other files inside the skill directory are attached to the skill if their file extension matches a supported format (images, PDFs, Office documents, CSV/TSV/Excel spreadsheets, plain text/Markdown, common code and script files including `.py`, `.js`, `.mjs`, `.cjs`, `.jsx`, `.ts`, `.mts`, `.cts`, `.tsx`, `.sh`, `.sql`, `.json`, `.yaml`, `.html`, `.css`, `.xml`, and web fonts). Unrecognized file extensions are skipped during detection. On the API, the response's `skippedAttachments` array lists each file of an imported or updated skill that wasn't attached, with the skill `name`, the file `path` relative to the skill directory, and a `message` giving the reason (unsupported file type or failed upload).
-- **Archive limits**: Uploaded ZIP archives can be up to 50 MB compressed, 100 MB uncompressed, and 1,000 entries.
+**Manage skills** is where you browse your workspace's skills, check how much they're used, and manage the skills you can edit. To open it, click **Skills** in the left sidebar. For what goes into a skill, see the [Skills overview](/docs/user-documentation/agents/skills/skills-overview).
 
 ## Search and browse skills
 
@@ -65,9 +42,11 @@ Applied filters appear above the table. Remove a filter with its **×** button, 
 
 Open **Filters**, select **Hidden skills**, and click **Apply** to include skills you are not an editor of. Skills that require spaces you cannot access have their content hidden. This setting does not grant access to those spaces.
 
-## Manage skills
+## Skill actions
 
-Open a skill's **...** menu to edit it, view more information, copy its link, or archive it. Available actions depend on your permissions. You can also copy a skill's link from its details panel.
+A skill's **...** menu has **Edit**, **More info**, **Copy link**, and **Archive**. The actions you see depend on your permissions. You can also copy a skill's link from its details panel.
+
+Clicking **Edit**, or **Edit skill** in the details panel, opens a conversation where an agent helps you update the skill. To edit it yourself, click **Open manual builder** under **Prefer to build manually?**.
 
 From the details panel, click **Try skill** to start a conversation with the skill, or use the favorite button to save it to your favorites.
 
@@ -82,4 +61,51 @@ Changing availability requires the **Manage skill availability** permission. Cho
 
 The header checkbox selects eligible skills on the current page. You can add selections from other pages. Changing the search, filters, tab, or sort order clears the selection.
 
-To restore an archived skill, open it from the **Archived** tab and click **Restore**. You must be an editor or a workspace admin.
+To restore an archived skill, open it from the **Archived** tab, click **Restore**, then confirm with **Restore the skill**. You must be an editor or a workspace admin.
+
+## Create or import skills
+
+Click **Create skill**. A conversation opens where an agent helps you write the skill. Under **Prefer to build manually?**, you can also:
+
+- Click **Open manual builder** to fill in the skill builder yourself.
+- Click **Start from existing** to import skills. In **Import skills**, use the **Repository** tab to enter a GitHub repository URL, or the **Files** tab to upload a `.zip` or `.skill` file. Select the detected skills you want, then click **Import**.
+
+Creating and importing skills requires the **Create skills** permission. See [Roles, groups, and permissions](/docs/user-documentation/admins/admin-governance/workspace-governance-roles-groups-and-permissions).
+
+## Skill archive format
+
+When you import skills from a GitHub repository, upload a `.zip` or `.skill` file in **Manage skills**, or call the [Import skills API](/api-reference/skills/import-skills-from-uploaded-files) (`POST /api/v1/w/{wId}/skills`), Dust detects skills using the [Agent Skills specification](https://agentskills.io/specification).
+
+Each skill lives in its own directory (or at the archive root for a single-skill archive) and must contain a `SKILL.md` file with YAML frontmatter and a Markdown body:
+
+```markdown
+---
+name: My Skill Name
+description: When and why an agent should enable this skill.
+---
+
+Instructions and guidelines for the skill go here.
+```
+
+- **`name`** *(required, up to 256 characters)*: The skill name. When importing with `onConflict=override`, Dust matches existing skills by name.
+- **`description`** *(required)*: Populates both `agentFacingDescription` and `userFacingDescription` when a skill is created via import. When an import updates an existing skill, `description` replaces `agentFacingDescription`, but a customized `userFacingDescription` (one that differs from the agent-facing description) is kept. If the two descriptions were identical, `userFacingDescription` follows the new `description`. Other YAML frontmatter keys are ignored.
+- **Markdown body** *(required)*: The content after the closing `---` line becomes the skill's `instructions`.
+- **Attachment files** *(optional)*: Other files inside the skill directory are attached to the skill if their file extension matches a supported format (images, PDFs, Office documents, CSV/TSV/Excel spreadsheets, plain text/Markdown, common code and script files including `.py`, `.js`, `.mjs`, `.cjs`, `.jsx`, `.ts`, `.mts`, `.cts`, `.tsx`, `.sh`, `.sql`, `.json`, `.yaml`, `.html`, `.css`, `.xml`, and web fonts). Unrecognized file extensions are skipped during detection. On the API, the response's `skippedAttachments` array lists each file of an imported or updated skill that wasn't attached, with the skill `name`, the file `path` relative to the skill directory, and a `message` giving the reason (unsupported file type or failed upload).
+- **Archive limits**: Uploaded ZIP archives can be up to 50 MB compressed, 100 MB uncompressed, and 1,000 entries.
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Skills overview" href="/docs/user-documentation/agents/skills/skills-overview">
+    What skills are and how to create your own.
+  </Card>
+  <Card title="Skill availability" href="/docs/user-documentation/agents/skill-availability">
+    Choose who can find and use a skill.
+  </Card>
+  <Card title="Conversational building" href="/docs/user-documentation/agents/conversational-building">
+    Create and update skills from a conversation.
+  </Card>
+  <Card title="Import skills API" href="/api-reference/skills/import-skills-from-uploaded-files">
+    Import skills programmatically.
+  </Card>
+</CardGroup>
