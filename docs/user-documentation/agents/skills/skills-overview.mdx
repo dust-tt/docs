@@ -19,7 +19,7 @@ To share instructions across agents, a skill is usually a better choice than a s
 
 ## Create a skill
 
-You need the **Create skills** permission. Admins manage it in **Admin** > **Governance**. If you don't see **Create skill**, ask an admin.
+You need the **Create skills** permission. Admins and managers manage it in **Admin** > **Governance** > **Agents & Skills**. If you don't see **Create skill**, ask an admin.
 
 <Steps>
   <Step title="Open Manage skills">
@@ -45,7 +45,7 @@ You need the **Create skills** permission. Admins manage it in **Admin** > **Gov
 
 ### Add tools, knowledge, and other skills
 
-Type `/` anywhere in **Instructions** to open a menu, then pick what to add. It appears as a chip in the text.
+Type `/` anywhere in **Instructions**, or click **Insert** at the top right of the section, then pick what to add. It appears as a chip in the text.
 
 - **Tools**: the agent gets the tool while the skill is on. Say in the instructions when and how to use it.
 - **Knowledge**: select **Attach** to search for a document by title, like a Notion page or a Google Drive file. You can also paste a page URL, and it turns into a knowledge chip. A URL that doesn't match a page stays a regular link. Agents that use the skill can search and read that knowledge.
@@ -55,7 +55,7 @@ Referencing skills lets you split a long skill into smaller ones and reuse each 
 
 ## Use a skill
 
-To add a skill to an agent, open the agent in the Agent Builder, click **Add capabilities** in **Capabilities and knowledge**, and select the skill. Members can also find skills from the message bar, depending on the skill's [availability](/docs/user-documentation/agents/skill-availability).
+To add a skill to an agent, open the agent in the Agent Builder, click **Add capabilities** in **Capabilities and knowledge**, and select the skill. Members can also add a skill to a conversation by typing `/` or clicking **+** in the message bar, depending on the skill's [availability](/docs/user-documentation/agents/skill-availability).
 
 An agent turns on a skill only when the request needs it. Skills that don't apply stay off, which keeps the agent's context focused.
 
@@ -67,7 +67,9 @@ A skill can rely on data from specific Spaces or Pods, like a Notion page in the
 
 ## Track changes to a skill
 
-Skills keep a version history. In the skill builder, click **History** at the top and choose a version to compare with the current one. To go back to that version, click **Restore all fields from this version**. Click **Leave comparison mode** to return to the current version.
+Skills keep a version history. Once a skill has been saved more than once, **History** appears at the top of the skill builder. It's hidden while the skill has pending [self-improvement suggestions](/docs/user-documentation/agents/self-improving-skills).
+
+Click **History** and choose a version to compare with the current one. To go back to that version, click **Restore all fields from this version**, then click **Save**. To return to the current version without changes, click **Leave comparison mode** (the **×** next to the version menu).
 
 ## Related
 

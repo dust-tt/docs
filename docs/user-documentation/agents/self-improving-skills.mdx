@@ -23,9 +23,11 @@ If you don't see the self-improvement settings in the skill builder, the feature
 
 ## Review suggestions
 
-Open the skill in the skill builder. When it has pending suggestions, the **Suggestions** panel opens next to the builder and shows each change as a diff. For each suggestion, click **Accept** to apply it, or **Decline** to dismiss it.
+When new suggestions are ready, Dust starts a conversation with the skill's editors. You can accept or decline the suggestions there, or ask **@dust** to refine them.
 
-**History** reappears at the top of the skill builder once you've reviewed all pending suggestions.
+You can also review them in the skill builder. When a skill has pending suggestions, the **Suggestions** panel opens next to the builder and shows each change as a diff. For each suggestion, click **Accept** to apply it to the skill builder, or **Decline** to dismiss it. Then click **Save** to save the accepted changes.
+
+While suggestions are pending, **Instructions** is read-only and **History** is hidden.
 
 ## Turn self-improvement on or off
 
@@ -33,15 +35,15 @@ Self-improvement is optional, for each skill and for the whole workspace.
 
 **For one skill:** in the skill builder, go to **Skill settings** > **Self-improvement** and switch **Self-improve** on or off. If an admin has locked the setting for this skill, you can't change it.
 
-**For the workspace (admins):** go to **Admin** > **Governance** > **Agents & Skills**. In **Self-improving skills**, turn off **Allow self-improving skills** to stop all analysis and suggestions. The skill list in the same section shows each skill's status and spend, and lets admins turn self-improvement on or off for a skill and lock it.
+**For the workspace (admins):** go to **Admin** > **Governance** > **Agents & Skills**. In **Self-improving skills**, turn off **Allow self-improving skills** to stop all analysis and suggestions. The **Skills** table in the same section shows each skill's editors and current spend. For each skill, admins can turn self-improvement on or off, set a cost cap, and lock the setting so editors can't change it.
 
 ## Pricing
 
 On plans with credits, self-improving runs are shared automations: they use workspace credits and count toward the shared automation cap. On other plans, self-improving skills are priced as programmatic usage. See [Credits](/docs/user-documentation/admins/usage-seats-and-credits/credits).
 
-In **Admin** > **Credits**, admins can set two limits:
+In **Admin** > **Credits** > **Settings**, admins can set two limits:
 
-- **Default cost cap per skill**: the maximum cost of one self-improvement run for a skill. Once a skill reaches it, no more runs start for that skill.
+- **Default cost cap per skill**: the maximum a skill can spend on self-improvement in a billing period. Once a skill reaches it, no new runs start for that skill until the next billing period. Admins can set a different cap for a skill in the **Skills** table in **Admin** > **Governance** > **Agents & Skills**.
 - **Global spending cap**: the maximum cost per month across all skills. Once reached, no new runs start until the next billing month.
 
 By default, Dust processes conversations through the batch APIs of model providers, which costs less than real-time calls. Turning off batch processing raises the cost. See [Processing modes and Zero Data Retention (ZDR)](#processing-modes-and-zero-data-retention-zdr).

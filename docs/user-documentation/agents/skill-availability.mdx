@@ -10,12 +10,14 @@ Availability controls who can find a skill in the message bar and the Agent Buil
 | Availability | Who can find and use the skill | Permission needed |
 | :--- | :--- | :--- |
 | **Editors only** | Only the skill's editors. Use it while you build a skill, or for a skill you keep for yourself. | None |
-| **Members** | Everyone in the workspace, from the message bar and the Agent Builder. | **Manage skill availability** |
+| **Members** | Everyone in the workspace. Members add the skill in the message bar by typing `/` or clicking **+**, or add it to an agent in the Agent Builder. | **Manage skill availability** |
 | **Members and agents** | Everyone in the workspace, plus any agent with [Discover Skills](/docs/user-documentation/agents/discover-skills), including **@dust**. | **Manage skill availability** and **Make skills discoverable to agents** |
 
 A skill set to **Editors only** still works for other members when it's part of an agent or another skill they can use.
 
-Admins grant both permissions in **Admin** > **Governance** > **Agents & Skills**. In a new workspace, they're limited to admins. See [Roles, groups, and permissions](/docs/user-documentation/admins/admin-governance/workspace-governance-roles-groups-and-permissions).
+Once a skill is set to **Members and agents**, changing it back to **Members** or **Editors only** also requires **Make skills discoverable to agents**.
+
+Admins and managers grant both permissions in **Admin** > **Governance** > **Agents & Skills**. By default, they're limited to admins. See [Roles, groups, and permissions](/docs/user-documentation/admins/admin-governance/workspace-governance-roles-groups-and-permissions).
 
 ## Before you choose Members and agents
 
