@@ -1,85 +1,64 @@
 ---
 title: "Extract data"
+description: "Pull the same fields out of many documents into a structured result, using a schema you write or generate from the agent's instructions."
 ---
 
-The **_Extract Data_** action enables agents to extract structured information from a large window of data coming from your data sources over a specified time frame.
+With **Advanced processing**, the agent reads many documents and pulls the same pieces of information out of each one, in a structure you define. Use it when you need a complete, structured list across a large set of documents, like every customer mentioned in last quarter's sales call notes with their budget and deal stage.
 
-A large language model is run on up to 500k tokens (1000 pages book) and emits structured pieces of information following a schema of your design.
+## When to use it
 
-This can be used to:
+Search returns the passages that best match a question, so it can miss items in a long list. Advanced processing reads the selected documents in the time range and extracts what you asked for from each one. Use it for questions like:
 
-- Generate daily or weekly highlights from Mailing lists
-- Extract quantitative data from a stream of unstructured interactions such as customer support tickets.
+- "List every feature request from customer calls this month, with the customer name."
+- "Which candidates did we interview last week, and what was each interviewer's recommendation?"
 
-This comes as a complement to the “Search” and “Most Recent Data” actions:
+## Set up extract data
 
-- The “Search” action perform semantic search and does not provide guarantee that the entire data is processed by the agent and cannot extract information in a structured manner according to a custom schema definition.
-- The “Most Recent Data” is limited by the context size of the model and won’t be able to process large amount of data from data sources and is generally meant for low volumes of recent information.
+<Steps>
+  <Step title="Add knowledge">
+    In the Agent Builder, in **Capabilities and knowledge**, click **Add knowledge**.
+  </Step>
+  <Step title="Select data sources">
+    Pick a Space and select the folders, channels, or pages to process. Click **Next**.
+  </Step>
+  <Step title="Choose Advanced processing">
+    Pick **Advanced processing**, set a time range, and describe what the data contains.
+  </Step>
+  <Step title="Define the schema">
+    In **Schema**, describe the fields to extract, or click **Re-generate from instructions** to build the schema from the agent's instructions. The schema is optional: without one, the agent decides what to extract from the conversation. Save the agent.
+  </Step>
+</Steps>
 
-The output of the **_Extract Data_** action is a list of objects following the schema definition you configured which is passed to the agent to answer your question.
+## Example
 
-Configuring the **_Extract Data_** action consists of the following steps:
+A sales team keeps call notes in a folder. They want an agent that lists every qualified opportunity from the last month. With this schema, the agent returns one entry per company:
 
-- Configure the data sources you want to process
-
-Optionally, you can configure the following advanced settings:
-
-- Select a time frame
-- Define or generate a schema to extract
-
-## Configure the Extract Data action
-
-### Configure the Data Sources to Process
-
-This is very similar to the “Search” action. Select a data source you want to process. Generally a Slack channel, a Folder you feed by API or Intercom tickets.
-
-### Advanced Settings
-
-The **_Extract Data_** action includes advanced configuration options that can be accessed through a collapsible section:
-
-#### Select a Time Frame
-
-By default, the time frame is determined automatically based on the conversation context. You can enable manual time frame selection when you need to specify an exact range for data extraction.
-
-#### Define or Generate a Schema to Extract
-
-Optionally, you can define the schema used by the large language model to extract pieces of information from the data sources. The schema uses [JSON Schema](https://json-schema.org/overview/what-is-jsonschema) format to define the structure of extracted information. You can:
-
-- Define the schema manually by entering your JSON schema definition directly
-- Get your schema generated automatically by an agent based on your instructions by clicking on "Generate". The generated JSON schema can be edited.
-
-If you do not specify a schema, the tool will determine the schema based on the conversation context.
-
-## Using an Agent based on Extract Data
-
-Using an agent based on **_Extract Data_** is similar to any other agent. These agents being generally thoroughly prompted you often only need to call them.
-
-Given the intensive work involved with the **_Extract Data_** action, expect their execution to take more time than usual.
-
-The output presented to the agent to generate the answer can be introspected. As an example, here are the instructions of an agent that uses **_Extract Data_**:
-
-Context: Dust (the company that owns that list) is a platform to build custom and safe agents on top of their users' company data (Notion, Slack, Gdrive, ....). Agents can be easily packaged by users on top of their company data and interacted with through a conversational interface.
-
-Highlights have been extracted from emails on our internal mailing list "sales-archive" which is used to cc internally emails related to our sales efforts.
-
-Based on these highlights generate a structured summary of all the interactions. Avoid broad statement or general facts. Be extremely concise and brief this content is targeted at internal employees of Dust who want to save time and get the information rapidly without reading all the emails.
-
-If there is multiple interactions for the same company, merge them together. If an interaction has company "N/A", use "Dust Internal" as company name.
-
-```
-### `sales-archive`
-{{ FOREACH company }}
-#### {{Company Name}} {{pipeline_qualification}}
-- Contact: {{Dust point of contact}}
-- **Highlight**: {{1 sentence highlight}}
-{{IF there are issues}}
-- **Issues**: (if any)
-  - {{ list of issues}}
-{{ENDIF}}
-{{IF there are requirements}}
-- **Requirements**: (if any)
-  - {{ list of requirements}}
-{{ENDIF}}
-{{ ENDFOR company }}
+```json
+{
+  "type": "object",
+  "properties": {
+    "company_name": { "type": "string", "description": "Name of the prospect" },
+    "budget": { "type": "string", "description": "Budget mentioned on the call" },
+    "stage": { "type": "string", "description": "Deal stage, like discovery or negotiation" }
+  }
+}
 ```
 
+In the instructions, tell the agent how to present the results, for example as a table sorted by stage.
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Knowledge" icon="book" href="/docs/user-documentation/agents/knowledge">
+    Compare the ways an agent can use your data.
+  </Card>
+  <Card title="Include data" icon="file-lines" href="/docs/user-documentation/agents/knowledge/include-data">
+    Load whole documents for summaries and reviews.
+  </Card>
+  <Card title="Search data sources" icon="magnifying-glass" href="/docs/user-documentation/agents/knowledge/search-data-sources">
+    Find the most relevant passages for a question.
+  </Card>
+  <Card title="Table queries" icon="table" href="/docs/user-documentation/agents/knowledge/table-queries">
+    Answer quantitative questions with SQL.
+  </Card>
+</CardGroup>
