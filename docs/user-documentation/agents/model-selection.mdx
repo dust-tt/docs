@@ -15,6 +15,8 @@ An auto model is a tier that Dust maintains. When a better model comes out for a
 | **Standard** | Most tasks. This is the best choice in most cases. |
 | **Premium** | Complex tasks that need the most capable model. Answers are slower. |
 
+The model picker shows the model that each auto model uses right now.
+
 ## Choose the model of an agent
 
 <Steps>
@@ -41,27 +43,29 @@ You can use a different model for your messages in a conversation, without chang
     In the message input, click the model picker. You can also type `/` and select **Pick model**.
   </Step>
   <Step title="Pick a model">
-    Pick an auto model, or click **More models** to pick a specific model. The agent's model is marked **(Default)**.
+    Pick an auto model, or click **More models** to pick a specific model. **More models** groups the models by the company that created them, like Anthropic, OpenAI, Google, or Mistral. The agent's model is marked **(Default)**.
   </Step>
 </Steps>
 
-Your pick stays selected for your next messages in the conversation. To go back to the agent's model, click **Revert to default** in the picker.
+Your pick stays selected for your next messages in the conversation, even if you mention a different agent. To go back to the agent's model, click **Revert to default** in the picker.
 
 Your pick only applies in the Dust web app. When an agent runs from Slack or from a trigger, it uses the model of the agent.
 
 ## Reasoning effort
 
-Some models can think for longer before they answer. When you select one of these models, the model picker shows a **Reasoning effort** slider under it. A higher effort can give better answers to complex questions, but the answer takes longer.
+Some models can think for longer before they answer. When you select one of these models, the model picker shows a **Reasoning effort** slider under it. A higher effort can give better answers to complex questions, but the answer takes longer. A higher effort can also move the model into a higher [model access tier](/docs/user-documentation/admins/usage-seats-and-credits/model-access-tiers) and use more credits.
 
 ## Model access
 
 Your workspace admins decide which models members can use. If a model or an auto model is locked in your picker, it's above your model access tier, or your plan doesn't include it. See [Model access tiers](/docs/user-documentation/admins/usage-seats-and-credits/model-access-tiers).
 
+If an agent's model is above your model access tier, your message returns the **Model tier not enabled** error. You can pick a model that your tier allows in the model picker, or ask a workspace admin to raise your tier or to [let members run published agents above their tier](/docs/user-documentation/admins/usage-seats-and-credits/model-access-tiers#let-members-run-published-agents-above-their-tier).
+
 If your workspace is in the EU region, admins can also limit the workspace to models hosted in the EU. See [EU-hosted models](/docs/user-documentation/admins/admin-governance/eu-hosted-models).
 
 ## When a model has issues
 
-- **Provider issues:** when a model's provider has issues, the model picker shows an icon next to the model.
+- **Provider issues:** when a model's provider has issues, the model picker shows an icon next to the model. An auto model skips that model and uses another available model of the same tier. A specific model stays selected.
 - **The model declines to answer:** Dust answers with another model. The message shows **Answered by** and the name of the model that answered.
 - **The model doesn't respond in time:** the error message offers to retry with another model tier, for example **Retry with Standard model tier**.
 
