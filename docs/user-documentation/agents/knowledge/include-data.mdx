@@ -17,7 +17,7 @@ For questions that only need a few relevant passages, like "What's our parental 
 
 ## How much data the agent sees
 
-A model can only read a limited amount of text at once, called its context window. When the selected data doesn't fit, the agent keeps the most recent documents and tells you the cutoff in the answer details, for example "Only includes documents since" a given date.
+A model can only read a limited amount of text at once, called its [context window](/docs/user-documentation/agents/llm-best-practices/understanding-llms-context-windows). When the selected data doesn't fit, the agent keeps the most recent documents and tells you the cutoff in the answer details, for example "Only includes documents since" a given date.
 
 To control what the agent reads, set a time range when you configure the knowledge, like the last 7 days. A shorter range keeps the agent focused on recent content and makes answers faster.
 
@@ -52,7 +52,7 @@ To control what the agent reads, set a time range when you configure the knowled
   <Card title="Extract data" icon="list-check" href="/docs/user-documentation/agents/knowledge/extract-data">
     Pull the same fields out of many documents.
   </Card>
-  <Card title="Understanding RAG" icon="brain" href="/docs/user-documentation/agents/llm-best-practices/understanding-rag">
-    See how search compares to loading whole documents.
+  <Card title="Understanding context windows" icon="window-maximize" href="/docs/user-documentation/agents/llm-best-practices/understanding-llms-context-windows">
+    Learn how much text a model can read at once.
   </Card>
 </CardGroup>
