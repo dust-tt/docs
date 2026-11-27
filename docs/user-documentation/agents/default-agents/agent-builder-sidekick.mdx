@@ -14,8 +14,8 @@ Sidekick only works in the Agent Builder. You can't mention it in a conversation
 Sidekick is in the right panel of the Agent Builder, next to the **Preview** and **Insights** tabs. You can open it in several ways:
 
 - **Create a new agent:** in the left sidebar, click **Agents** > **Manage agents** > **Create agent**. Under **Prefer to build manually?**, click **Open manual builder**.
-- **Edit an existing agent:** open the agent in the Agent Builder. Sidekick reads the current configuration, including the changes that you haven't saved.
-- **Start from a template:** pick a template from the gallery. Sidekick uses the template as a guide and asks you questions to adapt it to your workflow.
+- **Edit an existing agent:** click **Edit** on the agent in **Manage agents**, or **Edit agent** in the agent's details. In the conversation that opens, under **Prefer to build manually?**, click **Open manual builder**. Sidekick reads the current configuration, including the changes that you haven't saved.
+- **Start from a template:** click **Agents** > **Manage agents** > **Create agent**. Under **Prefer to build manually?**, click **Start from template** and pick a template. Sidekick uses the template as a guide and asks you questions to adapt it to your workflow.
 - **Convert a conversation:** turn a conversation that went well into a reusable agent. See [Turn a conversation into an agent](#turn-a-conversation-into-an-agent).
 
 ## Create an agent with Sidekick
@@ -28,7 +28,7 @@ Sidekick is in the right panel of the Agent Builder, next to the **Preview** and
     Sidekick asks clarifying questions when it needs more details. For a complex use case, it can offer to research your workspace's data to understand your requirements. This takes a few minutes, and Sidekick always asks before it starts.
   </Step>
   <Step title="Review the suggestions">
-    Sidekick shows its changes to the instructions as inline suggestions: additions in green and removals in red. Accept or reject each one. You can also edit the instructions yourself at any time.
+    Sidekick shows its changes to the instructions as inline suggestions: additions in green and removals in red. Accept or reject each one, or click **Accept all** or **Reject all** in the instructions toolbar. You can also edit the instructions yourself at any time.
   </Step>
   <Step title="Add tools, skills, and knowledge">
     Sidekick suggests tools, skills, knowledge, and a model. Each suggestion appears as a card that you can accept in one click.
@@ -55,7 +55,7 @@ If a conversation gave you a workflow that you want to reuse, turn it into an ag
 
 <Steps>
   <Step title="Open the conversation menu">
-    In the conversation, open the `...` menu at the top and click **Convert to agent**.
+    In the conversation, open the `...` menu at the top, click **Convert to agent**, then click **Continue**.
   </Step>
   <Step title="Review the draft">
     The Agent Builder opens, and Sidekick drafts an agent with the same instructions, tools, and knowledge as the conversation. Review its suggestions, then test and save the agent.
@@ -100,6 +100,7 @@ When you reach a limit, Sidekick isn't available until the limit resets.
 
 - Sidekick can't create or edit triggers. It explains how to set them up yourself. See [Triggers](/docs/user-documentation/agents/triggers/index).
 - Sidekick can't create skills. It can suggest existing skills.
+- Sidekick can't view or set a [structured output format](/docs/user-documentation/agents/structured-output-format).
 - You can't customize how Sidekick behaves for your workspace.
 
 ## Related
