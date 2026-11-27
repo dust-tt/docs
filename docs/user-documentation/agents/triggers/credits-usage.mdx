@@ -1,5 +1,6 @@
 ---
 title: "Credits usage"
+description: "Choose whether a trigger's runs use your own credits or the workspace's, and review what your triggers consume."
 ---
 
 
@@ -12,7 +13,7 @@ Open the trigger in the Agent Builder and pick from the **Credits** dropdown:
 - **My credits**, the default, bills the run to the trigger editor's, as if they had sent the message themselves.
 - **Workspace credits** bills the run to the workspace as programmatic usage, alongside API calls and other automations. It is not attributed to any member.
 
-To change the setting you must be an editor of the agent and have access to the workspace pool, which an admin grants (see [Grant access to the workspace pool](#grant-access-to-the-workspace-pool)). Without that access, you can see the setting but not change it. Admins and managers can also change it from the Automations page. Your changes are automatically picked up starting from the next run.
+To change the setting you must be the creator of the trigger, or an admin or manager, and have access to the workspace pool, which an admin grants (see [Grant access to the workspace pool](#grant-access-to-the-workspace-pool)). Without that access, you can see the setting but not change it. Admins and managers can also change it from the Automations page. Your changes are automatically picked up starting from the next run.
 
 ## Which pool to pick
 
@@ -22,7 +23,7 @@ Leave a trigger on personal credits when its editor is also the one who reads th
 
 ## Grant access to the workspace pool
 
-Only admins can charge triggers to the workspace by default. Admins and managers set this under **Governance > Pods & Frames > Automations > Charge automations to the workspace**. They can choose everyone, selected groups, or admins only.
+Only admins can charge triggers to the workspace by default. Admins and managers set this in **Admin** > **Governance** > **Pods, Frames & Files**, with the **Charge automations to the workspace** setting. They can choose everyone, selected groups, or admins only.
 
 Removing the access does not move existing triggers back to personal credits. Triggers already on workspace credits stay there until someone changes them.
 
@@ -44,12 +45,29 @@ A trigger stops running once the pool it charges is out: its editor's credits or
 
 ## Review your triggers
 
-Admins and managers see every trigger in the workspace under **Admin > Automations**, with its agent, its credit consumption over the selected period, and a **Billing** column showing *Member* or *Shared*. On legacy plans, this column is called **Pool** and shows *Member* or *Workspace*.
+Admins and managers see every trigger in the workspace under **Admin** > **Automations**, with its agent, its credit consumption over the selected period, and a **Billing** column showing *Member* or *Shared*. On legacy plans, this column is called **Pool** and shows *Member* or *Workspace*.
 
-Members can review their own automations from the **Automations** entry under **Tools** in the user menu. This view lists the automations they edit, with filters, an expandable per-trigger credit breakdown for the current billing cycle, and controls to enable, disable, or delete an automation.
+Members can review their own automations from **Automations** in the user menu. This view lists the automations they created, with filters and an expandable per-trigger credit breakdown for the current billing cycle. On each row, they can turn the automation on or off with the **Enabled** toggle, change its pool, or click **Manage** to open the agent in the Agent Builder and edit or delete the trigger.
 
 Select several rows to move them to another pool in one go, which is the quickest way to migrate a batch of triggers after changing your policy.
 
 ## Rate limits
 
 The pool is separate from the rate limit. A webhook trigger keeps its own cap on runs per 24 hours whichever pool it charges. See [Rate limiting](/docs/user-documentation/agents/triggers/webhooks/rate-limiting).
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Triggers" href="/docs/user-documentation/agents/triggers/index">
+    See all the ways to run an agent automatically.
+  </Card>
+  <Card title="Rate limiting" href="/docs/user-documentation/agents/triggers/webhooks/rate-limiting">
+    Cap how often a webhook trigger runs.
+  </Card>
+  <Card title="Credit management" href="/docs/user-documentation/admins/usage-seats-and-credits/credit-management">
+    Understand how seat and workspace credits work.
+  </Card>
+  <Card title="Schedules" href="/docs/user-documentation/agents/triggers/schedules">
+    Run an agent at set times.
+  </Card>
+</CardGroup>

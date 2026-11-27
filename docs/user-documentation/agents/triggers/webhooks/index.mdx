@@ -18,24 +18,58 @@ For a custom webhook, you can also have Dust check that each request is signed: 
 
 Only workspace admins can create webhook sources.
 
-1. Go to **Spaces** > **Triggers** and click **Add source**.
-2. Pick a provider, or **Custom webhook**.
-3. Name the source, then connect your account and select the events to watch (built-in sources), or set up the webhook (custom).
-4. Save the source.
+<Steps>
+  <Step title="Open the triggers page">
+    Go to **Spaces** > **Triggers** and click **Add source**.
+  </Step>
+  <Step title="Pick the source">
+    Pick a provider, or **Custom webhook**.
+  </Step>
+  <Step title="Set it up">
+    Name the source. For a built-in source, connect your account and select the events to watch. For a custom webhook, set up the webhook.
+  </Step>
+  <Step title="Save">
+    Save the source.
+  </Step>
+</Steps>
 
 A new source is available to all workspace members. To limit it to members of specific Spaces, open the source's **Sharing** tab.
 
 ## Add a webhook trigger to an agent
 
-1. In the Agent Builder, go to **Triggers** > **Add triggers** and pick the source.
-2. Set up the trigger:
-   - **Listen for** (built-in sources): the event that runs the agent.
-   - **Run only when** (optional, built-in sources): describe in plain language when the agent should run, and Dust generates the filter.
-   - **Filter expression** (optional, custom webhooks): write the filter yourself. See [Filter webhooks payload](/docs/user-documentation/agents/triggers/webhooks/filter-webhooks-payload).
-   - **Include webhook payload**: send the event data to the agent, so it can use details like a ticket's title or a pull request's author.
-   - **Message** (optional): what the agent should do on each run.
-   - **Rate limits**: the maximum number of runs over 24 hours. See [Rate limiting](/docs/user-documentation/agents/triggers/webhooks/rate-limiting).
-   - **Credits** and **Where to create this conversation?**: see [Triggers](/docs/user-documentation/agents/triggers/index).
-3. Save the agent.
+<Steps>
+  <Step title="Pick the source">
+    In the Agent Builder, go to **Triggers** > **Add triggers** and pick the source.
+  </Step>
+  <Step title="Set up the trigger">
+    - **Listen for** (built-in sources): the event that runs the agent.
+    - **Run only when (optional)** (built-in sources): describe in plain language when the agent should run, and Dust generates the filter.
+    - **Filter expression (optional)** (custom webhooks): write the filter yourself. See [Filter webhooks payload](/docs/user-documentation/agents/triggers/webhooks/filter-webhooks-payload).
+    - **Include webhook payload**: send the event data to the agent, so it can use details like a ticket's title or a pull request's author.
+    - **Message (optional)**: what the agent should do on each run.
+    - **Rate limits**: the maximum number of runs over 24 hours. See [Rate limiting](/docs/user-documentation/agents/triggers/webhooks/rate-limiting).
+    - **Credits** and **Where to create this conversation? (optional)**: see [Triggers](/docs/user-documentation/agents/triggers/index).
+  </Step>
+  <Step title="Save the agent">
+    The trigger starts once you save the agent.
+  </Step>
+</Steps>
 
 Without a filter, every matching event runs the agent, up to the rate limit.
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Filter webhooks payload" href="/docs/user-documentation/agents/triggers/webhooks/filter-webhooks-payload">
+    Run the agent only on the events you care about.
+  </Card>
+  <Card title="Rate limiting" href="/docs/user-documentation/agents/triggers/webhooks/rate-limiting">
+    Cap how often a webhook trigger runs.
+  </Card>
+  <Card title="Triggers" href="/docs/user-documentation/agents/triggers/index">
+    See all the ways to run an agent automatically.
+  </Card>
+  <Card title="Credits usage" href="/docs/user-documentation/agents/triggers/credits-usage">
+    Choose whose credits pay for each run.
+  </Card>
+</CardGroup>

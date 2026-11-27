@@ -16,16 +16,25 @@ Webhook triggers work with built-in sources (GitHub, Jira, Linear, Zendesk, and 
 
 ## Add a trigger to an agent
 
-1. Open the agent in the **Agent Builder**.
-2. In the **Triggers** section, click **Add triggers**.
-3. Pick **Schedule**, or one of the webhook sources available to you.
-4. Fill in the trigger settings, then save the agent.
+<Steps>
+  <Step title="Open the agent">
+    Open the agent in the **Agent Builder**.
+  </Step>
+  <Step title="Add a trigger">
+    In the **Triggers** section, click **Add triggers**, then pick **Schedule** or one of the webhook sources available to you.
+  </Step>
+  <Step title="Set it up and save">
+    Fill in the trigger settings, then save the agent.
+  </Step>
+</Steps>
 
 Webhook sources must first be created by a workspace admin: see [Webhooks](/docs/user-documentation/agents/triggers/webhooks/index). To check whether you can add a trigger to a given agent, see [Who can add a trigger](/docs/user-documentation/agents/triggers/schedules#who-can-add-a-trigger).
 
 Triggers belong to the member who created them. The **Triggers** section of the Agent Builder, and the **Triggers** tab of the agent's details, list only the triggers you created. This is also true for the agent's editors: you can't see or edit a trigger that someone else added to the same agent, even if it runs.
 
-To see every trigger in the workspace, admins and managers go to **Admin > Automations**. Members manage their own triggers from **Automations** under **Tools** in the user menu. See [Review your triggers](/docs/user-documentation/agents/triggers/credits-usage#review-your-triggers).
+If a member is removed from the workspace, the triggers they created are deleted for good. Before someone leaves, ask a teammate to recreate the triggers the team still needs.
+
+To see every trigger in the workspace, admins and managers go to **Admin** > **Automations**. Members manage their own triggers from **Automations** in the user menu. See [Review your triggers](/docs/user-documentation/agents/triggers/credits-usage#review-your-triggers).
 
 ## Where runs appear
 
@@ -33,7 +42,7 @@ Each run starts a new conversation with the agent. It includes the trigger's mes
 
 By default, the conversation appears in your own conversation history. To share runs with your team, pick a Pod under **Where to create this conversation?** in the trigger settings: the conversation is then created in that Pod, where all its members can see it. See [Pod conversations](/docs/user-documentation/pods/conversations).
 
-If that Pod is archived, its triggers are turned off. They stay off when the Pod is unarchived, so their owners need to turn them back on. See [How to archive a Pod](/docs/user-documentation/pods/members-and-roles#how-to-archive-a-pod).
+If that Pod is archived, its triggers are turned off. They stay off when the Pod is unarchived, so their owners need to turn them back on. See [Archive a Pod](/docs/user-documentation/pods/members-and-roles#archive-a-pod).
 
 ## Credits and limits
 
@@ -42,3 +51,20 @@ If that Pod is archived, its triggers are turned off. They stay off when the Pod
 - Webhook triggers run at most 42 times per 24 hours by default. See [Rate limiting](/docs/user-documentation/agents/triggers/webhooks/rate-limiting).
 
 To review your triggers and their credit consumption, or to enable, disable, or delete them, see [Review your triggers](/docs/user-documentation/agents/triggers/credits-usage#review-your-triggers).
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Schedules" href="/docs/user-documentation/agents/triggers/schedules">
+    Run an agent at set times.
+  </Card>
+  <Card title="Webhooks" href="/docs/user-documentation/agents/triggers/webhooks/index">
+    Run an agent when something happens in another tool.
+  </Card>
+  <Card title="Credits usage" href="/docs/user-documentation/agents/triggers/credits-usage">
+    Choose whose credits pay for each run.
+  </Card>
+  <Card title="Pod conversations" href="/docs/user-documentation/pods/conversations">
+    Share trigger runs with your team in a Pod.
+  </Card>
+</CardGroup>

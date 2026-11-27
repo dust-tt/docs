@@ -1,5 +1,6 @@
 ---
-title: "Rate Limiting"
+title: "Rate limiting"
+description: "Cap how often a webhook trigger can run, and see what happens when a trigger or the workspace reaches its limit."
 ---
 
 
@@ -24,3 +25,20 @@ Credit-priced plans have no message quota. A trigger there is limited by the cre
 Dust refuses the incoming request and marks the trigger as rate-limited, which you see as a chip in the trigger details. Requests that arrive while the limit is reached are dropped rather than queued, so nothing is replayed once the window frees up. The trigger runs again on the next request it accepts.
 
 If a trigger hits its limit often, raise it in the trigger sheet, or send fewer requests to Dust in the first place with a [payload filter](/docs/user-documentation/agents/triggers/webhooks/filter-webhooks-payload).
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Webhooks" href="/docs/user-documentation/agents/triggers/webhooks/index">
+    Set up webhook sources and triggers.
+  </Card>
+  <Card title="Filter webhooks payload" href="/docs/user-documentation/agents/triggers/webhooks/filter-webhooks-payload">
+    Send fewer events to your agent.
+  </Card>
+  <Card title="Credits usage" href="/docs/user-documentation/agents/triggers/credits-usage">
+    Choose whose credits pay for each run.
+  </Card>
+  <Card title="Triggers" href="/docs/user-documentation/agents/triggers/index">
+    See all the ways to run an agent automatically.
+  </Card>
+</CardGroup>
