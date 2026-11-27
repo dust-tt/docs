@@ -1,71 +1,49 @@
 ---
 title: "Branch a Conversation"
+description: "Start a new conversation from any point of an existing one, with a summary of the context and copies of its files."
 ---
 
+Branching starts a new conversation from any point of an existing one. The new conversation starts with a summary of the conversation up to that point, and with copies of its files and tool outputs. You can continue the work without losing context, and the original conversation doesn't change.
 
-Branching lets you spin off a new conversation from any point in an existing one. The branched conversation starts with a summary of what happened so far, plus copies of any files and tool outputs, so you can keep working without losing context.
+## When to branch
 
-## Example use cases
+- **Split the work:** a conversation produces a plan with three parts. Branch once for each part, so that each conversation has the context it needs.
+- **Hand off a result:** you built a report, a Frame, or a draft with an agent. Branch it so that a teammate can continue without reading the whole conversation.
+- **Try another approach:** explore a different direction without changing the original conversation.
 
-* **Split into work streams**: A conversation produces a plan with three parts, each requiring a technical design. Branch once per part; each child conversation has the full context it needs to go deep.
-* **Hand off a result**: You built something with an agent (a report, a frame, a draft) and want a teammate to iterate on the output, without them needing to scroll through all the back-and-forth that produced it.
-* **Try a different approach**: You're mid-conversation and want to explore an alternative direction without dirtying the original thread.
-* **Delegate cleanly**: Branch at the point where work is ready to hand off, so the recipient's conversation starts exactly there.
+## Branch a conversation
 
-## How it works
+You can branch in two ways:
 
-### Branching
+- **From the latest agent message:** open the `...` menu at the top right of the conversation and click **Branch conversation**. The branch starts from the latest finished agent message, so the conversation needs at least one finished agent answer.
+- **From a specific message:** open the menu of an agent message and click **Branch from here**. The new conversation includes everything up to that message.
 
-You can branch a conversation from the conversation menu on the top right corner of your conversation (3-dots menu).
+The new conversation opens. Dust writes the summary first, which can take a few seconds. Until it's ready, the message input shows "Wait for the branch to finish preparing."
 
-### What the branched conversation receives
+You can also branch a conversation that was itself branched.
 
-When you branch, Dust creates a brand-new standalone conversation. It:
+## What the new conversation gets
 
-1. **Generates a summary** of the parent conversation up to the branch point (using compaction). This becomes the first message in the child, giving the agent full context.
-2. **Copies all files and tool outputs** from the parent so the child has its own isolated working set. Edits in the child do not affect the parent, and vice versa.
-3. **Inherits the same space / project**, enabled tools, and MCP servers that you have access to.
+The new conversation is independent from the original one:
 
-**Note:** Branching takes 10–20 seconds, the summary is generated during this time.
+- **A summary:** the first message summarizes the original conversation up to the branch point. It shows as "Summarized" followed by the title of the original conversation. The agent uses this summary as its context.
+- **Copies of the files:** the files and tool outputs of the original conversation are copied. Changes in one conversation don't affect the other.
+- **The same skills and tools:** the skills and tools enabled in the original conversation are also enabled in the new one, if you have access to them.
+- **The same location:** if the original conversation is in a Pod, the new one is in the same Pod. It uses the same Spaces as the original conversation.
 
-### Lineage
+The title of the new conversation shows a **Branched from** link to the original conversation.
 
-The branched conversation displays a **"Branched from …"** link so you can always trace it back to its origin. The parent conversation also shows a note when one of its messages was used as a branch point.
+## Permissions
 
-### Permissions
+The new conversation has the same access rules as the original conversation when you branch it. You're its first participant. To branch a conversation that is in a Pod, you must be a member of the Pod. After that, each conversation has its own access rules. For example, if someone adds restricted content to one of them, the other doesn't change.
 
-The child conversation inherits access rights from its parent at time of branching. The user who branched becomes the initial participant. Access rights may diverge later if restricted content is added to either conversation.
+## Related
 
-## FAQ
-
-### How long does branching take?
-
-Typically 10–20 seconds. During this time, Dust generates the summary that seeds the child conversation. You can send messages during this time; they will be enqueued and processed once the branched conversation is ready.
-
-### Does branching affect the parent conversation?
-
-No. The parent conversation is left completely unchanged. Branching is a read-only operation on the parent.
-
-### Can I branch from the middle of a conversation?
-
-Yes. Use the per-message menu on any agent message to branch from that exact point. Branching from the conversation menu always uses the latest agent message.
-
-### Are my files and attachments available in the branched conversation?
-
-Yes, as new copies. Files and tool outputs from the parent are deep-copied into the child, so they're fully available and independent. Changes you make to files in the child do not affect the parent, and vice versa.
-
-### Is the branched conversation independent?
-
-Fully. It's a standalone conversation with its own history, files, and participants. Future messages, files, and agent actions in the child are isolated from the parent.
-
-### Can I branch a branched conversation?
-
-Yes. You can branch any conversation, including one that was itself branched. Each branch is an independent conversation with its own lineage link.
-
-### Can my teammates see the branched conversation?
-
-Access follows standard conversation permissions: the child conversation is created in the same space/project as the parent. The person who branched is the initial participant. Workspace access rules apply as normal from there.
-
-### What if I want the agent to go in a different direction after branching?
-
-Just send a message in the branched conversation. The agent has full context from the summary and can continue from there in any direction you choose.
+<CardGroup cols={2}>
+  <Card title="Context Compaction" href="/docs/user-documentation/agents/context-compaction">
+    Summarize a long conversation to free up context.
+  </Card>
+  <Card title="Steering: Conversations that keep up with you" href="/docs/user-documentation/agents/steering-conversations">
+    Send messages while an agent works.
+  </Card>
+</CardGroup>

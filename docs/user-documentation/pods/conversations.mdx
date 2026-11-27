@@ -1,90 +1,97 @@
 ---
 title: "Conversations"
+description: "Start conversations with agents and teammates in a Pod, let agents post to it, find past conversations, and set your notifications."
 ---
 
+The **Conversations** tab lists the conversations of a Pod. All Pod members can see them and take part in them. Agents in the Pod can also search past conversations and use them as context.
 
-The **Conversations tab** lists all conversations created inside the Pod. Every Pod member can see and contribute to them.
+## Start a conversation in a Pod
 
-## How to start a conversation in a Pod
+<Steps>
+  <Step title="Open the Conversations tab">
+    Open the Pod and click **Conversations**.
+  </Step>
+  <Step title="Write your message">
+    Type your message. `@dust` is selected by default, or the Pod's default agent if an Editor set one. To use another agent, mention it with `@`.
+  </Step>
+  <Step title="Send">
+    Send the message. The conversation is created in the Pod, and all members can see it.
+  </Step>
+</Steps>
 
-**As a human:**
+You can also move an existing conversation into a Pod: open the conversation's `...` menu and click **Move to Pod**.
 
-1. Open the Pod and click the **Conversations** tab
-2. Type your message in the composer and mention an agent with `@`
-3. Press **Enter**. The conversation is created inside the Pod and visible to all members
+Editors can choose the Pod's default agent in **Pod settings** > **More settings…** > **Customization**.
 
-**As an agent:**
+## Mention people and agents
 
-Agents can create and post to conversations in a Pod directly, for example to share a progress update, post a weekly summary, or surface findings from a background task. These conversations appear in the same list and are visible to all members. This is made possible by the **Pods skill**, which is available to all agents by default. See [Agent tools](/docs/user-documentation/pods/agent-tools) for the full list of tools the skill provides.
+Use `@` to mention agents and teammates in a conversation:
 
-<Info>
-**Every conversation in a Pod is automatically indexed. Agents can search and reference past conversations as context, without you doing anything.**
+- **Mention an agent** to make it answer in the conversation.
+- **Mention a teammate** to notify them.
 
-**Mentioning people**
-</Info>
+If you mention someone who isn't a member of the Pod yet, Dust asks you to add them. See [Members and roles](/docs/user-documentation/pods/members-and-roles).
 
-Use `@` to mention both agents and teammates in a conversation.
+## Let agents post to a Pod
 
-* **Mentioning an agent** triggers the agent to respond in the conversation
-* **Mentioning a teammate** sends them a notification and draws their attention to the message
+Agents can start conversations in a Pod and post to them, for example to share a progress update or a weekly summary. They use the Pods skill, which all agents have by default.
 
-If you mention someone who is not yet a member of the Pod, Dust will prompt you to add them. See [Members and roles](/docs/user-documentation/pods/members-and-roles) for details on who can add members.
+To have an event start a conversation in a Pod automatically, use a trigger:
 
-## Triggering a conversation from an external source
+<Steps>
+  <Step title="Add a trigger to an agent">
+    Add a schedule or a webhook trigger to an agent. See [Triggers](/docs/user-documentation/agents/triggers/index).
+  </Step>
+  <Step title="Name the Pod in the instructions">
+    In the agent's instructions, name the Pod to post to. The agent finds it by name.
+  </Step>
+  <Step title="Let the trigger run">
+    When the trigger runs, the agent starts a conversation in the Pod with the details of the event.
+  </Step>
+</Steps>
 
-It is possible to have an external event (a ticket, a webhook, a scheduled trigger, a Slack message) automatically create a conversation inside a specific Pod.
+For example, a new ticket can open a conversation in your Support Pod, or a schedule can post a daily brief every morning.
 
-This is done by setting up a **triggered agent** and instructing it to create or post to a specific Pod:
+## Find conversations
 
-1. Create a triggered agent (e.g. from a Jira webhook, a Slack trigger, or the wake-up tool)
-2. In the agent's instructions, specify which Pod to post into. The agent can look it up by name using the Pods skill's `list_pods` tool
-3. When triggered, the agent creates a conversation in the target Pod with the relevant context
+In a Pod with several members, filter the list:
 
-Common patterns:
+| Filter | Shows |
+|---|---|
+| **All** | All the conversations of the Pod. |
+| **Mine** | The conversations where you sent a message. |
+| **Group** | The conversations with more than one person. |
 
-* **From a ticketing system**: a new Jira ticket or Plain thread triggers an agent that opens a conversation in the Support Pod with the ticket details
-* **On a schedule**: the wake-up tool triggers an agent each morning to post a daily brief into a Pod
-* **From a Slack message**: a Slack trigger fires an agent that posts the message (or a summary of it) into the relevant Pod
+Click **Hide triggered** to hide the conversations started by triggers. This only changes your own list. To search the content of all the Pod's conversations, use the search bar above the list.
 
-<Info>
-**The Pods skill is available to all agents by default, including the global Dust agent, agents invoked inside a Pod, and triggered agents.**
+## Join an Open Pod
 
-**Finding conversations**
-</Info>
+If you aren't a member of an Open Pod, the **Conversations** tab shows "Join this Pod to participate in conversations." Click **Join the [Pod name] Pod** to join.
 
-In multi-member Pods, a filter bar lets you narrow the list:
+In a Restricted Pod, you see "You need to be invited to participate in this Pod." An Editor must invite you.
 
-| Filter             | Shows                                                          |
-| ------------------ | -------------------------------------------------------------- |
-| **Mine**           | Conversations where you have sent a message                    |
-| **Group**          | Conversations involving more than one person                   |
-| **All**            | Every conversation in this Pod                                 |
-| **Hide triggered** | Hides conversations created by triggered agents from your list |
+## Set your notifications
 
-**Hide triggered** is a per-user, per-Pod preference. It only changes the conversations shown in your own list; it does not hide them from other Pod members.
+Each member chooses their own notifications for each Pod:
 
-Triggered conversations are marked with a **⚡** at the start of their title, so you can identify conversations created by automations.
+<Steps>
+  <Step title="Open the Pod settings">
+    Click the gear icon (**Pod settings**) at the top right of the Pod.
+  </Step>
+  <Step title="Choose your notifications">
+    In **Notifications**, choose **All activity**, **Only when mentioned**, or **Don't notify me**.
+  </Step>
+</Steps>
 
-A search bar above the list lets you search conversation content across the whole Pod.
+You choose where you get notifications (in the app, on Slack, or by email) in your profile settings.
 
+## Related
 
-## Joining an Open Pod
-
-If you are not yet a member of an Open Pod, you will see a prompt at the bottom of the Conversations tab:
-
-* **Open Pod:** "Join this Pod to participate in conversations." Click **Join the [Pod name] Pod** to join instantly
-* **Restricted Pod:** "You need to be invited to participate in this Pod." There is no join button; an Editor must invite you
-
-## Notification preferences
-
-Each member can configure their notification preferences independently, per Pod.
-
-**How to configure notifications for a Pod:**
-
-1. Open the Pod
-2. Click the `...` button in the top-right header
-3. Select your preferences:
-   * **New conversations**: `All` or `Never`
-   * **New messages**: `All`, `Mentions only`, or `Never`
-
-Notification channels (in-app, Slack, email) are configured once globally in your profile settings.
+<CardGroup cols={2}>
+  <Card title="Tasks" href="/docs/user-documentation/pods/tasks">
+    Plan, assign, and automate work in a Pod.
+  </Card>
+  <Card title="Agent tools" href="/docs/user-documentation/pods/agent-tools">
+    See what agents can do in a Pod.
+  </Card>
+</CardGroup>

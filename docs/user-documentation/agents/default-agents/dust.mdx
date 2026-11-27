@@ -1,31 +1,65 @@
 ---
 title: "@dust Agent"
+description: "Use @dust, the general-purpose agent in every workspace, to search your company data and tools, research the web, and create content."
 ---
 
-## What is `@dust` and how to use it?
+`@dust` is the general-purpose agent that Dust sets up in every workspace. It can use the company data and tools available in the Company Data Space to find and analyze information, research topics on the web, and create content like documents, presentations, images, and dashboards.
 
-`@dust` is the general-purpose agent set up by default in every workspace. Mention it with `@dust` in the composer to ask a question, or simply send a message without mentioning any agent: Dust routes unmentioned messages to the workspace's default agent, which is `@dust` unless an admin has configured a different one.
+## Talk to @dust
 
-`@dust` answers using all the Company Data your account has access to: the connected data sources, tools, and knowledge integrated into your workspace.
+When you start a new conversation, `@dust` is already selected in the message input, so you can type your question and send it. You can also mention `@dust` in any conversation. In an existing conversation, the agent you last talked to stays selected for your next message.
 
-<Info>
-Default agents like `@dust` are provided by Dust and can't be edited through the Agent Builder. Workspace admins can only enable or disable them; their instructions and tools aren't customizable.
-</Info>
+`@dust` only uses the company data and tools that you can access.
 
-## When to use `@dust`
+## What @dust can do
 
-Use `@dust` as your starting point for:
+`@dust` comes with a set of default skills that it uses when your request needs them, for example to search your company knowledge, find a relevant skill, create a [Frame](/docs/user-documentation/agents/frames/overview), or [go deep](/docs/user-documentation/agents/go-deep) on a complex question. See [Default skills](/docs/user-documentation/agents/skills/default-skills) for the full list.
 
-- General questions about your company's internal documentation and connected data sources.
-- Quick, single-turn requests that don't need a dedicated custom agent.
-- Getting started with Dust before building specialized agents for your team.
+`@dust` can also suggest other agents of your workspace when you ask which agent to use for a task, and it can remember things about you across conversations, like your role or your preferences.
 
-For questions that need extended, multi-step research across many sources, mention [`@deep-dive`](/docs/user-documentation/agents/default-agents/deep-dive-agent) instead.
+Use `@dust` for:
 
-## Choosing a model
+- Questions about your company's documents and connected data sources.
+- Quick requests that don't need a dedicated custom agent.
+- Getting started with Dust before you build agents for your team.
 
-By default, `@dust` runs on the auto-model level configured for your workspace. You can pick a different model for a single conversation from the model picker in the composer, without editing the agent. See [Auto models and the model picker](/docs/user-documentation/agents/model-selection) for details.
+For extended research across many sources, mention [`@deep-dive`](/docs/user-documentation/agents/default-agents/deep-dive-agent) instead.
 
-## Admin control
+## Choose a model
 
-Workspace admins can deactivate `@dust`, like any other default agent, from workspace settings. If your workspace has `@dust` disabled, the model picker and your other agents (including custom agents) remain available; an admin can re-enable `@dust` at any time.
+By default, `@dust` uses the **Standard** auto model, or **Basic** if your model access doesn't include Standard. To use a different model for your next message, pick one from the model picker in the message input. This doesn't change the agent for anyone else. See [Auto models and the model picker](/docs/user-documentation/agents/model-selection).
+
+## Turn @dust on or off
+
+Dust provides `@dust`, so you can't edit its instructions, tools, or skills in the Agent Builder. Workspace admins can turn it off or back on for the whole workspace:
+
+<Steps>
+  <Step title="Open Manage agents">
+    In the left sidebar, click **Agents**, then **Manage agents**.
+  </Step>
+  <Step title="Open the Dust tab">
+    The **Dust** tab lists the default agents.
+  </Step>
+  <Step title="Use the switch">
+    Click the switch on the `@dust` row to turn it off or on.
+  </Step>
+</Steps>
+
+When `@dust` is off, members can still use the other agents in the workspace.
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="@deep-dive Agent" href="/docs/user-documentation/agents/default-agents/deep-dive-agent">
+    Run in-depth research across your company data and the web.
+  </Card>
+  <Card title="Default skills" href="/docs/user-documentation/agents/skills/default-skills">
+    See the skills that @dust uses.
+  </Card>
+  <Card title="Auto models and the model picker" href="/docs/user-documentation/agents/model-selection">
+    Choose the model for your messages.
+  </Card>
+  <Card title="Create your first agent" href="/docs/user-documentation/agents/create-your-first-agent">
+    Build an agent for a specific use case.
+  </Card>
+</CardGroup>

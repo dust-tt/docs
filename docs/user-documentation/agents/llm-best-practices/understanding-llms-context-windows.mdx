@@ -1,81 +1,61 @@
 ---
 title: "Understanding LLMs Context Windows"
+description: "Learn what a context window is, why it matters for your agents, and what to do when a conversation reaches the context limit."
 ---
 
+A context window is the maximum amount of text that a large language model (LLM) can work with at once. It's like the model's short-term memory. In a conversation, everything counts toward it: your messages, the agent's instructions, the attached files, the data that tools return, and the agent's answers.
 
-At Dust, we're passionate about making work work better. As we dive into the world of AI agents, it's crucial to understand the concept of context windows and how they impact the performance of large language models (LLMs). Let's explore this topic together, focusing on how it relates to creating effective AI agents with Dust.
+## How it works
 
-## What's a Context Window?
+1. The text is split into tokens. A token is about four characters.
+2. The model reads all the tokens of the conversation.
+3. The model writes its answer, which also uses tokens.
 
-A context window is the maximum number of tokens an LLM can process at once. Think of it as the AI's short-term memory capacity. When you create a conversation with your agent, it means both the input (your questions, instructions, and retrieved data sources) and the output (the agent's response) will be included in the context window of the model you choose to set for your agent.
+Each model has its own context window size.
 
-Here's how it works in practice:
+## Why context windows matter
 
-1. Text is broken down into tokens (roughly four characters each).
-2. The LLM processes these tokens, considering the input and any relevant training data.
-3. It then generates an output based on what it deems the most likely continuation.
-
-## Why Context Windows Matter When You Use Dust
-
-When you're creating custom agents with Dust, understanding context windows helps you design more effective tools. Here's why:
-
-1. **In-conversation information retention**: With a bigger context window, your agent can recall more details from earlier in the conversation, leading to more consistent and relevant responses.
-
-2. **Data processing**: When using the `Use most recent` tool, a larger context window enables agents to process and analyze more extensive documents or datasets, expanding their capabilities.
-
-3. **Conversation management**: We recommend starting new conversations for distinct topics or tasks. This practice helps avoid extended conversations that can overflow the context window of the models, ensuring optimal performance and preventing potential errors or inconsistencies in responses.
+- **Memory of the conversation:** with a larger context window, the agent can use more details from earlier in the conversation.
+- **Data processing:** with the **Include all data** knowledge lookup method, the agent loads your most recent documents until it fills the context window. A larger context window lets it read more documents.
+- **Long conversations:** a long conversation can fill the context window. Start a new conversation for each new topic or task.
 
 ## The "Context limit reached" chip
 
-You may see a **Context limit reached** chip on an agent's answer. It's not an error, and it has nothing to do with your credits or message quota.
+You may see a **Context limit reached** chip on an agent's answer. It's not an error, and it's not related to your credits.
 
-It means that Dust had to trim part of the tool output used for that answer so the conversation would fit in the model's context window.
+It means that Dust had to trim part of the tool output used for that answer, so that the conversation fits in the model's context window.
 
-**Why a short conversation can hit the limit:** the context holds more than the messages you see. Attached files, documents the agent retrieved, search results and other tool output all count toward it, and they are usually much larger than the visible text. A conversation with only a few messages can still fill the context window.
+**Why a short conversation can reach the limit:** the context holds more than the messages you see. Attached files, documents that the agent found, search results, and other tool output all count. They're usually much larger than the visible text, so a conversation with a few messages can still fill the context window.
 
-**What it means for answers:** the model no longer sees the trimmed output, so the answer can miss details from it. Later answers in the same conversation can be less accurate too.
+**What it means for answers:** the model no longer sees the trimmed output, so the answer can miss details from it. Later answers in the same conversation can also be less accurate.
 
 **What to do:**
 
-- Use `/compact`, or click the context indicator in the composer and choose **Compact now**, to summarize the conversation and free up context. See [Context compaction](/docs/user-documentation/agents/context-compaction).
+- Click the context indicator in the message input and click **Compact now**. Dust summarizes the conversation to free up context. See [Context compaction](/docs/user-documentation/agents/context-compaction).
 - When you move on to a new task, start a new conversation and attach only the files you still need.
-- Narrow your request so that tools return less data, for example by asking about one document or folder instead of a whole connection.
+- Ask a narrower question so that tools return less data. For example, ask about one document or folder instead of a whole connection.
 - If you build agents, choose a model with a larger context window.
 
-**When to contact Support:** if the chip appears in a new conversation where you attached no large files and the agent used few or no tools, contact `support@dust.tt` with a link to the conversation.
+**When to contact Support:** if the chip appears in a new conversation where you attached no large files and the agent used few or no tools, contact [support@dust.tt](mailto:support@dust.tt) with a link to the conversation.
 
-## Context Windows in Popular LLMs
+## Large context windows: benefits and limits
 
-Dust gives you access to various LLMs, each with different context window sizes. Among the popular ones, here are the ones with the largest context windows:
+A larger context window lets the agent hold longer conversations and work with larger documents. It also has limits: answers can take longer and cost more, and too much information, or information that contradicts itself, can make answers less consistent.
 
-- Claude 4 Sonnet and 3.7 Sonnet: 200,000 tokens
-- GPT-4.1: 1,000,000 tokens
-- Gemini 2.5 Pro and 1.5 Pro: Up to 1 million tokens
+## Tips for your agents
 
-## Balancing Act: Pros and Cons of Large Context Windows
+- **Give relevant data:** give the agent the data it needs, not all the data you have.
+- **Write clear instructions:** see [How to write effective instructions](/docs/user-documentation/agents/llm-best-practices/how-to-write-effective-instructions).
+- **Choose the right model:** pick a model that fits your use case, including its context window size. See [Auto models and the model picker](/docs/user-documentation/agents/model-selection).
+- **Start new conversations:** ask your users to start a new conversation for each new topic or task.
 
-While larger context windows offer benefits, they're not always the best choice. Here's what to consider:
+## Related
 
-### Advantages:
-
-- More detailed conversations
-- Reduced likelihood of AI "hallucinations" or made-up information
-- Ability to process larger documents or datasets
-
-### Challenges:
-
-- Increased processing time and costs
-- Potential for information overload
-- Risk of conflicting information leading to inconsistent responses
-
-## Optimizing Your Dust Agents
-
-When designing custom agents in Dust, keep these tips in mind:
-
-1. **Quality over quantity**: Focus on providing relevant, high-quality information rather than overwhelming the agent with unnecessary data.
-
-2. **Clear instructions**: Spend time designing your instructions and giving your agents precise guidelines and objectives.
-
-3. **Appropriate model selection**: Choose the LLM that best fits your specific use case, way of prompting, and consideration of context window size and other factors.
-
-4. **Manage conversations wisely**: Remember to encourage your users to start new conversations for different topics or tasks to prevent context window overflow. This approach ensures your agent maintains accuracy and relevance throughout interactions.
+<CardGroup cols={2}>
+  <Card title="Context Compaction" href="/docs/user-documentation/agents/context-compaction">
+    Summarize a long conversation to free up context.
+  </Card>
+  <Card title="Auto models and the model picker" href="/docs/user-documentation/agents/model-selection">
+    Choose a model for an agent or for your messages.
+  </Card>
+</CardGroup>
