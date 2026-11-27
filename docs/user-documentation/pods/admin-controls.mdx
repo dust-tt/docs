@@ -1,53 +1,49 @@
 ---
 title: "Admin controls"
+description: "Choose whether members can create open Pods and upload files to Pods, and access a Pod as an admin when you need to."
 ---
 
+Workspace admins can set two policies for every Pod in the workspace: whether members can create open Pods, and whether people can add files to Pods by hand. Admins can also open any Pod, even a restricted one, when they need to step in.
 
-Workspace administrators can configure two Pod-level policies from the **Admin settings**, under the **Capabilities** section.
+## Set Pod policies
 
+Go to **Admin** > **Governance** and open the **Pods, Frames & Files** tab. In the **Pods** section:
 
-***
+| Setting | Options |
+| --- | --- |
+| **Restricted and open Pods** | **Restricted and open Pods** (default): members can create both kinds. **Restricted Pods only**: members can only create restricted Pods. |
+| **Pod files** | **Manual updates allowed** (default): members can upload files to Pods. **Manual updates disabled**: only agents can add files. In the **Files** tab, the **Add** button is grayed out, so members can't upload files, create folders, or link Company Data. |
 
-## Pod visibility policy
+Turning off manual updates is useful when Pod files should only come from agents and approved sources, for example in regulated teams.
 
-Controls whether members can create Open Pods or are limited to Restricted (private) ones.
+## Access a Pod as an admin
 
-| Option                                | Effect                                                                                         |
-| ------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| **Private and open Pods** _(default)_ | Members can create either Restricted or Open Pods                                              |
-| **Private Pods only**                 | Members can only create Restricted Pods; the Open visibility toggle is disabled with a notice |
+Admins can open a restricted Pod they're not a member of, for example to help a team or check its content.
 
-<Info>
-**Useful for large organizations where members might inadvertently make a Pod visible to everyone without realizing the scope. Setting this to "Private Pods only" ensures that sharing is always intentional.**
+<Steps>
+  <Step title="Open the Pod">
+    Open the Pod from its link, for example one a member shared with you. Restricted Pods you're not a member of don't show in **Browse Pods**.
+  </Step>
+  <Step title="Join it">
+    Click **Access as admin**. You're added to the Pod right away as a member, not an editor.
+  </Step>
+</Steps>
 
-Note: existing Open Pods are not force-closed when this policy is enabled. Editors can still switch them back to Restricted manually.
-</Info>
+Every admin access is recorded in the audit logs as `project.admin_access_granted`. See [Audit logs](/docs/user-documentation/admins/audit-logs/audit-logs).
 
-***
+## Related
 
-## Pod files policy
-
-Controls whether members can manually add files or linked data to a Pod's Files tab.
-
-| Option                                 | Effect                                                                                     |
-| -------------------------------------- | ------------------------------------------------------------------------------------------ |
-| **Manual updates allowed** _(default)_ | Members can upload files and link Company Data nodes to a Pod                              |
-| **Manual updates disabled**            | The Add button is hidden; only agents and automated connectors can populate the Files tab |
-
-<Info>
-**Useful for organizations with tight data governance rules, where knowledge in Pods should come exclusively from controlled, automated sources rather than ad-hoc member uploads.**
-
-***
-</Info>
-
-Both settings default to the permissive option, so existing Pods and member workflows are unaffected unless an admin explicitly changes them.
-
-***
-
-## Access a Restricted Pod as admin
-
-When a workspace admin opens a Restricted Pod they're not a member of, Dust shows a blocked page that hides the Pod's name and content. To open the Pod, click **Access as admin** on that page.
-
-You join the Pod as a **Member**, not an Editor. On plans with [audit logs](/docs/user-documentation/admins/audit-logs/audit-logs), the join is recorded as a `project.admin_access_granted` event.
-
-Only workspace admins see the **Access as admin** button.
+<CardGroup cols={2}>
+  <Card title="Members and roles" icon="users" href="/docs/user-documentation/pods/members-and-roles">
+    Learn who can do what in a Pod.
+  </Card>
+  <Card title="Files" icon="folder" href="/docs/user-documentation/pods/files">
+    See how files work in a Pod.
+  </Card>
+  <Card title="Pods overview" icon="layer-group" href="/docs/user-documentation/pods/overview">
+    Learn what Pods are for.
+  </Card>
+  <Card title="Getting started" icon="rocket" href="/docs/user-documentation/pods/getting-started">
+    Create your first Pod.
+  </Card>
+</CardGroup>
