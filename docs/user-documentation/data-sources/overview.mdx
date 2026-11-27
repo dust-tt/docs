@@ -1,18 +1,49 @@
 ---
 title: "Overview"
+description: "Learn where agents get your company knowledge: connections, folders, and websites, organized in Spaces."
 ---
 
+Data sources hold the company knowledge your agents use. There are three kinds: connections that sync content from your tools, folders where you upload files and tables, and websites that Dust crawls. Each data source lives in a Space, and only people who have access to that Space can use it in their agents.
 
-Dust provides the ability for LLMs to access **knowledge bases** in order to make their answers more relevant. This is done via **data sources**.
+## Types of data sources
 
-There are various types of Data Sources:
+| Type | What it holds | How it stays up to date |
+| --- | --- | --- |
+| [Connections](/docs/user-documentation/data-sources/connections) | Content from tools like Google Drive, Notion, Slack, Confluence, or Snowflake | Dust syncs changes automatically. |
+| [Folders](/docs/user-documentation/data-sources/folders) | Documents and tables you upload, or send with the API | You update the content yourself, in Dust or with the API. |
+| [Websites](/docs/user-documentation/data-sources/websites) | Pages from a public website | Dust crawls the site again on the schedule you choose. |
 
-- **Connections:** your main communication and knowledge tools (e.g. Google Drive, Notion, Slack, etc.), they get synchronized automatically, so Dust can always have access to recent information.
-- **Tools:** access information from third-party systems (Slack, Salesforce, Gmail, Hubspot, Stripe, Linear etc) via MCP servers.
-- **Public Websites:** ingest data from public websites (e.g. docs.dust.tt) with our web crawler, which you can refresh at the cadence you want.
-- **Folders:** store static information in a folder, just like you would on your computer.
-- **Conversation Files:** dynamically created under the hood when you upload files, behave like if you had created a folder for a specific conversation and stored the files in it.
-- **Custom Connections**: connections you can build yourself using our API or already-made scripts.
+Files you attach in a conversation work differently: they're only available in that conversation. See [Conversation files](/docs/user-documentation/data-sources/conversation-files/conversation-files).
 
+## How data reaches your agents
 
-If you want to add a tool as a Connection, ask your admin to look for [Connections Management](/docs/user-documentation/data-sources/overview)
+<Steps>
+  <Step title="Admins set up connections">
+    Admins connect tools in **Spaces** > **Connections** and choose what to sync.
+  </Step>
+  <Step title="Data is added to Spaces">
+    In a Space, people who can edit it click **Add data** to add connected data, upload a folder, or add a website.
+  </Step>
+  <Step title="Builders add knowledge to agents">
+    In the Agent Builder, builders select data from the Spaces they have access to and choose how the agent uses it. See [Knowledge](/docs/user-documentation/agents/knowledge).
+  </Step>
+</Steps>
+
+The @dust agent searches the connections and folders in the Company Data Space on its own. It doesn't search websites, Snowflake, or BigQuery: add those to an agent as knowledge instead.
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Connections" icon="plug" href="/docs/user-documentation/data-sources/connections">
+    Sync content from your tools.
+  </Card>
+  <Card title="Folders" icon="folder" href="/docs/user-documentation/data-sources/folders">
+    Upload documents and tables.
+  </Card>
+  <Card title="Websites" icon="globe" href="/docs/user-documentation/data-sources/websites">
+    Crawl a public website.
+  </Card>
+  <Card title="Knowledge" icon="book" href="/docs/user-documentation/agents/knowledge">
+    Choose how agents use your data.
+  </Card>
+</CardGroup>

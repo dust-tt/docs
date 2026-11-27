@@ -1,75 +1,44 @@
 ---
 title: "Websites"
+description: "Crawl a public website so agents can use its pages, and choose how deep Dust crawls and how often it refreshes."
 ---
 
-Dust is able to crawl the content of a public website to make its content accessible from your data sources, meaning you can build agents based on this content.
+A website data source crawls the pages of a public website and keeps them in a Space, so agents can search their content. Use it for content you don't have in a connected tool, like your public help center, product docs, or a partner's documentation. PDFs hosted under the URL you crawl are included too.
 
-With an admin or builder role, you can set up new website connections on **Spaces** > **Connections**.
+## Before you start
 
-To fetch the pages of a website, Dust uses the links present inside the page provided in the URL field. It does not guess any pages but instead it “navigates” from reading the content inside the page provided and the pages linked (that are on the same domain).
+- **The website must be public.** If a login is required to see a page, Dust can't access it.
+- **Dust crawls from its servers, not from your browser.** Some websites block these requests. See [Websites behind bot protection](#websites-behind-bot-protection).
 
-And let’s say we have a website formed as is:
+## Add a website
 
-`http://myfakewebsite.com`
+<Steps>
+  <Step title="Open the Space">
+    Open the Space where the website should be available, and click **Add data** > **Scrape a website**.
+  </Step>
+  <Step title="Enter the URL and crawl settings">
+    Enter the website URL, then set how Dust crawls it:
+    - **Crawling strategy**: **Only child pages of the provided URL** (default), or **Follow all the links within the domain**.
+    - **Depth of search**: how many links away from the starting page Dust goes, from 0 to 5. The default is 2.
+    - **Page limit**: the maximum number of pages to crawl, up to 1,024. The default is 50.
+    - **Refresh schedule**: **Never**, **Every week**, or **Every month** (default).
+  </Step>
+  <Step title="Save">
+    Give the website a name and save. Dust starts crawling, and the pages show up in the Space once the crawl is done.
+  </Step>
+</Steps>
 
-1. `http://myfakewebsite.com/articles`
-   1. `http://myfakewebsite.com/articles/article1`
-   2. `http://myfakewebsite.com/articles/article2`
-2. `http://myfakewebsite.com/jobs`
-   1. `http://myfakewebsite.com/jobs/engineering`
-   2. `http://myfakewebsite.com/jobs/design`
-3. `http://myfakewebsite.com/product`
-4. `http://myfakewebsite.com/about`
+To use the website in an agent, add it as [knowledge](/docs/user-documentation/agents/knowledge) in the Agent Builder. The @dust agent doesn't search websites on its own. To remove a website, open its settings and click **Delete this website**.
 
-**Crawling strategy: All links vs children pages**
-
-If you’d like the whole website crawled, set the URL `http://myfakewebsite.com`  with “Follow all links within the domain”.
-
-If you’d like only the articles crawled, better set the URL [`http://myfakewebsite.com/articles`](http://myfakewebsite.com/articles)  with setting “Only child pages of the provided URL” to ensure the crawler fetches only the pages that contain `http://myfakewebsite.com/articles` in their URL.
-
-**Indexing a single page**
-
-If you want only the Engineering page indexed and no other page, you can set the url [`http://myfakewebsite.com/jobs/engineering`](http://myfakewebsite.com/jobs/engineering) combined with the setting “Page Limit” to 1.
-
-**Advanced setting: “Depth of Search”**
-
-This setting that allows you to say “How many links do I allow the crawler to follow to find a given page?”.
-
-**PDF**
-
-If your PDFs are stored under the URL you are crawling, they will be included.
-
-**Google Docs**
-
-If you enter a Google Docs URL, it will be included. Note that if they're linked from a website, there's a good chance they are on a different domain, so they won't be included.
-
-**URL must be Public**
-
-If a login is required to access the website, Dust will not be able to access its content.
-
-**Blocked websites**
-
-Some websites are blocking crawling, here is a non exhaustive list:
-
-* reddit.com
-* linkedin.com
-* instagram.com
-* x.com
-* tiktok.com
-
-**Page Limit**
-
-Each new website connection can be set for a maximum limit of 1024 pages.
-
-**Page size limit**
+## Page size limit
 
 Each page can hold up to 500,000 characters of text, measured after Dust converts the page to text. Pages above that size are skipped, and the sync still shows as successful, so the content of those pages won't be available to your agents.
 
 If you need the content of a page that's too large, split it into smaller pages on your website, or upload its content as a file to a folder in a Space.
 
-**A page is missing from my website connection**
+## A page is missing
 
-If an agent can't find content from a page you expected to be indexed, check the page size first: pages over the size limit are skipped without an error. Then check that the page is public, isn't on a blocked website, and is covered by your Page Limit and Depth of Search settings.
+If an agent can't find content from a page you expected to be indexed, check the page size first: pages over the size limit are skipped without an error. Then check that the page is public, isn't on a blocked website, and is covered by your **Page limit** and **Depth of search** settings.
 
 ## Custom headers
 
@@ -87,3 +56,20 @@ If you control the website, you can let the Dust crawler through with a secret h
 4. Add the connection to your agents' knowledge. Agents then read the synced pages instead of browsing them live.
 
 The header is only sent by the website connection. Agents that browse the web with **Web Search & Browse** don't send it. Dust has no supported workaround for websites you don't control.
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Data sources overview" icon="database" href="/docs/user-documentation/data-sources/overview">
+    Compare connections, folders, and websites.
+  </Card>
+  <Card title="Search data sources" icon="magnifying-glass" href="/docs/user-documentation/agents/knowledge/search-data-sources">
+    Let agents search the website's pages.
+  </Card>
+  <Card title="Folders" icon="folder" href="/docs/user-documentation/data-sources/folders">
+    Upload pages that are too large or not public.
+  </Card>
+  <Card title="Knowledge" icon="book" href="/docs/user-documentation/agents/knowledge">
+    Choose how agents use your data.
+  </Card>
+</CardGroup>
