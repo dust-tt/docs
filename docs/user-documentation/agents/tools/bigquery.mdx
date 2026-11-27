@@ -66,7 +66,7 @@ Each member who connects needs these IAM roles on the projects they query:
 
 ## Admin: Setup in Dust
 
-1. Go to **Spaces > Tools > Add Tools** and select **BigQuery**.
+1. Go to **Spaces > Tools > Add tools** and select **BigQuery**.
 2. Enter the client ID and client secret from the JSON file. Dust discovers Google's authorization and token endpoints and requests the `https://www.googleapis.com/auth/bigquery` scope, so you don't fill in anything else.
 3. Choose the credentials type:
    - **Personal**: each member signs in with their own Google account on first use, and queries run with that member's BigQuery permissions.
@@ -77,7 +77,7 @@ Dust reaches the BigQuery MCP server through its [static egress IP](/docs/user-d
 
 ## Usage
 
-Add the tool to an agent from the Agent Builder (**Add Tool > BigQuery**). With personal credentials, members click **Connect** the first time an agent uses the tool, then **Retry**.
+Add the tool to an agent from the Agent Builder (**Add capabilities** > **BigQuery**). With personal credentials, members click **Connect** the first time an agent uses the tool, then **Retry**.
 
 ## Troubleshooting
 

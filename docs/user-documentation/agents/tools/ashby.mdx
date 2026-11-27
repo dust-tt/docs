@@ -9,7 +9,7 @@ The Ashby MCP lets agents interact with your Ashby ATS workspace. It provides th
 
 ## Connection Setup (Admin)
 
-1. In Dust, go to **Spaces Tools** and click **Add Tools**.
+1. In Dust, go to **Spaces** > **Tools** and click **Add tools**.
 2. Select **Ashby** from the list of available tools.
 3. Paste your **Ashby API key** into the field provided and save.
 
@@ -23,15 +23,14 @@ See the official [Ashby Authentication documentation](https://developers.ashbyhq
 
 ## Required API Key Permissions
 
-In **Ashby Admin API Keys**, create or edit your API key and grant at minimum the following permissions:
+In **Ashby Admin** > **API Keys**, create or edit your API key and grant at minimum the following permissions:
 
 | Permission area | Access level | Required for                                                                                                                      |
 | :-------------- | :----------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| Candidates      | Read + Write | Search candidates, get interview feedback, get candidate notes, get application details, create candidate notes, create referrals |
-| Jobs            | Read         | Internal job listing (used when creating referrals                                                                                |
-| Reports         | Read         | Get report data                                                                                                                   |
-| Organization    | Read         | Internal user lookup (used when creating referrals)                                                                               |
-| Hiring Process  | Read         | Get referral form                                                                                                                 |
+| Candidates      | Read + Write | Search candidates, get interview feedback, get candidate notes, create candidate notes, get hire data |
+| Jobs            | Read + Write | List openings, list job postings, update job postings, get hire data |
+| Offers          | Read         | Get hire data |
+| Reports         | Read         | Get report data |
 
 **Optional toggles**, to enable when your workspace data requires them:
 
@@ -44,13 +43,12 @@ For the full table of permissions and scopes, see the [Ashby Authentication docu
 
 | Tool                         | Description                                                             |
 | :--------------------------- | :---------------------------------------------------------------------- |
-| **Search Candidates**        | Search for candidates by name, email, or other criteria.                |
-| **List Candidate Notes**     | Retrieve the notes attached to a candidate's profile.                   |
-| **Create Candidate Note**    | Add a new note to a candidate's profile.                                |
-| **Get Application Details**  | Retrieve details of a specific application, including stage and status. |
-| **Get Application Feedback** | Retrieve interview feedback submitted for an application.               |
-| **Get Referral Form**        | Retrieve the referral form configuration for a job.                     |
-| **Create Referral**          | Submit a new referral for a candidate to a job.                         |
-| **List Jobs**                | List active job postings in your Ashby workspace.                       |
-| **Run Synchronous Report**   | Execute a synchronous Ashby report and return the results.              |
-| **Search Users**             | Search for users (employees/recruiters) in your Ashby organization.     |
+| **Search Candidates** | Find candidates by name or email. |
+| **Get Interview Feedback** | Read the interview feedback submitted for a candidate's most recent application. |
+| **Get Candidate Notes** | Read all the notes on a candidate's profile. |
+| **Create Candidate Note** | Add a note to a candidate's profile. Notes support basic HTML formatting. |
+| **Get Hire Data** | Read the data of a hired candidate: candidate details, offer fields, job, and application. |
+| **List Openings** | List openings with their state, linked jobs, hiring team, and custom fields. |
+| **List Job Postings** | List published job postings with their title, department, location, and employment type. |
+| **Update Job Posting** | Change a job posting's title, description, or workplace type. |
+| **Get Report Data** | Get the data of an Ashby report and save it as a CSV file. |

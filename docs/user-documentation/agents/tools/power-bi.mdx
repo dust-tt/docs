@@ -9,7 +9,7 @@ title: "Power BI"
 
 ### 1. Register an app in Microsoft Entra
 
-Go to [entra.microsoft.com](https://entra.microsoft.com)  **Identity  Applications  App registrations  New registration**.
+Go to [entra.microsoft.com](https://entra.microsoft.com) > **Identity** > **Applications** > **App registrations** > **New registration**.
 
 | Tool | Description |
 | --- | --- |
@@ -26,7 +26,7 @@ Click **Register**, then note down:
 
 ### 2. Configure authentication
 
-In your app registration, go to **Authentication  Add Redirect URI  Web**.
+In your app registration, go to **Authentication** > **Add Redirect URI** > **Web**.
 
 Add the two redirect URLs for your Dust region:
 
@@ -50,7 +50,7 @@ Under **settings**, set **Allow public client flows** to **Enabled**. Click **Sa
 
 ### 3. Create a client secret
 
-Go to **Certificates & secrets  Client secrets  New client secret**. Add a description and expiration, then click **Add**.
+Go to **Certificates & secrets** > **Client secrets** > **New client secret**. Add a description and expiration, then click **Add**.
 
 **Copy the "Value" column immediately** (it won't be visible again).
 
@@ -58,7 +58,7 @@ Go to **Certificates & secrets  Client secrets  New client secret**. Add a descr
 
 ### 4. Add API permissions
 
-Go to **API permissions  Add a permission  APIs my organization uses**, search for **Power BI Service**, select **Delegated permissions** and check:
+Go to **API permissions** > **Add a permission** > **APIs my organization uses**, search for **Power BI Service**, select **Delegated permissions** and check:
 
 * `Dataset.Read.All`
 * `Report.Read.All`
@@ -71,7 +71,7 @@ Click **Add permissions**, then **Grant admin consent**.
 
 ### 5. Enable the MCP feature in Power BI
 
-Go to [app.fabric.microsoft.com](https://app.fabric.microsoft.com)  **Settings   Admin portal  Tenant settings  Integration settings**, and enable:
+Go to [app.fabric.microsoft.com](https://app.fabric.microsoft.com) > **Settings** > **Admin portal** > **Tenant settings** > **Integration settings**, and enable:
 
 * **"Users can use the Power BI Model Context Protocol server endpoint (preview)"**
 
@@ -79,7 +79,7 @@ Go to [app.fabric.microsoft.com](https://app.fabric.microsoft.com)  **Settings  
 
 ### 6. Connect in Dust
 
-In Dust, go to a **Space  Dev tools  MCP Servers  Add a remote MCP server**.
+In Dust, go to a **Space** > **Dev tools** > **MCP Servers** > **Add a remote MCP server**.
 
 **Server URL**:
 
