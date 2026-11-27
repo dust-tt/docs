@@ -1,32 +1,68 @@
 ---
 title: "@analyst Agent"
+description: "Ask @analyst how your Dust workspace is used: credits, messages, active users, and trends. Available to workspace admins and managers."
 ---
 
-## What is `@analyst` and how to use it?
+`@analyst` is the default agent that answers questions about how your Dust workspace is used. It queries your workspace's usage data and only reports the figures that it gets from that data. It never estimates.
 
-`@analyst` is a default agent that answers questions about how your Dust workspace is being used, by querying your workspace's usage data directly. Mention it with `@analyst` in the composer to ask things like "which agents are used the most this month?" or "how many credits did we use last week?".
+<Note>
+Only workspace admins and managers can see and use `@analyst`. Members don't see it in the agent list.
+</Note>
 
-`@analyst` is available to workspace **admins and managers by default**; regular members don't see it unless an admin changes workspace settings. It can be deactivated by an admin like any other default agent, and it always reports figures pulled from your workspace's actual data rather than estimating.
+## Ask @analyst a question
 
-<Info>
-Default agents like `@analyst` are provided by Dust and can't be edited through the Agent Builder. Workspace admins can only enable or disable them; their instructions and tools aren't customizable.
-</Info>
+You can ask `@analyst` a question in two ways:
 
-## What `@analyst` can answer
+- Mention `@analyst` in any conversation.
+- In **Admin** > **Analytics**, click **Ask analyst** at the top right. `@analyst` opens in a side panel and can read the period and filters selected on the page.
 
-`@analyst` uses the workspace analytics tools to answer questions on:
+For example, you can ask:
 
-- **Usage and consumption**: credits, messages, and active users, with breakdowns by agent, member, or time period.
-- **Model-level usage**: which models are consumed most, and how many credits or messages are attributed to a specific model.
+- "Which agents were used the most this month?"
+- "How many credits did we use last week, by model?"
+- "Show me the weekly active users since September."
 
-When a chart communicates the answer better than text (trends, distributions, comparisons), `@analyst` can render it as an interactive Frame instead of a plain-text summary.
+## What @analyst can answer
 
-For the underlying dashboard and CSV export version of this data, see [Workspace analytics](/docs/user-documentation/admins/workspace-analytics).
+`@analyst` reads the same data as the [Analytics](/analytics) page of your workspace (**Admin** > **Analytics**):
 
-## When to use `@analyst`
+- **Credits:** headline figures and the agents, members, or tools that use the most credits.
+- **Activity:** message counts, active users, and how often tools, skills, and Frame apps ran.
+- **Trends:** how credits and active users change by day, week, or month.
+- **Workspace inventory:** the agents, skills, tools, models, tags, members, and groups of your workspace, and what each agent uses.
 
-Use `@analyst` when you want a quick, conversational answer to a usage question instead of building a filtered view in the Analytics dashboard, for example while reviewing adoption in a team meeting or checking credit consumption before a renewal conversation.
+You can break down the results by agent, member, group, model, source, API key, trigger, Pod, tool, skill, or tag. When a chart shows the answer better than text, `@analyst` creates a [Frame](/docs/user-documentation/agents/frames/overview).
 
-## Access and permissions
+## When to use @analyst
 
-If a member without admin or manager access mentions `@analyst`, it lets them know that workspace analytics is restricted to admins and managers.
+Use `@analyst` when you want a quick answer to a usage question without building a filtered view on the Analytics page. For example, while you review adoption in a team meeting or check credit usage before a renewal.
+
+## Turn @analyst on or off
+
+Dust provides `@analyst`, so you can't edit its instructions or tools in the Agent Builder. Workspace admins can turn it off or back on for the whole workspace:
+
+<Steps>
+  <Step title="Open Manage agents">
+    In the left sidebar, click **Agents**, then **Manage agents**.
+  </Step>
+  <Step title="Open the Dust tab">
+    The **Dust** tab lists the default agents.
+  </Step>
+  <Step title="Use the switch">
+    Click the switch on the `@analyst` row to turn it off or on.
+  </Step>
+</Steps>
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Analytics" href="/analytics">
+    See the usage dashboard and export the data.
+  </Card>
+  <Card title="Credits" href="/docs/user-documentation/admins/usage-seats-and-credits/credits">
+    Understand how credits work.
+  </Card>
+  <Card title="Workspace Governance: Roles, Groups & Permissions" href="/docs/user-documentation/admins/admin-governance/workspace-governance-roles-groups-and-permissions">
+    Learn what admins and managers can do.
+  </Card>
+</CardGroup>

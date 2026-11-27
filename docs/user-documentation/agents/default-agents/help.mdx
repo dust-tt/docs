@@ -1,31 +1,41 @@
 ---
 title: "@help Agent"
+description: "Ask @help how to use Dust. It answers from the Dust documentation and website, and it's always available in every workspace."
 ---
 
-## What is `@help` and how to use it?
+`@help` is the default agent that answers questions about how to use Dust. It searches the Dust documentation and website, and bases its answers on what it finds there. If it can't find the answer, it tells you instead of guessing.
 
-`@help` is a default agent dedicated to answering questions about how to use Dust itself. Mention it with `@help` in the composer whenever you're unsure how a Dust feature works, or open it directly from the user menu.
+## Ask @help a question
 
-Unlike other default agents, `@help` cannot be deactivated by workspace admins: it's always available.
+You can reach `@help` in two ways:
 
-<Info>
-Default agents like `@help` are provided by Dust and can't be edited through the Agent Builder. Workspace admins can only enable or disable them; their instructions and tools aren't customizable.
-</Info>
+- Mention `@help` in a conversation and ask your question.
+- Open the user menu, go to **Help**, and click **Ask @help**. The same menu has example questions, like "How do I invite new users?", that you can send in one click.
 
-## How `@help` works
+At the end of its answers, `@help` links to the [Dust documentation](https://docs.dust.tt) and to the Dust community on Slack.
 
-`@help` searches Dust's public documentation and the dust.tt website to answer your question, and always grounds its answers in what it finds there rather than guessing. If it can't find an answer in the documentation, it says so instead of inventing one.
+## When to use @help
 
-At the end of its answers, `@help` points you to the official documentation ([docs.dust.tt](https://docs.dust.tt)) and to the Dust community Slack for further support.
+Use `@help` to:
 
-If you ask `@help` about agents already configured in your workspace, it can also suggest relevant existing agents for your needs.
+- Learn how a Dust feature works or how to set it up.
+- Understand the difference between models, tools, skills, and permissions.
+- Find the right documentation page.
+- Find agents in your workspace that fit what you need.
 
-## When to use `@help`
+`@help` only answers questions about Dust. If you ask about something else, it tells you that it can't help with that.
 
-Use `@help` for:
+## Availability
 
-- Questions about how a Dust feature works or how to set it up.
-- Understanding the difference between platform capabilities (models, tools, skills, permissions).
-- Getting pointed to the right documentation page or community resource.
+`@help` is always available. Unlike the other default agents, workspace admins can't turn it off. Dust provides `@help`, so you can't edit its instructions or tools in the Agent Builder.
 
-`@help` only answers questions about Dust; it will let you know if your question is unrelated to the platform.
+## Related
+
+<CardGroup cols={2}>
+  <Card title="@dust Agent" href="/docs/user-documentation/agents/default-agents/dust">
+    Use the general-purpose agent for your work questions.
+  </Card>
+  <Card title="Create your first agent" href="/docs/user-documentation/agents/create-your-first-agent">
+    Build an agent for a specific use case.
+  </Card>
+</CardGroup>
