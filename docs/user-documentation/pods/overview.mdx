@@ -1,50 +1,55 @@
 ---
 title: "Overview"
-description: "Pods are shared workspaces where humans and agents collaborate around conversations, tasks, and files."
+description: "Pods are shared workspaces where people and agents work together on conversations, tasks, and files around a common goal."
 ---
 
-A **Pod** is a shared workspace inside Dust where a team (humans and agents together) collaborates around a common goal. Each Pod brings together three things in one place:
+A Pod is a shared workspace in Dust where a team of people and agents works toward a common goal. Each Pod brings together, in one place:
 
-- **Conversations**: discussions with agents and teammates, visible to all Pod members and automatically indexed so agents can reference them as context
-- **Tasks**: lightweight work items that anyone (human or agent) can create, assign, start an agent on, and mark done
-- **Files**: the shared knowledge library of the Pod: uploaded files, folders, data linked from Company Data, and agent-generated artifacts such as [Frames](/docs/user-documentation/pods/frames)
+- **Conversations:** discussions with agents and teammates. All Pod members can see them, and agents can use them as context.
+- **Tasks:** work items that people and agents can create, assign, start an agent on, and complete.
+- **Files:** the Pod's shared knowledge: uploaded files and folders, data from Company Data, and files that agents create, like [Frames](/docs/user-documentation/pods/frames).
 
-A core principle of Pods: **everything a human can do, an agent can do**. Agents can start conversations, create and complete tasks, and save files in a Pod, with or without a human in the loop.
+In a Pod, agents can do what people do. They can start conversations, create and complete tasks, and save files, with or without a person in the loop.
 
 ## The Pods skill
 
-Agents interact with Pods through the **Pods skill**, which is available to all agents by default, including the global Dust agent, agents invoked inside a Pod, and triggered agents. The skill provides a set of tools that let agents:
+Agents work with Pods through the Pods skill. All agents have it by default, including `@dust`, agents used in a Pod, and agents run by triggers. With the Pods skill, agents can:
 
-- List and look up Pods by name
-- Create and post to conversations in a Pod
-- Create, pick up, progress, and complete tasks
-- Upload and read files in the Pod's Files tab
-- Search the Pod's knowledge and link data from Company Data
-- Create Pods and manage members, settings, and the pinned Frame (with Editor permissions)
+- Find Pods by name.
+- Start conversations in a Pod and post to them.
+- Create tasks, work on them, and complete them.
+- Upload and read files in the Pod.
+- Search the Pod's knowledge and add data from Company Data.
+- Create Pods and manage their members and settings, if they act for an Editor.
 
-For the complete list of tools and what each one does, see [Agent tools](/docs/user-documentation/pods/agent-tools).
+This makes Pods a good place for automations. For example, an agent run by a trigger can post a daily brief in a Pod, or open a conversation when a ticket comes in. For the full list of tools, see [Agent tools](/docs/user-documentation/pods/agent-tools).
 
-This makes Pods a natural target for automations: a triggered agent can post a daily brief into a Pod, open a conversation when a ticket arrives, or keep Pod tasks in sync with an external tool. See [Conversations](/docs/user-documentation/pods/conversations) and [Tasks](/docs/user-documentation/pods/tasks) for concrete patterns.
+## Open and Restricted Pods
 
-## Visibility: Open and Restricted Pods
+| Visibility | Who can access it |
+|---|---|
+| **Open** | Anyone in the workspace can find the Pod and join it. |
+| **Restricted** | Only invited members can access the Pod. An Editor must invite you. |
 
-| Visibility     | Who can access                                                                                        |
-| -------------- | ------------------------------------------------------------------------------------------------------ |
-| **Open**       | Any workspace member can browse the Pod's content and join instantly                                    |
-| **Restricted** | Only invited members can see and participate; an Editor must add you                                   |
+Workspace admins can allow only Restricted Pods. See [Admin controls](/docs/user-documentation/pods/admin-controls).
 
-Workspace admins can restrict Pod creation to Restricted Pods only. See [Admin controls](/docs/user-documentation/pods/admin-controls).
+## Members and Editors
 
-## Members and roles
+Each person in a Pod is a Member or an Editor. Members take part in conversations, tasks, and files. Editors can also manage members, visibility, and settings. See [Members and roles](/docs/user-documentation/pods/members-and-roles).
 
-Every Pod member is either a **Member** or an **Editor**. Members participate in conversations, tasks, and files; Editors additionally manage membership, settings, visibility, and can pin Frames as the Pod banner. See [Members and roles](/docs/user-documentation/pods/members-and-roles).
+## Related
 
-## Where to go next
-
-- [Getting started](/docs/user-documentation/pods/getting-started): create your first Pod
-- [Conversations](/docs/user-documentation/pods/conversations): collaborate with agents and teammates
-- [Tasks](/docs/user-documentation/pods/tasks): define, assign, and automate work
-- [Files](/docs/user-documentation/pods/files): build the Pod's shared knowledge library
-- [Frames](/docs/user-documentation/pods/frames): pin live dashboards as the Pod banner
-- [Agent tools](/docs/user-documentation/pods/agent-tools): the full list of tools agents get through the Pods skill
-- Examples: [Shared asset library](/docs/user-documentation/pods/examples/shared-asset-library), [One Pod per customer](/docs/user-documentation/pods/examples/one-pod-per-customer), [Initiative and project management](/docs/user-documentation/pods/examples/initiative-and-project-management), and more
+<CardGroup cols={2}>
+  <Card title="Getting started" href="/docs/user-documentation/pods/getting-started">
+    Create your first Pod.
+  </Card>
+  <Card title="Conversations" href="/docs/user-documentation/pods/conversations">
+    Work with agents and teammates in a Pod.
+  </Card>
+  <Card title="Tasks" href="/docs/user-documentation/pods/tasks">
+    Plan, assign, and automate work.
+  </Card>
+  <Card title="Files" href="/docs/user-documentation/pods/files">
+    Build the Pod's shared knowledge.
+  </Card>
+</CardGroup>

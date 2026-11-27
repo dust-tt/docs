@@ -1,94 +1,50 @@
 ---
 title: "Getting started"
+description: "Create your first Pod, invite your team, and start working with agents in it."
 ---
 
-Dust is a platform that enables teams to **create customizable and secure AI assistants powered by leading large language models**. These assistants **integrate with company data sources to help teams work faster** and improve work processes across various domains
+This page shows you how to create a Pod, invite your teammates, and start your first conversation in it. For what Pods are, see the [Overview](/docs/user-documentation/pods/overview).
 
-##  You're new to AI and LLMs
+## Create a Pod
 
-**Our best advice is to ask questions to @gpt4, @gemini-pro, @mistral, and @claude-3 simultaneously in the chat bar for everything,** from work tasks (ask it to help you innovate, summarize documents, write emails, give advice) to fun (use it instead to write fun stories or, poems).
+<Steps>
+  <Step title="Open the Pod creation dialog">
+    In the left sidebar, click **New Pod**.
+  </Step>
+  <Step title="Name the Pod">
+    In **Pod name**, enter a name that tells your team what the Pod is about, like a project, a customer, or a team.
+  </Step>
+  <Step title="Choose the visibility">
+    New Pods are Restricted: only invited members can access them. To let anyone in the workspace find and join the Pod, turn on the access switch to make it Open.
+  </Step>
+  <Step title="Create the Pod">
+    Click **Create**. You're the first Editor of the Pod.
+  </Step>
+</Steps>
 
-Using assistants effectively is always a little weird, and there is no instruction manual, but we found that after around a few hours of using @gpt4 and @claude, people **get it.**
+If the access switch is turned off with "Open Pods are disabled by your workspace admin.", your workspace admins allow only Restricted Pods. See [Admin controls](/docs/user-documentation/pods/admin-controls).
 
-You will learn how models behave, which is helpful when creating assistants.
+## Invite your team
 
-##  You're already an LLM user
+Click the member avatars at the top right of the Pod, then add people or groups in **Invite people or groups**. See [Members and roles](/docs/user-documentation/pods/members-and-roles).
 
-**You should have a Builder role in Dust**. If you are not, ask the admin of your workspace. Keep practicing and sharing your best (structured) prompts to help others use your assistants or create their own.
+## Start working in the Pod
 
-### 1. Watch this short demo video
+A Pod has three tabs:
 
-### Start by adding a Connection
+- **Conversations:** the conversations of the Pod. Mention an agent to start one. See [Conversations](/docs/user-documentation/pods/conversations).
+- **Tasks:** the Pod's work items. See [Tasks](/docs/user-documentation/pods/tasks).
+- **Files:** the Pod's files and knowledge. See [Files](/docs/user-documentation/pods/files).
 
-You can use Dust without connections to your favorite tools, but connection allows you to retrieve, explore, repackage, and share knowledge in a quick and friendly way.
+Add the files that your team and agents need in the **Files** tab first. Agents in the Pod use them as context.
 
-Go to **Admin > Connections > Select** the desired Connection, click **Connect > Authenticate your account**, and select the data you wish to synchronize with Dust.
+## Related
 
-If you don’t want to connect your everyday business tools to Dust (yet), as a builder, you can also:
-
-* Create a Data Source, as you would create a new folder in Google Drive.
-* Synchronize a Public Website (only): data will be refreshed based on the selected frequency; you can define the maximum number of pages you want to index and the depth of links to follow from the first URL.
-
-<Danger>
-**About sharing data and permissions**
-
-Any data you synchronize with Dust is then accessible to all the workspace members. Ensure you only share documents that can be shared with your entire workspace.
-</Danger>
-
-### Set up your very own @dust
-
-**@dust** is created to help you explore your company data. It is a general assistant that is better at exploration than answering with 100% accurate answers. Think about it as your company data researcher or librarian.
-
-### 4. Start asking questions to @dust and other Dust assistants like @gpt4 and @claude to get to know Dust
-
-### How do I use an agent?
-
-* Type your message and mention the assistant with "**@**", or click the robot icon  in the message bar.
-* Always start with "**@**" when calling an assistant, or it won't respond.
-
-You can also chain assistants!
-
-Let’s try this:
-
-* Ask **@dust** about your company
-* Then, in the same conversation, ask **@claude** and **@mistral** to add their thoughts
-
-### How do I use an agent in Slack?
-
-* **If enabled by your admin**, you can use the **@dust** assistant in Slack channels, exactly as described above
-* To call other assistants, use the syntax **@dust ~gpt4** OR **@dust** **+gpt4** and your question to engage with @gpt4 for example (change `gpt4` to `any company assistant name` to interact with it!)
-
-### 5. Create your first custom assistant
-
-Here is the flow you will follow to create an assistant:
-
-Think about the questions you are asked too often about this document or something you must do every week/day.
-
-Click on `Create a new assistant`, and give it a try!
-
-Based on our experience rolling out Dust assistants to augment our customers’ teams, we can share three rules:
-
-<Info>
-**Rule #1**
-
-The more data you give access to an assistant, the lower the chance of retrieving the correct information.
-</Info>
-
-<Info>
-**Rule #2**
-
-What kind of assistant do you want to build?
-
-* **support assistant** to answer questions about policies, processes, codes, FAQs… They are specialized in one topic;
-* **research assistant** to explore a corpus of knowledge. They have a larger knowledge and the usual way to interact with this assistant is to iterate with it;
-* **generation assistants** to create blog posts, memos, cold emails, and summaries…;
-* **structured data assistants** to analyze DBs.
-
-**Then, try to understand how chaining assistants** can complete more complex tasks: a typical “chaining” is iterating with @researchassistant and turning your research into a document with @generationassistant
-</Info>
-
-<Info>
-**Rule #3**
-
-**Invest some time in your assistant's instructions:** test different prompts and models and keep iterating. Good instructions make the difference between poor and great results.
-</Info>
+<CardGroup cols={2}>
+  <Card title="Overview" href="/docs/user-documentation/pods/overview">
+    Learn what Pods are and how they work.
+  </Card>
+  <Card title="Members and roles" href="/docs/user-documentation/pods/members-and-roles">
+    Invite people and manage their roles.
+  </Card>
+</CardGroup>
