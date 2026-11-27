@@ -9,11 +9,11 @@ A connection syncs content from one of your company's tools into Dust, so agents
 
 | Connection | What Dust syncs |
 | --- | --- |
-| [Google Drive](/docs/user-documentation/admins/connections-management/google-drive) | Docs, Slides, Sheets (as tables), and text files from the drives and folders you select |
-| [Microsoft](/docs/user-documentation/admins/connections-management/microsoft) | Shared documents from SharePoint, OneDrive, and Office 365, including Excel files as tables |
+| [Google Drive](/docs/user-documentation/admins/connections-management/google-drive) | Docs, Slides, Sheets (as tables), and text files from the drives and folders you select. PDFs too if you turn on **Enable PDF syncing** in the connection options. |
+| [Microsoft](/docs/user-documentation/admins/connections-management/microsoft) | Documents and Excel files (as tables) from the SharePoint sites and folders you select. PDFs too if you turn on **Enable PDF syncing**. Personal OneDrive folders aren't synced. |
 | [Notion](/docs/user-documentation/admins/connections-management/notion) | The top-level pages you select, with databases as tables |
 | [Confluence](/docs/user-documentation/admins/connections-management/confluence) | The shared spaces you select |
-| [Slack](/docs/user-documentation/admins/connections-management/slack) | Messages from the channels you select |
+| [Slack](/docs/user-documentation/admins/connections-management/slack) | Messages from the channels you select. Syncing Slack requires your own Slack app and isn't available on every workspace yet. To use agents in Slack, see [Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack). |
 | [GitHub](/docs/user-documentation/admins/connections-management/github) | Issues, discussions, and pull request threads from the repositories you select, with optional code indexing |
 | [Intercom](/docs/user-documentation/admins/connections-management/intercom) | Conversations by team, and Help Center articles |
 | [Zendesk](/docs/user-documentation/admins/connections-management/zendesk) | Support tickets and Help Center articles |
@@ -35,7 +35,7 @@ Only admins can create connections.
     Select the folders, pages, channels, or other content Dust should sync. The connection page for each tool explains the options.
   </Step>
   <Step title="Add the data to Spaces">
-    In the Space where the data should be available, click **Add data** > **Connected data** and select the content from the connection. Only people with access to that Space can use it in their agents.
+    In the Space where the data should be available, click **Add data** > **Connected data** and select the content from the connection. In a regular Space, members can do this. In the Company Data Space, only admins, managers, and the people and groups selected in its **Space settings** can. Only people with access to the Space can use the data in their agents.
   </Step>
 </Steps>
 

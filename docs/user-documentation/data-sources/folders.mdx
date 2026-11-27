@@ -16,15 +16,17 @@ A folder holds documents and tables that you add to Dust yourself. Use folders f
   </Step>
 </Steps>
 
-Only people with access to the Space can use the folder in their agents.
+In a regular Space, members can create folders. In the Company Data Space, only admins, managers, and the people and groups selected in its **Space settings** can. Only people with access to the Space can use the folder in their agents.
+
+To delete a folder, open it, click **Edit folder**, then **Delete folder**. Dust shows which agents use the folder before you confirm.
 
 ## Add content
 
 In the folder, click **Add data** and pick an option:
 
 - **Create a document**: paste text or upload a file, like a PDF, a Word document, or a text file. The size limit depends on your plan and is shown in the form.
-- **Create a table**: upload a CSV file. Agents query tables with [table queries](/docs/user-documentation/agents/knowledge/table-queries).
-- **Upload files**: add several documents at once.
+- **Create a table**: upload a CSV or Excel (.xlsx) file. Agents query tables with [table queries](/docs/user-documentation/agents/knowledge/table-queries).
+- **Upload files**: add several files at once. Spreadsheets (CSV, XLS, or XLSX) become tables, and other files become documents.
 
 To keep a folder in sync with another system, send documents and tables with the API. See [Upsert a document](/api-reference/datasources/upsert-a-document-in-a-data-source) and [Upsert a table](/api-reference/datasources/upsert-a-table).
 
