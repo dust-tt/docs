@@ -34,7 +34,7 @@ The list in Dust is the source of truth, and it can change before this page does
 
 <Steps>
   <Step title="Add the tool">
-    Go to **Spaces** > **Tools**, click **Add Tool**, and select **Slack Bot**.
+    Go to **Spaces** > **Tools**, click **Add tools**, and select **Slack Bot**.
   </Step>
   <Step title="Sign in to Slack">
     Approve the connection with Slack. Slack Bot only works with a **Shared account**: it uses the bot credentials of the Dust Slack app, not a person's account.
@@ -44,7 +44,7 @@ The list in Dust is the source of truth, and it can change before this page does
   </Step>
 </Steps>
 
-Dust checks the email of the person using the agent to make sure they're allowed to read and post in the channel in Slack. People can't use Slack Bot to reach a channel they don't have access to.
+By default, Slack Bot can read and post in any channel the Dust app was added to. To limit it, turn on **Only act in channels the person asking belongs to** when you connect Slack Bot. The bot then only acts where the person asking is a member in Slack, and it can't be used for requests made from Slack or Teams, by sub-agents, or by automated runs.
 
 ## Add Slack Bot to an agent
 
