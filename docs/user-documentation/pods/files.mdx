@@ -12,13 +12,13 @@ The **Files** tab is the Pod's shared library. It holds uploaded files, folders,
     Open the Pod and click **Files**.
   </Step>
   <Step title="Upload">
-    Click **Add** > **Upload files** and pick files from your computer, or drag them onto the tab.
+    Click **Add** > **Upload file** and pick files from your computer, or drag them onto the tab.
   </Step>
 </Steps>
 
 Agents can save files to the Pod too, like a report, a generated document, or the output of a workflow. Their files appear in the same list and are available to every member and agent right away.
 
-If **Add** isn't there, your workspace admin turned off manual updates for Pod files. See [Admin controls](/docs/user-documentation/pods/admin-controls).
+If **Add** is grayed out, your workspace admin turned off manual updates for Pod files: hovering over it shows _"Adding files to Pods is disabled by your workspace admin."_ See [Admin controls](/docs/user-documentation/pods/admin-controls).
 
 ## Organize files in folders
 
@@ -37,6 +37,8 @@ Click **Add** > **New folder** to create a folder. Folders can contain other fol
 
 Linked data shows in the same list as your files. Agents find it through search, and you can't edit it from the Pod. Only Company Data can be linked, because it's the only data every Pod member can access.
 
+Data from a restricted Space can't be linked or attached in a Pod conversation, even if you have access to that Space. To use one of its files, upload a copy to the Pod, or paste the file's link in a Pod conversation so an agent with the right tool, like Google Drive, can read it.
+
 ## Import files from other tools
 
 An agent can fetch content from a tool that isn't in Company Data and save it as a file in the Pod. This is useful when you want a snapshot, or want the content summarized, translated, or reformatted first.
@@ -50,13 +52,30 @@ To keep the file up to date, ask the agent to use [wake-ups](/docs/user-document
 | Action | How |
 | --- | --- |
 | Preview a file | Click it. |
-| Rename a file | Open its `...` menu and click **Rename**. |
+| Rename a file, folder, or Frame | Open its `...` menu and click **Rename**. |
+| Download a file or folder | Open its `...` menu and click **Download**. Folders and Frames download as a `.zip` file. |
 | Delete a file or folder | Open its `...` menu and click **Delete**. |
 | Remove linked data | Open its `...` menu and click **Remove**. |
-| Pin a Frame as the Pod banner | Open its `...` menu and click **Pin as Pod banner**. See [Frames](/docs/user-documentation/pods/frames). |
-| Show a file as a Pod tab | Open its `...` menu and click **Add as Pod tab**. Editors only. |
+| Pin a Frame as the Pod banner | Open its `...` menu and click **Pin as Pod banner**. Editors only. See [Frames](/docs/user-documentation/pods/frames). |
+| Show a file as a Pod tab | Open its `...` menu and click **Add as Pod tab**. Editors only. See below. |
 
 Most common file formats are indexed for search. Agents can still open files in other formats when you mention them in a conversation, but won't find them through search.
+
+## Show files as Pod tabs
+
+Editors can add a file as a tab in the Pod's top navigation, next to **Conversations**, **Tasks**, and **Files**, so everyone opens it in one click. Any file you can preview works: a Frame, a Markdown document, a PDF, or an image. A Pod can have up to 8 custom tabs.
+
+To add a tab, do one of the following:
+
+- In the **Files** tab, open the file's `...` menu and click **Add as Pod tab**.
+- Hover over the Pod's tabs and click `+` (**Add file to Tabs**).
+- Ask an agent, for example _"Add the roadmap document as a Pod tab."_
+
+To rename a tab, change its icon, reorder tabs, or remove one, click the gear icon (**Pod settings**), select **More settings…**, and open **Customization** > **Tabs**. You can also remove a tab from the file's `...` menu with **Remove from Pod tabs**.
+
+## Give agents instructions for the Pod
+
+Editors can write instructions that every agent follows in the Pod, like the team's conventions, the tone to use, or where to save reports. Click the gear icon (**Pod settings**), select **More settings…**, open **Customization**, and fill in **Pod instructions for agents**. Dust saves them as `AGENTS.md` in the Pod's files.
 
 ## Related
 

@@ -15,25 +15,29 @@ The **Tasks** tab lists the work to do in a Pod. Members and agents can create t
     Click **Add a task...** and describe the work. Write it as a clear, self-contained instruction: an agent reads it as its brief when it starts.
   </Step>
   <Step title="Assign it">
-    Optionally, pick a Pod member as assignee, then press **Enter**.
+    New tasks are assigned to you. To change that, click the assignee button next to the field and pick another member, or **No assignee** if the Pod has more than one member. Then press **Enter** or click **Add**.
   </Step>
 </Steps>
 
 Agents can create tasks too, for example after reading a conversation or processing a request. Tasks are grouped by assignee, and unassigned tasks have their own section.
 
+When a new Pod has no conversations yet, an editor can click **Let's go** in the **Conversations** tab to add a few starter tasks. They show in a **Suggestions** card: click **Accept** on the ones to keep, or use **Accept all** or **Dismiss all**.
+
 ## Start an agent on a task
 
 <Steps>
-  <Step title="Open the task actions">
-    Hover over the task and click **Start working**.
+  <Step title="Open the start menu">
+    Hover over the task and click the play button (**Start working on task**).
   </Step>
   <Step title="Pick the agent">
     Choose the agent and, if needed, add a custom message with extra instructions.
   </Step>
   <Step title="Start">
-    Start the task. Dust creates a conversation linked to the task and marks the task as in progress. You can open that conversation from the task or from the **Conversations** tab.
+    Click **Start working**. Use the arrow next to it to choose whether to **Redirect to conversation** or **Stay on tasks**. Dust creates a conversation linked to the task and marks the task as in progress.
   </Step>
 </Steps>
+
+To follow the work, click the chat icon on the task (**Open task conversation**), or find the conversation in the **Conversations** tab.
 
 Agents can also start work on a task themselves, without anyone clicking.
 
@@ -41,15 +45,19 @@ Agents can also start work on a task themselves, without anyone clicking.
 
 A task is to do until someone starts it, in progress while an agent works on it in a linked conversation, and done once it's checked.
 
-To mark a task done, click its checkbox. An agent can also mark its own task done at the end of its conversation and explain what it did. Done tasks stay visible with a strikethrough: uncheck one to reopen it.
+To mark a task done, click its checkbox. An agent can also mark its own task done at the end of its conversation and explain what it did. Done tasks leave the **Open** list: to see them, pick a period in the status menu (see below), and uncheck a task to reopen it.
 
 ## Edit, reassign, or delete a task
 
 - **Edit**: click the task text, change it, and press **Enter**.
-- **Reassign**: click the assignee and pick another member.
+- **Reassign**: open the `...` menu on the task, click **Reassign**, and pick another member or **No assignee**.
 - **Delete**: open the `...` menu on the task and click **Delete task**.
 
-To find a task, switch between your tasks and everyone's, or type in **Filter tasks...** to search by text.
+To find a task, use the filters above the list:
+
+- Switch between **Everyone** and **Mine**.
+- Pick a status: **Open** (default), **Done today**, **Done in the last 7 days**, or **Done in the last 30 days**.
+- Type in **Filter tasks...** to search by task text, assignee, or source.
 
 ## Sync tasks with Jira, Asana, or Linear
 

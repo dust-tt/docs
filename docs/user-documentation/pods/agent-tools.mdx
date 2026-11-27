@@ -3,7 +3,7 @@ title: "Agent tools"
 description: "See the tools agents use to work in a Pod: search its knowledge, manage files and tasks, update its settings, and pin Frames."
 ---
 
-Agents working in a Pod get the Pods skill automatically. It gives them tools to search the Pod, manage its files and tasks, and update its settings, so you can ask for these things in plain language in any Pod conversation. You don't need to add anything in the Agent Builder.
+Agents working in a Pod get the Pods skill automatically. It gives them tools to search the Pod, manage its tasks, members, and settings, start conversations, and create Pods, so you can ask for these things in plain language in any Pod conversation. You don't need to add anything in the Agent Builder.
 
 ## Search and read the Pod
 
@@ -11,13 +11,17 @@ Agents working in a Pod get the Pods skill automatically. It gives them tools to
 | --- | --- |
 | `get_information` | Reads the Pod's description, members, settings, and linked data. |
 | `semantic_search` | Searches the Pod's files, linked data, and conversations by meaning. |
+| `retrieve_recent_documents` | Fetches the most recent documents from the Pod's files and linked data. |
+| `list_conversations` | Lists the Pod's conversations, for example only the unread ones. |
+| `list_members` | Lists the Pod's members and their roles. |
+| `list_pods` | Lists the Pods you're a member of, or the open Pods of the workspace. |
 
 ## Manage files
 
+Agents read, create, and edit the Pod's files with the file tools they use everywhere in Dust, so they can save a report or update a document in the Pod. The Pods skill adds two tools for linked data:
+
 | Tool | What the agent does |
 | --- | --- |
-| `add_file` | Saves a new file to the Pod, like a report or a generated document. |
-| `update_file` | Replaces the content of a file. |
 | `add_content_node` | Links data from Company Data to the Pod. |
 | `remove_content_node` | Removes linked data from the Pod. |
 
@@ -30,15 +34,24 @@ Agents working in a Pod get the Pods skill automatically. It gives them tools to
 | `update_tasks` | Edits tasks, reassigns them, or marks them done. |
 | `start_task_agent` | Starts an agent on a task, in a new conversation linked to it. |
 
+## Work with conversations
+
+| Tool | What the agent does |
+| --- | --- |
+| `create_conversation` | Starts a new Pod conversation and can hand it to an agent. |
+| `add_message_to_conversation` | Posts a message in an existing Pod conversation and can hand it to an agent. |
+| `move_conversation` | Moves a conversation into a Pod, or out of it to your personal conversations. |
+
 ## Update the Pod
 
 | Tool | What the agent does |
 | --- | --- |
-| `edit_information` | Updates the Pod's description. |
+| `edit_information` | Updates the Pod's title, description, or access (restricted or open). |
+| `update_members` | Adds, removes, promotes, or demotes members and editors. Editors only. |
 | `set_default_agent` | Sets the agent pre-selected in new Pod conversations. |
 | `set_pinned_frame` | Pins or unpins a Frame as the Pod banner. |
-| `list_members` | Lists the Pod's members and their roles. |
-| `move_conversation` | Moves a conversation into the Pod. |
+| `set_file_tabs` | Sets the files shown as Pod tabs, up to 8, and their order. |
+| `create_pod` | Creates a new Pod, restricted by default, with optional members and starter tasks. |
 
 ## Example requests
 
@@ -46,6 +59,7 @@ Agents working in a Pod get the Pods skill automatically. It gives them tools to
 - _"Create one task for each action item from today's meeting notes, and assign them to the right people."_
 - _"Start @Writer on the blog draft task."_
 - _"Pin the status Frame as the Pod banner."_
+- _"Create a Pod for the Q3 launch and add Maria and Tom as members."_
 
 ## Related
 

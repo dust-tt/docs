@@ -11,22 +11,25 @@ A Frame is an interactive page an agent builds, like a dashboard, a chart, or a 
   <Step title="Create the Frame">
     In a Pod conversation, ask an agent to build the Frame, for example _"Create a Frame showing the status of our open tasks, and keep it compact so it fits as a Pod banner."_
   </Step>
+  <Step title="Save it to the Pod">
+    If the Frame isn't in the Pod's **Files** tab yet, open the `...` menu (**More actions**) in the Frame preview and click **Save to Pod**. Until then, **Pin as Pod banner** is grayed out.
+  </Step>
   <Step title="Pin it">
-    In the **Files** tab, open the Frame's `...` menu and click **Pin as Pod banner**. You can also click **Pin as Pod banner** from the Frame preview, or ask the agent to pin it.
+    In the **Files** tab, open the Frame's `...` menu and click **Pin as Pod banner**. You can also click **Pin as Pod banner** in the `...` menu of the Frame preview, or ask the agent to pin it.
   </Step>
 </Steps>
 
-Only one Frame can be pinned at a time. Pinning a new one replaces the current banner.
+Only Pod editors can pin or unpin the banner. Only one Frame can be pinned at a time: pinning a new one replaces the current banner.
 
 ## Use the banner
 
 The banner is 280 pixels tall and shows at the top of the Pod. Hover over it to see its controls:
 
-- **Open in full screen**: open the Frame in full size.
-- **Hide**: collapse the banner for you. Click **Show** to bring it back.
-- **Unpin**: remove the banner for everyone. The Frame stays in the Pod's files.
+- **Hide**: collapse the banner for you. The collapsed bar has **Show** to bring it back and **Open in full screen**.
+- **Unpin**: remove the banner for everyone. Editors only. The Frame stays in the Pod's files.
+- **Go to full screen mode**, **Open in a new tab**, and **Reload the file**, at the bottom right of the banner.
 
-You can also unpin it from the **Files** tab with **Unpin from banner**.
+Editors can also unpin it from the **Files** tab with **Unpin from banner**, or from the Frame preview with **Unpin from Pod banner**.
 
 ## Keep the banner up to date
 
@@ -34,6 +37,10 @@ A Frame shows the data it reads. To keep the banner current, keep the files behi
 
 - Ask an agent to update the file whenever something changes, for example at the end of each task.
 - Ask an agent to use [wake-ups](/docs/user-documentation/agents/tools/wake-ups) to refresh the file on a schedule, like every Monday morning.
+
+<Note>
+  Agents can only edit the Pod's files, including the Frame and the data it reads, from a conversation inside the Pod. If an agent can see the Frame but fails to update it, move the conversation into the Pod or start a new one there.
+</Note>
 
 ## Banner tips
 
