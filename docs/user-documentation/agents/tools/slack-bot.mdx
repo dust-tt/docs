@@ -1,0 +1,91 @@
+---
+title: "Slack Bot"
+description: "Let your agents post, edit, and read Slack messages as the Dust bot instead of as a person."
+---
+
+With the Slack Bot tool, your agents post and read messages in Slack channels as the Dust bot, not under a person's name. Use it for agents that publish to a channel on behalf of the team, like daily digests, alerts, or automated recaps.
+
+## What your agent can do with Slack Bot
+
+| Action | What it does | Changes data |
+| --- | --- | --- |
+| **Post Message** | Posts a message in a channel, or as a reply in a thread, as the Dust bot. | Yes |
+| **Edit Message** | Edits a message the Dust bot posted. | Yes |
+| **Add Reaction** / **Remove Reaction** | Adds or removes an emoji reaction on a message, as the Dust bot. | Yes |
+| **Read Channel History** | Reads recent messages in a channel the Dust app was added to. | No |
+| **Read Thread Messages** | Reads all the replies in a thread. | No |
+| **List Public Channels** | Lists the public channels in your Slack workspace. | No |
+| **Search User** | Finds a Slack user by user ID or email, so the agent can mention them. | No |
+
+The list in Dust is the source of truth, and it can change before this page does.
+
+## When to use Slack Bot
+
+- **Use Slack Bot** when messages should come from Dust, not from a person: shared channel updates, scheduled reports, or notifications from an automated agent.
+- **Use [Slack tools](/docs/user-documentation/agents/tools/slack-tools)** when the agent should search Slack or post as the person using it, with their own Slack permissions.
+- **Use [Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack/index)** when people want to call an agent from Slack.
+
+## Before you start
+
+- **In Dust:** you need to be an admin to add Slack Bot.
+- **In Slack:** the Dust Slack app must be installed in your Slack workspace. Slack Bot uses the same Dust Slack app that people use to call Dust in Slack.
+
+## Connect Slack Bot (admins)
+
+<Steps>
+  <Step title="Add the tool">
+    Go to **Spaces** > **Tools**, click **Add tools**, and select **Slack Bot**.
+  </Step>
+  <Step title="Sign in to Slack">
+    Approve the connection with Slack. Slack Bot only works with a **Shared account**: it uses the bot credentials of the Dust Slack app, not a person's account.
+  </Step>
+  <Step title="Add the Dust app to your channels">
+    In Slack, add the Dust app to each channel your agents should read from or post to. Slack Bot can't read or post in a channel the app hasn't been added to.
+  </Step>
+</Steps>
+
+By default, Slack Bot can read and post in any channel the Dust app was added to. To limit it, turn on **Only act in channels the person asking belongs to** when you connect Slack Bot. The bot then only acts where the person asking is a member in Slack, and it can't be used for requests made from Slack or Teams, by sub-agents, or by automated runs.
+
+## Add Slack Bot to an agent
+
+<Steps>
+  <Step title="Open your agent in the Agent Builder">
+    Create an agent, or open one you can edit.
+  </Step>
+  <Step title="Add the tool">
+    In **Capabilities and knowledge**, click **Add capabilities** and select **Slack Bot**.
+  </Step>
+  <Step title="Say where to post">
+    In the instructions, name the channel the agent should post to, and when it should post.
+  </Step>
+</Steps>
+
+By default, tools that read data run without asking (**Never ask**), and tools that post, edit, or react ask with the **Low** level. Admins can change the level of each tool in **Spaces** > **Tools** > **Slack Bot** > **Tools & stakes**:
+
+- **High:** needs explicit user approval.
+- **Medium:** users can save confirmations for specific tool inputs, or skip them for the rest of a conversation session.
+- **Low:** users can completely disable confirmations.
+- **Never ask:** runs automatically.
+
+## Example instructions
+
+```text
+Every Monday morning, summarize last week's product releases and post the summary in #product-updates. Start the message with "Weekly release recap".
+```
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Slack tools" href="/docs/user-documentation/agents/tools/slack-tools">
+    Search Slack and post messages as yourself.
+  </Card>
+  <Card title="Dust in Slack" href="/docs/user-documentation/agents/integrations/dust-in-slack/index">
+    Call your agents from Slack.
+  </Card>
+  <Card title="Personal vs Shared Credentials" href="/docs/user-documentation/admins/tools-management/personal-vs-shared-credentials">
+    How each connection type works for tools.
+  </Card>
+  <Card title="Tools" href="/docs/user-documentation/agents/tools/index">
+    All the tools your agents can use.
+  </Card>
+</CardGroup>

@@ -146,6 +146,50 @@ Read all messages in a specific thread from public channels, private channels, o
 
 **Parameters**: Channel, thread timestamp, optional limit/cursor/oldest/latest for pagination
 
+### Get Channel Canvases
+
+List the canvases pinned in a channel's tabs. Use it to find a channel's canvas when you only have the channel.
+
+**Parameters**: Channel ID
+
+### Read Canvas
+
+Find the sections of a canvas. Returns section IDs that Write Canvas uses to insert, replace, or delete a section.
+
+### Write Canvas
+
+Create a canvas, optionally pinned to a channel tab, or edit an existing one: add content, or insert, replace, or delete a section.
+
+### Create Channel
+
+Create a public or private channel. Slack adds the connected user to the new channel. The agent can leave it right after creating it.
+
+### Invite to Channel
+
+Invite one or more users to a channel. The agent uses Search User first when it only has names.
+
+**Parameters**: Channel, Slack user IDs
+
+### Archive Channel
+
+Archive a channel. Archived channels become read-only and are hidden from the channel list. You can unarchive them in Slack.
+
+### List User Groups
+
+List the user groups of the workspace (for example @engineering), so the agent can mention them.
+
+### Set User Status
+
+Set or clear the connected user's Slack status (emoji and text), with an optional expiration.
+
+### Add Reaction and Remove Reaction
+
+Add or remove an emoji reaction on a message. Works with standard emoji and your workspace's custom emoji.
+
+### Get Reactions
+
+Get all the emoji reactions on a message, and the users who reacted.
+
 ## Advanced Features
 
 ### Thread Support

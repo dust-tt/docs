@@ -1,0 +1,82 @@
+---
+title: "Cursor Cloud Agents"
+description: "Let your agents launch Cursor Cloud Agents on your GitHub repositories and follow their runs."
+---
+
+With the Cursor Cloud Agents tool, your Dust agents can start a Cursor Cloud Agent on one or more GitHub repositories, send it follow-up tasks, and check the branches and pull requests it produces. An admin connects it once with a Cursor API key.
+
+## What your agent can do with Cursor Cloud Agents
+
+| Action | What it does | Changes data |
+| --- | --- | --- |
+| **Launch Agent** | Starts a Cursor Cloud Agent and its first coding run on one or more GitHub repositories. | Yes |
+| **Create Run** | Sends a follow-up coding or planning task to an existing Cursor agent. | Yes |
+| **Cancel Run** | Stops an active run without deleting the agent. | Yes |
+| **List Agents** / **Get Agent** | Lists Cursor agents with their status and latest run, or reads one agent's repositories and setup. | No |
+| **List Runs** / **Get Run** | Lists an agent's runs, or reads one run's status, final response, branches, and pull requests. | No |
+| **List Artifacts** / **Get Artifact Download URL** | Lists the screenshots, recordings, and logs an agent produced, or gets a temporary link to download one. | No |
+| **Get Agent Usage** | Returns the token usage of an agent or one of its runs. | No |
+| **Archive Agent** / **Unarchive Agent** | Hides an agent from the active view, or brings it back. | Yes |
+| **Delete Agent** | Deletes an agent and its data for good. | Yes |
+| **List Models** / **List Repositories** / **Get API Key Info** | Lists the available models and GitHub repositories, or shows which API key is in use. | No |
+
+The list in Dust is the source of truth, and it can change before this page does.
+
+## Before you start
+
+- **In Dust:** you need to be an admin to add Cursor Cloud Agents.
+- **In Cursor:** you need a Cursor API key. Agents can only work on the GitHub repositories available to that key.
+
+## Connect Cursor Cloud Agents (admins)
+
+<Steps>
+  <Step title="Add the tool">
+    Go to **Spaces** > **Tools**, click **Add tools**, and select **Cursor Cloud Agents**.
+  </Step>
+  <Step title="Add your API key">
+    Paste your Cursor API key and save.
+  </Step>
+</Steps>
+
+Everyone who uses Cursor Cloud Agents in Dust shares this API key, so agents use the Cursor account and repositories that own it.
+
+## Add Cursor Cloud Agents to an agent
+
+<Steps>
+  <Step title="Open your agent in the Agent Builder">
+    Create an agent, or open one you can edit.
+  </Step>
+  <Step title="Add the tool">
+    In **Capabilities and knowledge**, click **Add capabilities** and select **Cursor Cloud Agents**.
+  </Step>
+  <Step title="Say which repositories to use">
+    In the instructions, name the repositories the agent can work on, and what it should do with the result.
+  </Step>
+</Steps>
+
+By default, tools that read data run without asking (**Never ask**). **Launch Agent**, **Create Run**, and **Delete Agent** ask for approval every time (**High**), and **Cancel Run**, **Archive Agent**, and **Unarchive Agent** use the **Low** level. Admins can change the level of each tool in **Spaces** > **Tools** > **Cursor Cloud Agents** > **Tools & stakes**:
+
+- **High:** needs explicit user approval.
+- **Medium:** users can save confirmations for specific tool inputs, or skip them for the rest of a conversation session.
+- **Low:** users can completely disable confirmations.
+- **Never ask:** runs automatically.
+
+## Example instructions
+
+```text
+When I describe a bug, launch a Cursor Cloud Agent on the acme/website repository with a clear task description. Check the run until it finishes, then share the pull request link and a two-line summary of the fix.
+```
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="GitHub" href="/docs/user-documentation/agents/tools/github">
+    Work with issues, pull requests, and discussions.
+  </Card>
+  <Card title="Managing Tools" href="/docs/user-documentation/admins/tools-management/adding-an-mcp-server">
+    Add tools to your workspace and choose who can use them.
+  </Card>
+  <Card title="Tools" href="/docs/user-documentation/agents/tools/index">
+    All the tools your agents can use.
+  </Card>
+</CardGroup>

@@ -27,6 +27,9 @@ Admins can provide workspace users access to these tools by adding it to a Dust 
 | **Get Ticket**     | Retrieve a Zendesk ticket by its ID. Returns the ticket details including subject, description, status, priority, assignee, and other metadata. Optionally include ticket metrics such as resolution times, wait times, and reply counts. Optionally include the full conversation with all comments. |
 | **Search Tickets** | Search for Zendesk tickets using query syntax. Returns a list of matching tickets with their details. You can search by status, priority, assignee, tags, and other fields. Query examples: `status:open`, `priority:high`, `status:open priority:urgent`, `assignee:me`, `tags:bug`.                 |
 | **Draft Reply**    | Draft a reply to a Zendesk ticket. Creates a private comment (not visible to the end user) that can be edited before being published. This is useful for preparing responses before making them public.                                                                                               |
+| **Post Reply**     | Post a public reply on a ticket. The customer sees it. |
+| **List Ticket Fields** | List the ticket fields, built-in and custom, with their ID, title, type, and whether they are active. |
+| **Update Ticket Tags** | Add tags to a ticket. The agent can also replace all the ticket's tags, which removes any tag not in the new list. |
 
 <Info>
   Looking to import Zendesk data into Dust instead? See the [Zendesk
