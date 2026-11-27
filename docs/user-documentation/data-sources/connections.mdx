@@ -1,41 +1,63 @@
 ---
 title: "Connections"
+description: "Sync content from tools like Google Drive, Notion, Slack, and Confluence into Dust, and keep it up to date automatically."
 ---
 
-Knowledge synchronization **happens in 2 steps**:
+A connection syncs content from one of your company's tools into Dust, so agents can search it, read it, and query its tables. Admins create connections and choose what to sync. Dust then keeps the content up to date as it changes in the tool.
 
-1. Ingest data in Dust via the Connection
-2. Make it accessible to your users, either as 'Company Data' or in a specific space if you want to control permissions
+## Available connections
 
-See the video on how to do it below:
+| Connection | What Dust syncs |
+| --- | --- |
+| [Google Drive](/docs/user-documentation/admins/connections-management/google-drive) | Docs, Slides, Sheets (as tables), and text files from the drives and folders you select. PDFs too if you turn on **Enable PDF syncing** in the connection options. |
+| [Microsoft](/docs/user-documentation/admins/connections-management/microsoft) | Documents and Excel files (as tables) from the SharePoint sites and folders you select. PDFs too if you turn on **Enable PDF syncing**. Personal OneDrive folders aren't synced. |
+| [Notion](/docs/user-documentation/admins/connections-management/notion) | The top-level pages you select, with databases as tables |
+| [Confluence](/docs/user-documentation/admins/connections-management/confluence) | The shared spaces you select |
+| [Slack](/docs/user-documentation/admins/connections-management/slack) | Messages from the channels you select. Syncing Slack requires your own Slack app and isn't available on every workspace yet. To use agents in Slack, see [Dust in Slack](/docs/user-documentation/agents/integrations/dust-in-slack). |
+| [GitHub](/docs/user-documentation/admins/connections-management/github) | Issues, discussions, and pull request threads from the repositories you select, with optional code indexing |
+| [Intercom](/docs/user-documentation/admins/connections-management/intercom) | Conversations by team, and Help Center articles |
+| [Zendesk](/docs/user-documentation/admins/connections-management/zendesk) | Support tickets and Help Center articles |
+| [Gong](/docs/user-documentation/admins/connections-management/gong) | Call transcripts |
+| [Snowflake](/docs/user-documentation/admins/connections-management/snowflake) | Tables, queried in place |
+| [BigQuery](/docs/user-documentation/admins/connections-management/bigquery) | Tables, queried in place |
 
-## Step 1: Ingesting Data in Dust
+To bring in data from Salesforce or another tool without a connection, see [Import Salesforce data](/docs/user-documentation/data-sources/custom-connections/beta-import-salesforce-data) or send content to a [folder](/docs/user-documentation/data-sources/folders) with the API.
 
-**Connections** are fully managed integrations that are synced automatically. This ensures Dust always has up-to-date information.
+## Set up a connection
 
-Connections are managed by workspace admins. They have **granular control** over what data Dust can access. Eg: which Slack channels, Gdrive folders, Notion pages, etc.
+Only admins can create connections.
 
-If you see something missing in one of the connection, it probably means that it was not added to Dust. Reach out to your workspace admin to make sure the page/channel/folder/etc you want to use are synced to Dust.
+<Steps>
+  <Step title="Add the connection">
+    Go to **Spaces** > **Connections** and click **Add connections**. Pick the tool and sign in with an account that can read the content you want to sync.
+  </Step>
+  <Step title="Choose what to sync">
+    Select the folders, pages, channels, or other content Dust should sync. The connection page for each tool explains the options.
+  </Step>
+  <Step title="Add the data to Spaces">
+    In the Space where the data should be available, click **Add data** > **Connected data** and select the content from the connection. In a regular Space, members can do this. In the Company Data Space, only admins, managers, and the people and groups selected in its **Space settings** can. Only people with access to the Space can use the data in their agents.
+  </Step>
+</Steps>
 
-Note: it usually take **a few minutes** for an update to appear in Dust.
+Once the first sync is done, builders can add the data to agents. See [Knowledge](/docs/user-documentation/agents/knowledge).
 
-Learn more about each connections:
+## Remove a connection
 
-* [Google Drive](/docs/user-documentation/admins/connections-management/google-drive)
-* [Notion](/docs/user-documentation/admins/connections-management/notion)
-* [Confluence](/docs/user-documentation/admins/connections-management/confluence)
-* [Intercom](/docs/user-documentation/admins/connections-management/intercom)
-* [Github](/docs/user-documentation/admins/connections-management/github)
-* [Microsoft](/docs/user-documentation/admins/connections-management/microsoft)
-* [Snowflake](/docs/user-documentation/admins/connections-management/snowflake)
-* [BigQuery](/docs/user-documentation/admins/connections-management/bigquery)
-* [Zendesk](/docs/user-documentation/admins/connections-management/zendesk)
-* [Gong](/docs/user-documentation/admins/connections-management/gong)
-* [Slack](/docs/user-documentation/admins/connections-management/slack)
-* [Salesforce](/docs/user-documentation/data-sources/custom-connections/beta-import-salesforce-data)
+Removing a connection deletes the synced content from Dust and detaches it from the agents that use it. The content in the original tool isn't affected. To remove or replace a connection, contact Dust support.
 
-## Step 2 - Giving access to your users
+## Related
 
-Once Data is connected to Dust, **you need to make it available to your users**. Either to **all users** through the _Company Data_ tab, or to specific groups of users through _Spaces_.
-
-Learn more: [Data Management in Dust](/docs/user-documentation/data-sources/overview)
+<CardGroup cols={2}>
+  <Card title="Data sources overview" icon="database" href="/docs/user-documentation/data-sources/overview">
+    Compare connections, folders, and websites.
+  </Card>
+  <Card title="Folders" icon="folder" href="/docs/user-documentation/data-sources/folders">
+    Upload content that isn't in a connected tool.
+  </Card>
+  <Card title="Knowledge" icon="book" href="/docs/user-documentation/agents/knowledge">
+    Choose how agents use your data.
+  </Card>
+  <Card title="Search data sources" icon="magnifying-glass" href="/docs/user-documentation/agents/knowledge/search-data-sources">
+    Let agents search connected content.
+  </Card>
+</CardGroup>
