@@ -33,9 +33,11 @@ In an Open Pod, people in the workspace can also join by themselves.
 
 In the members panel, open the menu next to the person and select **Member** or **Editor**.
 
+You can't change your own role or the role of the person who created the Pod. A Pod must always keep at least one Editor.
+
 ## Remove a member
 
-In the members panel, open the menu next to the person and select **Remove access**.
+In the members panel, open the menu next to the person and select **Remove access**. You can't remove the person who created the Pod, or the last Editor.
 
 ## Change the visibility
 
@@ -63,9 +65,16 @@ Editors can archive a Pod when its work is done:
   </Step>
 </Steps>
 
-An archived Pod no longer shows in your sidebar. Its content stays, and agents can still use it as a data source. To restore the Pod, click **Unarchive** in the same place.
+When you archive a Pod:
 
-Editors can also delete a Pod from the same section. Deleting a Pod can't be undone.
+- It no longer shows in the sidebar, and it shows an **Archived** label.
+- Members can't start new conversations, edit tasks, or upload files. They can still read past conversations.
+- Its content stays, and agents can still use it.
+- The triggers that post to the Pod are turned off. They stay off if you unarchive the Pod.
+
+To find an archived Pod, click **Browse Pods** next to **Pods** in the left sidebar and search for its name. To restore it, open **Pod settings** > **More settings…** > **General** and click **Unarchive**.
+
+Editors and workspace admins can also delete a Pod from the same section. Dust asks you to type `delete` to confirm. Deleting a Pod can't be undone.
 
 ## Related
 
