@@ -1,58 +1,59 @@
 ---
 title: "Include data"
+description: "Load whole documents into an agent's context, most recent first, for summaries and reviews that need everything rather than the best matches."
 ---
 
+With **Include all data**, the agent reads whole documents instead of searching for passages. It loads the most recent documents first and keeps going until it reaches the model's limit or the time range you set. Use it when the answer depends on everything in a set of documents, not only the parts that match the question.
 
-With Dust, you can ask your agents to search through your entire selected Data Sources and pick the most relevant documents to tap into to answer. This is the **“Search”** tool (cf. [Understanding Retrieval Augmented Generation (RAG) in Dust](/docs/user-documentation/agents/llm-best-practices/understanding-rag))
+## When to use it
 
-But sometimes, there are specific files or pieces of context you _want to be sure_ that the agent includes in its context window for every question (i.e. a translation glossary or a set of guidelines that must be followed). The **Include Data** tool gives you the ability to dictate that the agent **always** includes a set of files. Starting with the most recent file, the agent will take into account every document set in Include Data in chronological order (assuming they don't fill the context window of the agent)
+Include data works well for recurring summaries and reviews, for example:
 
-<Info>
-  While very useful when you need particular documents to be included, LLMs are
-  quite effective at finding relevant context across a large knowledge base
-  using the Search Tool, which tends to be a better fit for larger data sources
-  (see below for use-cases with Include Data).
-</Info>
+- A weekly digest of a Slack channel.
+- A summary of last month's meeting notes.
+- A review of every support ticket from yesterday.
 
-## Takes only most recent data into account…what does this mean?
+For questions that only need a few relevant passages, like "What's our parental leave policy?", [search](/docs/user-documentation/agents/knowledge/search-data-sources) is faster and covers more data.
 
-When this method is activated, **the agents retrieves all latest documents from your data source in reverse chronological order, until your agent context window is filled.**
+## How much data the agent sees
 
-Let’s take an example:
+A model can only read a limited amount of text at once, called its [context window](/docs/user-documentation/agents/llm-best-practices/understanding-llms-context-windows). When the selected data doesn't fit, the agent keeps the most recent documents and tells you the cutoff in the answer details, for example "Only includes documents since" a given date.
 
-Imagine you are creating an agent whose data source is a Google Drive folder. This is how the agents will gather information to generate answers to your questions:
+To control what the agent reads, set a time range when you configure the knowledge, like the last 7 days. A shorter range keeps the agent focused on recent content and makes answers faster.
 
-1. It will look at the folder, and pick the latest file
-2. Then it will pick the file updated just before, then the previous one, etc. without filtering anything out
-3. It will continue until it reaches the limit of what it can process at once (the method’s context window\*).
-4. Finally, it will generate a response to the question you asked, taking into account only the files picked in the 3 previous steps
+## Set up include data
 
-### What is a context window?
+<Steps>
+  <Step title="Add knowledge">
+    In the Agent Builder, in **Capabilities and knowledge**, click **Add knowledge**.
+  </Step>
+  <Step title="Select data sources">
+    Pick a Space and select the folders, channels, or pages the agent needs. Click **Next**.
+  </Step>
+  <Step title="Choose Include all data">
+    Pick **Include all data**, set a time range if needed, and describe what the data contains. To narrow the data with labels, click **Filters**. Save the agent.
+  </Step>
+</Steps>
 
-It refers to the maximum amount of text or information that a language model (like gpt, claude, mistral or gemini) can consider at one time when generating a response.
+## Limits
 
-For example, if a model has a context window of 2048 tokens, it can only "remember" and use the last 2048 tokens (pieces of text, such as words, punctuation marks, or spaces) provided in the conversation. Anything beyond that limit won't influence the model's responses because it simply can't "see" it.
+- Include data doesn't read tables or spreadsheets. Use [table queries](/docs/user-documentation/agents/knowledge/table-queries) for those.
+- On large sources, older documents are left out, and long documents can be only partly included. Narrow the folders or the time range to make sure the agent sees what matters.
+- When the agent uses several knowledge sources in the same step, like search and include data together, they share one budget, so each brings in less. For large sources, give include data its own agent.
 
-<Info>
-  To smooth product experience, Dust sets its own specific context window for
-  “include data”. So it does not exactly correspond to the context windows of
-  agents’ underlying models.
-</Info>
+## Related
 
-## When should I use the ‘include data’ option?
-
-This method is particularly useful in scenarios where the most current information is crucial: news monitoring, project updates, or any area where exhaustivity and recent developments are more relevant than older information.
-
-Example again:
-
-At Dust, we use Include Data to track recent features shipment.
-
-- Every time something is shipped in the product, the responsible team member sends a message in _#shipped_, explaining what is new and why we shipped it.
-- Then we use our _@WeeklyShipped_ agent to create a synthesized table and update the whole team with a short and crisp snapshot every week.\
-
-## Limitations
-
-- While this method ensures that the most recent documents are considered first, **it does not prioritize the relevance of the content based on the query beyond recency: it takes ALL recent data, without any filter.** Therefore, it might not always return the most contextually relevant documents if they are older than the most recent ones.
-- The context window can be limiting: depending on the model used and the volume of data you have, you might not be able to retrieve data from a large period of time.
-
-When you create an agent, **try different options to check which one suits you best**!
+<CardGroup cols={2}>
+  <Card title="Knowledge" icon="book" href="/docs/user-documentation/agents/knowledge">
+    Compare the ways an agent can use your data.
+  </Card>
+  <Card title="Search data sources" icon="magnifying-glass" href="/docs/user-documentation/agents/knowledge/search-data-sources">
+    Find the most relevant passages instead of loading everything.
+  </Card>
+  <Card title="Extract data" icon="list-check" href="/docs/user-documentation/agents/knowledge/extract-data">
+    Pull the same fields out of many documents.
+  </Card>
+  <Card title="Understanding context windows" icon="window-maximize" href="/docs/user-documentation/agents/llm-best-practices/understanding-llms-context-windows">
+    Learn how much text a model can read at once.
+  </Card>
+</CardGroup>

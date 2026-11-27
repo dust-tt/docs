@@ -1,103 +1,90 @@
 ---
 title: "Table queries"
+description: "Let an agent answer quantitative questions by writing and running SQL on your tables, spreadsheets, and databases."
 ---
 
+With **Analytics**, the agent turns a question into a SQL query, runs it on the tables you selected, and answers from the results. Use it for questions about numbers, counts, and trends, where search falls short because it only reads the passages it finds. For questions about text, like policies or notes, use [search](/docs/user-documentation/agents/knowledge/search-data-sources) instead.
 
-Table queries enable agents to generate and execute SQL queries on structured data before replying (Snowflake, BigQuery, CSVs, Notion Databases, Google Sheets). This comes as complement of the Search Data Source agent action which generally falls short on quantitative questions (semantic search presents chunk of data ordered by pertinence to the agent that make it impossible for the agent to properly answer quantitative questions since it does not have access to the entire data). Instead Table Queries allow the agent to query these structured data sources using SQL (query language), enabling the agent to answer analytical questions.
+## When to use table queries
 
-There are multiple ways to use Table Queries:
+Take this table of cars:
 
-- On Tables manually created in **Folders (CSV upload, or API)**
-- On Tables automatically discovered by Dust from **Google Drive (Sheets)**, **Notion (Databases)**, **Microsoft (Sheets)**, **Snowflake**, **BigQuery** (beta)
-- On Tables uploaded in the conversation (**CSV upload**).
+| car | production_year | color | description |
+| --- | --- | --- | --- |
+| toyota | 2001 | red | Perfect car for young people who love the city |
+| mercedes | 2004 | red | Perfect car if you love fancy things |
+| volkswagen | 2008 | blue | A great car if you like the countryside |
+| renault | 2012 | brown | Ideal car if you like going to your local repair shop |
+| citroen | 2020 | green | A great car if you don't like cars |
 
-Table queries are suited for quantitative questions. Conversely to semantic search, they are not suited for questions on unstructured / raw text data. Both actions (Data Source Search and Table Queries) should be use complementary based on your use-case.
+"What is the most common color for cars produced between 2000 and 2010?" is a good fit for a table query. "What is the best car to buy if I live in New York?" is a better fit for search, because the answer is in the descriptions.
 
-## Example
+## Where tables come from
 
-| cars       | production_year | color | description                                           |
-| ---------- | --------------- | ----- | ----------------------------------------------------- |
-| toyota     | 2001            | red   | Perfect car for young people who love the city        |
-| mercedes   | 2004            | red   | perfect car if you love fancy things                  |
-| volkswagen | 2008            | blue  | a great car if you like the countryside               |
-| renault    | 2012            | brown | ideal car if you like going to your local repair shop |
-| citroen    | 2020            | green | a great car if you don’t like cars                    |
+- **Folders**: upload a CSV file as a table, or create tables with the API ([Upsert a table](/docs/developer-platform/dust-api-documentation/upsert-a-table)).
+- **Connections**: Dust creates tables from Google Sheets (each tab becomes a table), Microsoft Excel files, Notion databases, Salesforce, Snowflake, and BigQuery.
 
-The following question is **well suited** for a Table Query but poorly suited for Data Source search:
+Each Google Sheets tab can have up to 512 columns. See the Google Drive [size limitations](/docs/user-documentation/admins/connections-management/google-drive#size-limitations) for the other limits on Google Sheets.
 
-What is the most common color for cars produced between 2000 and 2010 ?
+You don't need this setup for CSV or Excel files uploaded in a conversation: the agent analyzes them in the conversation. See [Conversation files](/docs/user-documentation/data-sources/conversation-files/conversation-files).
 
-The following question is **poorly suited** for a Table Query but well suited for Data Source search:
+## Set up table queries
 
-What is the best car to buy if I live in NYC ?
-
-## Creating agents with Table Queries
-
-When creating or editing an agent, in the `Action & Data sources` section select `Add a tool` with the `Query Tables` method.
-
-Select one or more tables that you would like your agent to use. You can select a whole spreadsheet to add all of its tabs.
+<Steps>
+  <Step title="Add knowledge">
+    In the Agent Builder, in **Capabilities and knowledge**, click **Add knowledge**.
+  </Step>
+  <Step title="Select tables">
+    Pick a Space and select one or more tables. Select a whole spreadsheet to add all of its tabs. Click **Next**.
+  </Step>
+  <Step title="Choose Analytics">
+    Pick **Analytics (tables, spreadsheets...)**, describe what the tables contain, and save the agent.
+  </Step>
+</Steps>
 
 <Note>
-The agent uses the tables selected when you save it. If you select a whole spreadsheet, Dust adds the tabs it has at that moment. Tabs added to the spreadsheet later aren't included automatically: edit the agent, select the new tab, and save.
+  The agent uses the tables selected when you save it. When you select a spreadsheet or a folder, Dust adds the tabs or tables directly inside it at that moment. Tables in nested subfolders aren't included. If you add tabs or tables later, edit the agent, select them, and save.
 </Note>
 
-### Joining tables together (advanced)
+## Describe your tables
 
-Agents have the ability to use data from multiple tables at once, and even join tables together, even if the tables come from different data sources.
+A clear description helps the agent write better queries. For a table like this one:
 
-To enable this, you can simply pick several tables when creating your agent.
-
-If you want your agent to join data between tables, it is useful to explain how to join the tables in the agen's instructions.
-
-Consider this example with a `users` table and an `orders` table:
-
-| name        | email                               |
-| ----------- | ----------------------------------- |
-| john powell | [john@acme.co](mailto:john@acme.co) |
-| tom peralta | [tom@acme.co](mailto:tom@acme.co)   |
-
-| product_name               | user_email                          |
-| -------------------------- | ----------------------------------- |
-| solid gold lint roller     | [john@acme.co](mailto:john@acme.co) |
-| tungsten toothbrush handle | [tom@acme.co](mailto:tom@acme.co)   |
-
-To help the agent properly join data between these tables it is desirable to add something like this in the instructions:
-
-You can join data between the users and orders tables using respectively the email and user_email columns
-
-This is especially true in more complex use-cases where the ideal join columns are not obvious.
-
-## Creating Tables
-
-### Creating Tables from CSV files
-
-1. Make sure you have `builder` rights on your Dust workspace.
-2. Go to the `Knowledge` tab and go to `Folders` into the space of your choice. Pick the folder you want to add your table to, or create a new folder by clicking on `Add a new folder` at the top of the page.
-3. Go to the `Tables` tab and click on `Add table`.
-4. Upload a file in CSV format, and enter a good description for your table. **Providing a detailed description for your table will help the AI generate better queries !**
-
-| name             | date       | stage    |
-| ---------------- | ---------- | -------- |
-| ACME CORP        | 20/10/2022 | lead     |
-| STARK CORP       | 21/11/2023 | closing  |
+| name | date | stage |
+| --- | --- | --- |
+| ACME CORP | 20/10/2022 | lead |
+| STARK CORP | 21/11/2023 | closing |
 | PERMUTATION LABS | 19/08/2020 | customer |
 
-Based on this example, a good table description would be:
+A good description would be: "Extract from our CRM. Each row is a potential customer, with the date of our last meeting and their stage in the sales pipeline."
 
-This table is an extract from our CRM. Each line represents a potential customer, and includes the date of the last meeting we had with them and what stage they are at in our sales pipeline.
+For BigQuery, you can reuse the table and column descriptions set in BigQuery. Turn this on in the BigQuery connection settings.
 
-### Creating Tables from API
+## Join tables
 
-You can create Tables from API on existing Folders Data Sources. Please refer to our API documentation available here: [Upsert a table](/docs/developer-platform/dust-api-documentation/upsert-a-table)
+An agent can use several tables at once and join them, even when they come from different data sources. Select all the tables when you set up the knowledge, then explain in the instructions how they relate.
 
-### Tables from Google Sheets and Notion Databases
+For example, with a `users` table (`name`, `email`) and an `orders` table (`product_name`, `user_email`), add this to the instructions:
 
-Dust automatically creates a table for every Google Sheet and Notion Database that we find in your connections.
+```
+You can join the users and orders tables on users.email and orders.user_email.
+```
 
-Make sure the Notion and Google Sheet connections are setup, and that the Dust integration has access to the Google Sheets or Notion Databases that you want to use.
+This matters most when the right join columns aren't obvious from their names.
 
-Each tab of a Google spreadsheet becomes its own table. A table can have up to 512 columns. See the Google Drive [size limitations](/docs/user-documentation/admins/connections-management/google-drive#size-limitations) for the other limits and for tabs that aren't synced.
+## Related
 
-### Tables from BigQuery
-
-For BigQuery connections, table and column descriptions set in BigQuery can be automatically used when describing tables to agents. This feature can be enabled in the BigQuery connection management screen.
+<CardGroup cols={2}>
+  <Card title="Knowledge" icon="book" href="/docs/user-documentation/agents/knowledge">
+    Compare the ways an agent can use your data.
+  </Card>
+  <Card title="Search data sources" icon="magnifying-glass" href="/docs/user-documentation/agents/knowledge/search-data-sources">
+    Search text documents by meaning.
+  </Card>
+  <Card title="Folders" icon="folder" href="/docs/user-documentation/data-sources/folders">
+    Upload CSV files and create tables.
+  </Card>
+  <Card title="Upsert a table" icon="code" href="/docs/developer-platform/dust-api-documentation/upsert-a-table">
+    Create and update tables with the API.
+  </Card>
+</CardGroup>

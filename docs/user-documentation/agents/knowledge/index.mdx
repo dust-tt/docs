@@ -1,14 +1,52 @@
 ---
 title: "Knowledge"
+description: "Give an agent access to your company data and choose how it reads that data: search, analytics on tables, full documents, or structured extraction."
 ---
 
+Knowledge lets an agent use your company data when it answers. You pick the data the agent can use, then choose how it reads that data. The data comes from your [data sources](/docs/user-documentation/data-sources/overview): connections, folders, and websites, which admins and builders manage in Spaces.
 
-Data sources are managed by Builders and Admins of the workspace via Connected Data, Folders and Websites. Knowledge allow the agent to retrieve and use selected data as context to answer questions, using the different methods below:
+## Add knowledge to an agent
 
-| Name         | When to use it                                              | How to configure it when building an agent                                                                                                           | What the agent will do                                                                                                                                                                                                        |
-| ------------ | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Search       | To search across various data sources. (Most common method) | Select data from your Folders and Connected Data and describe what it is about.                                                                      | Perform a semantic search across the selected data to find the most relevant content and generate a response using this context.                                                                                              |
-| Include Data | To include data exhaustively. (entire documents)            | Select data from your Folders and Connected Data, set a time limit if required, and describe what it is about.                                       | Include as much data as possible - starting with the most recent - until reaching the context window limit or your set limit, and then generate a response using this context.                                                |
-| Query tables | To query structured data (Tables, Spreadsheets, DBs).       | Select a database from your Folders or Connected Data, created from data warehouses (Snowflake/BigQuery) or CSV files, gsheets, or Notion databases. | Convert the user’s question into an SQL query, run it against the database, retrieve results, and generate a response from this content. Learn more: [Table queries](/docs/user-documentation/agents/knowledge/table-queries) |
-| Extract Data | To extract structured data from large data sources.         | Select data from your Folders or Connected Data and define the desired data schema                                                                   | Search the selected data and extract information following the defined schema. Learn more: [Extract data](/docs/user-documentation/agents/knowledge/extract-data)                                                             |
-| Find in data sources | To browse and navigate your data sources like a file system, instead of just by search query. | Available together with your Search-enabled Folders and Connected Data, no separate data source selection needed. | Lists folder contents, opens a specific document by its path, locates a document by its title, and reports where a document sits in the folder hierarchy, complementing semantic search for structured, path based lookups. |
+<Steps>
+  <Step title="Open the agent in the Agent Builder">
+    In **Capabilities and knowledge**, click **Add knowledge**.
+  </Step>
+  <Step title="Select data sources">
+    In **Select data sources**, pick a Space, then select the connections, folders, websites, or specific pages and channels the agent needs. Click **Next**.
+  </Step>
+  <Step title="Choose a method">
+    Pick how the agent uses the data (see the table below), describe what the data contains, and save the agent.
+  </Step>
+</Steps>
+
+## Choose a method
+
+| Method | Use it for | What the agent does |
+| --- | --- | --- |
+| [Content search](/docs/user-documentation/agents/knowledge/search-data-sources) | Most questions about documents, like policies, wikis, tickets, or meeting notes | Searches the data by meaning and answers from the most relevant passages, with links to the sources. |
+| [Analytics](/docs/user-documentation/agents/knowledge/table-queries) | Numbers and counts from tables, spreadsheets, and databases | Writes a SQL query, runs it on the selected tables, and answers from the results. |
+| [Include all data](/docs/user-documentation/agents/knowledge/include-data) | Summaries and reviews that need complete documents, like a weekly digest | Loads whole documents, most recent first, until it reaches the model's limit or your time range. |
+| [Advanced processing](/docs/user-documentation/agents/knowledge/extract-data) | Pulling the same fields out of many documents | Reads the documents and extracts the information in a structure you define. |
+
+Start with **Content search** unless the question is about numbers or needs every document. You can add several knowledge configurations to the same agent, for example search on your wiki and analytics on a sales spreadsheet.
+
+<Tip>
+  An agent with a small set of relevant sources usually answers better than one with access to everything. If you want an agent to find the right sources on its own, add [Discover Knowledge](/docs/user-documentation/agents/discover-knowledge) instead.
+</Tip>
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Search data sources" icon="magnifying-glass" href="/docs/user-documentation/agents/knowledge/search-data-sources">
+    Search your data by meaning and filter it with labels.
+  </Card>
+  <Card title="Table queries" icon="table" href="/docs/user-documentation/agents/knowledge/table-queries">
+    Answer quantitative questions with SQL on your tables.
+  </Card>
+  <Card title="Data sources overview" icon="database" href="/docs/user-documentation/data-sources/overview">
+    Learn where knowledge comes from: connections, folders, and websites.
+  </Card>
+  <Card title="Discover Knowledge" icon="compass" href="/docs/user-documentation/agents/discover-knowledge">
+    Let an agent find the right sources without selecting them.
+  </Card>
+</CardGroup>
