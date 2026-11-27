@@ -1,105 +1,80 @@
 ---
 title: "Tasks"
+description: "Create, assign, and track work in a Pod, start an agent on a task, and keep tasks in sync with tools like Jira, Asana, or Linear."
 ---
 
+The **Tasks** tab lists the work to do in a Pod. Members and agents can create tasks, assign them, start an agent on them, and mark them done. When an agent starts a task, it gets its own conversation, so you can follow the work and step in at any time.
 
-The **Tasks tab** is where work gets defined, assigned, and executed. Tasks are lightweight items that describe something that needs to happen. Any Pod member can create them, assign them, and start an agent on them. Agents can do the same: create tasks, start working on them, and mark them done, all without a human in the loop.
+## Create a task
 
-This reflects a core principle of Pods: **everything a human can do, an agent can do**. Agents interact with Tasks through the **Pods skill**, which is available to all agents by default. See [Agent tools](/docs/user-documentation/pods/agent-tools) for the full list of tools the skill provides.
+<Steps>
+  <Step title="Open the Tasks tab">
+    Open the Pod and click **Tasks**.
+  </Step>
+  <Step title="Write the task">
+    Click **Add a task...** and describe the work. Write it as a clear, self-contained instruction: an agent reads it as its brief when it starts.
+  </Step>
+  <Step title="Assign it">
+    Optionally, pick a Pod member as assignee, then press **Enter**.
+  </Step>
+</Steps>
 
+Agents can create tasks too, for example after reading a conversation or processing a request. Tasks are grouped by assignee, and unassigned tasks have their own section.
 
-## How to create a task
+## Start an agent on a task
 
-**As a human:**
+<Steps>
+  <Step title="Open the task actions">
+    Hover over the task and click **Start working**.
+  </Step>
+  <Step title="Pick the agent">
+    Choose the agent and, if needed, add a custom message with extra instructions.
+  </Step>
+  <Step title="Start">
+    Start the task. Dust creates a conversation linked to the task and marks the task as in progress. You can open that conversation from the task or from the **Conversations** tab.
+  </Step>
+</Steps>
 
-1. Open the Pod and click the **Tasks** tab
-2. Click **Add a task** and type a description
-3. Optionally assign it to a Pod member using the assignee picker
-4. Press **Enter** to save
+Agents can also start work on a task themselves, without anyone clicking.
 
-**As an agent:**
+## Task states
 
-Agents can create tasks directly in a Pod, for example after analysing a conversation, processing an incoming request, or as part of a larger workflow. Tasks created by agents appear in the same list and are treated identically to tasks created by humans.
+A task is to do until someone starts it, in progress while an agent works on it in a linked conversation, and done once it's checked.
 
-Tasks are grouped by assignee. Unassigned tasks appear in their own section.
+To mark a task done, click its checkbox. An agent can also mark its own task done at the end of its conversation and explain what it did. Done tasks stay visible with a strikethrough: uncheck one to reopen it.
 
-<Info>
-**Write task descriptions as clear, self-contained instructions: the agent will read the task text as its starting brief when it begins working.**
+## Edit, reassign, or delete a task
 
-**Task states**
-</Info>
+- **Edit**: click the task text, change it, and press **Enter**.
+- **Reassign**: click the assignee and pick another member.
+- **Delete**: open the `...` menu on the task and click **Delete task**.
 
-| State           | What it means                                                          |
-| --------------- | ---------------------------------------------------------------------- |
-| **Open**        | Task has been created but no one has started working on it yet         |
-| **In progress** | An agent has been started on the task and a linked conversation exists |
-| **Done**        | The task has been completed, by a human or an agent                   |
+To find a task, switch between your tasks and everyone's, or type in **Filter tasks...** to search by text.
 
-## How to start an agent on a task
+## Sync tasks with Jira, Asana, or Linear
 
-**As a human:**
+Any agent can read and write Pod tasks. To sync them with another tool, use an agent that also has that tool, like [Jira](/docs/user-documentation/agents/tools/jira), [Asana](/docs/user-documentation/agents/tools/asana), or Linear.
 
-1. Hover over a task and click the play button
-2. Optionally add a custom message or select a specific agent
-3. Click **Start**. A conversation linked to the task is created and the task moves to **In progress**
-
-
-**As an agent:**
-
-Agents can start working on a task directly: picking it up, opening a linked conversation, and progressing it to **In progress** without any human trigger.
-
-The linked conversation is visible in the Conversations tab. You can follow the agent's progress, step in, and redirect at any time.
-
-## How to mark a task done
-
-* **By a human:** click the checkbox next to the task; it moves to **Done** immediately
-* **By an agent:** the agent can mark its own task done at the end of a conversation, with a short rationale explaining what was accomplished
-
-Completed tasks remain visible with a strikethrough. They can be unchecked to reopen if needed.
-
-
-## How to edit or delete a task
-
-* **Edit text:** click directly on the task description to edit it inline, then press **Enter** to save
-* **Reassign:** click the assignee avatar to change who the task is assigned to
-* **Delete:** open the `...` menu on the task > **Delete task**; a confirmation is required
-
-## Filtering and searching tasks
-
-| Filter   | Shows                 |
-| -------- | --------------------- |
-| **Mine** | Tasks assigned to you |
-| **All**  | Every task in the Pod |
-
-The search bar filters tasks by description text in real time.
-
-## Syncing tasks with an external tool
-
-Tasks in a Pod can be kept in sync with external project management tools such as Jira, Asana, or Linear. This is done by setting up an agent with the relevant external tool (Jira, Asana, or Linear). The Pods skill is available by default.
-
-**One-time import:**
-
-Ask an agent to read your open issues or tasks from the external tool and create the corresponding tasks in the Pod:
-
-1. Start a conversation in the Pod
-2. Mention an agent that has the Jira / Asana / Linear tool enabled
-3. Ask it to import your open items: _"Read all open Jira tickets assigned to this team and create a matching task in this Pod for each one"_
-4. The agent creates the tasks, preserving the title, description, and assignee where possible
-
-**Keeping tasks in sync with the wake-up tool:**
-
-For ongoing sync, use the **wake-up tool** to schedule a recurring agent that runs at a set interval and reconciles the two systems:
-
-* New items in the external tool are created as tasks in the Pod
-* Tasks marked done in the Pod are closed or updated in the external tool
-* Changes to titles or assignees in either direction can be propagated
-
-Example prompt: _"Every weekday morning, check for new open Jira tickets in project XYZ and create a task in this Pod for any that don't already exist. Also check for tasks in this Pod that are marked done and close the corresponding Jira ticket. Use the wake-up tool to schedule this automatically."_
-
-<Info>
-The sync agent can use the Pods skill by default to read and write Pod tasks. The relevant external tool (**Jira**, **Asana**, or **Linear**) must be available to the agent so it can read and write external issues.
-</Info>
+- **One-time import**: in a Pod conversation, ask the agent something like _"Read all open Jira tickets assigned to this team and create a matching task in this Pod for each one."_
+- **Ongoing sync**: ask the agent to use [wake-ups](/docs/user-documentation/agents/tools/wake-ups) to run the sync on a schedule, for example _"Every weekday morning, create a task in this Pod for each new open Jira ticket in project XYZ, and close the Jira ticket of each task marked done here."_
 
 <Warning>
-Two-way sync requires careful instructions to avoid loops. Specify clearly which system is the source of truth for each type of change, or instruct the agent to only sync in one direction per run.
+  A two-way sync can loop if the instructions aren't clear. Say which tool is the source of truth for each kind of change, or sync in one direction per run.
 </Warning>
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Conversations" icon="comments" href="/docs/user-documentation/pods/conversations">
+    Follow the conversations linked to tasks.
+  </Card>
+  <Card title="Agent tools" icon="wrench" href="/docs/user-documentation/pods/agent-tools">
+    See the tools agents use to manage tasks.
+  </Card>
+  <Card title="Files" icon="folder" href="/docs/user-documentation/pods/files">
+    Give agents the knowledge they need for their tasks.
+  </Card>
+  <Card title="Wake-ups" icon="alarm-clock" href="/docs/user-documentation/agents/tools/wake-ups">
+    Schedule an agent to come back to a task later.
+  </Card>
+</CardGroup>
