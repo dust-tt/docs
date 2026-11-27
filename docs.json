@@ -203,6 +203,7 @@
             "group": "Tools",
             "root": "docs/user-documentation/agents/tools/index",
             "pages": [
+              "docs/user-documentation/agents/tools/preconfigured-mcp-servers",
               "docs/user-documentation/agents/tools/airtable",
               "docs/user-documentation/agents/tools/agent-memory",
               "docs/user-documentation/agents/tools/asana",
