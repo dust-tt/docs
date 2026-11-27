@@ -1,40 +1,63 @@
 ---
 title: "Shared asset library"
+description: "Keep logos, Frame templates, and brand guidelines in one Open Pod so every agent in the workspace uses the same, up-to-date assets."
 ---
 
+Design, brand, and platform teams can keep their reusable assets in one Open Pod: logos, Frame templates, brand guidelines, and reference data. Everyone in the workspace can read an Open Pod, so agents can use these assets from any conversation or Pod, and the team that owns them updates them in a single place.
 
-**Audience:** Design, Brand, and Platform teams
+## Set up the Pod
 
-**Goal:** Centralise logos, Frame templates, images, and other reusable assets in one place so that any agent in the workspace can use them from any conversation or Pod, without duplicating files or coordinating manually.
+| Setting | Recommendation |
+| --- | --- |
+| Name | A clear name, like "Brand assets" or "Shared templates". |
+| Access | **Open**, so everyone in the workspace can read the files. |
+| Members | The design or platform team members who own the assets. |
+| Files | One folder per type of asset. See below. |
+| Instructions for agents | What each folder contains and which files are the reference versions. See [Give agents instructions for the Pod](/docs/user-documentation/pods/files#give-agents-instructions-for-the-pod). |
 
-## Setup
+Organize the **Files** tab with folders, for example:
 
-- One **Open** Pod (e.g. "Brand Assets" or "Shared Templates")
-- Editors: the Design or Platform team members who own and maintain the assets
-- Visibility: Open; any workspace member can browse and read the Pod's content without being explicitly added as a member
-- Files tab: organise by type:
-  - `images/`: logos, illustrations, product screenshots
-  - `frames/`: canonical Frame templates (.tsx) for reports, dashboards, and slides
-  - `brand/`: color palettes, typography guides, brand guidelines
-  - `data/`: shared reference tables or lookup CSVs agents may need
-- Pod description: list what each folder contains so agents know where to look
+- `images/`: logos, illustrations, and product screenshots.
+- `frames/`: reference Frames for reports, dashboards, and slides.
+- `brand/`: color palettes, typography, and brand guidelines.
+- `data/`: shared reference tables, like lookup CSV files.
 
-## Usage
+<Note>
+  People who join an Open Pod become members, and members can add, change, and delete files. To keep the library under the team's control, let others read it without joining.
+</Note>
 
-**Light: shared library, manual use**
+## Start simple
 
-Upload your assets once and let teams access them directly. Any workspace member can open the Pod, browse the Files tab, and download what they need. Agents can also be pointed to a specific file: "use the logo from the Brand Assets Pod."
+Upload the assets once. Anyone can open the Pod, browse the **Files** tab, and download what they need. To use an asset, point an agent to it by name, for example: _"Use the logo from the Brand assets Pod."_
 
-**Medium: template-based agent output**
+Editors can add the most used files, like the brand guidelines, as Pod tabs so they're one click away. See [Show files as Pod tabs](/docs/user-documentation/pods/files#show-files-as-pod-tabs).
 
-From any conversation or Pod, ask an agent to start from a canonical template: "use the BrandedReport Frame from the shared asset Pod as the base for this quarterly review." The agent copies the template into the current context, adapts it, and saves the result locally; the shared original is never modified. The design team updates a template once; all future agent runs automatically pick up the latest version.
+## Build from templates
 
-**Heavy: workspace-wide brand consistency**
+From any conversation or Pod, ask an agent to start from a reference Frame: _"Use the quarterly report Frame from the Brand assets Pod as the base for this review."_ The agent copies the template, adapts it, and saves the result where you're working. The original stays untouched. When the team updates a template, the next agent runs use the new version.
 
-- Brief every agent that produces visual output to always check the shared asset Pod for the latest templates before generating a Frame or document
-- Set up an agent in the asset Pod that monitors the Files tab and posts a conversation whenever a template is updated, so dependent Pods and workflows know to refresh
-- Use the Pod description as a changelog: record the latest version and what changed each time a template is updated
+## Go further
 
-## Outcome
+- In the instructions of agents that create reports, slides, or other visual content, tell them to check the Brand assets Pod for templates before they start.
+- Keep a changelog document in the Pod, and ask agents to add an entry each time a template changes, so people know what's new.
 
-Any agent in the workspace produces on-brand output without extra instructions. The Design team maintains a single source of truth instead of chasing copies scattered across conversations and Pods.
+## What you get
+
+Agents produce on-brand content without extra instructions, and the team maintains one source of truth instead of copies scattered across conversations and Pods.
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Files" href="/docs/user-documentation/pods/files">
+    Organize the Pod's files and folders.
+  </Card>
+  <Card title="Frames" href="/docs/user-documentation/agents/frames/overview">
+    Create interactive reports, dashboards, and slides.
+  </Card>
+  <Card title="Members and roles" href="/docs/user-documentation/pods/members-and-roles">
+    Choose who can access the Pod and edit it.
+  </Card>
+  <Card title="Agent tools" href="/docs/user-documentation/pods/agent-tools">
+    See what agents can do in a Pod.
+  </Card>
+</CardGroup>
