@@ -1,26 +1,32 @@
 ---
 title: "Schedules"
+description: "Run an agent at set times, like every weekday morning or the first day of each month, by describing the schedule in plain language."
 ---
 
+A **schedule** runs an agent automatically at the times you choose, for example a daily digest, a weekly report, or a monthly review. You describe when it should run in plain language, and Dust turns it into a schedule.
 
-## Add triggers to your agents in the Agent Builder
+## Add a schedule to an agent
 
-We introduced a dedicated **Triggers** section in the **Agent Builder**. From there, you can create **schedules** for your agent to follow.
-
-
-When setting up a **schedule**, you can specify a name, describe the frequency you'd like the agent to run at, and add an optional custom message that will be sent to the **agent**.
-You can also specify a timezone you'd like the schedule to effect in. The timezone defaults to the user's location.
-
-
-A **Large Language Model** is responsible to generate the actual schedule behind the hood. To make sure it generated the right thing, we added an entry that confirms the schedule the **agent** will effectively run at.
-Here, it's confirming that the agent will run _at 8:00 AM, every week from monday to friday, in Los Angeles time_.
-
-You just have to Save the **agent** for the **schedule** to be registered.
-
-
-<Info>
-By default, each run's conversation appears only in your own conversation history. To share runs with your team, pick a Pod under **Where to create this conversation?**: the conversation is then created in that Pod, where all its members can see it.
-</Info>
+<Steps>
+  <Step title="Open the agent's triggers">
+    Open the agent in the **Agent Builder**. In the **Triggers** section, click **Add triggers**, then pick **Schedule**.
+  </Step>
+  <Step title="Describe when it runs">
+    Give the trigger a **Name**. In **Scheduler**, describe the timing in plain language, like _"every weekday at 8 AM"_ or _"the first Monday of each month at 9 AM"_. The schedule uses your timezone unless you name another one.
+  </Step>
+  <Step title="Check the schedule">
+    Dust shows how it understood your description, for example _"At 8:00 AM, Monday through Friday, in Los Angeles (America/Los_Angeles) timezone."_ Expand **Next 5 occurrences** to check the upcoming runs. If it isn't right, rephrase your description.
+  </Step>
+  <Step title="Add a message">
+    In **Message (optional)**, tell the agent what to do on each run, like _"Summarize yesterday's new support tickets."_
+  </Step>
+  <Step title="Choose credits and where runs appear">
+    Pick whose credits pay for the runs under **Credits**. See [Credits usage](/docs/user-documentation/agents/triggers/credits-usage). To share the runs with your team, pick a Pod under **Where to create this conversation? (optional)**. Otherwise, runs appear in your own conversations.
+  </Step>
+  <Step title="Save the agent">
+    The schedule starts once you save the agent.
+  </Step>
+</Steps>
 
 ## How often a schedule can run
 
@@ -36,3 +42,20 @@ You can add a trigger to an agent only if you can use that agent:
 - You have access to every Space that the agent's tools, knowledge, and skills come from.
 
 Otherwise, saving the trigger fails with the error "The agent configuration was not found." Ask one of the agent's editors or an admin which Spaces the agent relies on, and request access to them.
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Triggers" href="/docs/user-documentation/agents/triggers/index">
+    See all the ways to run an agent automatically.
+  </Card>
+  <Card title="Credits usage" href="/docs/user-documentation/agents/triggers/credits-usage">
+    Choose whose credits pay for each run.
+  </Card>
+  <Card title="Webhooks" href="/docs/user-documentation/agents/triggers/webhooks/index">
+    Run an agent when something happens in another tool.
+  </Card>
+  <Card title="Wake-ups" href="/docs/user-documentation/agents/tools/wake-ups">
+    Let an agent pick a conversation back up later.
+  </Card>
+</CardGroup>

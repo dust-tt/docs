@@ -18,10 +18,20 @@ For a custom webhook, you can also have Dust check that each request is signed: 
 
 Only workspace admins can create webhook sources.
 
-1. Go to **Spaces** > **Triggers** and click **Add source**.
-2. Pick a provider, or **Custom webhook**.
-3. Name the source, then connect your account and select the events to watch (built-in sources), or set up the webhook (custom).
-4. Save the source.
+<Steps>
+  <Step title="Open the triggers page">
+    Go to **Spaces** > **Triggers** and click **Add source**.
+  </Step>
+  <Step title="Pick the source">
+    Pick a provider, or **Custom webhook**.
+  </Step>
+  <Step title="Set it up">
+    Name the source. For a built-in source, connect your account and select the events to watch. For a custom webhook, set up the webhook.
+  </Step>
+  <Step title="Save">
+    Save the source.
+  </Step>
+</Steps>
 
 A new source is available to all workspace members. To limit it to members of specific Spaces, open the source's **Sharing** tab.
 
@@ -39,3 +49,20 @@ A new source is available to all workspace members. To limit it to members of sp
 3. Save the agent.
 
 Without a filter, every matching event runs the agent, up to the rate limit.
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Filter webhooks payload" href="/docs/user-documentation/agents/triggers/webhooks/filter-webhooks-payload">
+    Run the agent only on the events you care about.
+  </Card>
+  <Card title="Rate limiting" href="/docs/user-documentation/agents/triggers/webhooks/rate-limiting">
+    Cap how often a webhook trigger runs.
+  </Card>
+  <Card title="Triggers" href="/docs/user-documentation/agents/triggers/index">
+    See all the ways to run an agent automatically.
+  </Card>
+  <Card title="Credits usage" href="/docs/user-documentation/agents/triggers/credits-usage">
+    Choose whose credits pay for each run.
+  </Card>
+</CardGroup>

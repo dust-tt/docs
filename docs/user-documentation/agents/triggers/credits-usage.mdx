@@ -1,5 +1,6 @@
 ---
 title: "Credits usage"
+description: "Choose whether a trigger's runs use your own credits or the workspace's, and review what your triggers consume."
 ---
 
 
@@ -22,7 +23,7 @@ Leave a trigger on personal credits when its editor is also the one who reads th
 
 ## Grant access to the workspace pool
 
-Only admins can charge triggers to the workspace by default. Admins and managers set this under **Governance > Pods & Frames > Automations > Charge automations to the workspace**. They can choose everyone, selected groups, or admins only.
+Only admins can charge triggers to the workspace by default. Admins and managers set this in **Admin** > **Governance** > **Pods, Frames & Files**, with the **Charge automations to the workspace** setting. They can choose everyone, selected groups, or admins only.
 
 Removing the access does not move existing triggers back to personal credits. Triggers already on workspace credits stay there until someone changes them.
 
@@ -53,3 +54,20 @@ Select several rows to move them to another pool in one go, which is the quickes
 ## Rate limits
 
 The pool is separate from the rate limit. A webhook trigger keeps its own cap on runs per 24 hours whichever pool it charges. See [Rate limiting](/docs/user-documentation/agents/triggers/webhooks/rate-limiting).
+
+## Related
+
+<CardGroup cols={2}>
+  <Card title="Triggers" href="/docs/user-documentation/agents/triggers/index">
+    See all the ways to run an agent automatically.
+  </Card>
+  <Card title="Rate limiting" href="/docs/user-documentation/agents/triggers/webhooks/rate-limiting">
+    Cap how often a webhook trigger runs.
+  </Card>
+  <Card title="Credit management" href="/docs/user-documentation/admins/usage-seats-and-credits/credit-management">
+    Understand how seat and workspace credits work.
+  </Card>
+  <Card title="Schedules" href="/docs/user-documentation/agents/triggers/schedules">
+    Run an agent at set times.
+  </Card>
+</CardGroup>
