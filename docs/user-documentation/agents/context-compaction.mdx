@@ -15,7 +15,7 @@ The context indicator in the message input shows how full the context is, as a p
 - **From 82%:** a banner shows "Conversation context is almost full," with a **Compact now** button.
 - **From 90%:** you must compact before you send a new message. The message input shows "Context is full, compact to continue."
 
-You can only compact a conversation that has at least one finished agent message.
+You can only compact a conversation that has at least one finished agent message. You can't compact while an agent works, or compact twice in a row without a new message in between.
 
 ## Compact a conversation
 
@@ -42,9 +42,11 @@ After compaction, the agent uses:
 
 The messages before the marker are still in the conversation, and you can still read them. The agent no longer reads them in full. If you compact again, the agent uses the latest summary.
 
+Dust also saves the full conversation before compaction as a file in the conversation, and tells the agent where it is. When the summary isn't enough, the agent can read this file to find earlier details.
+
 ## Limitations
 
-- A model writes the summary, so it can miss details.
+- A model writes the summary, so it can miss details. The agent can still find them in the file of the full conversation.
 - Compaction can take up to about a minute for a long conversation.
 
 ## Related

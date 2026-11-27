@@ -15,7 +15,7 @@ Branching starts a new conversation from any point of an existing one. The new c
 
 You can branch in two ways:
 
-- **From the latest message:** open the `...` menu at the top right of the conversation and click **Branch conversation**.
+- **From the latest agent message:** open the `...` menu at the top right of the conversation and click **Branch conversation**. The branch starts from the latest finished agent message, so the conversation needs at least one finished agent answer.
 - **From a specific message:** open the menu of an agent message and click **Branch from here**. The new conversation includes everything up to that message.
 
 The new conversation opens. Dust writes the summary first, which can take a few seconds. Until it's ready, the message input shows "Wait for the branch to finish preparing."
@@ -28,13 +28,14 @@ The new conversation is independent from the original one:
 
 - **A summary:** the first message summarizes the original conversation up to the branch point. It shows as "Summarized" followed by the title of the original conversation. The agent uses this summary as its context.
 - **Copies of the files:** the files and tool outputs of the original conversation are copied. Changes in one conversation don't affect the other.
+- **The same skills and tools:** the skills and tools enabled in the original conversation are also enabled in the new one, if you have access to them.
 - **The same location:** if the original conversation is in a Pod, the new one is in the same Pod. It uses the same Spaces as the original conversation.
 
 The title of the new conversation shows a **Branched from** link to the original conversation.
 
 ## Permissions
 
-The new conversation has the same access rules as the original conversation when you branch it. You're its first participant. After that, each conversation has its own access rules. For example, if someone adds restricted content to one of them, the other doesn't change.
+The new conversation has the same access rules as the original conversation when you branch it. You're its first participant. To branch a conversation that is in a Pod, you must be a member of the Pod. After that, each conversation has its own access rules. For example, if someone adds restricted content to one of them, the other doesn't change.
 
 ## Related
 
