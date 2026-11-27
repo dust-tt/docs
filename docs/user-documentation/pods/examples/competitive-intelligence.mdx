@@ -1,40 +1,53 @@
 ---
 title: "Competitive intelligence"
+description: "Keep a shared competitive knowledge base up to date with scheduled research, and get competitor briefs tailored to each deal."
 ---
 
+Product and go-to-market teams can share one Pod for competitive intelligence. It holds what the team knows about each competitor, agents keep it current with regular research, and anyone can ask for a brief tailored to a deal, a product decision, or a pricing discussion.
 
-**Audience:** Product / GTM
+## Set up the Pod
 
-**Goal:** Maintain a living competitive knowledge base that stays fresh automatically and generates tailored briefs on demand.
+| Setting | Recommendation |
+| --- | --- |
+| Name | One Pod shared by product and sales teams, like "Competitive intel". |
+| Access | **Restricted**. |
+| Members | Product managers, account executives, and product marketing. |
+| Files | Win/loss analyses, competitor teardowns, and positioning documents, with one folder per competitor. |
+| Instructions for agents | The competitors you track and how to structure a brief. See [Give agents instructions for the Pod](/docs/user-documentation/pods/files#give-agents-instructions-for-the-pod). |
 
-## Setup
+## Start simple
 
-- One Pod shared across Product and GTM (e.g. "Competitive Intel")
-- Members: PMs, AEs, and marketing
-- Visibility: Restricted
-- Files tab: attach win/loss analysis, competitor teardowns, and positioning docs
+Put existing teardowns, win/loss notes, and positioning documents in the **Files** tab. Anyone in the Pod can start a conversation and ask an agent for a brief on a competitor, for example: _"Prepare a brief on Competitor X for a deal with a retail company that cares about pricing."_ The agent uses the Pod's files as context.
 
-## Usage
+## Automate monitoring
 
-**Light: shared research room, on-demand briefs**
+- Add a weekly [schedule](/docs/user-documentation/agents/triggers/schedules) to an agent and pick the Pod under **Where to create this conversation?**. Each week, the agent searches the web for competitor news, product releases, pricing changes, and job postings, and posts a digest in the Pod. The agent needs the [Web search & browse](/docs/user-documentation/agents/tools/web-search-and-browse) tool.
+- Assign teardown tasks to teammates, for example one per competitor, and start an agent on each task to gather the findings into a report.
 
-Use the Pod as a shared home for competitive research. Drop teardowns, win/loss reports, and positioning docs into the Files tab. Any team member can start a conversation at any time to ask the agent to generate a competitive brief for a specific competitor, tailored to a deal, a product decision, or a pricing conversation.
+## Go further
 
-The agent uses everything in the Files tab as context, so there is no need to dig through folders or remember where things are stored.
+- Set up several scheduled agents, each watching a different source, like changelogs, review sites, or press releases. Ask them to update one document per competitor in the Pod.
+- When a new deal shows up in your CRM, a custom [webhook trigger](/docs/user-documentation/agents/triggers/webhooks/index) can run an agent that posts a competitor brief in the customer's Pod. See [One Pod per customer](/docs/user-documentation/pods/examples/one-pod-per-customer).
+- Each quarter, ask an agent to build a landscape summary as a Frame, with wins and losses by competitor, recurring objections, new competitors, and positioning updates, and pin it as the Pod banner.
+- Ask about competitors from anywhere: in any conversation, ask _"@dust, how do we compare with Competitor X on pricing?"_ The agent finds the Pod and searches it, as long as you're a member.
 
-**Medium: automated monitoring, regular digests**
+## What you get
 
-- Use the wake-up tool to schedule a recurring agent that searches for competitor news, product releases, pricing changes, and job postings, and posts a structured digest into the Pod each week
-- Before a deal or product review, ask an agent to synthesise everything in the Pod into a tailored brief for a specific competitor, including their latest moves and how to position against them
-- Set up tasks for the team to do regular teardown work (try a competitor's product, review their docs, attend a webinar) and use the play button to have agents compile findings into a structured report
+The team shares one up-to-date view of the market, and briefs that used to take hours are ready in minutes.
 
-**Heavy: always-on competitive intelligence layer**
+## Related
 
-- Agents monitor multiple signal sources in parallel: product changelogs, G2 reviews, social media, job postings, and press releases, all posted into the Pod as structured conversations tagged by competitor
-- When a new deal is created in the CRM, an agent automatically generates a competitive brief for the most relevant competitor and posts it into the customer's Pod (if using the one Pod per customer setup)
-- A quarterly agent reads the full Pod history and generates a competitive landscape summary: share of wins vs. losses, patterns in objections, emerging competitors, and recommended positioning updates
-- The global Dust agent can answer questions like "how do we compare to Competitor X on pricing?" by reading the Pod directly, giving every AE instant access to competitive intelligence without a dedicated enablement call
-
-## Outcome
-
-No one manually tracks competitors. The Pod accumulates fresh intelligence automatically, and every team member can get a tailored brief in seconds.
+<CardGroup cols={2}>
+  <Card title="Web search & browse" href="/docs/user-documentation/agents/tools/web-search-and-browse">
+    Let agents research the web.
+  </Card>
+  <Card title="Schedules" href="/docs/user-documentation/agents/triggers/schedules">
+    Run research on a regular basis.
+  </Card>
+  <Card title="One Pod per customer" href="/docs/user-documentation/pods/examples/one-pod-per-customer">
+    Bring briefs into each account's Pod.
+  </Card>
+  <Card title="Files" href="/docs/user-documentation/pods/files">
+    Organize what the team knows.
+  </Card>
+</CardGroup>

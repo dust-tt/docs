@@ -1,41 +1,56 @@
 ---
 title: "Ticket handling and support knowledge"
+description: "Turn incoming support tickets into Pod tasks, let agents draft answers, and build a shared memory of past resolutions."
 ---
 
+Support and operations teams can run their ticket queue in one Pod. Each ticket becomes a task, agents draft answers from the team's documentation, and every resolved ticket adds to a shared memory that makes the next one faster.
 
-**Audience:** Support / Ops
+## Set up the Pod
 
-**Goal:** Automatically create one task per incoming ticket, let agents start resolving them, and build a collective memory of resolutions that makes every agent faster over time.
+| Setting | Recommendation |
+| --- | --- |
+| Name | One Pod for the support team, like "Support". |
+| Access | **Restricted**. |
+| Members | The support team and its lead. |
+| Files | Link the product documentation and the escalation playbook from Company Data. Keep a known issues document in the Pod, so agents can update it. |
+| Instructions for agents | Tone of voice, escalation rules, and the topics agents must never answer alone. See [Give agents instructions for the Pod](/docs/user-documentation/pods/files#give-agents-instructions-for-the-pod). |
 
-## Setup
+## Start simple
 
-- One Pod for the support team (e.g. "Support")
-- Members: all support agents and team lead
-- Visibility: Restricted
-- Files tab: link the product documentation, known issues log, and escalation playbook from Company Data
+Create a task for each incoming ticket and assign it to a teammate. To get help with a ticket, click the play button (**Start working on task**): the agent searches the Pod's files and drafts an answer for you to review and send.
 
-## Usage
+Resolved tickets stay in the Pod as conversations, so finding a precedent gets easier over time.
 
-**Light: shared inbox, manual triage**
+## Automate ticket intake
 
-Use the Pod as a shared space for the support team. Create tasks manually for each incoming ticket and assign them to agents. When an agent hits the play button on a task, Dust searches the Pod's Files for relevant documentation and drafts a response for the agent to review and send.
+- Add a [webhook trigger](/docs/user-documentation/agents/triggers/webhooks/index) so an agent runs on each new ticket. Zendesk is a built-in source. For other tools, like Plain, Front, or Intercom, use a custom webhook. Pick the Pod under **Where to create this conversation?**, and ask the agent to create a task with the ticket's title, priority, and link.
+- A teammate starts an agent on the task, reviews its draft, sends the answer, and marks the task done.
+- At the end of each day, a [scheduled](/docs/user-documentation/agents/triggers/schedules) agent reviews the tickets resolved that day and flags recurring issues to the team lead.
 
-The Pod accumulates resolved tickets as conversations over time, making it progressively easier to find precedents.
+## Go further
 
-**Medium: automated task creation, agent-assisted drafting**
+- Let agents handle the first pass on each ticket: classify it, look for known solutions, and draft an answer. For well-defined, low-risk topics, you can let the agent send the answer itself, if it has a tool for your support platform.
+- Schedule a weekly agent that reads resolved conversations and updates the known issues document in the Pod.
+- Schedule a monthly agent that writes a trends report, with the top topics, resolution times, and product areas that cause the most friction, to share with the product team.
+- Point new hires to the Pod: they get every resolved ticket and every piece of documentation from day one.
 
-- Set up an agent triggered on each new ticket (from Plain, Zendesk, Front, or Intercom) to create a task in the Pod with the ticket title, priority, and a link to the thread
-- When a support agent hits the play button, the agent reads the ticket, searches the Pod's files and past resolutions, and drafts a response
-- The support agent reviews, adjusts, and sends; the task is marked done
-- Post-shift, a scheduled agent scans all tickets resolved that day and flags any recurring patterns to the team lead
+## What you get
 
-**Heavy: fully automated, self-improving support loop**
+No ticket gets lost. Agents take care of triage and first drafts, people review and send, and what the team learns stays in the Pod for the next ticket.
 
-- Agents handle first-pass triage automatically: classify ticket type, search for known solutions, draft a response, and in some cases send it without human review (for well-defined, low-risk categories)
-- A weekly agent reads all resolved conversations and updates the known issues log in the Files tab, keeping documentation fresh without manual effort
-- A monthly agent generates a support trends report (top issue categories, resolution times, product areas generating the most friction), posted as a conversation for the team lead and shared with the product team
-- New hires onboard by reading the Pod: they have access to every resolved ticket and every piece of documentation from day one
+## Related
 
-## Outcome
-
-No ticket gets lost. Agents handle first-pass triage and drafting, humans review and send. Resolution patterns accumulate in the Pod and make every future ticket faster.
+<CardGroup cols={2}>
+  <Card title="Tasks" href="/docs/user-documentation/pods/tasks">
+    Assign tickets and hand them to agents.
+  </Card>
+  <Card title="Webhooks" href="/docs/user-documentation/agents/triggers/webhooks/index">
+    Run an agent when a ticket comes in.
+  </Card>
+  <Card title="Files" href="/docs/user-documentation/pods/files">
+    Build the team's knowledge base.
+  </Card>
+  <Card title="Zendesk" href="/docs/user-documentation/agents/tools/zendesk">
+    Let agents search tickets and draft or post replies.
+  </Card>
+</CardGroup>
