@@ -1,81 +1,79 @@
 ---
 title: "Members and roles"
+description: "Add people to a Pod, change their role, remove them, leave a Pod, or archive it."
 ---
 
+Each person in a Pod is a Member or an Editor. Everyone in the Pod can see who its members are. Only Editors can add, promote, or remove members.
 
-Members are managed from the **members panel** in the Pod header. To open it, click the member avatars in the top-right of the Pod header, or click the gear icon (**Pod settings**) and select **Manage members**. Every Pod member can open the panel to see who is in the Pod. Only Editors can add, promote, or remove members.
+To see the members of a Pod, click the member avatars at the top right of the Pod. You can also click the gear icon (**Pod settings**) and select **Manage members**.
 
-## Pod roles
+## Roles
 
-| Role       | What they can do                                                                                                                            |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Member** | Read conversations, start new conversations, create and work on tasks, upload files                                                         |
-| **Editor** | Everything Members can do, plus: add/remove members, change roles, rename the Pod, edit the description, toggle visibility, archive the Pod |
+| Role | What they can do |
+|---|---|
+| **Member** | Read and start conversations, create and work on tasks, and upload files. |
+| **Editor** | Everything a Member can do, and manage members, visibility, and the Pod settings. |
 
-<Warning>
-**A Pod must always have at least one Editor. The role and remove actions are not available for the last remaining Editor. An Editor can leave the Pod only if at least one other Editor exists.**
-</Warning>
+The person who creates the Pod is its first Editor.
 
-## How to add members
+## Add members
 
-**From the members panel:**
+<Steps>
+  <Step title="Open the members panel">
+    Click the member avatars at the top right of the Pod.
+  </Step>
+  <Step title="Invite people or groups">
+    In **Invite people or groups**, search for the people or groups to add, then add them.
+  </Step>
+</Steps>
 
-1. Open the members panel
-2. Under **Add people**, search for people by name or email, or for groups by name
-3. Click a person or group in the results to add them to the Pod
+In an Open Pod, people in the workspace can also join by themselves.
 
-They are added right away as Members. To make someone an Editor, change their role as described below.
+## Change a member's role
 
-Added members receive a notification.
+In the members panel, open the menu next to the person and select **Member** or **Editor**.
 
+## Remove a member
 
-**By mentioning someone in a conversation:**
+In the members panel, open the menu next to the person and select **Remove access**.
 
-If you `@mention` someone who is not yet a member of the Pod, Dust will prompt you to add them as a member. This works if the Pod is Open or if you are an Editor of the Pod.
+## Change the visibility
 
-## How to change a member's role
+In the members panel, Editors can choose who can access the Pod:
 
-1. Open the members panel
-2. Under **Members of the Pod**, hover over the member or group
-3. Click **Set as editor** or **Remove from editors**
+- **Only members of the Pod:** the Pod is Restricted.
+- **Everyone in the workspace:** the Pod is Open.
 
-The change applies right away, with no confirmation.
+Dust asks you to confirm before it changes the visibility.
 
+## Leave a Pod
 
-## How to remove a member
+Click the gear icon (**Pod settings**) and select **Leave the Pod**. You can't leave a Pod that you created, or a Pod where you're the last Editor.
 
-1. Open the members panel
-2. Under **Members of the Pod**, hover over the member or group
-3. Click the remove button (**Remove access**)
+## Archive a Pod
 
-The removal applies right away, with no confirmation. You can't remove yourself from the panel. To leave the Pod, follow the steps below.
+Editors can archive a Pod when its work is done:
 
-## How to leave a Pod
+<Steps>
+  <Step title="Open the Pod settings">
+    Click the gear icon (**Pod settings**) and select **More settings…**.
+  </Step>
+  <Step title="Archive the Pod">
+    In the **General** tab, under **Archive and delete**, archive the Pod.
+  </Step>
+</Steps>
 
-1. Open the Pod
-2. Click the gear icon (**Pod settings**) in the top-right of the Pod header
-3. Select **Leave the Pod**
+An archived Pod no longer shows in your sidebar. Its content stays, and agents can still use it as a data source. To restore the Pod, click **Unarchive** in the same place.
 
-If you are the last Editor, the option is disabled. Add another Editor before leaving.
+Editors can also delete a Pod from the same section. Deleting a Pod can't be undone.
 
-## How to archive a Pod
+## Related
 
-Editors can archive a Pod that's no longer in use:
-
-1. Open the Pod
-2. Click the gear icon (**Pod settings**) in the top-right of the Pod header
-3. Select **More settings…**
-4. In the **General** tab, under **Archive and delete**, click **Archive** and confirm
-
-When a Pod is archived:
-
-- It's hidden from the sidebar and shows an **Archived** label.
-- Members can't start new conversations, upload files or edit tasks in it.
-- Its content is kept, and agents can still use it as a source of information.
-- Triggers that create conversations in the Pod are turned off. Triggers that were already off stay off.
-
-To restore the Pod, open the same **General** tab and click **Unarchive**.
-
-<Warning>
-Unarchiving a Pod doesn't turn its triggers back on. Each trigger's owner must turn it on again from **Automations**. See [Review your triggers](/docs/user-documentation/agents/triggers/credits-usage#review-your-triggers).
-</Warning>
+<CardGroup cols={2}>
+  <Card title="Overview" href="/docs/user-documentation/pods/overview">
+    Learn what Pods are and how they work.
+  </Card>
+  <Card title="Admin controls" href="/docs/user-documentation/pods/admin-controls">
+    Control Pods at the workspace level.
+  </Card>
+</CardGroup>
