@@ -31,14 +31,15 @@ To control what the agent reads, set a time range when you configure the knowled
     Pick a Space and select the folders, channels, or pages the agent needs. Click **Next**.
   </Step>
   <Step title="Choose Include all data">
-    Pick **Include all data**, set a time range if needed, describe what the data contains, and save the agent.
+    Pick **Include all data**, set a time range if needed, and describe what the data contains. To narrow the data with labels, click **Filters**. Save the agent.
   </Step>
 </Steps>
 
 ## Limits
 
 - Include data doesn't read tables or spreadsheets. Use [table queries](/docs/user-documentation/agents/knowledge/table-queries) for those.
-- On large sources, older documents are left out when the context window is full. Narrow the data or the time range to make sure the agent sees what matters.
+- On large sources, older documents are left out, and long documents can be only partly included. Narrow the folders or the time range to make sure the agent sees what matters.
+- When the agent uses several knowledge sources in the same step, like search and include data together, they share one budget, so each brings in less. For large sources, give include data its own agent.
 
 ## Related
 

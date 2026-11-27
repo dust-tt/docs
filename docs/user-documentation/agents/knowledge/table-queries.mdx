@@ -23,9 +23,10 @@ Take this table of cars:
 
 - **Folders**: upload a CSV file as a table, or create tables with the API ([Upsert a table](/docs/developer-platform/dust-api-documentation/upsert-a-table)).
 - **Connections**: Dust creates tables from Google Sheets (each tab becomes a table), Microsoft Excel files, Notion databases, Salesforce, Snowflake, and BigQuery.
-- **Conversations**: CSV files you upload in a conversation can be queried too.
 
 Each Google Sheets tab can have up to 512 columns. See the Google Drive [size limitations](/docs/user-documentation/admins/connections-management/google-drive#size-limitations) for the other limits on Google Sheets.
+
+You don't need this setup for CSV or Excel files uploaded in a conversation: the agent analyzes them in the conversation. See [Conversation files](/docs/user-documentation/data-sources/conversation-files/conversation-files).
 
 ## Set up table queries
 
@@ -37,12 +38,12 @@ Each Google Sheets tab can have up to 512 columns. See the Google Drive [size li
     Pick a Space and select one or more tables. Select a whole spreadsheet to add all of its tabs. Click **Next**.
   </Step>
   <Step title="Choose Analytics">
-    Pick **Analytics**, describe what the tables contain, and save the agent.
+    Pick **Analytics (tables, spreadsheets...)**, describe what the tables contain, and save the agent.
   </Step>
 </Steps>
 
 <Note>
-  The agent uses the tables selected when you save it. If you select a whole spreadsheet, Dust adds the tabs it has at that moment. Tabs added to the spreadsheet later aren't included automatically: edit the agent, select the new tab, and save.
+  The agent uses the tables selected when you save it. When you select a spreadsheet or a folder, Dust adds the tabs or tables directly inside it at that moment. Tables in nested subfolders aren't included. If you add tabs or tables later, edit the agent, select them, and save.
 </Note>
 
 ## Describe your tables

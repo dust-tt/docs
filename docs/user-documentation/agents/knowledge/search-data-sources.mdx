@@ -27,16 +27,15 @@ For example, an HR agent connected to your Notion and Confluence can answer "Wha
 
 ## Filter with labels
 
-Labels let you narrow what the agent can find inside the data you selected. In the knowledge configuration, click **Filters**:
+Labels let you narrow what the agent can find inside the data you selected. In the knowledge configuration, click **Filters** and turn on **In-conversation filtering**: the agent then picks the labels to filter on from the conversation. For example, someone can ask "Which projects have the label `status:review`?" and the agent only searches content with that label.
 
-- **Must-have labels**: the agent only finds content that has at least one of these labels.
-- **Must-not-have labels**: the agent never finds content that has any of these labels, for example `deprecated`.
+Fixed **Must-have labels** and **Must-not-have labels** are available with [Include all data](/docs/user-documentation/agents/knowledge/include-data) and [Advanced processing](/docs/user-documentation/agents/knowledge/extract-data).
 
 Labels work on folders and on most connections. Each connection page lists the labels it supports.
 
 ## Browse folders like a file system
 
-On top of search, agents can browse the selected data like a file system: list what's in a folder, open a document by its path, find a document by its title, and see where a document sits in the folder tree. This helps with questions like "What's in the Q3 board meeting folder?". For SharePoint, folder navigation is on by default for Content search.
+On top of search, agents can browse the selected data like a file system: list what's in a folder, open a document by its path, find a document by its title, and see where a document sits in the folder tree. This helps with questions like "What's in the Q3 board meeting folder?". Folder browsing comes with **Content search** and works on data sources organized in folders or pages, like Folders, Google Drive, SharePoint, Notion, or Confluence.
 
 ## Tips
 

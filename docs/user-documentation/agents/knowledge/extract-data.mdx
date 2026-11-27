@@ -22,7 +22,7 @@ Search returns the passages that best match a question, so it can miss items in 
     Pick a Space and select the folders, channels, or pages to process. Click **Next**.
   </Step>
   <Step title="Choose Advanced processing">
-    Pick **Advanced processing**, set a time range, and describe what the data contains.
+    Pick **Advanced processing**, set a time range, and describe what the data contains. To narrow the data with labels, click **Filters**.
   </Step>
   <Step title="Define the schema">
     In **Schema**, describe the fields to extract, or click **Re-generate from instructions** to build the schema from the agent's instructions. The schema is optional: without one, the agent decides what to extract from the conversation. Save the agent.
@@ -45,6 +45,10 @@ A sales team keeps call notes in a folder. They want an agent that lists every q
 ```
 
 In the instructions, tell the agent how to present the results, for example as a table sorted by stage.
+
+## Limits
+
+A single run reads up to 768 passages from the selected documents in the time range. The step details show how many documents the agent read, for example "Extracted from 42 documents over the last 30 days". For large sources, narrow the time range or the folders so the agent covers what matters.
 
 ## Related
 
