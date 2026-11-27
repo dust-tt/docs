@@ -27,11 +27,15 @@ When the account moves from sales to customer success, the new owner joins the P
 - Add a weekly [schedule](/docs/user-documentation/agents/triggers/schedules) to an agent and pick the Pod under **Where to create this conversation?**. Each week, the agent posts an account summary: progress, risks, open tasks, and upcoming dates.
 - After each customer call, a Fathom webhook trigger can run an agent that pulls action items from the transcript, creates tasks, and assigns them.
 
+<Tip>
+  Check the first run of a new trigger. The agent may ask for approval before it uses some tools, like creating tasks or adding members: click **Always allow** so later runs don't wait. For a trigger that serves the whole team, set **Credits** to **Workspace credits** so it doesn't use up one person's credits. See [Credits usage](/docs/user-documentation/agents/triggers/credits-usage).
+</Tip>
+
 ## Go further
 
 - Schedule an agent that searches the web for news about the customer, like funding, leadership changes, or product launches, and posts what matters in the Pod.
 - Ask an agent to build an account health Frame, with usage data from your analytics tools, and pin it as the Pod banner. See [Frames](/docs/user-documentation/pods/frames).
-- Ask questions about the account from anywhere: in any conversation, ask _"@dust, what's the status of the Acme pilot?"_ The agent finds the Pod and searches it, as long as you're a member.
+- Ask questions about the account from anywhere: in any conversation, ask _"@dust, what's the status of the pilot in the Acme Corp Pod?"_ The agent finds the Pod and searches it, as long as you're a member. Naming the Pod helps it find the right one.
 
 ## What you get
 

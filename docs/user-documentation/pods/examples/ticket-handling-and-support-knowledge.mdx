@@ -27,9 +27,13 @@ Resolved tickets stay in the Pod as conversations, so finding a precedent gets e
 - A teammate starts an agent on the task, reviews its draft, sends the answer, and marks the task done.
 - At the end of each day, a [scheduled](/docs/user-documentation/agents/triggers/schedules) agent reviews the tickets resolved that day and flags recurring issues to the team lead.
 
+<Tip>
+  Check the first run of a new trigger. The agent may ask for approval before it uses some tools, like creating tasks or adding members: click **Always allow** so later runs don't wait. For a trigger that serves the whole team, set **Credits** to **Workspace credits** so it doesn't use up one person's credits. See [Credits usage](/docs/user-documentation/agents/triggers/credits-usage).
+</Tip>
+
 ## Go further
 
-- Let agents handle the first pass on each ticket: classify it, look for known solutions, and draft an answer. For well-defined, low-risk topics, you can let the agent send the answer itself, if it has a tool for your support platform.
+- Let agents handle the first pass on each ticket: classify it, look for known solutions, and draft an answer. With the [Zendesk](/docs/user-documentation/agents/tools/zendesk) tool, the agent can save its draft on the ticket as a private comment for your team to review. Posting a public reply to the customer always asks a person to approve it first.
 - Schedule a weekly agent that reads resolved conversations and updates the known issues document in the Pod.
 - Schedule a monthly agent that writes a trends report, with the top topics, resolution times, and product areas that cause the most friction, to share with the product team.
 - Point new hires to the Pod: they get every resolved ticket and every piece of documentation from day one.

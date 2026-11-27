@@ -24,12 +24,16 @@ Put existing teardowns, win/loss notes, and positioning documents in the **Files
 - Add a weekly [schedule](/docs/user-documentation/agents/triggers/schedules) to an agent and pick the Pod under **Where to create this conversation?**. Each week, the agent searches the web for competitor news, product releases, pricing changes, and job postings, and posts a digest in the Pod. The agent needs the [Web search & browse](/docs/user-documentation/agents/tools/web-search-and-browse) tool.
 - Assign teardown tasks to teammates, for example one per competitor, and start an agent on each task to gather the findings into a report.
 
+<Tip>
+  Check the first run of a new trigger. The agent may ask for approval before it uses some tools, like creating tasks or adding members: click **Always allow** so later runs don't wait. For a trigger that serves the whole team, set **Credits** to **Workspace credits** so it doesn't use up one person's credits. See [Credits usage](/docs/user-documentation/agents/triggers/credits-usage).
+</Tip>
+
 ## Go further
 
 - Set up several scheduled agents, each watching a different source, like changelogs, review sites, or press releases. Ask them to update one document per competitor in the Pod.
 - When a new deal shows up in your CRM, a custom [webhook trigger](/docs/user-documentation/agents/triggers/webhooks/index) can run an agent that posts a competitor brief in the customer's Pod. See [One Pod per customer](/docs/user-documentation/pods/examples/one-pod-per-customer).
 - Each quarter, ask an agent to build a landscape summary as a Frame, with wins and losses by competitor, recurring objections, new competitors, and positioning updates, and pin it as the Pod banner.
-- Ask about competitors from anywhere: in any conversation, ask _"@dust, how do we compare with Competitor X on pricing?"_ The agent finds the Pod and searches it, as long as you're a member.
+- Ask about competitors from anywhere: in any conversation, ask _"@dust, check the Competitive intel Pod: how do we compare with Competitor X on pricing?"_ The agent finds the Pod and searches it, as long as you're a member. Naming the Pod helps it find the right one.
 
 ## What you get
 
